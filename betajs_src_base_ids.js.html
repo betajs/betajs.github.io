@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>BetaJS Module: Tokens</title>
+	<title>BetaJS Source: betajs/src/base/ids.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -142,232 +142,53 @@
 	<div class="row-fluid">
 
 		
-		<div class="span8">
-			
+			<div class="span12">
+				
 				<div id="main">
 					
 
 
-	<h1 class="page-title">Module: Tokens</h1>
+		<h1 class="page-title">Source: betajs/src/base/ids.js</h1>
+    
 <section>
-
-<header>
-    <h2>
-    Tokens
-    </h2>
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-
-    
-        
-            <div class="description"><p>Unique Token Generation</p></div>
-        
-
-        
-<dl class="details">
+	<article>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Ids", function () {
+	/** Id Generation
+	 * @module BetaJS.Ids
+	 */
+	return {
 	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_tokens.js.html">betajs/src/base/tokens.js</a>,
-				 <a href="betajs_src_base_tokens.js.html#sunlight-1-line-2">line 2</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-            
-<dt>
-    <h4 class="name" id="~generate_token"><span class="type-signature">&lt;inner> </span>generate_token<span class="signature">(length)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Returns a new token</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
+		__uniqueId: 0,
 		
-		<th>Name</th>
+	    /** Returns a unique identifier
+	     * 
+	     * @param prefix a prefix string for the identifier (optional)
+	     * @return unique identifier
+	     */
+		uniqueId: function (prefix) {
+			return (prefix || "") + (this.__uniqueId++);
+		},
 		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
+	    /** Returns the object's unique identifier or sets it
+	     * 
+	     * @param object the object
+	     * @param id (optional)
+	     * @return object's unique identifier
+	     */
+		objectId: function (object, id) {
+			if (typeof id != "undefined")
+				object.__cid = id;
+			else if (!object.__cid)
+				object.__cid = this.uniqueId("cid_");
+			return object.__cid;
+		}
 	
-
-        <tr>
-            
-                <td class="name"><code>length</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional length of token, default is 16</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_tokens.js.html">betajs/src/base/tokens.js</a>,
-				 <a href="betajs_src_base_tokens.js.html#sunlight-1-line-16">line 16</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>token</p>
-</div>
-
-
-
-
-        
-    
-    
-</dd>
-
-        </dl>
-    
-
-    
-
-    
-</article>
-
+	};
+});</pre>
+	</article>
 </section>
+
 
 
 
@@ -391,10 +212,6 @@
 				</footer>
 			</div>
 
-			
-			<div class="span3">
-				<div id="toc"></div>
-			</div>
 			
 			<br clear="both">
 		</div>

@@ -8,7 +8,9 @@ module.exports = function(grunt) {
 							data : {
 								collection: grunt.file.readJSON('package.json'),
 								frameworks: {
-									betajs: grunt.file.readJSON('../betajs/package.json')
+									"betajs-scoped": grunt.file.readJSON('../betajs-scoped/package.json'),
+									"betajs": grunt.file.readJSON('../betajs/package.json'),
+									"betajs-browser": grunt.file.readJSON('../betajs-browser/package.json')
 								}
 							}
 						},
@@ -19,7 +21,7 @@ module.exports = function(grunt) {
 				},
 				jsdoc : {
 					dist : {
-						src : [ './README.md', '../betajs/src/base/*.js' ],
+						src : [ './README.md', '../betajs/src/base/*.js', '../betajs-browser/src/browser/*.js' ],
 						options : {
 							destination : '.',
 							template : "node_modules/grunt-jsdoc/node_modules/ink-docstrap/template",

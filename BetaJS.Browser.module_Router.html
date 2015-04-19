@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>BetaJS Module: Types</title>
+	<title>BetaJS Module: Router</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -148,12 +148,12 @@
 					
 
 
-	<h1 class="page-title">Module: Types</h1>
+	<h1 class="page-title">Module: Router</h1>
 <section>
 
 <header>
     <h2>
-    Types
+    Router
     </h2>
     
 </header>
@@ -164,7 +164,7 @@
 
     
         
-            <div class="description"><p>Type-Testing and Type-Parsing</p></div>
+            <div class="description"><p>A routing class</p></div>
         
 
         
@@ -194,8 +194,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="betajs_src_base_types.js.html">betajs/src/base/types.js</a>,
-				 <a href="betajs_src_base_types.js.html#sunlight-1-line-2">line 2</a>
+				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
+				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-10">line 10</a>
 			</li>
 		</ul>
 	</dd>
@@ -223,6 +223,67 @@
 
     
 
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<dt class="name" id="~routes">
+    <h4><span class="type-signature">&lt;inner> </span>routes<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
+				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-48">line 48</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        </dl>
     
 
     
@@ -231,7 +292,7 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="~compare"><span class="type-signature">&lt;inner> </span>compare<span class="signature">(x, y)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~_invoke"><span class="type-signature">&lt;inner> </span>_invoke<span class="signature">(object, params)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -239,10 +300,10 @@
     
     
     <div class="description">
-        <p>Compares two values</p>
-<p>If values are booleans, we compare them directly. If values are
-arrays, we compare them recursively by their components. Otherwise,
-we use localeCompare which compares strings.</p>
+        <p>Invokes a routing object with parameters.</p>
+<p>
+  Can be overwritten and does the invoking.
+</p>
     </div>
     
 
@@ -276,7 +337,7 @@ we use localeCompare which compares strings.</p>
 
         <tr>
             
-                <td class="name"><code>x</code></td>
+                <td class="name"><code>object</code></td>
             
 
             <td class="type">
@@ -287,14 +348,14 @@ we use localeCompare which compares strings.</p>
 
             
 
-            <td class="description last"><p>left value</p></td>
+            <td class="description last"><p>the routing object</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>y</code></td>
+                <td class="name"><code>params</code></td>
             
 
             <td class="type">
@@ -305,7 +366,7 @@ we use localeCompare which compares strings.</p>
 
             
 
-            <td class="description last"><p>right value</p></td>
+            <td class="description last"><p>(optional) the parameters that should be attached to the route</p></td>
         </tr>
 
 	
@@ -341,8 +402,612 @@ we use localeCompare which compares strings.</p>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="betajs_src_base_types.js.html">betajs/src/base/types.js</a>,
-				 <a href="betajs_src_base_types.js.html#sunlight-1-line-141">line 141</a>
+				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
+				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-200">line 200</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="~constructor"><span class="type-signature">&lt;inner> </span>constructor<span class="signature">(options)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Creates a new router with options</p>
+<ul>
+ <li>routes: adds user defined routes</li> 
+ <li>actions: extends the object by user-defined actions</li>
+</ul>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>options</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
+				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-57">line 57</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="~current"><span class="type-signature">&lt;inner> </span>current<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Returns the current route object.</p>
+<ul>
+ <li>route: the route as string</li>
+ <li>object: the routing object</li>
+ <li>params: the params</li>
+</ul>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
+				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-231">line 231</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="~invoke"><span class="type-signature">&lt;inner> </span>invoke<span class="signature">(object, params, route)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Invoke a routing object with parameters</p>
+<p>
+  Invokes the protected method _invoke
+</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the routing object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>(optional) the parameters that should be attached to the route</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>route</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>(optional) an associated route that should be saved</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
+				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-184">line 184</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="~navigate"><span class="type-signature">&lt;inner> </span>navigate<span class="signature">(route)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Navigate to a given route, invoking the matching action.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>route</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the route</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
+				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-165">line 165</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="~object"><span class="type-signature">&lt;inner> </span>object<span class="signature">(path)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Looks up the routing object given a path descriptor</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the path descriptor</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
+				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-141">line 141</a>
 			</li>
 		</ul>
 	</dd>
@@ -369,7 +1034,7 @@ we use localeCompare which compares strings.</p>
     
             
 <div class="param-desc">
-    <p>1 if x &gt; y, -1 if x &lt; y and 0 if x == y</p>
+    <p>the routing object</p>
 </div>
 
 
@@ -383,7 +1048,7 @@ we use localeCompare which compares strings.</p>
         
             
 <dt>
-    <h4 class="name" id="~is_array"><span class="type-signature">&lt;inner> </span>is_array<span class="signature">(x)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~parse"><span class="type-signature">&lt;inner> </span>parse<span class="signature">(route)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -391,7 +1056,7 @@ we use localeCompare which compares strings.</p>
     
     
     <div class="description">
-        <p>Returns whether argument is an array</p>
+        <p>Parse a given route and map it to the first applicable object that is valid</p>
     </div>
     
 
@@ -425,7 +1090,7 @@ we use localeCompare which compares strings.</p>
 
         <tr>
             
-                <td class="name"><code>x</code></td>
+                <td class="name"><code>route</code></td>
             
 
             <td class="type">
@@ -436,7 +1101,7 @@ we use localeCompare which compares strings.</p>
 
             
 
-            <td class="description last"><p>argument</p></td>
+            <td class="description last"><p>the route given as a strings</p></td>
         </tr>
 
 	
@@ -472,8 +1137,8 @@ we use localeCompare which compares strings.</p>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="betajs_src_base_types.js.html">betajs/src/base/types.js</a>,
-				 <a href="betajs_src_base_types.js.html#sunlight-1-line-24">line 24</a>
+				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
+				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-106">line 106</a>
 			</li>
 		</ul>
 	</dd>
@@ -500,7 +1165,7 @@ we use localeCompare which compares strings.</p>
     
             
 <div class="param-desc">
-    <p>true if x is an array</p>
+    <p>either null if nothing applicable and valid could be matched or an associative array with params and routing object as attributes.</p>
 </div>
 
 
@@ -514,7 +1179,7 @@ we use localeCompare which compares strings.</p>
         
             
 <dt>
-    <h4 class="name" id="~is_boolean"><span class="type-signature">&lt;inner> </span>is_boolean<span class="signature">(x)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~path"><span class="type-signature">&lt;inner> </span>path<span class="signature">(pth)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -522,7 +1187,7 @@ we use localeCompare which compares strings.</p>
     
     
     <div class="description">
-        <p>Returns whether argument is boolean</p>
+        <p>Returns the route of a path description</p>
     </div>
     
 
@@ -556,7 +1221,7 @@ we use localeCompare which compares strings.</p>
 
         <tr>
             
-                <td class="name"><code>x</code></td>
+                <td class="name"><code>pth</code></td>
             
 
             <td class="type">
@@ -567,7 +1232,8 @@ we use localeCompare which compares strings.</p>
 
             
 
-            <td class="description last"><p>argument</p></td>
+            <td class="description last"><p>the path descriptor
+param parameters parameters that should be attached to the route (capturing groups)</p></td>
         </tr>
 
 	
@@ -603,8 +1269,8 @@ we use localeCompare which compares strings.</p>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="betajs_src_base_types.js.html">betajs/src/base/types.js</a>,
-				 <a href="betajs_src_base_types.js.html#sunlight-1-line-124">line 124</a>
+				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
+				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-149">line 149</a>
 			</li>
 		</ul>
 	</dd>
@@ -627,1330 +1293,6 @@ we use localeCompare which compares strings.</p>
     
     
     
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>true if x is boolean</p>
-</div>
-
-
-
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~is_defined"><span class="type-signature">&lt;inner> </span>is_defined<span class="signature">(x)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Returns whether argument is defined (could be null)</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_types.js.html">betajs/src/base/types.js</a>,
-				 <a href="betajs_src_base_types.js.html#sunlight-1-line-70">line 70</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>true if x is defined</p>
-</div>
-
-
-
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~is_empty"><span class="type-signature">&lt;inner> </span>is_empty<span class="signature">(x)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Returns whether argument is empty (undefined, null, an empty array or
-an empty object)</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_types.js.html">betajs/src/base/types.js</a>,
-				 <a href="betajs_src_base_types.js.html#sunlight-1-line-82">line 82</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>true if x is empty</p>
-</div>
-
-
-
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~is_function"><span class="type-signature">&lt;inner> </span>is_function<span class="signature">(x)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Returns whether argument is a function</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_types.js.html">betajs/src/base/types.js</a>,
-				 <a href="betajs_src_base_types.js.html#sunlight-1-line-113">line 113</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>true if x is a function</p>
-</div>
-
-
-
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~is_none"><span class="type-signature">&lt;inner> </span>is_none<span class="signature">(x)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Returns whether argument is undefined or null</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_types.js.html">betajs/src/base/types.js</a>,
-				 <a href="betajs_src_base_types.js.html#sunlight-1-line-59">line 59</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>true if x is undefined or null</p>
-</div>
-
-
-
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~is_null"><span class="type-signature">&lt;inner> </span>is_null<span class="signature">(x)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Returns whether argument is null (which is different from being
-undefined)</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_types.js.html">betajs/src/base/types.js</a>,
-				 <a href="betajs_src_base_types.js.html#sunlight-1-line-48">line 48</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>true if x is null</p>
-</div>
-
-
-
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~is_object"><span class="type-signature">&lt;inner> </span>is_object<span class="signature">(x)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Returns whether argument is an object</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_types.js.html">betajs/src/base/types.js</a>,
-				 <a href="betajs_src_base_types.js.html#sunlight-1-line-13">line 13</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>true if x is an object</p>
-</div>
-
-
-
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~is_string"><span class="type-signature">&lt;inner> </span>is_string<span class="signature">(x)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Returns whether argument is a string</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_types.js.html">betajs/src/base/types.js</a>,
-				 <a href="betajs_src_base_types.js.html#sunlight-1-line-102">line 102</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>true if x is a a string</p>
-</div>
-
-
-
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~is_undefined"><span class="type-signature">&lt;inner> </span>is_undefined<span class="signature">(x)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Returns whether argument is undefined (which is different from being
-null)</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_types.js.html">betajs/src/base/types.js</a>,
-				 <a href="betajs_src_base_types.js.html#sunlight-1-line-36">line 36</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>true if x is undefined</p>
-</div>
-
-
-
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~parseBool"><span class="type-signature">&lt;inner> </span>parseBool<span class="signature">(x)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Parses a boolean string</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>boolean as a string</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_types.js.html">betajs/src/base/types.js</a>,
-				 <a href="betajs_src_base_types.js.html#sunlight-1-line-165">line 165</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>boolean value</p>
-</div>
-
-
-
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~type_of"><span class="type-signature">&lt;inner> </span>type_of<span class="signature">(x)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Returns the type of a given expression</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>expression</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_types.js.html">betajs/src/base/types.js</a>,
-				 <a href="betajs_src_base_types.js.html#sunlight-1-line-182">line 182</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>type string</p>
-</div>
-
-
-
-
-        
     
     
 </dd>
