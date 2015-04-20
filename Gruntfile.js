@@ -11,7 +11,8 @@ module.exports = function(grunt) {
 									"betajs-scoped": grunt.file.readJSON('../betajs-scoped/package.json'),
 									"betajs": grunt.file.readJSON('../betajs/package.json'),
 									"betajs-browser": grunt.file.readJSON('../betajs-browser/package.json'),
-									"betajs-flash": grunt.file.readJSON('../betajs-flash/package.json')
+									"betajs-flash": grunt.file.readJSON('../betajs-flash/package.json'),
+									"betajs-media": grunt.file.readJSON('../betajs-media/package.json')
 								}
 							}
 						},
