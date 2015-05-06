@@ -16,7 +16,8 @@ module.exports = function(grunt) {
 									"betajs-ui": grunt.file.readJSON('../betajs-ui/package.json'),
 									"betajs-dynamics": grunt.file.readJSON('../betajs-dynamics/package.json'),
 									"betajs-flash": grunt.file.readJSON('../betajs-flash/package.json'),
-									"betajs-media": grunt.file.readJSON('../betajs-media/package.json')
+									"betajs-media": grunt.file.readJSON('../betajs-media/package.json'),
+									"betajs-codemirror": grunt.file.readJSON('../betajs-codemirror/package.json'),
 								}
 							}
 						},
