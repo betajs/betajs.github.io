@@ -1,0 +1,30 @@
+<html>
+<head>
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/highlight.js/8.5/styles/default.min.css">
+<script src="http://cdn.jsdelivr.net/highlight.js/8.5/highlight.min.js"></script>
+</head>
+<body>
+<% function toc(tutorials) { %>
+	<ul>
+	<% for (var key in tutorials) { %>
+		<li><a href="#<%- key %>"><%- tutorials[key].title %></a>
+			<% if (tutorials[key].children) toc(tutorials[key].children) %>
+		</li>
+	<% } %>
+	</ul>
+<% } %>
+<% function cont(tutorials) { %>
+	<% for (var key in tutorials) { %>
+		<h1 id="<%- key %>"><h1 id="<%- key %>"><%- tutorials[key].title %></h1>
+		<%- tutorials[key].content %>
+		<% if (tutorials[key].children) cont(tutorials[key].children) %>
+	<% } %>
+<% } %>
+<div style="float:left; width:20%">
+<% toc(tutorials) %>
+</div>
+<div style="overflow-y: scroll; float:right; height: 100%; width:80%">
+<% cont(tutorials) %>
+</div>
+</body>
+</html>

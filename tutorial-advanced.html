@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>BetaJS Source: betajs/src/base/tokens.js</title>
+	<title>BetaJS tutorialAdvanced Properties</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -145,58 +145,43 @@
 			<div class="span12">
 				
 				<div id="main">
-					
+					<section class="tutorial-section">
 
-
-		<h1 class="page-title">Source: betajs/src/base/tokens.js</h1>
+<header>
     
-<section>
-	<article>
-		<pre
-			class="sunlight-highlight-javascript linenums">Scoped.define("module:Tokens", function() {
-	/**
-	 * Unique Token Generation
-	 * 
-	 * @module BetaJS.Tokens
-	 */
-	return {
 
-		/**
-		 * Returns a new token
-		 * 
-		 * @param length
-		 *            optional length of token, default is 16
-		 * @return token
-		 */
-		generate_token : function(length) {
-			length = length || 16;
-			var s = "";
-			while (s.length &lt; length)
-				s += Math.random().toString(36).substr(2);
-			return s.substr(0, length);
-		},
+    <h2>Advanced Properties</h2>
+</header>
 
-		// http://jsperf.com/string-hashing-methods
-		simple_hash : function(s) {
-			var nHash = 0;
-			if (!s.length)
-				return nHash;
-			for (var i = 0, imax = s.length, n; i &lt; imax; ++i) {
-				n = s.charCodeAt(i);
-				nHash = ((nHash &lt;&lt; 5) - nHash) + n;
-				nHash = nHash &amp; nHash;
-			}
-			return Math.abs(nHash);
-		}
+<article>
+    <p>Declaring a property and assigning new values to it</p>
+<pre class="prettyprint source lang-js"><code>
+    var property_a = new BetaJS.Properties.Properties();
 
-	};
-});</pre>
-	</article>
+    var x = property_a.get(&quot;value_1&quot;);
+    // x === undefined
+
+    var property_b = new BetaJS.Properties.Properties({
+        value_2: &quot;This is Value 2&quot;
+    });
+
+    var x = property_b.get(&quot;value_2&quot;);
+    // x === &quot;This is Value 2&quot;
+
+    property_a.set(&quot;value_1&quot;, &quot;Some Property Value&quot;);
+
+    var x = property_a.get(&quot;value_1&quot;);
+    // x === &quot;Some Property Value&quot;</code></pre><p>Nested Properties</p>
+<pre class="prettyprint source lang-js"><code>
+    var property = new BetaJS.Properties.Properties();
+
+    property.set(&quot;prop.value_a&quot;,&quot;This is value_a&quot;);
+
+    var x = property.get(&quot;prop.value_a&quot;);
+    // x === &quot;This is value_a&quot;</code></pre>
+</article>
+
 </section>
-
-
-
-
 
 				</div>
 
