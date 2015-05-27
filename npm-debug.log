@@ -1,0 +1,2748 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'update' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose request where is /ejs
+5 verbose request registry https://registry.npmjs.org/
+6 verbose request id 12531e0052ccf96a
+7 verbose url raw /ejs
+8 verbose url resolving [ 'https://registry.npmjs.org/', './ejs' ]
+9 verbose url resolved https://registry.npmjs.org/ejs
+10 verbose request where is https://registry.npmjs.org/ejs
+11 info trying registry request attempt 1 at 00:53:12
+12 verbose etag "9C77EZ3USCZKX33QC00J5TWV3"
+13 http GET https://registry.npmjs.org/ejs
+14 verbose request where is /highlight.js
+15 verbose request registry https://registry.npmjs.org/
+16 verbose url raw /highlight.js
+17 verbose url resolving [ 'https://registry.npmjs.org/', './highlight.js' ]
+18 verbose url resolved https://registry.npmjs.org/highlight.js
+19 verbose request where is https://registry.npmjs.org/highlight.js
+20 info trying registry request attempt 1 at 00:53:12
+21 verbose etag "8VMF6791WFM4ZUK7HKZW8OUU6"
+22 http GET https://registry.npmjs.org/highlight.js
+23 verbose request where is /marked
+24 verbose request registry https://registry.npmjs.org/
+25 verbose url raw /marked
+26 verbose url resolving [ 'https://registry.npmjs.org/', './marked' ]
+27 verbose url resolved https://registry.npmjs.org/marked
+28 verbose request where is https://registry.npmjs.org/marked
+29 info trying registry request attempt 1 at 00:53:12
+30 verbose etag "C345X8GMW8Y9PX3JT4W6C1GQ3"
+31 http GET https://registry.npmjs.org/marked
+32 verbose request where is /grunt-contrib-nodeunit
+33 verbose request registry https://registry.npmjs.org/
+34 verbose url raw /grunt-contrib-nodeunit
+35 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-contrib-nodeunit' ]
+36 verbose url resolved https://registry.npmjs.org/grunt-contrib-nodeunit
+37 verbose request where is https://registry.npmjs.org/grunt-contrib-nodeunit
+38 info trying registry request attempt 1 at 00:53:12
+39 verbose etag "2176G8IUVHRCYW51V2YOZIEF2"
+40 http GET https://registry.npmjs.org/grunt-contrib-nodeunit
+41 verbose request where is /grunt
+42 verbose request registry https://registry.npmjs.org/
+43 verbose url raw /grunt
+44 verbose url resolving [ 'https://registry.npmjs.org/', './grunt' ]
+45 verbose url resolved https://registry.npmjs.org/grunt
+46 verbose request where is https://registry.npmjs.org/grunt
+47 info trying registry request attempt 1 at 00:53:12
+48 verbose etag "9RP0MWX2KFZZUV80Q2GW24B4U"
+49 http GET https://registry.npmjs.org/grunt
+50 verbose request where is /grunt-contrib-jshint
+51 verbose request registry https://registry.npmjs.org/
+52 verbose url raw /grunt-contrib-jshint
+53 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-contrib-jshint' ]
+54 verbose url resolved https://registry.npmjs.org/grunt-contrib-jshint
+55 verbose request where is https://registry.npmjs.org/grunt-contrib-jshint
+56 info trying registry request attempt 1 at 00:53:12
+57 verbose etag "6W17FNYDH7I4C9450PG4OOQCB"
+58 http GET https://registry.npmjs.org/grunt-contrib-jshint
+59 verbose request where is /grunt-contrib-concat
+60 verbose request registry https://registry.npmjs.org/
+61 verbose url raw /grunt-contrib-concat
+62 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-contrib-concat' ]
+63 verbose url resolved https://registry.npmjs.org/grunt-contrib-concat
+64 verbose request where is https://registry.npmjs.org/grunt-contrib-concat
+65 info trying registry request attempt 1 at 00:53:12
+66 verbose etag "5YSQRTHHXC6IDBJCIWFWIB07E"
+67 http GET https://registry.npmjs.org/grunt-contrib-concat
+68 verbose request where is /grunt-contrib-clean
+69 verbose request registry https://registry.npmjs.org/
+70 verbose url raw /grunt-contrib-clean
+71 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-contrib-clean' ]
+72 verbose url resolved https://registry.npmjs.org/grunt-contrib-clean
+73 verbose request where is https://registry.npmjs.org/grunt-contrib-clean
+74 info trying registry request attempt 1 at 00:53:12
+75 verbose etag "88D21NAKN3V4159DHSPB6L7F0"
+76 http GET https://registry.npmjs.org/grunt-contrib-clean
+77 verbose request where is /grunt-contrib-uglify
+78 verbose request registry https://registry.npmjs.org/
+79 verbose url raw /grunt-contrib-uglify
+80 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-contrib-uglify' ]
+81 verbose url resolved https://registry.npmjs.org/grunt-contrib-uglify
+82 verbose request where is https://registry.npmjs.org/grunt-contrib-uglify
+83 info trying registry request attempt 1 at 00:53:12
+84 verbose etag "CJG62V7I3FJ24P2XCXAHP6PQO"
+85 http GET https://registry.npmjs.org/grunt-contrib-uglify
+86 verbose request where is /grunt-preprocess
+87 verbose request registry https://registry.npmjs.org/
+88 verbose url raw /grunt-preprocess
+89 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-preprocess' ]
+90 verbose url resolved https://registry.npmjs.org/grunt-preprocess
+91 verbose request where is https://registry.npmjs.org/grunt-preprocess
+92 info trying registry request attempt 1 at 00:53:12
+93 verbose etag "669BQ82OXGAZG40PC5C4W2CDA"
+94 http GET https://registry.npmjs.org/grunt-preprocess
+95 verbose request where is /grunt-git-revision-count
+96 verbose request registry https://registry.npmjs.org/
+97 verbose url raw /grunt-git-revision-count
+98 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-git-revision-count' ]
+99 verbose url resolved https://registry.npmjs.org/grunt-git-revision-count
+100 verbose request where is https://registry.npmjs.org/grunt-git-revision-count
+101 info trying registry request attempt 1 at 00:53:12
+102 verbose etag "1HPZXIV7Q49QHM0OCKV1GVNIM"
+103 http GET https://registry.npmjs.org/grunt-git-revision-count
+104 verbose registry.get https://registry.npmjs.org/grunt-jsdoc not expired, no request
+105 verbose cache add [ 'grunt-jsdoc', 'beta' ]
+106 verbose cache add name="grunt-jsdoc" spec="beta" args=["grunt-jsdoc","beta"]
+107 verbose parsed url { protocol: null,
+107 verbose parsed url   slashes: null,
+107 verbose parsed url   auth: null,
+107 verbose parsed url   host: null,
+107 verbose parsed url   port: null,
+107 verbose parsed url   hostname: null,
+107 verbose parsed url   hash: null,
+107 verbose parsed url   search: null,
+107 verbose parsed url   query: null,
+107 verbose parsed url   pathname: 'beta',
+107 verbose parsed url   path: 'beta',
+107 verbose parsed url   href: 'beta' }
+108 verbose addNamed [ 'grunt-jsdoc', 'beta' ]
+109 verbose addNamed [ null, null ]
+110 verbose request where is /grunt-node-qunit
+111 verbose request registry https://registry.npmjs.org/
+112 verbose url raw /grunt-node-qunit
+113 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-node-qunit' ]
+114 verbose url resolved https://registry.npmjs.org/grunt-node-qunit
+115 verbose request where is https://registry.npmjs.org/grunt-node-qunit
+116 info trying registry request attempt 1 at 00:53:12
+117 verbose etag "1OOU747LHTEUFUS8M9ZZOB09T"
+118 http GET https://registry.npmjs.org/grunt-node-qunit
+119 silly lockFile 184cca73-grunt-jsdoc-beta grunt-jsdoc@beta
+120 verbose lock grunt-jsdoc@beta /Users/victor/.npm/184cca73-grunt-jsdoc-beta.lock
+121 verbose request where is /grunt-wget
+122 verbose request registry https://registry.npmjs.org/
+123 verbose url raw /grunt-wget
+124 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-wget' ]
+125 verbose url resolved https://registry.npmjs.org/grunt-wget
+126 verbose request where is https://registry.npmjs.org/grunt-wget
+127 info trying registry request attempt 1 at 00:53:12
+128 verbose etag "49TDSJZV663LIPF0VWG4J2YCH"
+129 http GET https://registry.npmjs.org/grunt-wget
+130 verbose request where is /grunt-closure-tools
+131 verbose request registry https://registry.npmjs.org/
+132 verbose url raw /grunt-closure-tools
+133 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-closure-tools' ]
+134 verbose url resolved https://registry.npmjs.org/grunt-closure-tools
+135 verbose request where is https://registry.npmjs.org/grunt-closure-tools
+136 info trying registry request attempt 1 at 00:53:12
+137 verbose etag "BKURXPYOP1AA9Y7SQAJZIO5UG"
+138 http GET https://registry.npmjs.org/grunt-closure-tools
+139 verbose request where is /grunt-shell
+140 verbose request registry https://registry.npmjs.org/
+141 verbose url raw /grunt-shell
+142 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-shell' ]
+143 verbose url resolved https://registry.npmjs.org/grunt-shell
+144 verbose request where is https://registry.npmjs.org/grunt-shell
+145 info trying registry request attempt 1 at 00:53:12
+146 verbose etag "2WWYC6WK8H69BOIKLBSSYHIO5"
+147 http GET https://registry.npmjs.org/grunt-shell
+148 verbose request where is /grunt-template
+149 verbose request registry https://registry.npmjs.org/
+150 verbose url raw /grunt-template
+151 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-template' ]
+152 verbose url resolved https://registry.npmjs.org/grunt-template
+153 verbose request where is https://registry.npmjs.org/grunt-template
+154 info trying registry request attempt 1 at 00:53:12
+155 verbose etag "65BCHW3MJ5V2MVSJBGS2CQTF"
+156 http GET https://registry.npmjs.org/grunt-template
+157 info addNameTag [ 'grunt-jsdoc', 'beta' ]
+158 verbose registry.get https://registry.npmjs.org/grunt-jsdoc not expired, no request
+159 silly lockFile 184cca73-grunt-jsdoc-beta grunt-jsdoc@beta
+160 silly lockFile 184cca73-grunt-jsdoc-beta grunt-jsdoc@beta
+161 http 304 https://registry.npmjs.org/marked
+162 silly registry.get cb [ 304,
+162 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+162 silly registry.get     via: '1.1 varnish',
+162 silly registry.get     'cache-control': 'max-age=60',
+162 silly registry.get     etag: '"C345X8GMW8Y9PX3JT4W6C1GQ3"',
+162 silly registry.get     age: '52',
+162 silly registry.get     connection: 'keep-alive',
+162 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+162 silly registry.get     'x-cache': 'HIT',
+162 silly registry.get     'x-cache-hits': '1',
+162 silly registry.get     'x-timer': 'S1432443192.365184,VS0,VE0',
+162 silly registry.get     vary: 'Accept' } ]
+163 verbose etag https://registry.npmjs.org/marked from cache
+164 http 200 https://registry.npmjs.org/grunt-contrib-jshint
+165 silly registry.get cb [ 200,
+165 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+165 silly registry.get     etag: '"3UJE2O7NGEJQOYKOKOFCU4PBM"',
+165 silly registry.get     'content-type': 'application/json',
+165 silly registry.get     'cache-control': 'max-age=60',
+165 silly registry.get     'content-length': '59099',
+165 silly registry.get     'accept-ranges': 'bytes',
+165 silly registry.get     date: 'Sun, 24 May 2015 04:53:12 GMT',
+165 silly registry.get     via: '1.1 varnish',
+165 silly registry.get     age: '0',
+165 silly registry.get     connection: 'keep-alive',
+165 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+165 silly registry.get     'x-cache': 'HIT',
+165 silly registry.get     'x-cache-hits': '1',
+165 silly registry.get     'x-timer': 'S1432443192.373385,VS0,VE18',
+165 silly registry.get     vary: 'Accept' } ]
+166 verbose request where is /hooker
+167 verbose request registry https://registry.npmjs.org/
+168 verbose url raw /hooker
+169 verbose url resolving [ 'https://registry.npmjs.org/', './hooker' ]
+170 verbose url resolved https://registry.npmjs.org/hooker
+171 verbose request where is https://registry.npmjs.org/hooker
+172 info trying registry request attempt 1 at 00:53:12
+173 verbose etag "DFJAZZB0SJAF34TXAIC9HNMY9"
+174 http GET https://registry.npmjs.org/hooker
+175 verbose request where is /jshint
+176 verbose request registry https://registry.npmjs.org/
+177 verbose url raw /jshint
+178 verbose url resolving [ 'https://registry.npmjs.org/', './jshint' ]
+179 verbose url resolved https://registry.npmjs.org/jshint
+180 verbose request where is https://registry.npmjs.org/jshint
+181 info trying registry request attempt 1 at 00:53:12
+182 verbose etag "8WNOLSXJII4Z3DJR4S5R6SVUE"
+183 http GET https://registry.npmjs.org/jshint
+184 http 304 https://registry.npmjs.org/grunt-contrib-nodeunit
+185 silly registry.get cb [ 304,
+185 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+185 silly registry.get     via: '1.1 varnish',
+185 silly registry.get     'cache-control': 'max-age=60',
+185 silly registry.get     etag: '"2176G8IUVHRCYW51V2YOZIEF2"',
+185 silly registry.get     age: '0',
+185 silly registry.get     connection: 'keep-alive',
+185 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+185 silly registry.get     'x-cache': 'HIT',
+185 silly registry.get     'x-cache-hits': '1',
+185 silly registry.get     'x-timer': 'S1432443192.365325,VS0,VE80',
+185 silly registry.get     vary: 'Accept' } ]
+186 verbose etag https://registry.npmjs.org/grunt-contrib-nodeunit from cache
+187 http 304 https://registry.npmjs.org/highlight.js
+188 silly registry.get cb [ 304,
+188 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+188 silly registry.get     via: '1.1 varnish',
+188 silly registry.get     'cache-control': 'max-age=60',
+188 silly registry.get     etag: '"8VMF6791WFM4ZUK7HKZW8OUU6"',
+188 silly registry.get     age: '0',
+188 silly registry.get     connection: 'keep-alive',
+188 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+188 silly registry.get     'x-cache': 'HIT',
+188 silly registry.get     'x-cache-hits': '1',
+188 silly registry.get     'x-timer': 'S1432443192.365666,VS0,VE81',
+188 silly registry.get     vary: 'Accept' } ]
+189 verbose etag https://registry.npmjs.org/highlight.js from cache
+190 http 200 https://registry.npmjs.org/grunt-contrib-concat
+191 silly registry.get cb [ 200,
+191 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+191 silly registry.get     etag: '"6CVAHCQ6LYPDUURMYSWN0OY7M"',
+191 silly registry.get     'content-type': 'application/json',
+191 silly registry.get     'cache-control': 'max-age=60',
+191 silly registry.get     'content-length': '29899',
+191 silly registry.get     'accept-ranges': 'bytes',
+191 silly registry.get     date: 'Sun, 24 May 2015 04:53:12 GMT',
+191 silly registry.get     via: '1.1 varnish',
+191 silly registry.get     age: '0',
+191 silly registry.get     connection: 'keep-alive',
+191 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+191 silly registry.get     'x-cache': 'HIT',
+191 silly registry.get     'x-cache-hits': '1',
+191 silly registry.get     'x-timer': 'S1432443192.417323,VS0,VE18',
+191 silly registry.get     vary: 'Accept' } ]
+192 http 304 https://registry.npmjs.org/ejs
+193 silly registry.get cb [ 304,
+193 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+193 silly registry.get     via: '1.1 varnish',
+193 silly registry.get     'cache-control': 'max-age=60',
+193 silly registry.get     etag: '"9C77EZ3USCZKX33QC00J5TWV3"',
+193 silly registry.get     age: '0',
+193 silly registry.get     connection: 'keep-alive',
+193 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+193 silly registry.get     'x-cache': 'HIT',
+193 silly registry.get     'x-cache-hits': '1',
+193 silly registry.get     'x-timer': 'S1432443192.364985,VS0,VE85',
+193 silly registry.get     vary: 'Accept' } ]
+194 verbose etag https://registry.npmjs.org/ejs from cache
+195 verbose request where is /hooker
+196 verbose request registry https://registry.npmjs.org/
+197 verbose url raw /hooker
+198 verbose url resolving [ 'https://registry.npmjs.org/', './hooker' ]
+199 verbose url resolved https://registry.npmjs.org/hooker
+200 verbose request where is https://registry.npmjs.org/hooker
+201 info trying registry request attempt 1 at 00:53:12
+202 verbose etag "DFJAZZB0SJAF34TXAIC9HNMY9"
+203 http GET https://registry.npmjs.org/hooker
+204 verbose request where is /chalk
+205 verbose request registry https://registry.npmjs.org/
+206 verbose url raw /chalk
+207 verbose url resolving [ 'https://registry.npmjs.org/', './chalk' ]
+208 verbose url resolved https://registry.npmjs.org/chalk
+209 verbose request where is https://registry.npmjs.org/chalk
+210 info trying registry request attempt 1 at 00:53:12
+211 verbose etag "BMXJBGPA3WF9AD6H1ODXP4BI7"
+212 http GET https://registry.npmjs.org/chalk
+213 verbose request where is /source-map
+214 verbose request registry https://registry.npmjs.org/
+215 verbose url raw /source-map
+216 verbose url resolving [ 'https://registry.npmjs.org/', './source-map' ]
+217 verbose url resolved https://registry.npmjs.org/source-map
+218 verbose request where is https://registry.npmjs.org/source-map
+219 info trying registry request attempt 1 at 00:53:12
+220 verbose etag "6X6700A4ARF6BEP1WI9Y86P6"
+221 http GET https://registry.npmjs.org/source-map
+222 verbose request where is /nodeunit
+223 verbose request registry https://registry.npmjs.org/
+224 verbose url raw /nodeunit
+225 verbose url resolving [ 'https://registry.npmjs.org/', './nodeunit' ]
+226 verbose url resolved https://registry.npmjs.org/nodeunit
+227 verbose request where is https://registry.npmjs.org/nodeunit
+228 info trying registry request attempt 1 at 00:53:12
+229 verbose etag "8MV9BY9E95MF19M2UKS23Y6N4"
+230 http GET https://registry.npmjs.org/nodeunit
+231 http 304 https://registry.npmjs.org/grunt-git-revision-count
+232 silly registry.get cb [ 304,
+232 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+232 silly registry.get     via: '1.1 varnish',
+232 silly registry.get     'cache-control': 'max-age=60',
+232 silly registry.get     etag: '"1HPZXIV7Q49QHM0OCKV1GVNIM"',
+232 silly registry.get     age: '0',
+232 silly registry.get     connection: 'keep-alive',
+232 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+232 silly registry.get     'x-cache': 'MISS',
+232 silly registry.get     'x-cache-hits': '0',
+232 silly registry.get     'x-timer': 'S1432443192.460267,VS0,VE23',
+232 silly registry.get     vary: 'Accept' } ]
+233 verbose etag https://registry.npmjs.org/grunt-git-revision-count from cache
+234 http 304 https://registry.npmjs.org/grunt-preprocess
+235 silly registry.get cb [ 304,
+235 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+235 silly registry.get     via: '1.1 varnish',
+235 silly registry.get     'cache-control': 'max-age=60',
+235 silly registry.get     etag: '"669BQ82OXGAZG40PC5C4W2CDA"',
+235 silly registry.get     age: '0',
+235 silly registry.get     connection: 'keep-alive',
+235 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+235 silly registry.get     'x-cache': 'MISS',
+235 silly registry.get     'x-cache-hits': '0',
+235 silly registry.get     'x-timer': 'S1432443192.454151,VS0,VE34',
+235 silly registry.get     vary: 'Accept' } ]
+236 verbose etag https://registry.npmjs.org/grunt-preprocess from cache
+237 verbose request where is /preprocess
+238 verbose request registry https://registry.npmjs.org/
+239 verbose url raw /preprocess
+240 verbose url resolving [ 'https://registry.npmjs.org/', './preprocess' ]
+241 verbose url resolved https://registry.npmjs.org/preprocess
+242 verbose request where is https://registry.npmjs.org/preprocess
+243 info trying registry request attempt 1 at 00:53:12
+244 verbose etag "7DSUCHZLCAJ7HIOVO4EEOXAP6"
+245 http GET https://registry.npmjs.org/preprocess
+246 http 304 https://registry.npmjs.org/grunt-wget
+247 silly registry.get cb [ 304,
+247 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+247 silly registry.get     via: '1.1 varnish',
+247 silly registry.get     'cache-control': 'max-age=60',
+247 silly registry.get     etag: '"49TDSJZV663LIPF0VWG4J2YCH"',
+247 silly registry.get     age: '0',
+247 silly registry.get     connection: 'keep-alive',
+247 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+247 silly registry.get     'x-cache': 'MISS',
+247 silly registry.get     'x-cache-hits': '0',
+247 silly registry.get     'x-timer': 'S1432443192.493115,VS0,VE78',
+247 silly registry.get     vary: 'Accept' } ]
+248 verbose etag https://registry.npmjs.org/grunt-wget from cache
+249 http 304 https://registry.npmjs.org/grunt-node-qunit
+250 silly registry.get cb [ 304,
+250 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+250 silly registry.get     via: '1.1 varnish',
+250 silly registry.get     'cache-control': 'max-age=60',
+250 silly registry.get     etag: '"1OOU747LHTEUFUS8M9ZZOB09T"',
+250 silly registry.get     age: '0',
+250 silly registry.get     connection: 'keep-alive',
+250 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+250 silly registry.get     'x-cache': 'MISS',
+250 silly registry.get     'x-cache-hits': '0',
+250 silly registry.get     'x-timer': 'S1432443192.488402,VS0,VE92',
+250 silly registry.get     vary: 'Accept' } ]
+251 verbose etag https://registry.npmjs.org/grunt-node-qunit from cache
+252 verbose request where is /request
+253 verbose request registry https://registry.npmjs.org/
+254 verbose url raw /request
+255 verbose url resolving [ 'https://registry.npmjs.org/', './request' ]
+256 verbose url resolved https://registry.npmjs.org/request
+257 verbose request where is https://registry.npmjs.org/request
+258 info trying registry request attempt 1 at 00:53:12
+259 verbose etag "6JZNPLSQFV602NZR04IK4AED4"
+260 http GET https://registry.npmjs.org/request
+261 verbose request where is /async
+262 verbose request registry https://registry.npmjs.org/
+263 verbose url raw /async
+264 verbose url resolving [ 'https://registry.npmjs.org/', './async' ]
+265 verbose url resolved https://registry.npmjs.org/async
+266 verbose request where is https://registry.npmjs.org/async
+267 info trying registry request attempt 1 at 00:53:12
+268 verbose etag "7CZ91WZ2IQYW36D1J4QO6JNN"
+269 http GET https://registry.npmjs.org/async
+270 verbose request where is /qunit
+271 verbose request registry https://registry.npmjs.org/
+272 verbose url raw /qunit
+273 verbose url resolving [ 'https://registry.npmjs.org/', './qunit' ]
+274 verbose url resolved https://registry.npmjs.org/qunit
+275 verbose request where is https://registry.npmjs.org/qunit
+276 info trying registry request attempt 1 at 00:53:12
+277 verbose etag "5VGVQ15869W50EEXL8DETH49E"
+278 http GET https://registry.npmjs.org/qunit
+279 http 200 https://registry.npmjs.org/grunt-contrib-clean
+280 silly registry.get cb [ 200,
+280 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+280 silly registry.get     etag: '"73SM4AMGNUYXTNC6QIATYGHCP"',
+280 silly registry.get     'content-type': 'application/json',
+280 silly registry.get     'cache-control': 'max-age=60',
+280 silly registry.get     'content-length': '23382',
+280 silly registry.get     'accept-ranges': 'bytes',
+280 silly registry.get     date: 'Sun, 24 May 2015 04:53:12 GMT',
+280 silly registry.get     via: '1.1 varnish',
+280 silly registry.get     age: '39',
+280 silly registry.get     connection: 'keep-alive',
+280 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+280 silly registry.get     'x-cache': 'HIT',
+280 silly registry.get     'x-cache-hits': '1',
+280 silly registry.get     'x-timer': 'S1432443192.450816,VS0,VE0',
+280 silly registry.get     vary: 'Accept' } ]
+281 verbose request where is /rimraf
+282 verbose request registry https://registry.npmjs.org/
+283 verbose url raw /rimraf
+284 verbose url resolving [ 'https://registry.npmjs.org/', './rimraf' ]
+285 verbose url resolved https://registry.npmjs.org/rimraf
+286 verbose request where is https://registry.npmjs.org/rimraf
+287 info trying registry request attempt 1 at 00:53:12
+288 verbose etag "DQDTWFNCQ2ICIOV2HL8RRB221"
+289 http GET https://registry.npmjs.org/rimraf
+290 http 200 https://registry.npmjs.org/grunt-shell
+291 silly registry.get cb [ 200,
+291 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+291 silly registry.get     etag: '"EQM234DFO0VWFFO6TMMDUSMX9"',
+291 silly registry.get     'content-type': 'application/json',
+291 silly registry.get     'cache-control': 'max-age=60',
+291 silly registry.get     'content-length': '28686',
+291 silly registry.get     'accept-ranges': 'bytes',
+291 silly registry.get     date: 'Sun, 24 May 2015 04:53:12 GMT',
+291 silly registry.get     via: '1.1 varnish',
+291 silly registry.get     age: '0',
+291 silly registry.get     connection: 'keep-alive',
+291 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+291 silly registry.get     'x-cache': 'HIT',
+291 silly registry.get     'x-cache-hits': '1',
+291 silly registry.get     'x-timer': 'S1432443192.585469,VS0,VE78',
+291 silly registry.get     vary: 'Accept' } ]
+292 http 304 https://registry.npmjs.org/hooker
+293 silly registry.get cb [ 304,
+293 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+293 silly registry.get     via: '1.1 varnish',
+293 silly registry.get     'cache-control': 'max-age=60',
+293 silly registry.get     etag: '"DFJAZZB0SJAF34TXAIC9HNMY9"',
+293 silly registry.get     age: '8',
+293 silly registry.get     connection: 'keep-alive',
+293 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+293 silly registry.get     'x-cache': 'HIT',
+293 silly registry.get     'x-cache-hits': '1',
+293 silly registry.get     'x-timer': 'S1432443192.681490,VS0,VE0',
+293 silly registry.get     vary: 'Accept' } ]
+294 verbose etag https://registry.npmjs.org/hooker from cache
+295 verbose request where is /chalk
+296 verbose request registry https://registry.npmjs.org/
+297 verbose url raw /chalk
+298 verbose url resolving [ 'https://registry.npmjs.org/', './chalk' ]
+299 verbose url resolved https://registry.npmjs.org/chalk
+300 verbose request where is https://registry.npmjs.org/chalk
+301 info trying registry request attempt 1 at 00:53:12
+302 verbose etag "BMXJBGPA3WF9AD6H1ODXP4BI7"
+303 http GET https://registry.npmjs.org/chalk
+304 http 200 https://registry.npmjs.org/grunt
+305 silly registry.get cb [ 200,
+305 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+305 silly registry.get     etag: '"3O2BX9Z8REM17DKLLPEU13R79"',
+305 silly registry.get     'content-type': 'application/json',
+305 silly registry.get     'cache-control': 'max-age=60',
+305 silly registry.get     'content-length': '89355',
+305 silly registry.get     'accept-ranges': 'bytes',
+305 silly registry.get     date: 'Sun, 24 May 2015 04:53:12 GMT',
+305 silly registry.get     via: '1.1 varnish',
+305 silly registry.get     age: '0',
+305 silly registry.get     connection: 'keep-alive',
+305 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+305 silly registry.get     'x-cache': 'HIT',
+305 silly registry.get     'x-cache-hits': '1',
+305 silly registry.get     'x-timer': 'S1432443192.363831,VS0,VE351',
+305 silly registry.get     vary: 'Accept' } ]
+306 http 304 https://registry.npmjs.org/hooker
+307 silly registry.get cb [ 304,
+307 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+307 silly registry.get     via: '1.1 varnish',
+307 silly registry.get     'cache-control': 'max-age=60',
+307 silly registry.get     etag: '"DFJAZZB0SJAF34TXAIC9HNMY9"',
+307 silly registry.get     age: '8',
+307 silly registry.get     connection: 'keep-alive',
+307 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+307 silly registry.get     'x-cache': 'HIT',
+307 silly registry.get     'x-cache-hits': '2',
+307 silly registry.get     'x-timer': 'S1432443192.741550,VS0,VE0',
+307 silly registry.get     vary: 'Accept' } ]
+308 verbose etag https://registry.npmjs.org/hooker from cache
+309 http 200 https://registry.npmjs.org/chalk
+310 silly registry.get cb [ 200,
+310 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+310 silly registry.get     etag: '"1EVPPOILTDYTHCJLLFKYNI74M"',
+310 silly registry.get     'content-type': 'application/json',
+310 silly registry.get     'cache-control': 'max-age=60',
+310 silly registry.get     'content-length': '20375',
+310 silly registry.get     'accept-ranges': 'bytes',
+310 silly registry.get     date: 'Sun, 24 May 2015 04:53:12 GMT',
+310 silly registry.get     via: '1.1 varnish',
+310 silly registry.get     age: '50',
+310 silly registry.get     connection: 'keep-alive',
+310 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+310 silly registry.get     'x-cache': 'HIT',
+310 silly registry.get     'x-cache-hits': '2',
+310 silly registry.get     'x-timer': 'S1432443192.745773,VS0,VE0',
+310 silly registry.get     vary: 'Accept' } ]
+311 http 304 https://registry.npmjs.org/grunt-template
+312 silly registry.get cb [ 304,
+312 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+312 silly registry.get     via: '1.1 varnish',
+312 silly registry.get     'cache-control': 'max-age=60',
+312 silly registry.get     etag: '"65BCHW3MJ5V2MVSJBGS2CQTF"',
+312 silly registry.get     age: '0',
+312 silly registry.get     connection: 'keep-alive',
+312 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+312 silly registry.get     'x-cache': 'MISS',
+312 silly registry.get     'x-cache-hits': '0',
+312 silly registry.get     'x-timer': 'S1432443192.663547,VS0,VE91',
+312 silly registry.get     vary: 'Accept' } ]
+313 verbose etag https://registry.npmjs.org/grunt-template from cache
+314 http 304 https://registry.npmjs.org/source-map
+315 silly registry.get cb [ 304,
+315 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+315 silly registry.get     via: '1.1 varnish',
+315 silly registry.get     'cache-control': 'max-age=60',
+315 silly registry.get     etag: '"6X6700A4ARF6BEP1WI9Y86P6"',
+315 silly registry.get     age: '23',
+315 silly registry.get     connection: 'keep-alive',
+315 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+315 silly registry.get     'x-cache': 'HIT',
+315 silly registry.get     'x-cache-hits': '2',
+315 silly registry.get     'x-timer': 'S1432443192.755276,VS0,VE0',
+315 silly registry.get     vary: 'Accept' } ]
+316 verbose etag https://registry.npmjs.org/source-map from cache
+317 http 304 https://registry.npmjs.org/jshint
+318 silly registry.get cb [ 304,
+318 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+318 silly registry.get     via: '1.1 varnish',
+318 silly registry.get     'cache-control': 'max-age=60',
+318 silly registry.get     etag: '"8WNOLSXJII4Z3DJR4S5R6SVUE"',
+318 silly registry.get     age: '0',
+318 silly registry.get     connection: 'keep-alive',
+318 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+318 silly registry.get     'x-cache': 'HIT',
+318 silly registry.get     'x-cache-hits': '1',
+318 silly registry.get     'x-timer': 'S1432443192.686405,VS0,VE82',
+318 silly registry.get     vary: 'Accept' } ]
+319 verbose etag https://registry.npmjs.org/jshint from cache
+320 verbose request where is /async
+321 verbose request registry https://registry.npmjs.org/
+322 verbose url raw /async
+323 verbose url resolving [ 'https://registry.npmjs.org/', './async' ]
+324 verbose url resolved https://registry.npmjs.org/async
+325 verbose request where is https://registry.npmjs.org/async
+326 info trying registry request attempt 1 at 00:53:12
+327 verbose etag "7CZ91WZ2IQYW36D1J4QO6JNN"
+328 http GET https://registry.npmjs.org/async
+329 verbose request where is /dateformat
+330 verbose request registry https://registry.npmjs.org/
+331 verbose url raw /dateformat
+332 verbose url resolving [ 'https://registry.npmjs.org/', './dateformat' ]
+333 verbose url resolved https://registry.npmjs.org/dateformat
+334 verbose request where is https://registry.npmjs.org/dateformat
+335 info trying registry request attempt 1 at 00:53:12
+336 verbose etag "3L1SFBZBAIOBID2R6WZCRSJCP"
+337 http GET https://registry.npmjs.org/dateformat
+338 verbose request where is /coffee-script
+339 verbose request registry https://registry.npmjs.org/
+340 verbose url raw /coffee-script
+341 verbose url resolving [ 'https://registry.npmjs.org/', './coffee-script' ]
+342 verbose url resolved https://registry.npmjs.org/coffee-script
+343 verbose request where is https://registry.npmjs.org/coffee-script
+344 info trying registry request attempt 1 at 00:53:12
+345 verbose etag "3NSRDBLJB4J48EQLR1C2CFBI5"
+346 http GET https://registry.npmjs.org/coffee-script
+347 verbose request where is /colors
+348 verbose request registry https://registry.npmjs.org/
+349 verbose url raw /colors
+350 verbose url resolving [ 'https://registry.npmjs.org/', './colors' ]
+351 verbose url resolved https://registry.npmjs.org/colors
+352 verbose request where is https://registry.npmjs.org/colors
+353 info trying registry request attempt 1 at 00:53:12
+354 verbose etag "455U5TEI7R0W3RPXNOGREZ6FP"
+355 http GET https://registry.npmjs.org/colors
+356 verbose registry.get https://registry.npmjs.org/hooker not expired, no request
+357 verbose request where is /eventemitter2
+358 verbose request registry https://registry.npmjs.org/
+359 verbose url raw /eventemitter2
+360 verbose url resolving [ 'https://registry.npmjs.org/', './eventemitter2' ]
+361 verbose url resolved https://registry.npmjs.org/eventemitter2
+362 verbose request where is https://registry.npmjs.org/eventemitter2
+363 info trying registry request attempt 1 at 00:53:12
+364 verbose etag "54TRNU01D6VYJR0JRWWNQGHHG"
+365 http GET https://registry.npmjs.org/eventemitter2
+366 verbose request where is /findup-sync
+367 verbose request registry https://registry.npmjs.org/
+368 verbose url raw /findup-sync
+369 verbose url resolving [ 'https://registry.npmjs.org/', './findup-sync' ]
+370 verbose url resolved https://registry.npmjs.org/findup-sync
+371 verbose request where is https://registry.npmjs.org/findup-sync
+372 info trying registry request attempt 1 at 00:53:12
+373 verbose etag "CT2PJF8E88RPQNWEIB1UFL8EJ"
+374 http GET https://registry.npmjs.org/findup-sync
+375 verbose request where is /rimraf
+376 verbose request registry https://registry.npmjs.org/
+377 verbose url raw /rimraf
+378 verbose url resolving [ 'https://registry.npmjs.org/', './rimraf' ]
+379 verbose url resolved https://registry.npmjs.org/rimraf
+380 verbose request where is https://registry.npmjs.org/rimraf
+381 info trying registry request attempt 1 at 00:53:12
+382 verbose etag "DQDTWFNCQ2ICIOV2HL8RRB221"
+383 http GET https://registry.npmjs.org/rimraf
+384 verbose request where is /iconv-lite
+385 verbose request registry https://registry.npmjs.org/
+386 verbose url raw /iconv-lite
+387 verbose url resolving [ 'https://registry.npmjs.org/', './iconv-lite' ]
+388 verbose url resolved https://registry.npmjs.org/iconv-lite
+389 verbose request where is https://registry.npmjs.org/iconv-lite
+390 info trying registry request attempt 1 at 00:53:12
+391 verbose etag "EUIVZS1MPS155YPHSYHX4WRSF"
+392 http GET https://registry.npmjs.org/iconv-lite
+393 verbose request where is /nopt
+394 verbose request registry https://registry.npmjs.org/
+395 verbose url raw /nopt
+396 verbose url resolving [ 'https://registry.npmjs.org/', './nopt' ]
+397 verbose url resolved https://registry.npmjs.org/nopt
+398 verbose request where is https://registry.npmjs.org/nopt
+399 info trying registry request attempt 1 at 00:53:12
+400 verbose etag "A8CBK40782AWTJ20USTOGAD1T"
+401 http GET https://registry.npmjs.org/nopt
+402 verbose request where is /minimatch
+403 verbose request registry https://registry.npmjs.org/
+404 verbose url raw /minimatch
+405 verbose url resolving [ 'https://registry.npmjs.org/', './minimatch' ]
+406 verbose url resolved https://registry.npmjs.org/minimatch
+407 verbose request where is https://registry.npmjs.org/minimatch
+408 info trying registry request attempt 1 at 00:53:12
+409 verbose etag "AH31MK4JMKC8MKID8NDI058Y0"
+410 http GET https://registry.npmjs.org/minimatch
+411 verbose request where is /glob
+412 verbose request registry https://registry.npmjs.org/
+413 verbose url raw /glob
+414 verbose url resolving [ 'https://registry.npmjs.org/', './glob' ]
+415 verbose url resolved https://registry.npmjs.org/glob
+416 verbose request where is https://registry.npmjs.org/glob
+417 info trying registry request attempt 1 at 00:53:12
+418 verbose etag "2KRQ36PTL0X9UUJ0WHOJZODNH"
+419 http GET https://registry.npmjs.org/glob
+420 verbose request where is /lodash
+421 verbose request registry https://registry.npmjs.org/
+422 verbose url raw /lodash
+423 verbose url resolving [ 'https://registry.npmjs.org/', './lodash' ]
+424 verbose url resolved https://registry.npmjs.org/lodash
+425 verbose request where is https://registry.npmjs.org/lodash
+426 info trying registry request attempt 1 at 00:53:12
+427 verbose etag "C1KCO6W9UZFQ1D9BX8XB2XX22"
+428 http GET https://registry.npmjs.org/lodash
+429 verbose request where is /which
+430 verbose request registry https://registry.npmjs.org/
+431 verbose url raw /which
+432 verbose url resolving [ 'https://registry.npmjs.org/', './which' ]
+433 verbose url resolved https://registry.npmjs.org/which
+434 verbose request where is https://registry.npmjs.org/which
+435 info trying registry request attempt 1 at 00:53:12
+436 verbose etag "96S32KNGR7RC2G6UDCTQWOHI9"
+437 http GET https://registry.npmjs.org/which
+438 verbose request where is /js-yaml
+439 verbose request registry https://registry.npmjs.org/
+440 verbose url raw /js-yaml
+441 verbose url resolving [ 'https://registry.npmjs.org/', './js-yaml' ]
+442 verbose url resolved https://registry.npmjs.org/js-yaml
+443 verbose request where is https://registry.npmjs.org/js-yaml
+444 info trying registry request attempt 1 at 00:53:12
+445 verbose etag "899YZGMAM37YSMI1VIY9LYF26"
+446 http GET https://registry.npmjs.org/js-yaml
+447 verbose request where is /underscore.string
+448 verbose request registry https://registry.npmjs.org/
+449 verbose url raw /underscore.string
+450 verbose url resolving [ 'https://registry.npmjs.org/', './underscore.string' ]
+451 verbose url resolved https://registry.npmjs.org/underscore.string
+452 verbose request where is https://registry.npmjs.org/underscore.string
+453 info trying registry request attempt 1 at 00:53:12
+454 verbose etag "EUR2XPGZX64EHU0KFCNIFQUCI"
+455 http GET https://registry.npmjs.org/underscore.string
+456 verbose request where is /exit
+457 verbose request registry https://registry.npmjs.org/
+458 verbose url raw /exit
+459 verbose url resolving [ 'https://registry.npmjs.org/', './exit' ]
+460 verbose url resolved https://registry.npmjs.org/exit
+461 verbose request where is https://registry.npmjs.org/exit
+462 info trying registry request attempt 1 at 00:53:12
+463 verbose etag "66GA3RUQR76WJVRZF6ITVOZPO"
+464 http GET https://registry.npmjs.org/exit
+465 verbose request where is /grunt-legacy-util
+466 verbose request registry https://registry.npmjs.org/
+467 verbose url raw /grunt-legacy-util
+468 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-legacy-util' ]
+469 verbose url resolved https://registry.npmjs.org/grunt-legacy-util
+470 verbose request where is https://registry.npmjs.org/grunt-legacy-util
+471 info trying registry request attempt 1 at 00:53:12
+472 verbose etag "937M3ZH1Z0OA0IWSDR7Y8V1TP"
+473 http GET https://registry.npmjs.org/grunt-legacy-util
+474 verbose request where is /getobject
+475 verbose request registry https://registry.npmjs.org/
+476 verbose url raw /getobject
+477 verbose url resolving [ 'https://registry.npmjs.org/', './getobject' ]
+478 verbose url resolved https://registry.npmjs.org/getobject
+479 verbose request where is https://registry.npmjs.org/getobject
+480 info trying registry request attempt 1 at 00:53:12
+481 verbose etag "BPRQ6ZA5H0SY8TQS2VENHJTW0"
+482 http GET https://registry.npmjs.org/getobject
+483 verbose request where is /grunt-legacy-log
+484 verbose request registry https://registry.npmjs.org/
+485 verbose url raw /grunt-legacy-log
+486 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-legacy-log' ]
+487 verbose url resolved https://registry.npmjs.org/grunt-legacy-log
+488 verbose request where is https://registry.npmjs.org/grunt-legacy-log
+489 info trying registry request attempt 1 at 00:53:12
+490 verbose etag "BU34V1HJNA64DGH9DPYVFSK8T"
+491 http GET https://registry.npmjs.org/grunt-legacy-log
+492 http 200 https://registry.npmjs.org/grunt-contrib-uglify
+493 silly registry.get cb [ 200,
+493 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+493 silly registry.get     etag: '"1ZHGVXAR9ONOJ3Q5LIW6B0GVU"',
+493 silly registry.get     'content-type': 'application/json',
+493 silly registry.get     'cache-control': 'max-age=60',
+493 silly registry.get     'content-length': '65624',
+493 silly registry.get     'accept-ranges': 'bytes',
+493 silly registry.get     date: 'Sun, 24 May 2015 04:53:12 GMT',
+493 silly registry.get     via: '1.1 varnish',
+493 silly registry.get     age: '0',
+493 silly registry.get     connection: 'keep-alive',
+493 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+493 silly registry.get     'x-cache': 'HIT',
+493 silly registry.get     'x-cache-hits': '1',
+493 silly registry.get     'x-timer': 'S1432443192.452328,VS0,VE346',
+493 silly registry.get     vary: 'Accept' } ]
+494 http 304 https://registry.npmjs.org/nodeunit
+495 silly registry.get cb [ 304,
+495 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+495 silly registry.get     via: '1.1 varnish',
+495 silly registry.get     'cache-control': 'max-age=60',
+495 silly registry.get     etag: '"8MV9BY9E95MF19M2UKS23Y6N4"',
+495 silly registry.get     age: '0',
+495 silly registry.get     connection: 'keep-alive',
+495 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+495 silly registry.get     'x-cache': 'HIT',
+495 silly registry.get     'x-cache-hits': '1',
+495 silly registry.get     'x-timer': 'S1432443192.784291,VS0,VE19',
+495 silly registry.get     vary: 'Accept' } ]
+496 verbose etag https://registry.npmjs.org/nodeunit from cache
+497 http 200 https://registry.npmjs.org/request
+498 silly registry.get cb [ 200,
+498 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+498 silly registry.get     etag: '"E84XG59J54NSYI1T7SCFRNRZ5"',
+498 silly registry.get     'content-type': 'application/json',
+498 silly registry.get     'cache-control': 'max-age=60',
+498 silly registry.get     'content-length': '146366',
+498 silly registry.get     'accept-ranges': 'bytes',
+498 silly registry.get     date: 'Sun, 24 May 2015 04:53:12 GMT',
+498 silly registry.get     via: '1.1 varnish',
+498 silly registry.get     age: '46',
+498 silly registry.get     connection: 'keep-alive',
+498 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+498 silly registry.get     'x-cache': 'HIT',
+498 silly registry.get     'x-cache-hits': '2',
+498 silly registry.get     'x-timer': 'S1432443192.786363,VS0,VE0',
+498 silly registry.get     vary: 'Accept' } ]
+499 http 304 https://registry.npmjs.org/rimraf
+500 silly registry.get cb [ 304,
+500 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+500 silly registry.get     via: '1.1 varnish',
+500 silly registry.get     'cache-control': 'max-age=60',
+500 silly registry.get     etag: '"DQDTWFNCQ2ICIOV2HL8RRB221"',
+500 silly registry.get     age: '39',
+500 silly registry.get     connection: 'keep-alive',
+500 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+500 silly registry.get     'x-cache': 'HIT',
+500 silly registry.get     'x-cache-hits': '1',
+500 silly registry.get     'x-timer': 'S1432443192.858446,VS0,VE0',
+500 silly registry.get     vary: 'Accept' } ]
+501 verbose etag https://registry.npmjs.org/rimraf from cache
+502 http 200 https://registry.npmjs.org/chalk
+503 silly registry.get cb [ 200,
+503 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+503 silly registry.get     etag: '"1EVPPOILTDYTHCJLLFKYNI74M"',
+503 silly registry.get     'content-type': 'application/json',
+503 silly registry.get     'cache-control': 'max-age=60',
+503 silly registry.get     'content-length': '20375',
+503 silly registry.get     'accept-ranges': 'bytes',
+503 silly registry.get     date: 'Sun, 24 May 2015 04:53:12 GMT',
+503 silly registry.get     via: '1.1 varnish',
+503 silly registry.get     age: '50',
+503 silly registry.get     connection: 'keep-alive',
+503 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+503 silly registry.get     'x-cache': 'HIT',
+503 silly registry.get     'x-cache-hits': '3',
+503 silly registry.get     'x-timer': 'S1432443192.868698,VS0,VE0',
+503 silly registry.get     vary: 'Accept' } ]
+504 verbose request where is /exit
+505 verbose request registry https://registry.npmjs.org/
+506 verbose url raw /exit
+507 verbose url resolving [ 'https://registry.npmjs.org/', './exit' ]
+508 verbose url resolved https://registry.npmjs.org/exit
+509 verbose request where is https://registry.npmjs.org/exit
+510 info trying registry request attempt 1 at 00:53:12
+511 verbose etag "66GA3RUQR76WJVRZF6ITVOZPO"
+512 http GET https://registry.npmjs.org/exit
+513 verbose request where is /minimatch
+514 verbose request registry https://registry.npmjs.org/
+515 verbose url raw /minimatch
+516 verbose url resolving [ 'https://registry.npmjs.org/', './minimatch' ]
+517 verbose url resolved https://registry.npmjs.org/minimatch
+518 verbose request where is https://registry.npmjs.org/minimatch
+519 info trying registry request attempt 1 at 00:53:12
+520 verbose etag "AH31MK4JMKC8MKID8NDI058Y0"
+521 http GET https://registry.npmjs.org/minimatch
+522 verbose request where is /tap
+523 verbose request registry https://registry.npmjs.org/
+524 verbose url raw /tap
+525 verbose url resolving [ 'https://registry.npmjs.org/', './tap' ]
+526 verbose url resolved https://registry.npmjs.org/tap
+527 verbose request where is https://registry.npmjs.org/tap
+528 info trying registry request attempt 1 at 00:53:12
+529 verbose etag "A4ENRFP4G8R7PJIQRCK7HL8DX"
+530 http GET https://registry.npmjs.org/tap
+531 verbose request where is /console-browserify
+532 verbose request registry https://registry.npmjs.org/
+533 verbose url raw /console-browserify
+534 verbose url resolving [ 'https://registry.npmjs.org/', './console-browserify' ]
+535 verbose url resolved https://registry.npmjs.org/console-browserify
+536 verbose request where is https://registry.npmjs.org/console-browserify
+537 info trying registry request attempt 1 at 00:53:12
+538 verbose etag "9P4UVMYNOTKBMJP46LG2SRWG"
+539 http GET https://registry.npmjs.org/console-browserify
+540 verbose request where is /cli
+541 verbose request registry https://registry.npmjs.org/
+542 verbose url raw /cli
+543 verbose url resolving [ 'https://registry.npmjs.org/', './cli' ]
+544 verbose url resolved https://registry.npmjs.org/cli
+545 verbose request where is https://registry.npmjs.org/cli
+546 info trying registry request attempt 1 at 00:53:12
+547 verbose etag "5DU33GCRCBI54NU31QAY1SC3X"
+548 http GET https://registry.npmjs.org/cli
+549 verbose request where is /lodash
+550 verbose request registry https://registry.npmjs.org/
+551 verbose url raw /lodash
+552 verbose url resolving [ 'https://registry.npmjs.org/', './lodash' ]
+553 verbose url resolved https://registry.npmjs.org/lodash
+554 verbose request where is https://registry.npmjs.org/lodash
+555 info trying registry request attempt 1 at 00:53:12
+556 verbose etag "C1KCO6W9UZFQ1D9BX8XB2XX22"
+557 http GET https://registry.npmjs.org/lodash
+558 verbose request where is /shelljs
+559 verbose request registry https://registry.npmjs.org/
+560 verbose url raw /shelljs
+561 verbose url resolving [ 'https://registry.npmjs.org/', './shelljs' ]
+562 verbose url resolved https://registry.npmjs.org/shelljs
+563 verbose request where is https://registry.npmjs.org/shelljs
+564 info trying registry request attempt 1 at 00:53:12
+565 verbose etag "24HQG9B78S14UI9CPL9I6DEFO"
+566 http GET https://registry.npmjs.org/shelljs
+567 verbose request where is /strip-json-comments
+568 verbose request registry https://registry.npmjs.org/
+569 verbose url raw /strip-json-comments
+570 verbose url resolving [ 'https://registry.npmjs.org/', './strip-json-comments' ]
+571 verbose url resolved https://registry.npmjs.org/strip-json-comments
+572 verbose request where is https://registry.npmjs.org/strip-json-comments
+573 info trying registry request attempt 1 at 00:53:12
+574 verbose etag "18AM02OC56FGV63KROIALAXYJ"
+575 http GET https://registry.npmjs.org/strip-json-comments
+576 verbose request where is /htmlparser2
+577 verbose request registry https://registry.npmjs.org/
+578 verbose url raw /htmlparser2
+579 verbose url resolving [ 'https://registry.npmjs.org/', './htmlparser2' ]
+580 verbose url resolved https://registry.npmjs.org/htmlparser2
+581 verbose request where is https://registry.npmjs.org/htmlparser2
+582 info trying registry request attempt 1 at 00:53:12
+583 verbose etag "9SXA9UDAD8S5U9BCRGVRK30IN"
+584 http GET https://registry.npmjs.org/htmlparser2
+585 verbose registry.get https://registry.npmjs.org/chalk not expired, no request
+586 verbose request where is /lodash
+587 verbose request registry https://registry.npmjs.org/
+588 verbose url raw /lodash
+589 verbose url resolving [ 'https://registry.npmjs.org/', './lodash' ]
+590 verbose url resolved https://registry.npmjs.org/lodash
+591 verbose request where is https://registry.npmjs.org/lodash
+592 info trying registry request attempt 1 at 00:53:12
+593 verbose etag "C1KCO6W9UZFQ1D9BX8XB2XX22"
+594 http GET https://registry.npmjs.org/lodash
+595 http 200 https://registry.npmjs.org/async
+596 silly registry.get cb [ 200,
+596 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+596 silly registry.get     etag: '"K3K29P9VIBBT6TDRQWGJU0Z9"',
+596 silly registry.get     'content-type': 'application/json',
+596 silly registry.get     'cache-control': 'max-age=60',
+596 silly registry.get     'content-length': '108437',
+596 silly registry.get     'accept-ranges': 'bytes',
+596 silly registry.get     date: 'Sun, 24 May 2015 04:53:12 GMT',
+596 silly registry.get     via: '1.1 varnish',
+596 silly registry.get     age: '23',
+596 silly registry.get     connection: 'keep-alive',
+596 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+596 silly registry.get     'x-cache': 'HIT',
+596 silly registry.get     'x-cache-hits': '182',
+596 silly registry.get     'x-timer': 'S1432443192.883368,VS0,VE0',
+596 silly registry.get     vary: 'Accept' } ]
+597 verbose request where is /uri-path
+598 verbose request registry https://registry.npmjs.org/
+599 verbose url raw /uri-path
+600 verbose url resolving [ 'https://registry.npmjs.org/', './uri-path' ]
+601 verbose url resolved https://registry.npmjs.org/uri-path
+602 verbose request where is https://registry.npmjs.org/uri-path
+603 info trying registry request attempt 1 at 00:53:12
+604 verbose etag "9GL6P6HYO3DTG0PTYXNYXG18W"
+605 http GET https://registry.npmjs.org/uri-path
+606 verbose request where is /maxmin
+607 verbose request registry https://registry.npmjs.org/
+608 verbose url raw /maxmin
+609 verbose url resolving [ 'https://registry.npmjs.org/', './maxmin' ]
+610 verbose url resolved https://registry.npmjs.org/maxmin
+611 verbose request where is https://registry.npmjs.org/maxmin
+612 info trying registry request attempt 1 at 00:53:12
+613 verbose etag "EENLE5FZRFP68IV1RY3RUHCMX"
+614 http GET https://registry.npmjs.org/maxmin
+615 verbose request where is /uglify-js
+616 verbose request registry https://registry.npmjs.org/
+617 verbose url raw /uglify-js
+618 verbose url resolving [ 'https://registry.npmjs.org/', './uglify-js' ]
+619 verbose url resolved https://registry.npmjs.org/uglify-js
+620 verbose request where is https://registry.npmjs.org/uglify-js
+621 info trying registry request attempt 1 at 00:53:12
+622 verbose etag "6JIFNWCZDP11COLAB2SNNLKTH"
+623 http GET https://registry.npmjs.org/uglify-js
+624 http 200 https://registry.npmjs.org/dateformat
+625 silly registry.get cb [ 200,
+625 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+625 silly registry.get     etag: '"EZTPO7YY8FHQEJIL27653ZINZ"',
+625 silly registry.get     'content-type': 'application/json',
+625 silly registry.get     'cache-control': 'max-age=60',
+625 silly registry.get     'content-length': '17509',
+625 silly registry.get     'accept-ranges': 'bytes',
+625 silly registry.get     date: 'Sun, 24 May 2015 04:53:12 GMT',
+625 silly registry.get     via: '1.1 varnish',
+625 silly registry.get     age: '8',
+625 silly registry.get     connection: 'keep-alive',
+625 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+625 silly registry.get     'x-cache': 'HIT',
+625 silly registry.get     'x-cache-hits': '1',
+625 silly registry.get     'x-timer': 'S1432443192.928390,VS0,VE0',
+625 silly registry.get     vary: 'Accept' } ]
+626 verbose request where is /ansi-styles
+627 verbose request registry https://registry.npmjs.org/
+628 verbose url raw /ansi-styles
+629 verbose url resolving [ 'https://registry.npmjs.org/', './ansi-styles' ]
+630 verbose url resolved https://registry.npmjs.org/ansi-styles
+631 verbose request where is https://registry.npmjs.org/ansi-styles
+632 info trying registry request attempt 1 at 00:53:12
+633 verbose etag "9O45NVZEP528XJ58TZ8A6DMA0"
+634 http GET https://registry.npmjs.org/ansi-styles
+635 verbose request where is /escape-string-regexp
+636 verbose request registry https://registry.npmjs.org/
+637 verbose url raw /escape-string-regexp
+638 verbose url resolving [ 'https://registry.npmjs.org/', './escape-string-regexp' ]
+639 verbose url resolved https://registry.npmjs.org/escape-string-regexp
+640 verbose request where is https://registry.npmjs.org/escape-string-regexp
+641 info trying registry request attempt 1 at 00:53:12
+642 verbose etag "8MOKZ3EZW5AOLELFFTR0T8K98"
+643 http GET https://registry.npmjs.org/escape-string-regexp
+644 verbose request where is /has-ansi
+645 verbose request registry https://registry.npmjs.org/
+646 verbose url raw /has-ansi
+647 verbose url resolving [ 'https://registry.npmjs.org/', './has-ansi' ]
+648 verbose url resolved https://registry.npmjs.org/has-ansi
+649 verbose request where is https://registry.npmjs.org/has-ansi
+650 info trying registry request attempt 1 at 00:53:12
+651 verbose etag "E4845616HRC12WMH43M936NTT"
+652 http GET https://registry.npmjs.org/has-ansi
+653 verbose request where is /strip-ansi
+654 verbose request registry https://registry.npmjs.org/
+655 verbose url raw /strip-ansi
+656 verbose url resolving [ 'https://registry.npmjs.org/', './strip-ansi' ]
+657 verbose url resolved https://registry.npmjs.org/strip-ansi
+658 verbose request where is https://registry.npmjs.org/strip-ansi
+659 info trying registry request attempt 1 at 00:53:12
+660 verbose etag "9D9S1Y0BBQD36UMUV9U38ZKG1"
+661 http GET https://registry.npmjs.org/strip-ansi
+662 verbose request where is /supports-color
+663 verbose request registry https://registry.npmjs.org/
+664 verbose url raw /supports-color
+665 verbose url resolving [ 'https://registry.npmjs.org/', './supports-color' ]
+666 verbose url resolved https://registry.npmjs.org/supports-color
+667 verbose request where is https://registry.npmjs.org/supports-color
+668 info trying registry request attempt 1 at 00:53:12
+669 verbose etag "4SHNAEHD19S3VGADXSKO905S7"
+670 http GET https://registry.npmjs.org/supports-color
+671 verbose request where is /ansi-styles
+672 verbose request registry https://registry.npmjs.org/
+673 verbose url raw /ansi-styles
+674 verbose url resolving [ 'https://registry.npmjs.org/', './ansi-styles' ]
+675 verbose url resolved https://registry.npmjs.org/ansi-styles
+676 verbose request where is https://registry.npmjs.org/ansi-styles
+677 info trying registry request attempt 1 at 00:53:12
+678 verbose etag "9O45NVZEP528XJ58TZ8A6DMA0"
+679 http GET https://registry.npmjs.org/ansi-styles
+680 verbose request where is /escape-string-regexp
+681 verbose request registry https://registry.npmjs.org/
+682 verbose url raw /escape-string-regexp
+683 verbose url resolving [ 'https://registry.npmjs.org/', './escape-string-regexp' ]
+684 verbose url resolved https://registry.npmjs.org/escape-string-regexp
+685 verbose request where is https://registry.npmjs.org/escape-string-regexp
+686 info trying registry request attempt 1 at 00:53:12
+687 verbose etag "8MOKZ3EZW5AOLELFFTR0T8K98"
+688 http GET https://registry.npmjs.org/escape-string-regexp
+689 verbose request where is /has-ansi
+690 verbose request registry https://registry.npmjs.org/
+691 verbose url raw /has-ansi
+692 verbose url resolving [ 'https://registry.npmjs.org/', './has-ansi' ]
+693 verbose url resolved https://registry.npmjs.org/has-ansi
+694 verbose request where is https://registry.npmjs.org/has-ansi
+695 info trying registry request attempt 1 at 00:53:12
+696 verbose etag "E4845616HRC12WMH43M936NTT"
+697 http GET https://registry.npmjs.org/has-ansi
+698 verbose request where is /supports-color
+699 verbose request registry https://registry.npmjs.org/
+700 verbose url raw /supports-color
+701 verbose url resolving [ 'https://registry.npmjs.org/', './supports-color' ]
+702 verbose url resolved https://registry.npmjs.org/supports-color
+703 verbose request where is https://registry.npmjs.org/supports-color
+704 info trying registry request attempt 1 at 00:53:12
+705 verbose etag "4SHNAEHD19S3VGADXSKO905S7"
+706 http GET https://registry.npmjs.org/supports-color
+707 verbose request where is /strip-ansi
+708 verbose request registry https://registry.npmjs.org/
+709 verbose url raw /strip-ansi
+710 verbose url resolving [ 'https://registry.npmjs.org/', './strip-ansi' ]
+711 verbose url resolved https://registry.npmjs.org/strip-ansi
+712 verbose request where is https://registry.npmjs.org/strip-ansi
+713 info trying registry request attempt 1 at 00:53:12
+714 verbose etag "9D9S1Y0BBQD36UMUV9U38ZKG1"
+715 http GET https://registry.npmjs.org/strip-ansi
+716 http 200 https://registry.npmjs.org/async
+717 silly registry.get cb [ 200,
+717 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+717 silly registry.get     etag: '"K3K29P9VIBBT6TDRQWGJU0Z9"',
+717 silly registry.get     'content-type': 'application/json',
+717 silly registry.get     'cache-control': 'max-age=60',
+717 silly registry.get     'content-length': '108437',
+717 silly registry.get     'accept-ranges': 'bytes',
+717 silly registry.get     date: 'Sun, 24 May 2015 04:53:12 GMT',
+717 silly registry.get     via: '1.1 varnish',
+717 silly registry.get     age: '23',
+717 silly registry.get     connection: 'keep-alive',
+717 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+717 silly registry.get     'x-cache': 'HIT',
+717 silly registry.get     'x-cache-hits': '1',
+717 silly registry.get     'x-timer': 'S1432443192.832951,VS0,VE0',
+717 silly registry.get     vary: 'Accept' } ]
+718 http 304 https://registry.npmjs.org/grunt-closure-tools
+719 silly registry.get cb [ 304,
+719 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+719 silly registry.get     via: '1.1 varnish',
+719 silly registry.get     'cache-control': 'max-age=60',
+719 silly registry.get     etag: '"BKURXPYOP1AA9Y7SQAJZIO5UG"',
+719 silly registry.get     age: '0',
+719 silly registry.get     connection: 'keep-alive',
+719 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+719 silly registry.get     'x-cache': 'MISS',
+719 silly registry.get     'x-cache-hits': '0',
+719 silly registry.get     'x-timer': 'S1432443192.577156,VS0,VE511',
+719 silly registry.get     vary: 'Accept' } ]
+720 verbose etag https://registry.npmjs.org/grunt-closure-tools from cache
+721 verbose registry.get https://registry.npmjs.org/grunt not expired, no request
+722 verbose request where is /task-closure-tools
+723 verbose request registry https://registry.npmjs.org/
+724 verbose url raw /task-closure-tools
+725 verbose url resolving [ 'https://registry.npmjs.org/', './task-closure-tools' ]
+726 verbose url resolved https://registry.npmjs.org/task-closure-tools
+727 verbose request where is https://registry.npmjs.org/task-closure-tools
+728 info trying registry request attempt 1 at 00:53:13
+729 verbose etag "B9NMV76G5E1VBDESJ9WMROSVO"
+730 http GET https://registry.npmjs.org/task-closure-tools
+731 http 304 https://registry.npmjs.org/eventemitter2
+732 silly registry.get cb [ 304,
+732 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+732 silly registry.get     via: '1.1 varnish',
+732 silly registry.get     'cache-control': 'max-age=60',
+732 silly registry.get     etag: '"54TRNU01D6VYJR0JRWWNQGHHG"',
+732 silly registry.get     age: '0',
+732 silly registry.get     connection: 'keep-alive',
+732 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+732 silly registry.get     'x-cache': 'HIT',
+732 silly registry.get     'x-cache-hits': '1',
+732 silly registry.get     'x-timer': 'S1432443193.094707,VS0,VE19',
+732 silly registry.get     vary: 'Accept' } ]
+733 verbose etag https://registry.npmjs.org/eventemitter2 from cache
+734 http 304 https://registry.npmjs.org/findup-sync
+735 silly registry.get cb [ 304,
+735 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+735 silly registry.get     via: '1.1 varnish',
+735 silly registry.get     'cache-control': 'max-age=60',
+735 silly registry.get     etag: '"CT2PJF8E88RPQNWEIB1UFL8EJ"',
+735 silly registry.get     age: '14',
+735 silly registry.get     connection: 'keep-alive',
+735 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+735 silly registry.get     'x-cache': 'HIT',
+735 silly registry.get     'x-cache-hits': '1',
+735 silly registry.get     'x-timer': 'S1432443193.120219,VS0,VE0',
+735 silly registry.get     vary: 'Accept' } ]
+736 verbose etag https://registry.npmjs.org/findup-sync from cache
+737 http 304 https://registry.npmjs.org/rimraf
+738 silly registry.get cb [ 304,
+738 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+738 silly registry.get     via: '1.1 varnish',
+738 silly registry.get     'cache-control': 'max-age=60',
+738 silly registry.get     etag: '"DQDTWFNCQ2ICIOV2HL8RRB221"',
+738 silly registry.get     age: '39',
+738 silly registry.get     connection: 'keep-alive',
+738 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+738 silly registry.get     'x-cache': 'HIT',
+738 silly registry.get     'x-cache-hits': '2',
+738 silly registry.get     'x-timer': 'S1432443193.132709,VS0,VE0',
+738 silly registry.get     vary: 'Accept' } ]
+739 verbose etag https://registry.npmjs.org/rimraf from cache
+740 http 304 https://registry.npmjs.org/iconv-lite
+741 silly registry.get cb [ 304,
+741 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+741 silly registry.get     via: '1.1 varnish',
+741 silly registry.get     'cache-control': 'max-age=60',
+741 silly registry.get     etag: '"EUIVZS1MPS155YPHSYHX4WRSF"',
+741 silly registry.get     age: '58',
+741 silly registry.get     connection: 'keep-alive',
+741 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+741 silly registry.get     'x-cache': 'HIT',
+741 silly registry.get     'x-cache-hits': '2',
+741 silly registry.get     'x-timer': 'S1432443193.136561,VS0,VE0',
+741 silly registry.get     vary: 'Accept' } ]
+742 verbose etag https://registry.npmjs.org/iconv-lite from cache
+743 http 304 https://registry.npmjs.org/nopt
+744 silly registry.get cb [ 304,
+744 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+744 silly registry.get     via: '1.1 varnish',
+744 silly registry.get     'cache-control': 'max-age=60',
+744 silly registry.get     etag: '"A8CBK40782AWTJ20USTOGAD1T"',
+744 silly registry.get     age: '32',
+744 silly registry.get     connection: 'keep-alive',
+744 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+744 silly registry.get     'x-cache': 'HIT',
+744 silly registry.get     'x-cache-hits': '2',
+744 silly registry.get     'x-timer': 'S1432443193.143026,VS0,VE0',
+744 silly registry.get     vary: 'Accept' } ]
+745 verbose etag https://registry.npmjs.org/nopt from cache
+746 http 304 https://registry.npmjs.org/minimatch
+747 silly registry.get cb [ 304,
+747 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+747 silly registry.get     via: '1.1 varnish',
+747 silly registry.get     'cache-control': 'max-age=60',
+747 silly registry.get     etag: '"AH31MK4JMKC8MKID8NDI058Y0"',
+747 silly registry.get     age: '35',
+747 silly registry.get     connection: 'keep-alive',
+747 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+747 silly registry.get     'x-cache': 'HIT',
+747 silly registry.get     'x-cache-hits': '3',
+747 silly registry.get     'x-timer': 'S1432443193.147689,VS0,VE0',
+747 silly registry.get     vary: 'Accept' } ]
+748 verbose etag https://registry.npmjs.org/minimatch from cache
+749 http 304 https://registry.npmjs.org/qunit
+750 silly registry.get cb [ 304,
+750 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+750 silly registry.get     via: '1.1 varnish',
+750 silly registry.get     'cache-control': 'max-age=60',
+750 silly registry.get     etag: '"5VGVQ15869W50EEXL8DETH49E"',
+750 silly registry.get     age: '0',
+750 silly registry.get     connection: 'keep-alive',
+750 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+750 silly registry.get     'x-cache': 'MISS',
+750 silly registry.get     'x-cache-hits': '0',
+750 silly registry.get     'x-timer': 'S1432443192.832469,VS0,VE329',
+750 silly registry.get     vary: 'Accept' } ]
+751 verbose etag https://registry.npmjs.org/qunit from cache
+752 http 304 https://registry.npmjs.org/lodash
+753 silly registry.get cb [ 304,
+753 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+753 silly registry.get     via: '1.1 varnish',
+753 silly registry.get     'cache-control': 'max-age=60',
+753 silly registry.get     etag: '"C1KCO6W9UZFQ1D9BX8XB2XX22"',
+753 silly registry.get     age: '38',
+753 silly registry.get     connection: 'keep-alive',
+753 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+753 silly registry.get     'x-cache': 'HIT',
+753 silly registry.get     'x-cache-hits': '4',
+753 silly registry.get     'x-timer': 'S1432443193.167837,VS0,VE0',
+753 silly registry.get     vary: 'Accept' } ]
+754 verbose etag https://registry.npmjs.org/lodash from cache
+755 http 200 https://registry.npmjs.org/glob
+756 silly registry.get cb [ 200,
+756 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+756 silly registry.get     etag: '"5C52NEUUOSND981UI04HPKY9K"',
+756 silly registry.get     'content-type': 'application/json',
+756 silly registry.get     'cache-control': 'max-age=60',
+756 silly registry.get     'content-length': '100219',
+756 silly registry.get     'accept-ranges': 'bytes',
+756 silly registry.get     date: 'Sun, 24 May 2015 04:53:13 GMT',
+756 silly registry.get     via: '1.1 varnish',
+756 silly registry.get     age: '46',
+756 silly registry.get     connection: 'keep-alive',
+756 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+756 silly registry.get     'x-cache': 'HIT',
+756 silly registry.get     'x-cache-hits': '2',
+756 silly registry.get     'x-timer': 'S1432443193.151522,VS0,VE0',
+756 silly registry.get     vary: 'Accept' } ]
+757 http 304 https://registry.npmjs.org/preprocess
+758 silly registry.get cb [ 304,
+758 silly registry.get   { date: 'Sun, 24 May 2015 04:53:12 GMT',
+758 silly registry.get     via: '1.1 varnish',
+758 silly registry.get     'cache-control': 'max-age=60',
+758 silly registry.get     etag: '"7DSUCHZLCAJ7HIOVO4EEOXAP6"',
+758 silly registry.get     age: '0',
+758 silly registry.get     connection: 'keep-alive',
+758 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+758 silly registry.get     'x-cache': 'MISS',
+758 silly registry.get     'x-cache-hits': '0',
+758 silly registry.get     'x-timer': 'S1432443192.784527,VS0,VE424',
+758 silly registry.get     vary: 'Accept' } ]
+759 verbose etag https://registry.npmjs.org/preprocess from cache
+760 http 304 https://registry.npmjs.org/js-yaml
+761 silly registry.get cb [ 304,
+761 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+761 silly registry.get     via: '1.1 varnish',
+761 silly registry.get     'cache-control': 'max-age=60',
+761 silly registry.get     etag: '"899YZGMAM37YSMI1VIY9LYF26"',
+761 silly registry.get     age: '0',
+761 silly registry.get     connection: 'keep-alive',
+761 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+761 silly registry.get     'x-cache': 'HIT',
+761 silly registry.get     'x-cache-hits': '1',
+761 silly registry.get     'x-timer': 'S1432443193.197919,VS0,VE18',
+761 silly registry.get     vary: 'Accept' } ]
+762 verbose etag https://registry.npmjs.org/js-yaml from cache
+763 http 304 https://registry.npmjs.org/exit
+764 silly registry.get cb [ 304,
+764 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+764 silly registry.get     via: '1.1 varnish',
+764 silly registry.get     'cache-control': 'max-age=60',
+764 silly registry.get     etag: '"66GA3RUQR76WJVRZF6ITVOZPO"',
+764 silly registry.get     age: '0',
+764 silly registry.get     connection: 'keep-alive',
+764 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+764 silly registry.get     'x-cache': 'HIT',
+764 silly registry.get     'x-cache-hits': '1',
+764 silly registry.get     'x-timer': 'S1432443193.221056,VS0,VE19',
+764 silly registry.get     vary: 'Accept' } ]
+765 verbose etag https://registry.npmjs.org/exit from cache
+766 http 304 https://registry.npmjs.org/grunt-legacy-util
+767 silly registry.get cb [ 304,
+767 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+767 silly registry.get     via: '1.1 varnish',
+767 silly registry.get     'cache-control': 'max-age=60',
+767 silly registry.get     etag: '"937M3ZH1Z0OA0IWSDR7Y8V1TP"',
+767 silly registry.get     age: '8',
+767 silly registry.get     connection: 'keep-alive',
+767 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+767 silly registry.get     'x-cache': 'HIT',
+767 silly registry.get     'x-cache-hits': '1',
+767 silly registry.get     'x-timer': 'S1432443193.245025,VS0,VE0',
+767 silly registry.get     vary: 'Accept' } ]
+768 verbose etag https://registry.npmjs.org/grunt-legacy-util from cache
+769 verbose registry.get https://registry.npmjs.org/hooker not expired, no request
+770 verbose registry.get https://registry.npmjs.org/async not expired, no request
+771 verbose registry.get https://registry.npmjs.org/exit not expired, no request
+772 verbose request where is /underscore.string
+773 verbose request registry https://registry.npmjs.org/
+774 verbose url raw /underscore.string
+775 verbose url resolving [ 'https://registry.npmjs.org/', './underscore.string' ]
+776 verbose url resolved https://registry.npmjs.org/underscore.string
+777 verbose request where is https://registry.npmjs.org/underscore.string
+778 info trying registry request attempt 1 at 00:53:13
+779 verbose etag "EUR2XPGZX64EHU0KFCNIFQUCI"
+780 http GET https://registry.npmjs.org/underscore.string
+781 verbose request where is /getobject
+782 verbose request registry https://registry.npmjs.org/
+783 verbose url raw /getobject
+784 verbose url resolving [ 'https://registry.npmjs.org/', './getobject' ]
+785 verbose url resolved https://registry.npmjs.org/getobject
+786 verbose request where is https://registry.npmjs.org/getobject
+787 info trying registry request attempt 1 at 00:53:13
+788 verbose etag "BPRQ6ZA5H0SY8TQS2VENHJTW0"
+789 http GET https://registry.npmjs.org/getobject
+790 verbose registry.get https://registry.npmjs.org/lodash not expired, no request
+791 verbose request where is /which
+792 verbose request registry https://registry.npmjs.org/
+793 verbose url raw /which
+794 verbose url resolving [ 'https://registry.npmjs.org/', './which' ]
+795 verbose url resolved https://registry.npmjs.org/which
+796 verbose request where is https://registry.npmjs.org/which
+797 info trying registry request attempt 1 at 00:53:13
+798 verbose etag "96S32KNGR7RC2G6UDCTQWOHI9"
+799 http GET https://registry.npmjs.org/which
+800 http 304 https://registry.npmjs.org/which
+801 silly registry.get cb [ 304,
+801 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+801 silly registry.get     via: '1.1 varnish',
+801 silly registry.get     'cache-control': 'max-age=60',
+801 silly registry.get     etag: '"96S32KNGR7RC2G6UDCTQWOHI9"',
+801 silly registry.get     age: '0',
+801 silly registry.get     connection: 'keep-alive',
+801 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+801 silly registry.get     'x-cache': 'HIT',
+801 silly registry.get     'x-cache-hits': '1',
+801 silly registry.get     'x-timer': 'S1432443193.173344,VS0,VE85',
+801 silly registry.get     vary: 'Accept' } ]
+802 verbose etag https://registry.npmjs.org/which from cache
+803 http 304 https://registry.npmjs.org/grunt-legacy-log
+804 silly registry.get cb [ 304,
+804 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+804 silly registry.get     via: '1.1 varnish',
+804 silly registry.get     'cache-control': 'max-age=60',
+804 silly registry.get     etag: '"BU34V1HJNA64DGH9DPYVFSK8T"',
+804 silly registry.get     age: '8',
+804 silly registry.get     connection: 'keep-alive',
+804 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+804 silly registry.get     'x-cache': 'HIT',
+804 silly registry.get     'x-cache-hits': '1',
+804 silly registry.get     'x-timer': 'S1432443193.282124,VS0,VE0',
+804 silly registry.get     vary: 'Accept' } ]
+805 verbose etag https://registry.npmjs.org/grunt-legacy-log from cache
+806 http 304 https://registry.npmjs.org/exit
+807 silly registry.get cb [ 304,
+807 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+807 silly registry.get     via: '1.1 varnish',
+807 silly registry.get     'cache-control': 'max-age=60',
+807 silly registry.get     etag: '"66GA3RUQR76WJVRZF6ITVOZPO"',
+807 silly registry.get     age: '0',
+807 silly registry.get     connection: 'keep-alive',
+807 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+807 silly registry.get     'x-cache': 'HIT',
+807 silly registry.get     'x-cache-hits': '1',
+807 silly registry.get     'x-timer': 'S1432443193.286533,VS0,VE0',
+807 silly registry.get     vary: 'Accept' } ]
+808 verbose etag https://registry.npmjs.org/exit from cache
+809 verbose registry.get https://registry.npmjs.org/lodash not expired, no request
+810 verbose registry.get https://registry.npmjs.org/hooker not expired, no request
+811 verbose request where is /underscore.string
+812 verbose request registry https://registry.npmjs.org/
+813 verbose url raw /underscore.string
+814 verbose url resolving [ 'https://registry.npmjs.org/', './underscore.string' ]
+815 verbose url resolved https://registry.npmjs.org/underscore.string
+816 verbose request where is https://registry.npmjs.org/underscore.string
+817 info trying registry request attempt 1 at 00:53:13
+818 verbose etag "EUR2XPGZX64EHU0KFCNIFQUCI"
+819 http GET https://registry.npmjs.org/underscore.string
+820 verbose request where is /colors
+821 verbose request registry https://registry.npmjs.org/
+822 verbose url raw /colors
+823 verbose url resolving [ 'https://registry.npmjs.org/', './colors' ]
+824 verbose url resolved https://registry.npmjs.org/colors
+825 verbose request where is https://registry.npmjs.org/colors
+826 info trying registry request attempt 1 at 00:53:13
+827 verbose etag "455U5TEI7R0W3RPXNOGREZ6FP"
+828 http GET https://registry.npmjs.org/colors
+829 http 304 https://registry.npmjs.org/minimatch
+830 silly registry.get cb [ 304,
+830 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+830 silly registry.get     via: '1.1 varnish',
+830 silly registry.get     'cache-control': 'max-age=60',
+830 silly registry.get     etag: '"AH31MK4JMKC8MKID8NDI058Y0"',
+830 silly registry.get     age: '35',
+830 silly registry.get     connection: 'keep-alive',
+830 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+830 silly registry.get     'x-cache': 'HIT',
+830 silly registry.get     'x-cache-hits': '1',
+830 silly registry.get     'x-timer': 'S1432443193.290798,VS0,VE0',
+830 silly registry.get     vary: 'Accept' } ]
+831 verbose etag https://registry.npmjs.org/minimatch from cache
+832 verbose request where is /brace-expansion
+833 verbose request registry https://registry.npmjs.org/
+834 verbose url raw /brace-expansion
+835 verbose url resolving [ 'https://registry.npmjs.org/', './brace-expansion' ]
+836 verbose url resolved https://registry.npmjs.org/brace-expansion
+837 verbose request where is https://registry.npmjs.org/brace-expansion
+838 info trying registry request attempt 1 at 00:53:13
+839 verbose etag "18Z2VDE6EPY9JHP7D0I3PN5DH"
+840 http GET https://registry.npmjs.org/brace-expansion
+841 http 200 https://registry.npmjs.org/coffee-script
+842 silly registry.get cb [ 200,
+842 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+842 silly registry.get     etag: '"9Z7RNT1T1QPILLSBPGCBVIT19"',
+842 silly registry.get     'content-type': 'application/json',
+842 silly registry.get     'cache-control': 'max-age=60',
+842 silly registry.get     'content-length': '37472',
+842 silly registry.get     'accept-ranges': 'bytes',
+842 silly registry.get     date: 'Sun, 24 May 2015 04:53:13 GMT',
+842 silly registry.get     via: '1.1 varnish',
+842 silly registry.get     age: '0',
+842 silly registry.get     connection: 'keep-alive',
+842 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+842 silly registry.get     'x-cache': 'HIT',
+842 silly registry.get     'x-cache-hits': '1',
+842 silly registry.get     'x-timer': 'S1432443192.938397,VS0,VE365',
+842 silly registry.get     vary: 'Accept' } ]
+843 http 304 https://registry.npmjs.org/tap
+844 silly registry.get cb [ 304,
+844 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+844 silly registry.get     via: '1.1 varnish',
+844 silly registry.get     'cache-control': 'max-age=60',
+844 silly registry.get     etag: '"A4ENRFP4G8R7PJIQRCK7HL8DX"',
+844 silly registry.get     age: '0',
+844 silly registry.get     connection: 'keep-alive',
+844 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+844 silly registry.get     'x-cache': 'HIT',
+844 silly registry.get     'x-cache-hits': '1',
+844 silly registry.get     'x-timer': 'S1432443193.299654,VS0,VE19',
+844 silly registry.get     vary: 'Accept' } ]
+845 verbose etag https://registry.npmjs.org/tap from cache
+846 http 304 https://registry.npmjs.org/console-browserify
+847 silly registry.get cb [ 304,
+847 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+847 silly registry.get     via: '1.1 varnish',
+847 silly registry.get     'cache-control': 'max-age=60',
+847 silly registry.get     etag: '"9P4UVMYNOTKBMJP46LG2SRWG"',
+847 silly registry.get     age: '51',
+847 silly registry.get     connection: 'keep-alive',
+847 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+847 silly registry.get     'x-cache': 'HIT',
+847 silly registry.get     'x-cache-hits': '1',
+847 silly registry.get     'x-timer': 'S1432443193.318421,VS0,VE0',
+847 silly registry.get     vary: 'Accept' } ]
+848 verbose etag https://registry.npmjs.org/console-browserify from cache
+849 verbose request where is /date-now
+850 verbose request registry https://registry.npmjs.org/
+851 verbose url raw /date-now
+852 verbose url resolving [ 'https://registry.npmjs.org/', './date-now' ]
+853 verbose url resolved https://registry.npmjs.org/date-now
+854 verbose request where is https://registry.npmjs.org/date-now
+855 info trying registry request attempt 1 at 00:53:13
+856 verbose etag "4IVDPT1USQTTDVL345B8VOWJW"
+857 http GET https://registry.npmjs.org/date-now
+858 http 304 https://registry.npmjs.org/getobject
+859 silly registry.get cb [ 304,
+859 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+859 silly registry.get     via: '1.1 varnish',
+859 silly registry.get     'cache-control': 'max-age=60',
+859 silly registry.get     etag: '"BPRQ6ZA5H0SY8TQS2VENHJTW0"',
+859 silly registry.get     age: '0',
+859 silly registry.get     connection: 'keep-alive',
+859 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+859 silly registry.get     'x-cache': 'HIT',
+859 silly registry.get     'x-cache-hits': '1',
+859 silly registry.get     'x-timer': 'S1432443193.249519,VS0,VE79',
+859 silly registry.get     vary: 'Accept' } ]
+860 verbose etag https://registry.npmjs.org/getobject from cache
+861 http 304 https://registry.npmjs.org/shelljs
+862 silly registry.get cb [ 304,
+862 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+862 silly registry.get     via: '1.1 varnish',
+862 silly registry.get     'cache-control': 'max-age=60',
+862 silly registry.get     etag: '"24HQG9B78S14UI9CPL9I6DEFO"',
+862 silly registry.get     age: '51',
+862 silly registry.get     connection: 'keep-alive',
+862 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+862 silly registry.get     'x-cache': 'HIT',
+862 silly registry.get     'x-cache-hits': '1',
+862 silly registry.get     'x-timer': 'S1432443193.334924,VS0,VE0',
+862 silly registry.get     vary: 'Accept' } ]
+863 verbose etag https://registry.npmjs.org/shelljs from cache
+864 http 200 https://registry.npmjs.org/cli
+865 silly registry.get cb [ 200,
+865 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+865 silly registry.get     etag: '"CRXRH1FDI61LL0S2HAKF8HJWK"',
+865 silly registry.get     'content-type': 'application/json',
+865 silly registry.get     'cache-control': 'max-age=60',
+865 silly registry.get     'content-length': '53459',
+865 silly registry.get     'accept-ranges': 'bytes',
+865 silly registry.get     date: 'Sun, 24 May 2015 04:53:13 GMT',
+865 silly registry.get     via: '1.1 varnish',
+865 silly registry.get     age: '51',
+865 silly registry.get     connection: 'keep-alive',
+865 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+865 silly registry.get     'x-cache': 'HIT',
+865 silly registry.get     'x-cache-hits': '2',
+865 silly registry.get     'x-timer': 'S1432443193.323241,VS0,VE0',
+865 silly registry.get     vary: 'Accept' } ]
+866 http 304 https://registry.npmjs.org/strip-json-comments
+867 silly registry.get cb [ 304,
+867 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+867 silly registry.get     via: '1.1 varnish',
+867 silly registry.get     'cache-control': 'max-age=60',
+867 silly registry.get     etag: '"18AM02OC56FGV63KROIALAXYJ"',
+867 silly registry.get     age: '20',
+867 silly registry.get     connection: 'keep-alive',
+867 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+867 silly registry.get     'x-cache': 'HIT',
+867 silly registry.get     'x-cache-hits': '1',
+867 silly registry.get     'x-timer': 'S1432443193.339642,VS0,VE0',
+867 silly registry.get     vary: 'Accept' } ]
+868 verbose etag https://registry.npmjs.org/strip-json-comments from cache
+869 http 304 https://registry.npmjs.org/lodash
+870 silly registry.get cb [ 304,
+870 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+870 silly registry.get     via: '1.1 varnish',
+870 silly registry.get     'cache-control': 'max-age=60',
+870 silly registry.get     etag: '"C1KCO6W9UZFQ1D9BX8XB2XX22"',
+870 silly registry.get     age: '38',
+870 silly registry.get     connection: 'keep-alive',
+870 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+870 silly registry.get     'x-cache': 'HIT',
+870 silly registry.get     'x-cache-hits': '3',
+870 silly registry.get     'x-timer': 'S1432443193.346047,VS0,VE0',
+870 silly registry.get     vary: 'Accept' } ]
+871 verbose etag https://registry.npmjs.org/lodash from cache
+872 http 304 https://registry.npmjs.org/htmlparser2
+873 silly registry.get cb [ 304,
+873 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+873 silly registry.get     via: '1.1 varnish',
+873 silly registry.get     'cache-control': 'max-age=60',
+873 silly registry.get     etag: '"9SXA9UDAD8S5U9BCRGVRK30IN"',
+873 silly registry.get     age: '11',
+873 silly registry.get     connection: 'keep-alive',
+873 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+873 silly registry.get     'x-cache': 'HIT',
+873 silly registry.get     'x-cache-hits': '1',
+873 silly registry.get     'x-timer': 'S1432443193.345939,VS0,VE1',
+873 silly registry.get     vary: 'Accept' } ]
+874 verbose etag https://registry.npmjs.org/htmlparser2 from cache
+875 verbose registry.get https://registry.npmjs.org/exit not expired, no request
+876 verbose registry.get https://registry.npmjs.org/glob not expired, no request
+877 http 304 https://registry.npmjs.org/maxmin
+878 silly registry.get cb [ 304,
+878 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+878 silly registry.get     via: '1.1 varnish',
+878 silly registry.get     'cache-control': 'max-age=60',
+878 silly registry.get     etag: '"EENLE5FZRFP68IV1RY3RUHCMX"',
+878 silly registry.get     age: '0',
+878 silly registry.get     connection: 'keep-alive',
+878 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+878 silly registry.get     'x-cache': 'HIT',
+878 silly registry.get     'x-cache-hits': '1',
+878 silly registry.get     'x-timer': 'S1432443193.351281,VS0,VE19',
+878 silly registry.get     vary: 'Accept' } ]
+879 verbose etag https://registry.npmjs.org/maxmin from cache
+880 verbose request where is /domhandler
+881 verbose request registry https://registry.npmjs.org/
+882 verbose url raw /domhandler
+883 verbose url resolving [ 'https://registry.npmjs.org/', './domhandler' ]
+884 verbose url resolved https://registry.npmjs.org/domhandler
+885 verbose request where is https://registry.npmjs.org/domhandler
+886 info trying registry request attempt 1 at 00:53:13
+887 verbose etag "6YLTRC4KPNRA8002MMLMDUZHQ"
+888 http GET https://registry.npmjs.org/domhandler
+889 verbose request where is /domelementtype
+890 verbose request registry https://registry.npmjs.org/
+891 verbose url raw /domelementtype
+892 verbose url resolving [ 'https://registry.npmjs.org/', './domelementtype' ]
+893 verbose url resolved https://registry.npmjs.org/domelementtype
+894 verbose request where is https://registry.npmjs.org/domelementtype
+895 info trying registry request attempt 1 at 00:53:13
+896 verbose etag "4W2849LOGQQ1FMDQHW6E59VF1"
+897 http GET https://registry.npmjs.org/domelementtype
+898 verbose request where is /domutils
+899 verbose request registry https://registry.npmjs.org/
+900 verbose url raw /domutils
+901 verbose url resolving [ 'https://registry.npmjs.org/', './domutils' ]
+902 verbose url resolved https://registry.npmjs.org/domutils
+903 verbose request where is https://registry.npmjs.org/domutils
+904 info trying registry request attempt 1 at 00:53:13
+905 verbose etag "DEDBJTHGW9Y0ZH23SCVHKGJ3Y"
+906 http GET https://registry.npmjs.org/domutils
+907 verbose request where is /readable-stream
+908 verbose request registry https://registry.npmjs.org/
+909 verbose url raw /readable-stream
+910 verbose url resolving [ 'https://registry.npmjs.org/', './readable-stream' ]
+911 verbose url resolved https://registry.npmjs.org/readable-stream
+912 verbose request where is https://registry.npmjs.org/readable-stream
+913 info trying registry request attempt 1 at 00:53:13
+914 verbose etag "6O1H7OGAPQTOP5BUMS29K973M"
+915 http GET https://registry.npmjs.org/readable-stream
+916 verbose request where is /entities
+917 verbose request registry https://registry.npmjs.org/
+918 verbose url raw /entities
+919 verbose url resolving [ 'https://registry.npmjs.org/', './entities' ]
+920 verbose url resolved https://registry.npmjs.org/entities
+921 verbose request where is https://registry.npmjs.org/entities
+922 info trying registry request attempt 1 at 00:53:13
+923 verbose etag "20LYBDXZAMNFOFAMGR0W8D9GX"
+924 http GET https://registry.npmjs.org/entities
+925 verbose registry.get https://registry.npmjs.org/chalk not expired, no request
+926 verbose request where is /figures
+927 verbose request registry https://registry.npmjs.org/
+928 verbose url raw /figures
+929 verbose url resolving [ 'https://registry.npmjs.org/', './figures' ]
+930 verbose url resolved https://registry.npmjs.org/figures
+931 verbose request where is https://registry.npmjs.org/figures
+932 info trying registry request attempt 1 at 00:53:13
+933 verbose etag "31ID7SQW0KYI358C9VJ5357DL"
+934 http GET https://registry.npmjs.org/figures
+935 verbose request where is /pretty-bytes
+936 verbose request registry https://registry.npmjs.org/
+937 verbose url raw /pretty-bytes
+938 verbose url resolving [ 'https://registry.npmjs.org/', './pretty-bytes' ]
+939 verbose url resolved https://registry.npmjs.org/pretty-bytes
+940 verbose request where is https://registry.npmjs.org/pretty-bytes
+941 info trying registry request attempt 1 at 00:53:13
+942 verbose etag "43CR4I1SHVWIRRSQZLNROV28Y"
+943 http GET https://registry.npmjs.org/pretty-bytes
+944 verbose request where is /gzip-size
+945 verbose request registry https://registry.npmjs.org/
+946 verbose url raw /gzip-size
+947 verbose url resolving [ 'https://registry.npmjs.org/', './gzip-size' ]
+948 verbose url resolved https://registry.npmjs.org/gzip-size
+949 verbose request where is https://registry.npmjs.org/gzip-size
+950 info trying registry request attempt 1 at 00:53:13
+951 verbose etag "EJOSR07C6MVN5EXZKXRBXU4L"
+952 http GET https://registry.npmjs.org/gzip-size
+953 http 200 https://registry.npmjs.org/uglify-js
+954 silly registry.get cb [ 200,
+954 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+954 silly registry.get     etag: '"9P5PDD85CD7VUUVUT7S56V24I"',
+954 silly registry.get     'content-type': 'application/json',
+954 silly registry.get     'cache-control': 'max-age=60',
+954 silly registry.get     'content-length': '95892',
+954 silly registry.get     'accept-ranges': 'bytes',
+954 silly registry.get     date: 'Sun, 24 May 2015 04:53:13 GMT',
+954 silly registry.get     via: '1.1 varnish',
+954 silly registry.get     age: '20',
+954 silly registry.get     connection: 'keep-alive',
+954 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+954 silly registry.get     'x-cache': 'HIT',
+954 silly registry.get     'x-cache-hits': '2',
+954 silly registry.get     'x-timer': 'S1432443193.375566,VS0,VE0',
+954 silly registry.get     vary: 'Accept' } ]
+955 http 304 https://registry.npmjs.org/ansi-styles
+956 silly registry.get cb [ 304,
+956 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+956 silly registry.get     via: '1.1 varnish',
+956 silly registry.get     'cache-control': 'max-age=60',
+956 silly registry.get     etag: '"9O45NVZEP528XJ58TZ8A6DMA0"',
+956 silly registry.get     age: '47',
+956 silly registry.get     connection: 'keep-alive',
+956 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+956 silly registry.get     'x-cache': 'HIT',
+956 silly registry.get     'x-cache-hits': '4',
+956 silly registry.get     'x-timer': 'S1432443193.417825,VS0,VE0',
+956 silly registry.get     vary: 'Accept' } ]
+957 verbose etag https://registry.npmjs.org/ansi-styles from cache
+958 http 304 https://registry.npmjs.org/escape-string-regexp
+959 silly registry.get cb [ 304,
+959 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+959 silly registry.get     via: '1.1 varnish',
+959 silly registry.get     'cache-control': 'max-age=60',
+959 silly registry.get     etag: '"8MOKZ3EZW5AOLELFFTR0T8K98"',
+959 silly registry.get     age: '42',
+959 silly registry.get     connection: 'keep-alive',
+959 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+959 silly registry.get     'x-cache': 'HIT',
+959 silly registry.get     'x-cache-hits': '2',
+959 silly registry.get     'x-timer': 'S1432443193.423397,VS0,VE0',
+959 silly registry.get     vary: 'Accept' } ]
+960 verbose etag https://registry.npmjs.org/escape-string-regexp from cache
+961 verbose registry.get https://registry.npmjs.org/source-map not expired, no request
+962 verbose registry.get https://registry.npmjs.org/async not expired, no request
+963 http 200 https://registry.npmjs.org/colors
+964 silly registry.get cb [ 200,
+964 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+964 silly registry.get     etag: '"4QP807NTK5M1E617PPHC0T1IW"',
+964 silly registry.get     'content-type': 'application/json',
+964 silly registry.get     'cache-control': 'max-age=60',
+964 silly registry.get     'content-length': '17283',
+964 silly registry.get     'accept-ranges': 'bytes',
+964 silly registry.get     date: 'Sun, 24 May 2015 04:53:13 GMT',
+964 silly registry.get     via: '1.1 varnish',
+964 silly registry.get     age: '0',
+964 silly registry.get     connection: 'keep-alive',
+964 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+964 silly registry.get     'x-cache': 'HIT',
+964 silly registry.get     'x-cache-hits': '1',
+964 silly registry.get     'x-timer': 'S1432443193.077427,VS0,VE347',
+964 silly registry.get     vary: 'Accept' } ]
+965 http 304 https://registry.npmjs.org/has-ansi
+966 silly registry.get cb [ 304,
+966 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+966 silly registry.get     via: '1.1 varnish',
+966 silly registry.get     'cache-control': 'max-age=60',
+966 silly registry.get     etag: '"E4845616HRC12WMH43M936NTT"',
+966 silly registry.get     age: '43',
+966 silly registry.get     connection: 'keep-alive',
+966 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+966 silly registry.get     'x-cache': 'HIT',
+966 silly registry.get     'x-cache-hits': '2',
+966 silly registry.get     'x-timer': 'S1432443193.428851,VS0,VE0',
+966 silly registry.get     vary: 'Accept' } ]
+967 verbose etag https://registry.npmjs.org/has-ansi from cache
+968 verbose request where is /yargs
+969 verbose request registry https://registry.npmjs.org/
+970 verbose url raw /yargs
+971 verbose url resolving [ 'https://registry.npmjs.org/', './yargs' ]
+972 verbose url resolved https://registry.npmjs.org/yargs
+973 verbose request where is https://registry.npmjs.org/yargs
+974 info trying registry request attempt 1 at 00:53:13
+975 verbose etag "F52CP6N179LZ6DX3NMRK4Z0Q2"
+976 http GET https://registry.npmjs.org/yargs
+977 verbose request where is /uglify-to-browserify
+978 verbose request registry https://registry.npmjs.org/
+979 verbose url raw /uglify-to-browserify
+980 verbose url resolving [ 'https://registry.npmjs.org/', './uglify-to-browserify' ]
+981 verbose url resolved https://registry.npmjs.org/uglify-to-browserify
+982 verbose request where is https://registry.npmjs.org/uglify-to-browserify
+983 info trying registry request attempt 1 at 00:53:13
+984 verbose etag "BEHQLBD9DR6K29JIICSDUTRUR"
+985 http GET https://registry.npmjs.org/uglify-to-browserify
+986 http 304 https://registry.npmjs.org/strip-ansi
+987 silly registry.get cb [ 304,
+987 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+987 silly registry.get     via: '1.1 varnish',
+987 silly registry.get     'cache-control': 'max-age=60',
+987 silly registry.get     etag: '"9D9S1Y0BBQD36UMUV9U38ZKG1"',
+987 silly registry.get     age: '49',
+987 silly registry.get     connection: 'keep-alive',
+987 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+987 silly registry.get     'x-cache': 'HIT',
+987 silly registry.get     'x-cache-hits': '314',
+987 silly registry.get     'x-timer': 'S1432443193.444180,VS0,VE0',
+987 silly registry.get     vary: 'Accept' } ]
+988 verbose etag https://registry.npmjs.org/strip-ansi from cache
+989 http 304 https://registry.npmjs.org/supports-color
+990 silly registry.get cb [ 304,
+990 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+990 silly registry.get     via: '1.1 varnish',
+990 silly registry.get     'cache-control': 'max-age=60',
+990 silly registry.get     etag: '"4SHNAEHD19S3VGADXSKO905S7"',
+990 silly registry.get     age: '9',
+990 silly registry.get     connection: 'keep-alive',
+990 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+990 silly registry.get     'x-cache': 'HIT',
+990 silly registry.get     'x-cache-hits': '1',
+990 silly registry.get     'x-timer': 'S1432443193.444385,VS0,VE0',
+990 silly registry.get     vary: 'Accept' } ]
+991 verbose etag https://registry.npmjs.org/supports-color from cache
+992 http 304 https://registry.npmjs.org/ansi-styles
+993 silly registry.get cb [ 304,
+993 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+993 silly registry.get     via: '1.1 varnish',
+993 silly registry.get     'cache-control': 'max-age=60',
+993 silly registry.get     etag: '"9O45NVZEP528XJ58TZ8A6DMA0"',
+993 silly registry.get     age: '47',
+993 silly registry.get     connection: 'keep-alive',
+993 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+993 silly registry.get     'x-cache': 'HIT',
+993 silly registry.get     'x-cache-hits': '1',
+993 silly registry.get     'x-timer': 'S1432443193.448165,VS0,VE0',
+993 silly registry.get     vary: 'Accept' } ]
+994 verbose etag https://registry.npmjs.org/ansi-styles from cache
+995 http 304 https://registry.npmjs.org/escape-string-regexp
+996 silly registry.get cb [ 304,
+996 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+996 silly registry.get     via: '1.1 varnish',
+996 silly registry.get     'cache-control': 'max-age=60',
+996 silly registry.get     etag: '"8MOKZ3EZW5AOLELFFTR0T8K98"',
+996 silly registry.get     age: '42',
+996 silly registry.get     connection: 'keep-alive',
+996 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+996 silly registry.get     'x-cache': 'HIT',
+996 silly registry.get     'x-cache-hits': '3',
+996 silly registry.get     'x-timer': 'S1432443193.448655,VS0,VE0',
+996 silly registry.get     vary: 'Accept' } ]
+997 verbose etag https://registry.npmjs.org/escape-string-regexp from cache
+998 http 304 https://registry.npmjs.org/has-ansi
+999 silly registry.get cb [ 304,
+999 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+999 silly registry.get     via: '1.1 varnish',
+999 silly registry.get     'cache-control': 'max-age=60',
+999 silly registry.get     etag: '"E4845616HRC12WMH43M936NTT"',
+999 silly registry.get     age: '43',
+999 silly registry.get     connection: 'keep-alive',
+999 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+999 silly registry.get     'x-cache': 'HIT',
+999 silly registry.get     'x-cache-hits': '2',
+999 silly registry.get     'x-timer': 'S1432443193.452745,VS0,VE0',
+999 silly registry.get     vary: 'Accept' } ]
+1000 verbose etag https://registry.npmjs.org/has-ansi from cache
+1001 http 304 https://registry.npmjs.org/supports-color
+1002 silly registry.get cb [ 304,
+1002 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1002 silly registry.get     via: '1.1 varnish',
+1002 silly registry.get     'cache-control': 'max-age=60',
+1002 silly registry.get     etag: '"4SHNAEHD19S3VGADXSKO905S7"',
+1002 silly registry.get     age: '9',
+1002 silly registry.get     connection: 'keep-alive',
+1002 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+1002 silly registry.get     'x-cache': 'HIT',
+1002 silly registry.get     'x-cache-hits': '2',
+1002 silly registry.get     'x-timer': 'S1432443193.452626,VS0,VE0',
+1002 silly registry.get     vary: 'Accept' } ]
+1003 verbose etag https://registry.npmjs.org/supports-color from cache
+1004 verbose request where is /ansi-regex
+1005 verbose request registry https://registry.npmjs.org/
+1006 verbose url raw /ansi-regex
+1007 verbose url resolving [ 'https://registry.npmjs.org/', './ansi-regex' ]
+1008 verbose url resolved https://registry.npmjs.org/ansi-regex
+1009 verbose request where is https://registry.npmjs.org/ansi-regex
+1010 info trying registry request attempt 1 at 00:53:13
+1011 verbose etag "BZIEBJBYINH110I31A3QEZ2SV"
+1012 http GET https://registry.npmjs.org/ansi-regex
+1013 verbose request where is /get-stdin
+1014 verbose request registry https://registry.npmjs.org/
+1015 verbose url raw /get-stdin
+1016 verbose url resolving [ 'https://registry.npmjs.org/', './get-stdin' ]
+1017 verbose url resolved https://registry.npmjs.org/get-stdin
+1018 verbose request where is https://registry.npmjs.org/get-stdin
+1019 info trying registry request attempt 1 at 00:53:13
+1020 verbose etag "2BIMV9BIWVCQ8JGJ14KAEP3I0"
+1021 http GET https://registry.npmjs.org/get-stdin
+1022 verbose request where is /ansi-regex
+1023 verbose request registry https://registry.npmjs.org/
+1024 verbose url raw /ansi-regex
+1025 verbose url resolving [ 'https://registry.npmjs.org/', './ansi-regex' ]
+1026 verbose url resolved https://registry.npmjs.org/ansi-regex
+1027 verbose request where is https://registry.npmjs.org/ansi-regex
+1028 info trying registry request attempt 1 at 00:53:13
+1029 verbose etag "BZIEBJBYINH110I31A3QEZ2SV"
+1030 http GET https://registry.npmjs.org/ansi-regex
+1031 http 304 https://registry.npmjs.org/strip-ansi
+1032 silly registry.get cb [ 304,
+1032 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1032 silly registry.get     via: '1.1 varnish',
+1032 silly registry.get     'cache-control': 'max-age=60',
+1032 silly registry.get     etag: '"9D9S1Y0BBQD36UMUV9U38ZKG1"',
+1032 silly registry.get     age: '49',
+1032 silly registry.get     connection: 'keep-alive',
+1032 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+1032 silly registry.get     'x-cache': 'HIT',
+1032 silly registry.get     'x-cache-hits': '315',
+1032 silly registry.get     'x-timer': 'S1432443193.457987,VS0,VE0',
+1032 silly registry.get     vary: 'Accept' } ]
+1033 verbose etag https://registry.npmjs.org/strip-ansi from cache
+1034 verbose request where is /ansi-regex
+1035 verbose request registry https://registry.npmjs.org/
+1036 verbose url raw /ansi-regex
+1037 verbose url resolving [ 'https://registry.npmjs.org/', './ansi-regex' ]
+1038 verbose url resolved https://registry.npmjs.org/ansi-regex
+1039 verbose request where is https://registry.npmjs.org/ansi-regex
+1040 info trying registry request attempt 1 at 00:53:13
+1041 verbose etag "BZIEBJBYINH110I31A3QEZ2SV"
+1042 http GET https://registry.npmjs.org/ansi-regex
+1043 verbose request where is /get-stdin
+1044 verbose request registry https://registry.npmjs.org/
+1045 verbose url raw /get-stdin
+1046 verbose url resolving [ 'https://registry.npmjs.org/', './get-stdin' ]
+1047 verbose url resolved https://registry.npmjs.org/get-stdin
+1048 verbose request where is https://registry.npmjs.org/get-stdin
+1049 info trying registry request attempt 1 at 00:53:13
+1050 verbose etag "2BIMV9BIWVCQ8JGJ14KAEP3I0"
+1051 http GET https://registry.npmjs.org/get-stdin
+1052 verbose request where is /ansi-regex
+1053 verbose request registry https://registry.npmjs.org/
+1054 verbose url raw /ansi-regex
+1055 verbose url resolving [ 'https://registry.npmjs.org/', './ansi-regex' ]
+1056 verbose url resolved https://registry.npmjs.org/ansi-regex
+1057 verbose request where is https://registry.npmjs.org/ansi-regex
+1058 info trying registry request attempt 1 at 00:53:13
+1059 verbose etag "BZIEBJBYINH110I31A3QEZ2SV"
+1060 http GET https://registry.npmjs.org/ansi-regex
+1061 http 304 https://registry.npmjs.org/lodash
+1062 silly registry.get cb [ 304,
+1062 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1062 silly registry.get     via: '1.1 varnish',
+1062 silly registry.get     'cache-control': 'max-age=60',
+1062 silly registry.get     etag: '"C1KCO6W9UZFQ1D9BX8XB2XX22"',
+1062 silly registry.get     age: '38',
+1062 silly registry.get     connection: 'keep-alive',
+1062 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1062 silly registry.get     'x-cache': 'HIT',
+1062 silly registry.get     'x-cache-hits': '2',
+1062 silly registry.get     'x-timer': 'S1432443193.323479,VS0,VE0',
+1062 silly registry.get     vary: 'Accept' } ]
+1063 verbose etag https://registry.npmjs.org/lodash from cache
+1064 http 304 https://registry.npmjs.org/getobject
+1065 silly registry.get cb [ 304,
+1065 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1065 silly registry.get     via: '1.1 varnish',
+1065 silly registry.get     'cache-control': 'max-age=60',
+1065 silly registry.get     etag: '"BPRQ6ZA5H0SY8TQS2VENHJTW0"',
+1065 silly registry.get     age: '0',
+1065 silly registry.get     connection: 'keep-alive',
+1065 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1065 silly registry.get     'x-cache': 'HIT',
+1065 silly registry.get     'x-cache-hits': '2',
+1065 silly registry.get     'x-timer': 'S1432443193.528687,VS0,VE0',
+1065 silly registry.get     vary: 'Accept' } ]
+1066 verbose etag https://registry.npmjs.org/getobject from cache
+1067 http 304 https://registry.npmjs.org/which
+1068 silly registry.get cb [ 304,
+1068 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1068 silly registry.get     via: '1.1 varnish',
+1068 silly registry.get     'cache-control': 'max-age=60',
+1068 silly registry.get     etag: '"96S32KNGR7RC2G6UDCTQWOHI9"',
+1068 silly registry.get     age: '0',
+1068 silly registry.get     connection: 'keep-alive',
+1068 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1068 silly registry.get     'x-cache': 'HIT',
+1068 silly registry.get     'x-cache-hits': '1',
+1068 silly registry.get     'x-timer': 'S1432443193.532591,VS0,VE0',
+1068 silly registry.get     vary: 'Accept' } ]
+1069 verbose etag https://registry.npmjs.org/which from cache
+1070 http 304 https://registry.npmjs.org/underscore.string
+1071 silly registry.get cb [ 304,
+1071 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1071 silly registry.get     via: '1.1 varnish',
+1071 silly registry.get     'cache-control': 'max-age=60',
+1071 silly registry.get     etag: '"EUR2XPGZX64EHU0KFCNIFQUCI"',
+1071 silly registry.get     age: '0',
+1071 silly registry.get     connection: 'keep-alive',
+1071 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1071 silly registry.get     'x-cache': 'HIT',
+1071 silly registry.get     'x-cache-hits': '2',
+1071 silly registry.get     'x-timer': 'S1432443193.213540,VS0,VE345',
+1071 silly registry.get     vary: 'Accept' } ]
+1072 verbose etag https://registry.npmjs.org/underscore.string from cache
+1073 http 304 https://registry.npmjs.org/underscore.string
+1074 silly registry.get cb [ 304,
+1074 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1074 silly registry.get     via: '1.1 varnish',
+1074 silly registry.get     'cache-control': 'max-age=60',
+1074 silly registry.get     etag: '"EUR2XPGZX64EHU0KFCNIFQUCI"',
+1074 silly registry.get     age: '0',
+1074 silly registry.get     connection: 'keep-alive',
+1074 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+1074 silly registry.get     'x-cache': 'HIT',
+1074 silly registry.get     'x-cache-hits': '1',
+1074 silly registry.get     'x-timer': 'S1432443193.463637,VS0,VE96',
+1074 silly registry.get     vary: 'Accept' } ]
+1075 verbose etag https://registry.npmjs.org/underscore.string from cache
+1076 http 304 https://registry.npmjs.org/underscore.string
+1077 silly registry.get cb [ 304,
+1077 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1077 silly registry.get     via: '1.1 varnish',
+1077 silly registry.get     'cache-control': 'max-age=60',
+1077 silly registry.get     etag: '"EUR2XPGZX64EHU0KFCNIFQUCI"',
+1077 silly registry.get     age: '0',
+1077 silly registry.get     connection: 'keep-alive',
+1077 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1077 silly registry.get     'x-cache': 'HIT',
+1077 silly registry.get     'x-cache-hits': '2',
+1077 silly registry.get     'x-timer': 'S1432443193.536625,VS0,VE22',
+1077 silly registry.get     vary: 'Accept' } ]
+1078 verbose etag https://registry.npmjs.org/underscore.string from cache
+1079 http 200 https://registry.npmjs.org/colors
+1080 silly registry.get cb [ 200,
+1080 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+1080 silly registry.get     etag: '"4QP807NTK5M1E617PPHC0T1IW"',
+1080 silly registry.get     'content-type': 'application/json',
+1080 silly registry.get     'cache-control': 'max-age=60',
+1080 silly registry.get     'content-length': '17283',
+1080 silly registry.get     'accept-ranges': 'bytes',
+1080 silly registry.get     date: 'Sun, 24 May 2015 04:53:13 GMT',
+1080 silly registry.get     via: '1.1 varnish',
+1080 silly registry.get     age: '0',
+1080 silly registry.get     connection: 'keep-alive',
+1080 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1080 silly registry.get     'x-cache': 'HIT',
+1080 silly registry.get     'x-cache-hits': '1',
+1080 silly registry.get     'x-timer': 'S1432443193.562989,VS0,VE0',
+1080 silly registry.get     vary: 'Accept' } ]
+1081 http 304 https://registry.npmjs.org/date-now
+1082 silly registry.get cb [ 304,
+1082 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1082 silly registry.get     via: '1.1 varnish',
+1082 silly registry.get     'cache-control': 'max-age=60',
+1082 silly registry.get     etag: '"4IVDPT1USQTTDVL345B8VOWJW"',
+1082 silly registry.get     age: '50',
+1082 silly registry.get     connection: 'keep-alive',
+1082 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1082 silly registry.get     'x-cache': 'HIT',
+1082 silly registry.get     'x-cache-hits': '3',
+1082 silly registry.get     'x-timer': 'S1432443193.565804,VS0,VE0',
+1082 silly registry.get     vary: 'Accept' } ]
+1083 verbose etag https://registry.npmjs.org/date-now from cache
+1084 http 304 https://registry.npmjs.org/brace-expansion
+1085 silly registry.get cb [ 304,
+1085 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1085 silly registry.get     via: '1.1 varnish',
+1085 silly registry.get     'cache-control': 'max-age=60',
+1085 silly registry.get     etag: '"18Z2VDE6EPY9JHP7D0I3PN5DH"',
+1085 silly registry.get     age: '39',
+1085 silly registry.get     connection: 'keep-alive',
+1085 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+1085 silly registry.get     'x-cache': 'HIT',
+1085 silly registry.get     'x-cache-hits': '1',
+1085 silly registry.get     'x-timer': 'S1432443193.565021,VS0,VE0',
+1085 silly registry.get     vary: 'Accept' } ]
+1086 verbose etag https://registry.npmjs.org/brace-expansion from cache
+1087 http 304 https://registry.npmjs.org/domhandler
+1088 silly registry.get cb [ 304,
+1088 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1088 silly registry.get     via: '1.1 varnish',
+1088 silly registry.get     'cache-control': 'max-age=60',
+1088 silly registry.get     etag: '"6YLTRC4KPNRA8002MMLMDUZHQ"',
+1088 silly registry.get     age: '9',
+1088 silly registry.get     connection: 'keep-alive',
+1088 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1088 silly registry.get     'x-cache': 'HIT',
+1088 silly registry.get     'x-cache-hits': '2',
+1088 silly registry.get     'x-timer': 'S1432443193.572597,VS0,VE0',
+1088 silly registry.get     vary: 'Accept' } ]
+1089 verbose etag https://registry.npmjs.org/domhandler from cache
+1090 http 304 https://registry.npmjs.org/readable-stream
+1091 silly registry.get cb [ 304,
+1091 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1091 silly registry.get     via: '1.1 varnish',
+1091 silly registry.get     'cache-control': 'max-age=60',
+1091 silly registry.get     etag: '"6O1H7OGAPQTOP5BUMS29K973M"',
+1091 silly registry.get     age: '32',
+1091 silly registry.get     connection: 'keep-alive',
+1091 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1091 silly registry.get     'x-cache': 'HIT',
+1091 silly registry.get     'x-cache-hits': '2',
+1091 silly registry.get     'x-timer': 'S1432443193.576542,VS0,VE0',
+1091 silly registry.get     vary: 'Accept' } ]
+1092 verbose etag https://registry.npmjs.org/readable-stream from cache
+1093 http 304 https://registry.npmjs.org/domutils
+1094 silly registry.get cb [ 304,
+1094 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1094 silly registry.get     via: '1.1 varnish',
+1094 silly registry.get     'cache-control': 'max-age=60',
+1094 silly registry.get     etag: '"DEDBJTHGW9Y0ZH23SCVHKGJ3Y"',
+1094 silly registry.get     age: '9',
+1094 silly registry.get     connection: 'keep-alive',
+1094 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+1094 silly registry.get     'x-cache': 'HIT',
+1094 silly registry.get     'x-cache-hits': '1',
+1094 silly registry.get     'x-timer': 'S1432443193.577872,VS0,VE0',
+1094 silly registry.get     vary: 'Accept' } ]
+1095 verbose etag https://registry.npmjs.org/domutils from cache
+1096 http 304 https://registry.npmjs.org/entities
+1097 silly registry.get cb [ 304,
+1097 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1097 silly registry.get     via: '1.1 varnish',
+1097 silly registry.get     'cache-control': 'max-age=60',
+1097 silly registry.get     etag: '"20LYBDXZAMNFOFAMGR0W8D9GX"',
+1097 silly registry.get     age: '12',
+1097 silly registry.get     connection: 'keep-alive',
+1097 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1097 silly registry.get     'x-cache': 'HIT',
+1097 silly registry.get     'x-cache-hits': '1',
+1097 silly registry.get     'x-timer': 'S1432443193.580293,VS0,VE0',
+1097 silly registry.get     vary: 'Accept' } ]
+1098 verbose etag https://registry.npmjs.org/entities from cache
+1099 http 304 https://registry.npmjs.org/figures
+1100 silly registry.get cb [ 304,
+1100 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1100 silly registry.get     via: '1.1 varnish',
+1100 silly registry.get     'cache-control': 'max-age=60',
+1100 silly registry.get     etag: '"31ID7SQW0KYI358C9VJ5357DL"',
+1100 silly registry.get     age: '22',
+1100 silly registry.get     connection: 'keep-alive',
+1100 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+1100 silly registry.get     'x-cache': 'HIT',
+1100 silly registry.get     'x-cache-hits': '2',
+1100 silly registry.get     'x-timer': 'S1432443193.582409,VS0,VE0',
+1100 silly registry.get     vary: 'Accept' } ]
+1101 verbose etag https://registry.npmjs.org/figures from cache
+1102 verbose request where is /domelementtype
+1103 verbose request registry https://registry.npmjs.org/
+1104 verbose url raw /domelementtype
+1105 verbose url resolving [ 'https://registry.npmjs.org/', './domelementtype' ]
+1106 verbose url resolved https://registry.npmjs.org/domelementtype
+1107 verbose request where is https://registry.npmjs.org/domelementtype
+1108 info trying registry request attempt 1 at 00:53:13
+1109 verbose etag "4W2849LOGQQ1FMDQHW6E59VF1"
+1110 http GET https://registry.npmjs.org/domelementtype
+1111 verbose request where is /concat-map
+1112 verbose request registry https://registry.npmjs.org/
+1113 verbose url raw /concat-map
+1114 verbose url resolving [ 'https://registry.npmjs.org/', './concat-map' ]
+1115 verbose url resolved https://registry.npmjs.org/concat-map
+1116 verbose request where is https://registry.npmjs.org/concat-map
+1117 info trying registry request attempt 1 at 00:53:13
+1118 verbose etag "2U454Y0TO6HIGLHDYCQETYTN8"
+1119 http GET https://registry.npmjs.org/concat-map
+1120 verbose request where is /balanced-match
+1121 verbose request registry https://registry.npmjs.org/
+1122 verbose url raw /balanced-match
+1123 verbose url resolving [ 'https://registry.npmjs.org/', './balanced-match' ]
+1124 verbose url resolved https://registry.npmjs.org/balanced-match
+1125 verbose request where is https://registry.npmjs.org/balanced-match
+1126 info trying registry request attempt 1 at 00:53:13
+1127 verbose etag "2H6AO94YXV8VUX762CZ8KGSIJ"
+1128 http GET https://registry.npmjs.org/balanced-match
+1129 verbose request where is /domelementtype
+1130 verbose request registry https://registry.npmjs.org/
+1131 verbose url raw /domelementtype
+1132 verbose url resolving [ 'https://registry.npmjs.org/', './domelementtype' ]
+1133 verbose url resolved https://registry.npmjs.org/domelementtype
+1134 verbose request where is https://registry.npmjs.org/domelementtype
+1135 info trying registry request attempt 1 at 00:53:13
+1136 verbose etag "4W2849LOGQQ1FMDQHW6E59VF1"
+1137 http GET https://registry.npmjs.org/domelementtype
+1138 verbose request where is /dom-serializer
+1139 verbose request registry https://registry.npmjs.org/
+1140 verbose url raw /dom-serializer
+1141 verbose url resolving [ 'https://registry.npmjs.org/', './dom-serializer' ]
+1142 verbose url resolved https://registry.npmjs.org/dom-serializer
+1143 verbose request where is https://registry.npmjs.org/dom-serializer
+1144 info trying registry request attempt 1 at 00:53:13
+1145 verbose etag "7KWYMW6FM9W2UI46QMZNA9AM9"
+1146 http GET https://registry.npmjs.org/dom-serializer
+1147 http 304 https://registry.npmjs.org/gzip-size
+1148 silly registry.get cb [ 304,
+1148 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1148 silly registry.get     via: '1.1 varnish',
+1148 silly registry.get     'cache-control': 'max-age=60',
+1148 silly registry.get     etag: '"EJOSR07C6MVN5EXZKXRBXU4L"',
+1148 silly registry.get     age: '0',
+1148 silly registry.get     connection: 'keep-alive',
+1148 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+1148 silly registry.get     'x-cache': 'HIT',
+1148 silly registry.get     'x-cache-hits': '1',
+1148 silly registry.get     'x-timer': 'S1432443193.592574,VS0,VE42',
+1148 silly registry.get     vary: 'Accept' } ]
+1149 verbose etag https://registry.npmjs.org/gzip-size from cache
+1150 verbose request where is /browserify-zlib
+1151 verbose request registry https://registry.npmjs.org/
+1152 verbose url raw /browserify-zlib
+1153 verbose url resolving [ 'https://registry.npmjs.org/', './browserify-zlib' ]
+1154 verbose url resolved https://registry.npmjs.org/browserify-zlib
+1155 verbose request where is https://registry.npmjs.org/browserify-zlib
+1156 info trying registry request attempt 1 at 00:53:13
+1157 verbose etag "A0J1XUONQRYJ2UWHEQTV3LHOJ"
+1158 http GET https://registry.npmjs.org/browserify-zlib
+1159 verbose request where is /concat-stream
+1160 verbose request registry https://registry.npmjs.org/
+1161 verbose url raw /concat-stream
+1162 verbose url resolving [ 'https://registry.npmjs.org/', './concat-stream' ]
+1163 verbose url resolved https://registry.npmjs.org/concat-stream
+1164 verbose request where is https://registry.npmjs.org/concat-stream
+1165 info trying registry request attempt 1 at 00:53:13
+1166 verbose etag "AYCOG1YYKD19KDTTNU32MZ8DA"
+1167 http GET https://registry.npmjs.org/concat-stream
+1168 http 304 https://registry.npmjs.org/uri-path
+1169 silly registry.get cb [ 304,
+1169 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1169 silly registry.get     via: '1.1 varnish',
+1169 silly registry.get     'cache-control': 'max-age=60',
+1169 silly registry.get     etag: '"9GL6P6HYO3DTG0PTYXNYXG18W"',
+1169 silly registry.get     age: '0',
+1169 silly registry.get     connection: 'keep-alive',
+1169 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1169 silly registry.get     'x-cache': 'HIT',
+1169 silly registry.get     'x-cache-hits': '1',
+1169 silly registry.get     'x-timer': 'S1432443193.349985,VS0,VE352',
+1169 silly registry.get     vary: 'Accept' } ]
+1170 verbose etag https://registry.npmjs.org/uri-path from cache
+1171 http 304 https://registry.npmjs.org/uglify-to-browserify
+1172 silly registry.get cb [ 304,
+1172 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1172 silly registry.get     via: '1.1 varnish',
+1172 silly registry.get     'cache-control': 'max-age=60',
+1172 silly registry.get     etag: '"BEHQLBD9DR6K29JIICSDUTRUR"',
+1172 silly registry.get     age: '15',
+1172 silly registry.get     connection: 'keep-alive',
+1172 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1172 silly registry.get     'x-cache': 'HIT',
+1172 silly registry.get     'x-cache-hits': '1',
+1172 silly registry.get     'x-timer': 'S1432443193.706308,VS0,VE0',
+1172 silly registry.get     vary: 'Accept' } ]
+1173 verbose etag https://registry.npmjs.org/uglify-to-browserify from cache
+1174 http 304 https://registry.npmjs.org/domelementtype
+1175 silly registry.get cb [ 304,
+1175 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1175 silly registry.get     via: '1.1 varnish',
+1175 silly registry.get     'cache-control': 'max-age=60',
+1175 silly registry.get     etag: '"4W2849LOGQQ1FMDQHW6E59VF1"',
+1175 silly registry.get     age: '11',
+1175 silly registry.get     connection: 'keep-alive',
+1175 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1175 silly registry.get     'x-cache': 'HIT',
+1175 silly registry.get     'x-cache-hits': '1',
+1175 silly registry.get     'x-timer': 'S1432443193.574732,VS0,VE0',
+1175 silly registry.get     vary: 'Accept' } ]
+1176 verbose etag https://registry.npmjs.org/domelementtype from cache
+1177 http 304 https://registry.npmjs.org/get-stdin
+1178 silly registry.get cb [ 304,
+1178 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1178 silly registry.get     via: '1.1 varnish',
+1178 silly registry.get     'cache-control': 'max-age=60',
+1178 silly registry.get     etag: '"2BIMV9BIWVCQ8JGJ14KAEP3I0"',
+1178 silly registry.get     age: '13',
+1178 silly registry.get     connection: 'keep-alive',
+1178 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1178 silly registry.get     'x-cache': 'HIT',
+1178 silly registry.get     'x-cache-hits': '2',
+1178 silly registry.get     'x-timer': 'S1432443193.779837,VS0,VE0',
+1178 silly registry.get     vary: 'Accept' } ]
+1179 verbose etag https://registry.npmjs.org/get-stdin from cache
+1180 http 304 https://registry.npmjs.org/ansi-regex
+1181 silly registry.get cb [ 304,
+1181 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1181 silly registry.get     via: '1.1 varnish',
+1181 silly registry.get     'cache-control': 'max-age=60',
+1181 silly registry.get     etag: '"BZIEBJBYINH110I31A3QEZ2SV"',
+1181 silly registry.get     age: '0',
+1181 silly registry.get     connection: 'keep-alive',
+1181 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1181 silly registry.get     'x-cache': 'HIT',
+1181 silly registry.get     'x-cache-hits': '2',
+1181 silly registry.get     'x-timer': 'S1432443193.710707,VS0,VE86',
+1181 silly registry.get     vary: 'Accept' } ]
+1182 verbose etag https://registry.npmjs.org/ansi-regex from cache
+1183 http 304 https://registry.npmjs.org/ansi-regex
+1184 silly registry.get cb [ 304,
+1184 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1184 silly registry.get     via: '1.1 varnish',
+1184 silly registry.get     'cache-control': 'max-age=60',
+1184 silly registry.get     etag: '"BZIEBJBYINH110I31A3QEZ2SV"',
+1184 silly registry.get     age: '0',
+1184 silly registry.get     connection: 'keep-alive',
+1184 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1184 silly registry.get     'x-cache': 'HIT',
+1184 silly registry.get     'x-cache-hits': '2',
+1184 silly registry.get     'x-timer': 'S1432443193.783785,VS0,VE12',
+1184 silly registry.get     vary: 'Accept' } ]
+1185 verbose etag https://registry.npmjs.org/ansi-regex from cache
+1186 http 304 https://registry.npmjs.org/ansi-regex
+1187 silly registry.get cb [ 304,
+1187 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1187 silly registry.get     via: '1.1 varnish',
+1187 silly registry.get     'cache-control': 'max-age=60',
+1187 silly registry.get     etag: '"BZIEBJBYINH110I31A3QEZ2SV"',
+1187 silly registry.get     age: '0',
+1187 silly registry.get     connection: 'keep-alive',
+1187 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1187 silly registry.get     'x-cache': 'HIT',
+1187 silly registry.get     'x-cache-hits': '3',
+1187 silly registry.get     'x-timer': 'S1432443193.801413,VS0,VE0',
+1187 silly registry.get     vary: 'Accept' } ]
+1188 verbose etag https://registry.npmjs.org/ansi-regex from cache
+1189 http 304 https://registry.npmjs.org/get-stdin
+1190 silly registry.get cb [ 304,
+1190 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1190 silly registry.get     via: '1.1 varnish',
+1190 silly registry.get     'cache-control': 'max-age=60',
+1190 silly registry.get     etag: '"2BIMV9BIWVCQ8JGJ14KAEP3I0"',
+1190 silly registry.get     age: '13',
+1190 silly registry.get     connection: 'keep-alive',
+1190 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1190 silly registry.get     'x-cache': 'HIT',
+1190 silly registry.get     'x-cache-hits': '3',
+1190 silly registry.get     'x-timer': 'S1432443193.801751,VS0,VE0',
+1190 silly registry.get     vary: 'Accept' } ]
+1191 verbose etag https://registry.npmjs.org/get-stdin from cache
+1192 http 304 https://registry.npmjs.org/ansi-regex
+1193 silly registry.get cb [ 304,
+1193 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1193 silly registry.get     via: '1.1 varnish',
+1193 silly registry.get     'cache-control': 'max-age=60',
+1193 silly registry.get     etag: '"BZIEBJBYINH110I31A3QEZ2SV"',
+1193 silly registry.get     age: '0',
+1193 silly registry.get     connection: 'keep-alive',
+1193 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1193 silly registry.get     'x-cache': 'HIT',
+1193 silly registry.get     'x-cache-hits': '4',
+1193 silly registry.get     'x-timer': 'S1432443193.805451,VS0,VE0',
+1193 silly registry.get     vary: 'Accept' } ]
+1194 verbose etag https://registry.npmjs.org/ansi-regex from cache
+1195 http 304 https://registry.npmjs.org/domelementtype
+1196 silly registry.get cb [ 304,
+1196 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1196 silly registry.get     via: '1.1 varnish',
+1196 silly registry.get     'cache-control': 'max-age=60',
+1196 silly registry.get     etag: '"4W2849LOGQQ1FMDQHW6E59VF1"',
+1196 silly registry.get     age: '11',
+1196 silly registry.get     connection: 'keep-alive',
+1196 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1196 silly registry.get     'x-cache': 'HIT',
+1196 silly registry.get     'x-cache-hits': '2',
+1196 silly registry.get     'x-timer': 'S1432443193.806550,VS0,VE0',
+1196 silly registry.get     vary: 'Accept' } ]
+1197 verbose etag https://registry.npmjs.org/domelementtype from cache
+1198 http 304 https://registry.npmjs.org/concat-map
+1199 silly registry.get cb [ 304,
+1199 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1199 silly registry.get     via: '1.1 varnish',
+1199 silly registry.get     'cache-control': 'max-age=60',
+1199 silly registry.get     etag: '"2U454Y0TO6HIGLHDYCQETYTN8"',
+1199 silly registry.get     age: '39',
+1199 silly registry.get     connection: 'keep-alive',
+1199 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1199 silly registry.get     'x-cache': 'HIT',
+1199 silly registry.get     'x-cache-hits': '1',
+1199 silly registry.get     'x-timer': 'S1432443193.809894,VS0,VE0',
+1199 silly registry.get     vary: 'Accept' } ]
+1200 verbose etag https://registry.npmjs.org/concat-map from cache
+1201 http 304 https://registry.npmjs.org/domelementtype
+1202 silly registry.get cb [ 304,
+1202 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1202 silly registry.get     via: '1.1 varnish',
+1202 silly registry.get     'cache-control': 'max-age=60',
+1202 silly registry.get     etag: '"4W2849LOGQQ1FMDQHW6E59VF1"',
+1202 silly registry.get     age: '11',
+1202 silly registry.get     connection: 'keep-alive',
+1202 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1202 silly registry.get     'x-cache': 'HIT',
+1202 silly registry.get     'x-cache-hits': '3',
+1202 silly registry.get     'x-timer': 'S1432443193.814148,VS0,VE0',
+1202 silly registry.get     vary: 'Accept' } ]
+1203 verbose etag https://registry.npmjs.org/domelementtype from cache
+1204 http 304 https://registry.npmjs.org/dom-serializer
+1205 silly registry.get cb [ 304,
+1205 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1205 silly registry.get     via: '1.1 varnish',
+1205 silly registry.get     'cache-control': 'max-age=60',
+1205 silly registry.get     etag: '"7KWYMW6FM9W2UI46QMZNA9AM9"',
+1205 silly registry.get     age: '12',
+1205 silly registry.get     connection: 'keep-alive',
+1205 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1205 silly registry.get     'x-cache': 'HIT',
+1205 silly registry.get     'x-cache-hits': '1',
+1205 silly registry.get     'x-timer': 'S1432443193.818267,VS0,VE0',
+1205 silly registry.get     vary: 'Accept' } ]
+1206 verbose etag https://registry.npmjs.org/dom-serializer from cache
+1207 http 304 https://registry.npmjs.org/browserify-zlib
+1208 silly registry.get cb [ 304,
+1208 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1208 silly registry.get     via: '1.1 varnish',
+1208 silly registry.get     'cache-control': 'max-age=60',
+1208 silly registry.get     etag: '"A0J1XUONQRYJ2UWHEQTV3LHOJ"',
+1208 silly registry.get     age: '56',
+1208 silly registry.get     connection: 'keep-alive',
+1208 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1208 silly registry.get     'x-cache': 'HIT',
+1208 silly registry.get     'x-cache-hits': '2',
+1208 silly registry.get     'x-timer': 'S1432443193.823377,VS0,VE0',
+1208 silly registry.get     vary: 'Accept' } ]
+1209 verbose etag https://registry.npmjs.org/browserify-zlib from cache
+1210 verbose registry.get https://registry.npmjs.org/domelementtype not expired, no request
+1211 verbose registry.get https://registry.npmjs.org/entities not expired, no request
+1212 verbose request where is /pako
+1213 verbose request registry https://registry.npmjs.org/
+1214 verbose url raw /pako
+1215 verbose url resolving [ 'https://registry.npmjs.org/', './pako' ]
+1216 verbose url resolved https://registry.npmjs.org/pako
+1217 verbose request where is https://registry.npmjs.org/pako
+1218 info trying registry request attempt 1 at 00:53:13
+1219 verbose etag "3T4SSY9JM33YC26EL6WSEU13O"
+1220 http GET https://registry.npmjs.org/pako
+1221 http 200 https://registry.npmjs.org/concat-stream
+1222 silly registry.get cb [ 200,
+1222 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+1222 silly registry.get     etag: '"41H1KJ1LTQQJ1CXLDBLL4G4S4"',
+1222 silly registry.get     'content-type': 'application/json',
+1222 silly registry.get     'cache-control': 'max-age=60',
+1222 silly registry.get     'content-length': '33671',
+1222 silly registry.get     'accept-ranges': 'bytes',
+1222 silly registry.get     date: 'Sun, 24 May 2015 04:53:13 GMT',
+1222 silly registry.get     via: '1.1 varnish',
+1222 silly registry.get     age: '60',
+1222 silly registry.get     connection: 'keep-alive',
+1222 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1222 silly registry.get     'x-cache': 'HIT',
+1222 silly registry.get     'x-cache-hits': '1',
+1222 silly registry.get     'x-timer': 'S1432443193.827010,VS0,VE0',
+1222 silly registry.get     vary: 'Accept' } ]
+1223 http 304 https://registry.npmjs.org/pako
+1224 silly registry.get cb [ 304,
+1224 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1224 silly registry.get     via: '1.1 varnish',
+1224 silly registry.get     'cache-control': 'max-age=60',
+1224 silly registry.get     etag: '"3T4SSY9JM33YC26EL6WSEU13O"',
+1224 silly registry.get     age: '52',
+1224 silly registry.get     connection: 'keep-alive',
+1224 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1224 silly registry.get     'x-cache': 'HIT',
+1224 silly registry.get     'x-cache-hits': '11',
+1224 silly registry.get     'x-timer': 'S1432443193.845039,VS0,VE0',
+1224 silly registry.get     vary: 'Accept' } ]
+1225 verbose etag https://registry.npmjs.org/pako from cache
+1226 verbose registry.get https://registry.npmjs.org/readable-stream not expired, no request
+1227 verbose request where is /typedarray
+1228 verbose request registry https://registry.npmjs.org/
+1229 verbose url raw /typedarray
+1230 verbose url resolving [ 'https://registry.npmjs.org/', './typedarray' ]
+1231 verbose url resolved https://registry.npmjs.org/typedarray
+1232 verbose request where is https://registry.npmjs.org/typedarray
+1233 info trying registry request attempt 1 at 00:53:13
+1234 verbose etag "6RFURVCQK0AVYAQYR6CSAQV0M"
+1235 http GET https://registry.npmjs.org/typedarray
+1236 verbose request where is /inherits
+1237 verbose request registry https://registry.npmjs.org/
+1238 verbose url raw /inherits
+1239 verbose url resolving [ 'https://registry.npmjs.org/', './inherits' ]
+1240 verbose url resolved https://registry.npmjs.org/inherits
+1241 verbose request where is https://registry.npmjs.org/inherits
+1242 info trying registry request attempt 1 at 00:53:13
+1243 verbose etag "24DC2YNIGTAXPVOCGH3WF1GW6"
+1244 http GET https://registry.npmjs.org/inherits
+1245 http 304 https://registry.npmjs.org/typedarray
+1246 silly registry.get cb [ 304,
+1246 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1246 silly registry.get     via: '1.1 varnish',
+1246 silly registry.get     'cache-control': 'max-age=60',
+1246 silly registry.get     etag: '"6RFURVCQK0AVYAQYR6CSAQV0M"',
+1246 silly registry.get     age: '58',
+1246 silly registry.get     connection: 'keep-alive',
+1246 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+1246 silly registry.get     'x-cache': 'HIT',
+1246 silly registry.get     'x-cache-hits': '1',
+1246 silly registry.get     'x-timer': 'S1432443193.877317,VS0,VE0',
+1246 silly registry.get     vary: 'Accept' } ]
+1247 verbose etag https://registry.npmjs.org/typedarray from cache
+1248 http 304 https://registry.npmjs.org/inherits
+1249 silly registry.get cb [ 304,
+1249 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1249 silly registry.get     via: '1.1 varnish',
+1249 silly registry.get     'cache-control': 'max-age=60',
+1249 silly registry.get     etag: '"24DC2YNIGTAXPVOCGH3WF1GW6"',
+1249 silly registry.get     age: '59',
+1249 silly registry.get     connection: 'keep-alive',
+1249 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+1249 silly registry.get     'x-cache': 'HIT',
+1249 silly registry.get     'x-cache-hits': '4',
+1249 silly registry.get     'x-timer': 'S1432443193.882030,VS0,VE0',
+1249 silly registry.get     vary: 'Accept' } ]
+1250 verbose etag https://registry.npmjs.org/inherits from cache
+1251 http 304 https://registry.npmjs.org/task-closure-tools
+1252 silly registry.get cb [ 304,
+1252 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1252 silly registry.get     via: '1.1 varnish',
+1252 silly registry.get     'cache-control': 'max-age=60',
+1252 silly registry.get     etag: '"B9NMV76G5E1VBDESJ9WMROSVO"',
+1252 silly registry.get     age: '0',
+1252 silly registry.get     connection: 'keep-alive',
+1252 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+1252 silly registry.get     'x-cache': 'MISS',
+1252 silly registry.get     'x-cache-hits': '0',
+1252 silly registry.get     'x-timer': 'S1432443193.457471,VS0,VE429',
+1252 silly registry.get     vary: 'Accept' } ]
+1253 verbose etag https://registry.npmjs.org/task-closure-tools from cache
+1254 http 304 https://registry.npmjs.org/pretty-bytes
+1255 silly registry.get cb [ 304,
+1255 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1255 silly registry.get     via: '1.1 varnish',
+1255 silly registry.get     'cache-control': 'max-age=60',
+1255 silly registry.get     etag: '"43CR4I1SHVWIRRSQZLNROV28Y"',
+1255 silly registry.get     age: '0',
+1255 silly registry.get     connection: 'keep-alive',
+1255 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1255 silly registry.get     'x-cache': 'HIT',
+1255 silly registry.get     'x-cache-hits': '1',
+1255 silly registry.get     'x-timer': 'S1432443193.588919,VS0,VE343',
+1255 silly registry.get     vary: 'Accept' } ]
+1256 verbose etag https://registry.npmjs.org/pretty-bytes from cache
+1257 http 304 https://registry.npmjs.org/yargs
+1258 silly registry.get cb [ 304,
+1258 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1258 silly registry.get     via: '1.1 varnish',
+1258 silly registry.get     'cache-control': 'max-age=60',
+1258 silly registry.get     etag: '"F52CP6N179LZ6DX3NMRK4Z0Q2"',
+1258 silly registry.get     age: '0',
+1258 silly registry.get     connection: 'keep-alive',
+1258 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+1258 silly registry.get     'x-cache': 'HIT',
+1258 silly registry.get     'x-cache-hits': '1',
+1258 silly registry.get     'x-timer': 'S1432443193.639370,VS0,VE352',
+1258 silly registry.get     vary: 'Accept' } ]
+1259 verbose etag https://registry.npmjs.org/yargs from cache
+1260 http 304 https://registry.npmjs.org/balanced-match
+1261 silly registry.get cb [ 304,
+1261 silly registry.get   { date: 'Sun, 24 May 2015 04:53:13 GMT',
+1261 silly registry.get     via: '1.1 varnish',
+1261 silly registry.get     'cache-control': 'max-age=60',
+1261 silly registry.get     etag: '"2H6AO94YXV8VUX762CZ8KGSIJ"',
+1261 silly registry.get     age: '39',
+1261 silly registry.get     connection: 'keep-alive',
+1261 silly registry.get     'x-served-by': 'cache-jfk1027-JFK',
+1261 silly registry.get     'x-cache': 'HIT',
+1261 silly registry.get     'x-cache-hits': '1',
+1261 silly registry.get     'x-timer': 'S1432443193.810797,VS0,VE0',
+1261 silly registry.get     vary: 'Accept' } ]
+1262 verbose etag https://registry.npmjs.org/balanced-match from cache
+1263 info outdated updating [ [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-concat',
+1263 info outdated     'chalk',
+1263 info outdated     '0.5.1',
+1263 info outdated     '0.5.1',
+1263 info outdated     '1.0.0',
+1263 info outdated     '^0.5.1' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-concat',
+1263 info outdated     'source-map',
+1263 info outdated     '0.3.0',
+1263 info outdated     '0.3.0',
+1263 info outdated     '0.4.2',
+1263 info outdated     '^0.3.0' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-clean',
+1263 info outdated     'rimraf',
+1263 info outdated     '2.2.8',
+1263 info outdated     '2.2.8',
+1263 info outdated     '2.3.4',
+1263 info outdated     '~2.2.1' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-wget',
+1263 info outdated     'request',
+1263 info outdated     '2.40.0',
+1263 info outdated     '2.40.0',
+1263 info outdated     '2.55.0',
+1263 info outdated     '~2.40.0' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-wget',
+1263 info outdated     'async',
+1263 info outdated     '0.2.10',
+1263 info outdated     '0.2.10',
+1263 info outdated     '1.0.0',
+1263 info outdated     '~0.2.10' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-node-qunit',
+1263 info outdated     'qunit',
+1263 info outdated     '0.5.16',
+1263 info outdated     '0.5.16',
+1263 info outdated     '0.7.6',
+1263 info outdated     '0.5.16' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-nodeunit/node_modules/nodeunit',
+1263 info outdated     'tap',
+1263 info outdated     '0.7.1',
+1263 info outdated     '0.7.1',
+1263 info outdated     '1.1.0',
+1263 info outdated     '^0.7.1' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt',
+1263 info outdated     'async',
+1263 info outdated     '0.1.22',
+1263 info outdated     '0.1.22',
+1263 info outdated     '1.0.0',
+1263 info outdated     '~0.1.22' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt',
+1263 info outdated     'dateformat',
+1263 info outdated     '1.0.2-1.2.3',
+1263 info outdated     '1.0.2-1.2.3',
+1263 info outdated     '1.0.11',
+1263 info outdated     '1.0.2-1.2.3' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt',
+1263 info outdated     'findup-sync',
+1263 info outdated     '0.1.3',
+1263 info outdated     '0.1.3',
+1263 info outdated     '0.2.1',
+1263 info outdated     '~0.1.2' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt',
+1263 info outdated     'rimraf',
+1263 info outdated     '2.2.8',
+1263 info outdated     '2.2.8',
+1263 info outdated     '2.3.4',
+1263 info outdated     '~2.2.8' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt',
+1263 info outdated     'iconv-lite',
+1263 info outdated     '0.2.11',
+1263 info outdated     '0.2.11',
+1263 info outdated     '0.4.8',
+1263 info outdated     '~0.2.11' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt',
+1263 info outdated     'nopt',
+1263 info outdated     '1.0.10',
+1263 info outdated     '1.0.10',
+1263 info outdated     '3.0.2',
+1263 info outdated     '~1.0.10' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt',
+1263 info outdated     'minimatch',
+1263 info outdated     '0.2.14',
+1263 info outdated     '0.2.14',
+1263 info outdated     '2.0.8',
+1263 info outdated     '~0.2.12' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt',
+1263 info outdated     'lodash',
+1263 info outdated     '0.9.2',
+1263 info outdated     '0.9.2',
+1263 info outdated     '3.9.1',
+1263 info outdated     '~0.9.2' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt',
+1263 info outdated     'glob',
+1263 info outdated     '3.1.21',
+1263 info outdated     '3.1.21',
+1263 info outdated     '5.0.9',
+1263 info outdated     '~3.1.21' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt',
+1263 info outdated     'js-yaml',
+1263 info outdated     '2.0.5',
+1263 info outdated     '2.0.5',
+1263 info outdated     '3.3.1',
+1263 info outdated     '~2.0.5' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt',
+1263 info outdated     'which',
+1263 info outdated     '1.0.9',
+1263 info outdated     '1.0.9',
+1263 info outdated     '1.1.1',
+1263 info outdated     '~1.0.5' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt',
+1263 info outdated     'coffee-script',
+1263 info outdated     '1.3.3',
+1263 info outdated     '1.3.3',
+1263 info outdated     '1.9.2',
+1263 info outdated     '~1.3.3' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt',
+1263 info outdated     'colors',
+1263 info outdated     '0.6.2',
+1263 info outdated     '0.6.2',
+1263 info outdated     '1.1.0',
+1263 info outdated     '~0.6.2' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt/node_modules/grunt-legacy-util',
+1263 info outdated     'async',
+1263 info outdated     '0.1.22',
+1263 info outdated     '0.1.22',
+1263 info outdated     '1.0.0',
+1263 info outdated     '~0.1.22' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt/node_modules/grunt-legacy-util',
+1263 info outdated     'lodash',
+1263 info outdated     '0.9.2',
+1263 info outdated     '0.9.2',
+1263 info outdated     '3.9.1',
+1263 info outdated     '~0.9.2' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt/node_modules/grunt-legacy-util',
+1263 info outdated     'which',
+1263 info outdated     '1.0.9',
+1263 info outdated     '1.0.9',
+1263 info outdated     '1.1.1',
+1263 info outdated     '~1.0.5' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt/node_modules/grunt-legacy-util',
+1263 info outdated     'underscore.string',
+1263 info outdated     '2.2.1',
+1263 info outdated     '2.2.1',
+1263 info outdated     '3.0.3',
+1263 info outdated     '~2.2.1' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt',
+1263 info outdated     'underscore.string',
+1263 info outdated     '2.2.1',
+1263 info outdated     '2.2.1',
+1263 info outdated     '3.0.3',
+1263 info outdated     '~2.2.1' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt/node_modules/grunt-legacy-log',
+1263 info outdated     'lodash',
+1263 info outdated     '2.4.2',
+1263 info outdated     '2.4.2',
+1263 info outdated     '3.9.1',
+1263 info outdated     '~2.4.1' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt/node_modules/grunt-legacy-log',
+1263 info outdated     'underscore.string',
+1263 info outdated     '2.3.3',
+1263 info outdated     '2.3.3',
+1263 info outdated     '3.0.3',
+1263 info outdated     '~2.3.3' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt/node_modules/grunt-legacy-log',
+1263 info outdated     'colors',
+1263 info outdated     '0.6.2',
+1263 info outdated     '0.6.2',
+1263 info outdated     '1.1.0',
+1263 info outdated     '~0.6.2' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-uglify/node_modules/maxmin/node_modules/gzip-size/node_modules/concat-stream',
+1263 info outdated     'readable-stream',
+1263 info outdated     '1.1.13',
+1263 info outdated     '1.1.13',
+1263 info outdated     '1.0.33',
+1263 info outdated     '~1.1.9' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-uglify/node_modules/maxmin',
+1263 info outdated     'pretty-bytes',
+1263 info outdated     '1.0.4',
+1263 info outdated     '1.0.4',
+1263 info outdated     '2.0.1',
+1263 info outdated     '^1.0.0' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-uglify/node_modules/uglify-js',
+1263 info outdated     'source-map',
+1263 info outdated     '0.1.34',
+1263 info outdated     '0.1.34',
+1263 info outdated     '0.4.2',
+1263 info outdated     '0.1.34' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-uglify/node_modules/uglify-js',
+1263 info outdated     'async',
+1263 info outdated     '0.2.10',
+1263 info outdated     '0.2.10',
+1263 info outdated     '1.0.0',
+1263 info outdated     '~0.2.6' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-uglify/node_modules/uglify-js',
+1263 info outdated     'yargs',
+1263 info outdated     '3.5.4',
+1263 info outdated     '3.5.4',
+1263 info outdated     '3.9.1',
+1263 info outdated     '~3.5.4' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-jshint/node_modules/jshint',
+1263 info outdated     'shelljs',
+1263 info outdated     '0.3.0',
+1263 info outdated     '0.3.0',
+1263 info outdated     '0.5.0',
+1263 info outdated     '0.3.x' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/cli',
+1263 info outdated     'glob',
+1263 info outdated     '3.2.11',
+1263 info outdated     '3.2.11',
+1263 info outdated     '5.0.9',
+1263 info outdated     '~ 3.2.1' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-jshint/node_modules/jshint',
+1263 info outdated     'lodash',
+1263 info outdated     '3.6.0',
+1263 info outdated     '3.6.0',
+1263 info outdated     '3.9.1',
+1263 info outdated     '3.6.x' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/console-browserify',
+1263 info outdated     'date-now',
+1263 info outdated     '0.1.4',
+1263 info outdated     '0.1.4',
+1263 info outdated     '1.0.1',
+1263 info outdated     '^0.1.4' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/htmlparser2',
+1263 info outdated     'readable-stream',
+1263 info outdated     '1.1.13',
+1263 info outdated     '1.1.13',
+1263 info outdated     '1.0.33',
+1263 info outdated     '1.1' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/htmlparser2',
+1263 info outdated     'entities',
+1263 info outdated     '1.0.0',
+1263 info outdated     '1.0.0',
+1263 info outdated     '1.1.1',
+1263 info outdated     '1.0' ],
+1263 info outdated   [ '/Users/victor/Development/betajs/betajs-web/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer',
+1263 info outdated     'domelementtype',
+1263 info outdated     '1.1.3',
+1263 info outdated     '1.1.3',
+1263 info outdated     '1.3.0',
+1263 info outdated     '~1.1.1' ] ]
+1264 error notarget No compatible version found: grunt-jsdoc@'beta'
+1264 error notarget Valid install targets:
+1264 error notarget ["0.2.3","0.2.4","0.3.0","0.3.1","0.3.2","0.3.3","0.4.0","0.4.1","0.4.2","0.4.3","0.5.0","0.5.1","0.5.2","0.5.3","0.5.4","0.5.5","0.5.6","0.6.0","0.5.7","0.6.1","0.6.2","0.5.8","0.6.3","0.6.4"]
+1264 error notarget
+1264 error notarget This is most likely not a problem with npm itself.
+1264 error notarget In most cases you or one of your dependencies are requesting
+1264 error notarget a package version that doesn't exist.
+1265 error System Darwin 14.1.0
+1266 error command "node" "/usr/local/bin/npm" "update"
+1267 error cwd /Users/victor/Development/betajs/betajs-web
+1268 error node -v v0.10.33
+1269 error npm -v 1.4.28
+1270 error code ETARGET
+1271 verbose exit [ 1, true ]
