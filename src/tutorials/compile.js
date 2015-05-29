@@ -41,9 +41,10 @@ var tutorials = {};
 function contentBuilder(tutorials, folder) {
 	var result = {};
 	for (var key in tutorials) {
+		var filename = folder + "/" + key + ".md";
 		result[key] = {
-			title : tutorials[key].title,
-			content : marked(fs.readFileSync(folder + "/" + key + ".md", 'utf8'))
+			title : tutorials[key].title ? tutorials[key].title : key,
+			content : fs.existsSync(filename) ? marked(fs.readFileSync(filename, 'utf8')) : "<h3>TODO</h3>"
 		};
 		if (tutorials[key].children)
 			result[key].children = contentBuilder(tutorials[key].children, folder);

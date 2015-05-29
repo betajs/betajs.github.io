@@ -1,12 +1,13 @@
 <html>
 <head>
 <link rel="stylesheet" href="http://cdn.jsdelivr.net/highlight.js/8.5/styles/default.min.css">
+<link rel="stylesheet" href="styles.css">
 <script src="http://cdn.jsdelivr.net/highlight.js/8.5/highlight.min.js"></script>
 </head>
 <body>
 
 
-<div style="float:left; width:20%">
+<menu>
 
 	<ul>
 	
@@ -38,7 +39,87 @@
 			
 	<ul>
 	
+		<li><a href="#some_child">Some Child</a>
+			
+		</li>
+	
+	</ul>
+
+		</li>
+	
 		<li><a href="#dynamics_basics">Dynamics Basics</a>
+			
+		</li>
+	
+		<li><a href="#complete_reference">Dynamics Basics</a>
+			
+		</li>
+	
+		<li><a href="#templates">Templates</a>
+			
+		</li>
+	
+		<li><a href="#initial">initial</a>
+			
+	<ul>
+	
+		<li><a href="#attributes">attributes</a>
+			
+		</li>
+	
+		<li><a href="#create">create</a>
+			
+		</li>
+	
+		<li><a href="#funtions">funtions</a>
+			
+		</li>
+	
+		<li><a href="#binding">binding</a>
+			
+		</li>
+	
+		<li><a href="#scopes">scopes</a>
+			
+		</li>
+	
+	</ul>
+
+		</li>
+	
+		<li><a href="#_afterActivate">_afterActivate</a>
+			
+		</li>
+	
+		<li><a href="#html_binding">html_binding</a>
+			
+		</li>
+	
+		<li><a href="#html_attributes">html_attributes</a>
+			
+	<ul>
+	
+		<li><a href="#ba-click">ba-click</a>
+			
+		</li>
+	
+		<li><a href="#ba-class">ba-class</a>
+			
+		</li>
+	
+		<li><a href="#ba-show">ba-show</a>
+			
+		</li>
+	
+		<li><a href="#ba-if">ba-if</a>
+			
+		</li>
+	
+		<li><a href="#ba-repeat">ba-repeat</a>
+			
+		</li>
+	
+		<li><a href="#ba-*">ba-*</a>
 			
 		</li>
 	
@@ -52,8 +133,8 @@
 	
 	</ul>
 
-</div>
-<div style="overflow-y: scroll; float:right; height: 100%; width:80%">
+</menu>
+<main>
 
 	
 		<h1 id="betajs"><h1 id="betajs">BetaJS</h1>
@@ -131,43 +212,43 @@ And runs a very basic &quot;Hello World&quot; Script in the body.</p>
 <p>If everything is set up correctly you should see &quot;Hello World&quot;
 if you load the helloworld.html displayed in the box below in the Browser.</p>
 <pre><code class="lang-html"><span class="xml">
-<span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">head</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">"en"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">"UTF-8"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Hello World<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"vendors/beta.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"vendors/beta-browser-noscoped.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"vendors/betajs-dynamics.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">head</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">"en"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">"UTF-8"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Hello World<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"vendors/beta.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"vendors/beta-browser-noscoped.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"vendors/betajs-dynamics.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"helloworld"</span>&gt;</span></span><span class="hljs-expression">{{<span class="hljs-variable">replaced</span>_<span class="hljs-variable">value</span>}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"helloworld"</span>&gt;</span></span><span class="hljs-expression">{{<span class="hljs-variable">replaced</span>_<span class="hljs-variable">value</span>}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="http">
+        <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="http">
 
-<span class="actionscript">        <span class="hljs-keyword">dynamic</span> = <span class="hljs-keyword">new</span> BetaJS.Dynamics.Dynamic({
-            element: $(<span class="hljs-string">"#helloworld"</span>)
-        });
+<span class="actionscript">            <span class="hljs-keyword">dynamic</span> = <span class="hljs-keyword">new</span> BetaJS.Dynamics.Dynamic({
+                element: $(<span class="hljs-string">"#helloworld"</span>)
+            });
 
-        <span class="hljs-keyword">dynamic</span>.<span class="hljs-keyword">set</span>(<span class="hljs-string">"replaced_value"</span>, <span class="hljs-string">"Hello World"</span>);
-        <span class="hljs-keyword">dynamic</span>.activate();
+            <span class="hljs-keyword">dynamic</span>.<span class="hljs-keyword">set</span>(<span class="hljs-string">"replaced_value"</span>, <span class="hljs-string">"Hello World"</span>);
+            <span class="hljs-keyword">dynamic</span>.activate();
 
-    </span></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+        </span></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span></span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span></span>
 </code></pre>
 <h4 id="now-lets-go-briefly-trough-the-individual-parts-">Now lets go briefly trough the individual parts:</h4>
 <pre><code class="lang-html"><span class="xml">
-<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"helloworld"</span>&gt;</span></span><span class="hljs-expression">{{<span class="hljs-variable">replaced</span>_<span class="hljs-variable">value</span>}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"helloworld"</span>&gt;</span> </span><span class="hljs-expression">{{<span class="hljs-variable">replaced</span>_<span class="hljs-variable">value</span>}}</span><span class="xml"> <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></span>
 </code></pre>
 <p>Inside {{}} ist an attribute property that we can control from other parts of the Program</p>
 <pre><code class="lang-js">
-<span class="hljs-keyword">dynamic</span> = <span class="hljs-keyword">new</span> BetaJS.Dynamics.Dynamic({
-    element: $(<span class="hljs-string">"#helloworld"</span>)
-});
+    <span class="hljs-keyword">dynamic</span> = <span class="hljs-keyword">new</span> BetaJS.Dynamics.Dynamic({
+        element: $(<span class="hljs-string">"#helloworld"</span>)
+    });
 </code></pre>
 <p>Here we create a new BetaJS Dynamic,
 what that means and what you can do with that
@@ -178,7 +259,7 @@ and its contents. We can then control the #helloworld div within our Javascript 
 with the dynamic variable (Because of &quot;dynamic = new BetaJS.Dynamics.Dynamic({&quot;).</p>
 <p>An example on how to use this is the next line:</p>
 <pre><code class="lang-js">
-<span class="hljs-keyword">dynamic</span>.<span class="hljs-keyword">set</span>(<span class="hljs-string">"replaced_value"</span>, <span class="hljs-string">"Hello World"</span>);
+    <span class="hljs-keyword">dynamic</span>.<span class="hljs-keyword">set</span>(<span class="hljs-string">"replaced_value"</span>, <span class="hljs-string">"Hello World"</span>);
 </code></pre>
 <p>Here we create a the property within the dynamic which is called &quot;replaced_value&quot;
 and give it the value &quot;Hello World&quot;. When the dynamic is loaded the attribute property
@@ -188,52 +269,29 @@ Properties are similar to variables in that they store data, more on BetaJS Prop
 One of the benefits of using a property here is that when we changed the value of &quot;replaced_value&quot;
 the HTML view will update itself automatically.</p>
 <pre><code class="lang-js">
-<span class="hljs-keyword">dynamic</span>.activate();
+    <span class="hljs-keyword">dynamic</span>.activate();
 </code></pre>
 <p>This last part activates the dynamic and actually links the HTML with the Javascript.</p>
 
 		
+	
+		<h1 id="some_child"><h1 id="some_child">Some Child</h1>
+		<h3>TODO</h3>
+		
+	
+
 	
 		<h1 id="dynamics_basics"><h1 id="dynamics_basics">Dynamics Basics</h1>
 		<h2 id="betajs-dynamics-basics">BetaJS Dynamics Basics</h2>
-<pre><code class="lang-html"><span class="xml">
-<span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">head</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">"en"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">"UTF-8"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Hello World<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"vendors/beta.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"vendors/beta-browser-noscoped.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"vendors/betajs-dynamics.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"helloworld"</span>&gt;</span></span><span class="hljs-expression">{{<span class="hljs-variable">replaced</span>_<span class="hljs-variable">value</span>}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="http">
-
-<span class="actionscript">        <span class="hljs-keyword">dynamic</span> = <span class="hljs-keyword">new</span> BetaJS.Dynamics.Dynamic({
-            element: $(<span class="hljs-string">"#helloworld"</span>)
-        });
-
-        <span class="hljs-keyword">dynamic</span>.<span class="hljs-keyword">set</span>(<span class="hljs-string">"replaced_value"</span>, <span class="hljs-string">"Hello World"</span>);
-        <span class="hljs-keyword">dynamic</span>.activate();
-
-    </span></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span></span>
-</code></pre>
 <h4 id="now-lets-go-briefly-trough-the-individual-parts-">Now lets go briefly trough the individual parts:</h4>
 <pre><code class="lang-html"><span class="xml">
-<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"helloworld"</span>&gt;</span></span><span class="hljs-expression">{{<span class="hljs-variable">replaced</span>_<span class="hljs-variable">value</span>}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"helloworld"</span>&gt;</span> </span><span class="hljs-expression">{{<span class="hljs-variable">replaced</span>_<span class="hljs-variable">value</span>}}</span><span class="xml"> <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></span>
 </code></pre>
 <p>Inside {{}} ist an attribute property that we can control from other parts of the Program</p>
 <pre><code class="lang-js">
-<span class="hljs-keyword">dynamic</span> = <span class="hljs-keyword">new</span> BetaJS.Dynamics.Dynamic({
-    element: $(<span class="hljs-string">"#helloworld"</span>)
-});
+    <span class="hljs-keyword">dynamic</span> = <span class="hljs-keyword">new</span> BetaJS.Dynamics.Dynamic({
+        element: $(<span class="hljs-string">"#helloworld"</span>)
+    });
 </code></pre>
 <p>Here we create a new BetaJS Dynamic,
 what that means and what you can do with that
@@ -244,7 +302,7 @@ and its contents. We can then control the #helloworld div within our Javascript 
 with the dynamic variable (Because of &quot;dynamic = new BetaJS.Dynamics.Dynamic({&quot;).</p>
 <p>An example on how to use this is the next line:</p>
 <pre><code class="lang-js">
-<span class="hljs-keyword">dynamic</span>.<span class="hljs-keyword">set</span>(<span class="hljs-string">"replaced_value"</span>, <span class="hljs-string">"Hello World"</span>);
+    <span class="hljs-keyword">dynamic</span>.<span class="hljs-keyword">set</span>(<span class="hljs-string">"replaced_value"</span>, <span class="hljs-string">"Hello World"</span>);
 </code></pre>
 <p>Here we create a the property within the dynamic which is called &quot;replaced_value&quot;
 and give it the value &quot;Hello World&quot;. When the dynamic is loaded the attribute property
@@ -254,10 +312,80 @@ Properties are similar to variables in that they store data, more on BetaJS Prop
 One of the benefits of using a property here is that when we changed the value of &quot;replaced_value&quot;
 the HTML view will update itself automatically.</p>
 <pre><code class="lang-js">
-<span class="hljs-keyword">dynamic</span>.activate();
+    <span class="hljs-keyword">dynamic</span>.activate();
 </code></pre>
 <p>This last part activates the dynamic and actually links the HTML with the Javascript.</p>
 
+		
+	
+		<h1 id="complete_reference"><h1 id="complete_reference">Dynamics Basics</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="templates"><h1 id="templates">Templates</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="initial"><h1 id="initial">initial</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="attributes"><h1 id="attributes">attributes</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="create"><h1 id="create">create</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="funtions"><h1 id="funtions">funtions</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="binding"><h1 id="binding">binding</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="scopes"><h1 id="scopes">scopes</h1>
+		<h3>TODO</h3>
+		
+	
+
+	
+		<h1 id="_afterActivate"><h1 id="_afterActivate">_afterActivate</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="html_binding"><h1 id="html_binding">html_binding</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="html_attributes"><h1 id="html_attributes">html_attributes</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="ba-click"><h1 id="ba-click">ba-click</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="ba-class"><h1 id="ba-class">ba-class</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="ba-show"><h1 id="ba-show">ba-show</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="ba-if"><h1 id="ba-if">ba-if</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="ba-repeat"><h1 id="ba-repeat">ba-repeat</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="ba-*"><h1 id="ba-*">ba-*</h1>
+		<h3>TODO</h3>
 		
 	
 
@@ -265,6 +393,6 @@ the HTML view will update itself automatically.</p>
 
 	
 
-</div>
+</main>
 </body>
 </html>

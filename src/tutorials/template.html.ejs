@@ -21,11 +21,11 @@
 		<% if (tutorials[key].children) cont(tutorials[key].children) %>
 	<% } %>
 <% } %>
-<div style="float:left; width:20%">
+<menu>
 <% toc(tutorials) %>
-</div>
-<div style="overflow-y: scroll; float:right; height: 100%; width:80%">
+</menu>
+<main>
 <% cont(tutorials) %>
-</div>
+</main>
 </body>
 </html>

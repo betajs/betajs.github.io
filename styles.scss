@@ -1,5 +1,30 @@
-code {
-  background: #f7f7f7;
-  border-radius: 20px;
-  padding: 10px 0 20px;
+body {
+  display: flex;
+
+  menu {
+    flex: 0 0 200px;
+    padding: 0;
+    display: block;
+  }
+
+  main {
+    flex: 1 1 0;
+    display: block;
+    overflow-y: scroll;
+    float: right;
+    height: 100%;
+
+    pre {
+      background: #f7f7f7;
+      border-radius: 20px;
+      padding: 10px 0 20px;
+    }
+  }
+}
+
+//Reset
+li {list-style: none}
+ul {
+  margin: 0 0 0 10px;
+  padding: 0;
 }
