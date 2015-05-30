@@ -3,7 +3,16 @@ body {
   body menu {
     flex: 0 0 200px;
     padding: 0;
-    display: block; }
+    display: block;
+    font-family: SegoeUI, 'Segoe UI', Arial, sans-serif; }
+    body menu ul {
+      margin: 0 0 0 15px; }
+    body menu a {
+      text-decoration: none; }
+    body menu > ul > li > a {
+      font-size: 150%; }
+    body menu > ul > li > ul > li > ul {
+      font-size: 80%; }
   body main {
     flex: 1 1 0;
     display: block;
@@ -19,7 +28,6 @@ li {
   list-style: none; }
 
 ul {
-  margin: 0 0 0 10px;
   padding: 0; }
 
 /*# sourceMappingURL=styles.css.map */

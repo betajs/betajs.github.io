@@ -5,6 +5,14 @@ body {
     flex: 0 0 200px;
     padding: 0;
     display: block;
+    font-family: SegoeUI, 'Segoe UI', Arial, sans-serif;
+
+    ul {margin: 0 0 0 15px}
+    a {text-decoration: none}
+
+    >ul>li>a {font-size: 150%}
+    >ul>li>ul>li>ul {font-size: 80%}
+
   }
 
   main {
@@ -24,7 +32,4 @@ body {
 
 //Reset
 li {list-style: none}
-ul {
-  margin: 0 0 0 10px;
-  padding: 0;
-}
+ul{padding: 0}
