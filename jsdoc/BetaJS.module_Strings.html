@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>BetaJS Module: Router</title>
+	<title>BetaJS Module: Strings</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -60,6 +60,10 @@
 						class="caret"></b></a>
 
 					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="tutorial-iterators.html">Enumerable Lists - Iterators</a>
+						</li>
 						
 						<li>
 							<a href="tutorial-properties.html">Introduction to Properties</a>
@@ -148,12 +152,12 @@
 					
 
 
-	<h1 class="page-title">Module: Router</h1>
+	<h1 class="page-title">Module: Strings</h1>
 <section>
 
 <header>
     <h2>
-    Router
+    Strings
     </h2>
     
 </header>
@@ -164,7 +168,7 @@
 
     
         
-            <div class="description"><p>A routing class</p></div>
+            <div class="description"><p>String Utilities</p></div>
         
 
         
@@ -194,8 +198,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
-				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-10">line 10</a>
+				<a href="betajs_src_base_strings.js.html">betajs/src/base/strings.js</a>,
+				 <a href="betajs_src_base_strings.js.html#sunlight-1-line-2">line 2</a>
 			</li>
 		</ul>
 	</dd>
@@ -223,67 +227,6 @@
 
     
 
-    
-        <h3 class="subsection-title">Members</h3>
-
-        <dl>
-            
-<dt class="name" id="~routes">
-    <h4><span class="type-signature">&lt;inner> </span>routes<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-
-    
-
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
-				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-48">line 48</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        </dl>
     
 
     
@@ -292,7 +235,7 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="~_invoke"><span class="type-signature">&lt;inner> </span>_invoke<span class="signature">(object, params)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~ends_with"><span class="type-signature">&lt;inner> </span>ends_with<span class="signature">(s, needle)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -300,10 +243,7 @@
     
     
     <div class="description">
-        <p>Invokes a routing object with parameters.</p>
-<p>
-  Can be overwritten and does the invoking.
-</p>
+        <p>Determines whether a string ends with a sub string</p>
     </div>
     
 
@@ -337,7 +277,7 @@
 
         <tr>
             
-                <td class="name"><code>object</code></td>
+                <td class="name"><code>s</code></td>
             
 
             <td class="type">
@@ -348,14 +288,14 @@
 
             
 
-            <td class="description last"><p>the routing object</p></td>
+            <td class="description last"><p>string in question</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>params</code></td>
+                <td class="name"><code>needle</code></td>
             
 
             <td class="type">
@@ -366,7 +306,7 @@
 
             
 
-            <td class="description last"><p>(optional) the parameters that should be attached to the route</p></td>
+            <td class="description last"><p>sub string</p></td>
         </tr>
 
 	
@@ -402,612 +342,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
-				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-200">line 200</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~constructor"><span class="type-signature">&lt;inner> </span>constructor<span class="signature">(options)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Creates a new router with options</p>
-<ul>
- <li>routes: adds user defined routes</li> 
- <li>actions: extends the object by user-defined actions</li>
-</ul>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>options</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
-				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-57">line 57</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~current"><span class="type-signature">&lt;inner> </span>current<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Returns the current route object.</p>
-<ul>
- <li>route: the route as string</li>
- <li>object: the routing object</li>
- <li>params: the params</li>
-</ul>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
-				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-231">line 231</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~invoke"><span class="type-signature">&lt;inner> </span>invoke<span class="signature">(object, params, route)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Invoke a routing object with parameters</p>
-<p>
-  Invokes the protected method _invoke
-</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>object</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the routing object</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>params</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>(optional) the parameters that should be attached to the route</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>route</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>(optional) an associated route that should be saved</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
-				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-184">line 184</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~navigate"><span class="type-signature">&lt;inner> </span>navigate<span class="signature">(route)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Navigate to a given route, invoking the matching action.</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>route</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the route</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
-				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-165">line 165</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~object"><span class="type-signature">&lt;inner> </span>object<span class="signature">(path)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Looks up the routing object given a path descriptor</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the path descriptor</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
-				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-141">line 141</a>
+				<a href="betajs_src_base_strings.js.html">betajs/src/base/strings.js</a>,
+				 <a href="betajs_src_base_strings.js.html#sunlight-1-line-69">line 69</a>
 			</li>
 		</ul>
 	</dd>
@@ -1034,7 +370,7 @@
     
             
 <div class="param-desc">
-    <p>the routing object</p>
+    <p>true if string in question ends with sub string</p>
 </div>
 
 
@@ -1048,7 +384,7 @@
         
             
 <dt>
-    <h4 class="name" id="~parse"><span class="type-signature">&lt;inner> </span>parse<span class="signature">(route)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~htmlentities"><span class="type-signature">&lt;inner> </span>htmlentities<span class="signature">(s)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -1056,7 +392,7 @@
     
     
     <div class="description">
-        <p>Parse a given route and map it to the first applicable object that is valid</p>
+        <p>Converts special characters in a string to html entitiy symbols</p>
     </div>
     
 
@@ -1090,7 +426,7 @@
 
         <tr>
             
-                <td class="name"><code>route</code></td>
+                <td class="name"><code>s</code></td>
             
 
             <td class="type">
@@ -1101,7 +437,7 @@
 
             
 
-            <td class="description last"><p>the route given as a strings</p></td>
+            <td class="description last"><p>string</p></td>
         </tr>
 
 	
@@ -1137,8 +473,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
-				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-106">line 106</a>
+				<a href="betajs_src_base_strings.js.html">betajs/src/base/strings.js</a>,
+				 <a href="betajs_src_base_strings.js.html#sunlight-1-line-21">line 21</a>
 			</li>
 		</ul>
 	</dd>
@@ -1165,7 +501,7 @@
     
             
 <div class="param-desc">
-    <p>either null if nothing applicable and valid could be matched or an associative array with params and routing object as attributes.</p>
+    <p>converted string</p>
 </div>
 
 
@@ -1179,7 +515,7 @@
         
             
 <dt>
-    <h4 class="name" id="~path"><span class="type-signature">&lt;inner> </span>path<span class="signature">(pth)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~is_email_address"><span class="type-signature">&lt;inner> </span>is_email_address<span class="signature">(s)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -1187,7 +523,7 @@
     
     
     <div class="description">
-        <p>Returns the route of a path description</p>
+        <p>Determines whether a string is a syntactically valid email address</p>
     </div>
     
 
@@ -1221,7 +557,7 @@
 
         <tr>
             
-                <td class="name"><code>pth</code></td>
+                <td class="name"><code>s</code></td>
             
 
             <td class="type">
@@ -1232,8 +568,7 @@
 
             
 
-            <td class="description last"><p>the path descriptor
-param parameters parameters that should be attached to the route (capturing groups)</p></td>
+            <td class="description last"><p>string in question</p></td>
         </tr>
 
 	
@@ -1269,8 +604,8 @@ param parameters parameters that should be attached to the route (capturing grou
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="betajs-browser_src_browser_router.js.html">betajs-browser/src/browser/router.js</a>,
-				 <a href="betajs-browser_src_browser_router.js.html#sunlight-1-line-149">line 149</a>
+				<a href="betajs_src_base_strings.js.html">betajs/src/base/strings.js</a>,
+				 <a href="betajs_src_base_strings.js.html#sunlight-1-line-104">line 104</a>
 			</li>
 		</ul>
 	</dd>
@@ -1293,6 +628,988 @@ param parameters parameters that should be attached to the route (capturing grou
     
     
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>true if string looks like an email address</p>
+</div>
+
+
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="~js_escape"><span class="type-signature">&lt;inner> </span>js_escape<span class="signature">(s)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Converts string such that it can be used in javascript by escaping special symbols</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="betajs_src_base_strings.js.html">betajs/src/base/strings.js</a>,
+				 <a href="betajs_src_base_strings.js.html#sunlight-1-line-46">line 46</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>escaped string</p>
+</div>
+
+
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="~last_after"><span class="type-signature">&lt;inner> </span>last_after<span class="signature">(s, needle)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Returns the complete remaining part of a string after a the last occurrence of a sub string</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string in question</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>needle</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>sub string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="betajs_src_base_strings.js.html">betajs/src/base/strings.js</a>,
+				 <a href="betajs_src_base_strings.js.html#sunlight-1-line-89">line 89</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>remaining part of the string in question after the last occurrence of the sub string</p>
+</div>
+
+
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="~nl2br"><span class="type-signature">&lt;inner> </span>nl2br<span class="signature">(s)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Converts a string new lines to html <br /> tags</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="betajs_src_base_strings.js.html">betajs/src/base/strings.js</a>,
+				 <a href="betajs_src_base_strings.js.html#sunlight-1-line-12">line 12</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>string with new lines replaced by <br /></p>
+</div>
+
+
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="~nltrim"><span class="type-signature">&lt;inner> </span>nltrim<span class="signature">(s)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Trims all trailing and leading whitespace and removes block indentations</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="betajs_src_base_strings.js.html">betajs/src/base/strings.js</a>,
+				 <a href="betajs_src_base_strings.js.html#sunlight-1-line-152">line 152</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>string with trimmed whitespaces and removed block indentation</p>
+</div>
+
+
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="~starts_with"><span class="type-signature">&lt;inner> </span>starts_with<span class="signature">(s, needle)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Determines whether a string starts with a sub string</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string in question</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>needle</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>sub string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="betajs_src_base_strings.js.html">betajs/src/base/strings.js</a>,
+				 <a href="betajs_src_base_strings.js.html#sunlight-1-line-59">line 59</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>true if string in question starts with sub string</p>
+</div>
+
+
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="~strip_html"><span class="type-signature">&lt;inner> </span>strip_html<span class="signature">(html)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Removes all html from data and returns plain text</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>html</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string containing html</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="betajs_src_base_strings.js.html">betajs/src/base/strings.js</a>,
+				 <a href="betajs_src_base_strings.js.html#sunlight-1-line-117">line 117</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>string containing the plain text part of it</p>
+</div>
+
+
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="~strip_start"><span class="type-signature">&lt;inner> </span>strip_start<span class="signature">(s, needle)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Removes sub string from a string if string starts with sub string</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string in question</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>needle</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>sub string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="betajs_src_base_strings.js.html">betajs/src/base/strings.js</a>,
+				 <a href="betajs_src_base_strings.js.html#sunlight-1-line-79">line 79</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>string without sub string if it starts with sub string otherwise it returns the original string</p>
+</div>
+
+
+
+
+        
     
     
 </dd>
@@ -1323,7 +1640,7 @@ param parameters parameters that should be attached to the route (capturing grou
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta3</a>
-		on Tue May 19th 2015 using the <a
+		on Tue Jun 2nd 2015 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>
