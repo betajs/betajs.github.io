@@ -3,4 +3,5 @@
 .DS_Store
 .sass-cache
 node_modules
-
+.idea
+npm-debug.log

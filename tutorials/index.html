@@ -15,6 +15,7 @@
 			
 	<ul>
 	
+<<<<<<< HEAD:tutorials.html
 		<li><a href="#objs">Functional Helpers for Objects and Arrays</a>
 			
 		</li>
@@ -23,6 +24,8 @@
 			
 		</li>
 	
+=======
+>>>>>>> e6675522d646a7db8a68384d709f8b38dd047c1a:tutorials/index.html
 		<li><a href="#class">Object Orientation</a>
 			
 	<ul>
@@ -103,6 +106,17 @@
 			
 		</li>
 	
+<<<<<<< HEAD:tutorials.html
+=======
+		<li><a href="#objs">Functional Helpers for Objects and Arrays</a>
+			
+		</li>
+	
+		<li><a href="#ids">Identifiable Objects</a>
+			
+		</li>
+	
+>>>>>>> e6675522d646a7db8a68384d709f8b38dd047c1a:tutorials/index.html
 	</ul>
 
 		</li>
@@ -249,6 +263,7 @@
 		
 		
 	
+<<<<<<< HEAD:tutorials.html
 		<h1 id="objs"><h1 id="objs">Functional Helpers for Objects and Arrays</h1>
 		<h3>TODO</h3>
 		
@@ -257,6 +272,8 @@
 		<h3>TODO</h3>
 		
 	
+=======
+>>>>>>> e6675522d646a7db8a68384d709f8b38dd047c1a:tutorials/index.html
 		<h1 id="class"><h1 id="class">Object Orientation</h1>
 		<h3>TODO</h3>
 		
@@ -350,11 +367,61 @@
 
 	
 		<h1 id="iterators"><h1 id="iterators">Enumerable Lists - Iterators</h1>
+<<<<<<< HEAD:tutorials.html
 		<h3>TODO</h3>
 		
 	
 		<h1 id="iterators-advanced"><h1 id="iterators-advanced">Advanced Iterators</h1>
 		<h3>TODO</h3>
+=======
+		<p>An iterator is an object that allows you to enumerate items of some list. The most commonly used iterator is based on an array:</p>
+<pre><code>    <span class="hljs-keyword">var</span> <span class="hljs-keyword">iterator</span> = new <span class="hljs-type">BetaJS</span>.<span class="hljs-type">Iterators</span>.<span class="hljs-type">ArrayIterator</span>([<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-string">"c"</span>]);
+</code></pre><p>An iterator instance exposes two methods: <em>hasNext</em>, telling you whether there are more elements in iterator
+that you haven&#39;t seen yet, and <em>next</em>, which returns the next element in the iterator and moves the internal
+position forward.</p>
+<p>A typical iterator use looks as follows, enumerating all items:</p>
+<pre><code>    <span class="hljs-keyword">while</span> (<span class="hljs-keyword">iterator</span>.hasNext()) {
+        <span class="hljs-keyword">var</span> item = <span class="hljs-keyword">iterator</span>.next();
+        // process the item
+    }
+</code></pre><p>Iterators in general do not know how many elements are in the list. If you need to know the number of elements,
+you need to iterate through the whole list.</p>
+<p>The main advantages of iterators over using arrays or objects are as follows:</p>
+<ul>
+<li>Independence of the underlying data structure: the algorithm consuming the iterator does not depend on the data being an array</li>
+<li>Stream-like data consumption: lazy iterators can build up the data as you move along in the iteration</li>
+<li>Chaining iterators to create new iterators</li>
+</ul>
+<p>If you have an object instead of an array, you can create an object key iterator as follows:</p>
+<pre><code>    <span class="hljs-keyword">var</span> <span class="hljs-keyword">iterator</span> = new <span class="hljs-type">BetaJS</span>.<span class="hljs-type">Iterators</span>.<span class="hljs-type">ObjectKeysIterator</span>({a: <span class="hljs-number">1</span>, b: <span class="hljs-number">2</span>, c: <span class="hljs-number">3</span>});
+</code></pre><p>As well as a value iterator:</p>
+<pre><code>    <span class="hljs-keyword">var</span> <span class="hljs-keyword">iterator</span> = new <span class="hljs-type">BetaJS</span>.<span class="hljs-type">Iterators</span>.<span class="hljs-type">ObjectValuesIterator</span>({a: <span class="hljs-number">1</span>, b: <span class="hljs-number">2</span>, c: <span class="hljs-number">3</span>});
+</code></pre>
+		
+	
+		<h1 id="iterators-advanced"><h1 id="iterators-advanced">Advanced Iterators</h1>
+		<p>In some cases, you want to perform certain transformations on a list before actually processing it. Such transformations
+include filtering items, sorting the list, skipping items and limiting the number of items. You might even want to
+combine some of these transformations.</p>
+<p>Iterators can be chained in the following sense: given an iterator, you can automatically create a new iterator based on
+it while performing a transformation on it.</p>
+<p>For the sake of this paragraph, assume that we already have an iterator object called <em>baseIterator</em> (which could be an ArrayIterator).</p>
+<p>For filtering items, you can use the <em>FilteredIterator</em>:  </p>
+<pre><code>    <span class="hljs-keyword">var</span> <span class="hljs-keyword">iterator</span> = new <span class="hljs-type">BetaJS</span>.<span class="hljs-type">Iterators</span>.<span class="hljs-type">FilteredIterator</span>(baseIterator, function (item) {
+        // <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span> <span class="hljs-keyword">if</span> item should be contained <span class="hljs-keyword">in</span> <span class="hljs-keyword">iterator</span> 
+    }, this);
+</code></pre><p>For sorting items, you can use the <em>SortedIterator</em>:</p>
+<pre><code>    <span class="hljs-keyword">var</span> <span class="hljs-keyword">iterator</span> = new <span class="hljs-type">BetaJS</span>.<span class="hljs-type">Iterators</span>.<span class="hljs-type">SortedIterator</span>(baseIterator, function (item1, item2) {
+        // <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> item1 &gt; item2, -<span class="hljs-number">1</span> <span class="hljs-keyword">if</span> item1 &lt; item2 <span class="hljs-keyword">and</span> <span class="hljs-number">0</span> <span class="hljs-keyword">if</span> item1 == item2 
+    });
+</code></pre><p>For skipping e.g. 10 items, you can use the <em>SkipIterator</em>:</p>
+<pre><code>    <span class="hljs-keyword">var</span> <span class="hljs-keyword">iterator</span> = new <span class="hljs-type">BetaJS</span>.<span class="hljs-type">Iterators</span>.<span class="hljs-type">SkipIterator</span>(baseIterator, <span class="hljs-number">10</span>);
+</code></pre><p>For limit the result to e.g. 50 items, you can use the <em>LimitIterator</em>:</p>
+<pre><code>    <span class="hljs-keyword">var</span> <span class="hljs-keyword">iterator</span> = new <span class="hljs-type">BetaJS</span>.<span class="hljs-type">Iterators</span>.<span class="hljs-type">SkipIterator</span>(baseIterator, <span class="hljs-number">50</span>);
+</code></pre><p>You can also combine these iterators to, e.g. skip 10 items and return 50:</p>
+<pre><code>    <span class="hljs-keyword">var</span> <span class="hljs-keyword">iterator</span> = new <span class="hljs-type">BetaJS</span>.<span class="hljs-type">Iterators</span>.<span class="hljs-type">LimitIterator</span>(new <span class="hljs-type">BetaJS</span>.<span class="hljs-type">Iterators</span>.<span class="hljs-type">SkipIterator</span>(baseIterator, <span class="hljs-number">10</span>), <span class="hljs-number">50</span>);
+</code></pre>
+>>>>>>> e6675522d646a7db8a68384d709f8b38dd047c1a:tutorials/index.html
 		
 	
 
@@ -373,6 +440,17 @@
 		<h3>TODO</h3>
 		
 	
+<<<<<<< HEAD:tutorials.html
+=======
+		<h1 id="objs"><h1 id="objs">Functional Helpers for Objects and Arrays</h1>
+		<h3>TODO</h3>
+		
+	
+		<h1 id="ids"><h1 id="ids">Identifiable Objects</h1>
+		<h3>TODO</h3>
+		
+	
+>>>>>>> e6675522d646a7db8a68384d709f8b38dd047c1a:tutorials/index.html
 
 	
 		<h1 id="dynamics"><h1 id="dynamics">Dynamics</h1>
@@ -458,8 +536,12 @@ the HTML view will update itself automatically.</p>
 
 	
 		<h1 id="blueprint"><h1 id="blueprint">Blueprint</h1>
+<<<<<<< HEAD:tutorials.html
 		<h2 id="blueprint">Blueprint</h2>
 <p>This Blueprint is intented as a quick reference for how to integrate the most commonly
+=======
+		<p>This Blueprint is intented as a quick reference for how to integrate the most commonly
+>>>>>>> e6675522d646a7db8a68384d709f8b38dd047c1a:tutorials/index.html
 used Dynamic functionalities. On the specifics how they work please refer to the individual sections.</p>
 <pre><code class="lang-js">
     dynamic = new <span class="hljs-type">BetaJS</span>.<span class="hljs-type">Dynamics</span>.<span class="hljs-type">Dynamic</span>({

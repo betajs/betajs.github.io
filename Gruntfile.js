@@ -28,9 +28,14 @@ module.exports = function(grunt) {
 				},
 				jsdoc : {
 					dist : {
-						src : [ './README.md', '../betajs/src/base/*.js', '../betajs-browser/src/browser/*.js' ],
+						src : [
+						     './README.md',
+						     '../betajs/src/base/*.js',
+						     '../betajs-browser/src/browser/*.js',
+						     '../betajs-dynamics/src/**/*.js',
+						],
 						options : {
-							destination : '.',
+							destination : './jsdoc',
 							template : "node_modules/grunt-jsdoc/node_modules/ink-docstrap/template",
 							configure : "./jsdoc.conf.json",
 							tutorials : "../betajs/docsrc/tutorials"
@@ -43,5 +48,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-template');
 	
 	grunt.registerTask('default', ['template:readme', 'jsdoc:dist']);	
-	
+	grunt.registerTask('tutorials', 'Generate tutorial', function () {
+		require("./src/tutorials/compile.js");
+	});	
 };

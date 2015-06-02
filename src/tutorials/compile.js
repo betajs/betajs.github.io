@@ -1,5 +1,5 @@
 var template_html = "./src/tutorials/template.html.ejs";
-var target_html = "./tutorials.html";
+var target_html = "./tutorials/index.html";
 
 var tutorials_source = {
 	betajs: {
