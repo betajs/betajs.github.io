@@ -46,9 +46,9 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-jsdoc');
 	grunt.loadNpmTasks('grunt-template');
-	
-	grunt.registerTask('default', ['template:readme', 'jsdoc:dist']);	
+
+	grunt.registerTask('default', ['template:readme', 'jsdoc:dist','tutorials']);
 	grunt.registerTask('tutorials', 'Generate tutorial', function () {
 		require("./src/tutorials/compile.js");
-	});	
+	});
 };

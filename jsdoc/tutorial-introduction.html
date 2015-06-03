@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>BetaJS Module: Tokens</title>
+	<title>BetaJS tutorialIntroduction to BetaJS</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -150,235 +150,47 @@
 	<div class="row-fluid">
 
 		
-		<div class="span8">
-			
+			<div class="span12">
+				
 				<div id="main">
-					
-
-
-	<h1 class="page-title">Module: Tokens</h1>
-<section>
+					<section class="tutorial-section">
 
 <header>
-    <h2>
-    Tokens
-    </h2>
     
+
+    <h2>Introduction to BetaJS</h2>
 </header>
 
 <article>
-    <div class="container-overview">
-    
-
-    
-        
-            <div class="description"><p>Unique Token Generation</p></div>
-        
-
-        
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_tokens.js.html">betajs/src/base/tokens.js</a>,
-				 <a href="betajs_src_base_tokens.js.html#sunlight-1-line-2">line 2</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-            
-<dt>
-    <h4 class="name" id="~generate_token"><span class="type-signature">&lt;inner> </span>generate_token<span class="signature">(length)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Returns a new token</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>length</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional length of token, default is 16</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_tokens.js.html">betajs/src/base/tokens.js</a>,
-				 <a href="betajs_src_base_tokens.js.html#sunlight-1-line-16">line 16</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>token</p>
-</div>
-
-
-
-
-        
-    
-    
-</dd>
-
-        </dl>
-    
-
-    
-
-    
+    <p>BetaJS is a 'lightweight' Javascript Framework with several independent, combinable Frameworks
+to for writing full stack web applications.</p>
+<p>For this some parts build on other current well-established web technologies: NodesJS, JQuery and Socket.io</p>
+<p>One of the goals of BetaJS is to be rapidly and easily deployable for demos and prototypes,
+with the added benefit of being able to scale these into production ready Products/</p>
+<h2>Overview of core features</h2><p>BetaJS is the core component that provides several features that are used widely among all the BetaJS Frameworks.
+The main concepts are:</p>
+<ul>
+<li>Object Orientation</li>
+<li>Properties<ul>
+<li>Events</li>
+</ul>
+</li>
+</ul>
+<h2>Example Code</h2><pre class="prettyprint source lang-js"><code>
+    var property = new BetaJS.property.property({a: &quot;initial value&quot;});
+    // x === &quot;second value&quot;
+
+    property.set(&quot;a&quot;, &quot;second value&quot;);
+
+    var x = property.get(&quot;a&quot;);
+    // x === &quot;second value&quot;
+
+    property.on('change',function(){
+        console.log('The value of property has been changed');
+    });</code></pre>
 </article>
 
 </section>
-
-
-
 
 				</div>
 
@@ -399,10 +211,6 @@
 				</footer>
 			</div>
 
-			
-			<div class="span3">
-				<div id="toc"></div>
-			</div>
 			
 			<br clear="both">
 		</div>
