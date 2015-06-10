@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>BetaJS Module: Ids</title>
+	<title>BetaJS tutorialAdvanced Properties</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -158,384 +158,46 @@
 	<div class="row-fluid">
 
 		
-		<div class="span8">
-			
+			<div class="span12">
+				
 				<div id="main">
-					
-
-
-	<h1 class="page-title">Module: Ids</h1>
-<section>
+					<section class="tutorial-section">
 
 <header>
-    <h2>
-    Ids
-    </h2>
     
+
+    <h2>Advanced Properties</h2>
 </header>
 
 <article>
-    <div class="container-overview">
-    
+    <p>Declaring a property and assigning new values to it</p>
+<pre class="prettyprint source lang-js"><code>
+    var property_a = new BetaJS.Properties.Properties();
 
-    
-        
-            <div class="description"><p>Id Generation</p></div>
-        
+    var x = property_a.get(&quot;value_1&quot;);
+    // x === undefined
 
-        
-<dl class="details">
-	
+    var property_b = new BetaJS.Properties.Properties({
+        value_2: &quot;This is Value 2&quot;
+    });
 
-	
+    var x = property_b.get(&quot;value_2&quot;);
+    // x === &quot;This is Value 2&quot;
 
-	
+    property_a.set(&quot;value_1&quot;, &quot;Some Property Value&quot;);
 
-	
+    var x = property_a.get(&quot;value_1&quot;);
+    // x === &quot;Some Property Value&quot;</code></pre><p>Nested Properties</p>
+<pre class="prettyprint source lang-js"><code>
+    var property = new BetaJS.Properties.Properties();
 
-	
+    property.set(&quot;prop.value_a&quot;,&quot;This is value_a&quot;);
 
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_ids.js.html">betajs/src/base/ids.js</a>,
-				 <a href="betajs_src_base_ids.js.html#sunlight-1-line-2">line 2</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-            
-<dt>
-    <h4 class="name" id="~objectId"><span class="type-signature">&lt;inner> </span>objectId<span class="signature">(object, id)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Returns the object's unique identifier or sets it</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>object</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the object</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>(optional)</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_ids.js.html">betajs/src/base/ids.js</a>,
-				 <a href="betajs_src_base_ids.js.html#sunlight-1-line-24">line 24</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>object's unique identifier</p>
-</div>
-
-
-
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="~uniqueId"><span class="type-signature">&lt;inner> </span>uniqueId<span class="signature">(prefix)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Returns a unique identifier</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>prefix</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>a prefix string for the identifier (optional)</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="betajs_src_base_ids.js.html">betajs/src/base/ids.js</a>,
-				 <a href="betajs_src_base_ids.js.html#sunlight-1-line-14">line 14</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>unique identifier</p>
-</div>
-
-
-
-
-        
-    
-    
-</dd>
-
-        </dl>
-    
-
-    
-
-    
+    var x = property.get(&quot;prop.value_a&quot;);
+    // x === &quot;This is value_a&quot;</code></pre>
 </article>
 
 </section>
-
-
-
 
 				</div>
 
@@ -556,10 +218,6 @@
 				</footer>
 			</div>
 
-			
-			<div class="span3">
-				<div id="toc"></div>
-			</div>
 			
 			<br clear="both">
 		</div>

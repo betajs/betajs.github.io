@@ -51,7 +51,7 @@
 			
 	<ul>
 	
-		<li><a href="#advanced">Advanced Properties</a>
+		<li><a href="#properties-advanced">Advanced Properties</a>
 			
 		</li>
 	
@@ -321,7 +321,20 @@ The main concepts are:</p>
 
 	
 		<h1 id="events"><h1 id="events">Event System as Observer Pattern</h1>
-		<h3>TODO</h3>
+		<p>The event system allows you to emit different events with custom event data from class instances
+that other components can listen to.</p>
+<p>Event emitters can either inherit from the <em>BetaJS.Events.Events</em> class or include the <em>BetaJS.Events.EventsMixin</em> mixin.</p>
+<pre><code>    <span class="hljs-keyword">var</span> events = <span class="hljs-keyword">new</span> BetaJS.Events.Events();
+</code></pre><p>Events can be emitted by calling the <em>trigger</em> function. The first argument is the name of the event, all following arguments are custom data that is passed along.</p>
+<pre><code>    events.trigger<span class="hljs-params">(<span class="hljs-string">"event_name"</span>, event_data1, event_data2)</span>;
+</code></pre><p>Other components can listen to events by using the <em>on</em> method:</p>
+<pre><code>    events.on(<span class="hljs-string">"event_name"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event_arg1, event_arg2)</span> </span>{
+        <span class="hljs-comment">// Do something</span>
+    }, function_context);
+</code></pre><p>The function context is optional.</p>
+<p>Once the component is done listening for events, it can unregister by calling <em>off</em>:</p>
+<pre><code>    events.<span class="hljs-literal">on</span>(<span class="hljs-string">"event_name"</span>, <span class="hljs-literal">null</span>, function_context);
+</code></pre>
 		
 	
 		<h1 id="properties"><h1 id="properties">Introduction to Properties</h1>
@@ -346,7 +359,7 @@ The main concepts are:</p>
 
 		
 	
-		<h1 id="advanced"><h1 id="advanced">Advanced Properties</h1>
+		<h1 id="properties-advanced"><h1 id="properties-advanced">Advanced Properties</h1>
 		<p>Declaring a property and assigning new values to it</p>
 <pre><code class="lang-js">
     <span class="hljs-variable"><span class="hljs-keyword">var</span> property_a</span> = new BetaJS.Properties.Properties();
@@ -381,11 +394,47 @@ The main concepts are:</p>
 
 	
 		<h1 id="collections"><h1 id="collections">Collections</h1>
-		<h3>TODO</h3>
+		<p>A collection is a dynamic list that allows for observers to listen for change events. Every item in a collection is based on a properties instance.</p>
+<pre><code>    <span class="hljs-keyword">var</span> collection = <span class="hljs-keyword">new</span> BetaJS.Collections.Collection();
+</code></pre><p>You can add and remove items as follows:</p>
+<pre><code>    collection.add(<span class="hljs-property">item</span>);
+    collection.remove(<span class="hljs-property">item</span>);
+</code></pre><p>Item can either implement <em>Properties</em> or be a bare JSON object in which case it will be converted to a Properties instance.</p>
+<p>It implements the Events Mixin and emits change events whenever items are added, changed or removed.</p>
+<pre><code>    collection.on(<span class="hljs-string">"add"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(item)</span> </span>{
+        <span class="hljs-comment">// <span class="hljs-doctag"><span class="hljs-keyword">TODO</span></span>: item has been added</span>
+    });
+
+    collection.on(<span class="hljs-string">"remove"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(item)</span> </span>{
+        <span class="hljs-comment">// <span class="hljs-doctag"><span class="hljs-keyword">TODO</span></span>: item has been removed</span>
+    });
+
+    collection.on(<span class="hljs-string">"update"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(item, key, value)</span> </span>{
+        <span class="hljs-comment">// <span class="hljs-doctag"><span class="hljs-keyword">TODO</span></span>: item has been added</span>
+    });
+</code></pre>
 		
 	
 		<h1 id="collections-filtered"><h1 id="collections-filtered">Filtered Collections</h1>
-		<h3>TODO</h3>
+		<p>A collection is a dynamic list that allows for observers to listen for change events. Every item in a collection is based on a properties instance.</p>
+<pre><code>    <span class="hljs-keyword">var</span> collection = <span class="hljs-keyword">new</span> BetaJS.Collections.Collection();
+</code></pre><p>You can add and remove items as follows:</p>
+<pre><code>    collection.add(<span class="hljs-property">item</span>);
+    collection.remove(<span class="hljs-property">item</span>);
+</code></pre><p>Item can either implement <em>Properties</em> or be a bare JSON object in which case it will be converted to a Properties instance.</p>
+<p>It implements the Events Mixin and emits change events whenever items are added, changed or removed.</p>
+<pre><code>    collection.on(<span class="hljs-string">"add"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(item)</span> </span>{
+        <span class="hljs-comment">// <span class="hljs-doctag"><span class="hljs-keyword">TODO</span></span>: item has been added</span>
+    });
+
+    collection.on(<span class="hljs-string">"remove"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(item)</span> </span>{
+        <span class="hljs-comment">// <span class="hljs-doctag"><span class="hljs-keyword">TODO</span></span>: item has been removed</span>
+    });
+
+    collection.on(<span class="hljs-string">"update"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(item, key, value)</span> </span>{
+        <span class="hljs-comment">// <span class="hljs-doctag"><span class="hljs-keyword">TODO</span></span>: item has been added</span>
+    });
+</code></pre>
 		
 	
 
