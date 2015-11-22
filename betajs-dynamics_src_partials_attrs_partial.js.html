@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Source: undefined</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section>
+	<article>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Partials.AttrsPartial", ["module:Handlers.Partial"], function (Partial, scoped) {
+  /**
+   * @name ba-attrs
+   *
+   * @description
+   * The ba-attrs partial allows the specification of an object that will
+   * provide attributes accessible within the element containing the ba-attrs
+   * html attribute.
+   *
+   * @param {object} baAttrs Object containing individual attributes.
+   *
+   * @example &lt;div ba-attrs="{{{test: 'hi'}}}">{{test}}&lt;/div>
+   * // Evaluates to &lt;div ba-attrs="{{{test: 'hi'}}}">hi&lt;/div>
+   */
+ 	var Cls = Partial.extend({scoped: scoped}, {
+		
+		_apply: function (value) {
+			var props = this._node._tagHandler ? this._node._tagHandler.properties() : this._node.properties();
+			for (var key in value)
+				props.set(key, value[key]);
+		},
+		
+		bindTagHandler: function (handler) {
+			this._apply(this._value);
+		}
+
+ 	});
+ 	Cls.register("ba-attrs");
+	return Cls;
+});
+</pre>
+	</article>
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

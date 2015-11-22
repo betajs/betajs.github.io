@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-intro.html">Introduction</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-helloworld.html">Hello World</a> 
+			
+<ul>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-blueprint.html">Blueprint</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-initialize.html">Initializing Dynamics</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-templates.html">Templates</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-element.html">Element</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-html-attributes.html">HTML Attributes</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>Hello World</h2>
+			</header>
+			
+			<article>
+			    <h2>This is the Hello World Project</h2><p>Before we start we assume that you know the basics of HTML,<br>Javascript, Jquery and how to use these locally in your Browser.</p>
+<p>Our &quot;Hello World&quot; File is one HTML that loads the BetaJS Framework and some other required files in the head.<br>And runs a very basic &quot;Hello World&quot; Script in the body.</p>
+<p>If everything is set up correctly you should see &quot;Hello World&quot;<br>if you load the helloworld.html displayed in the box below in the Browser.</p>
+<pre class="prettyprint source lang-html"><code>
+    &lt;!DOCTYPE html>
+    &lt;html>
+    &lt;head lang=&quot;en&quot;>
+        &lt;meta charset=&quot;UTF-8&quot;>
+        &lt;title>Hello World&lt;/title>
+            &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js&quot;>&lt;/script>
+            &lt;script src=&quot;vendors/beta.js&quot;>&lt;/script>
+            &lt;script src=&quot;vendors/beta-browser-noscoped.js&quot;>&lt;/script>
+        &lt;script src=&quot;vendors/betajs-dynamics.js&quot;>&lt;/script>
+    &lt;/head>
+    &lt;body>
+
+        &lt;div id=&quot;helloworld&quot;>{{replaced_value}}&lt;/div>
+
+        &lt;script>
+
+            dynamic = new BetaJS.Dynamics.Dynamic({
+                element: $(&quot;#helloworld&quot;)
+            });
+
+            dynamic.set(&quot;replaced_value&quot;, &quot;Hello World&quot;);
+            dynamic.activate();
+
+        &lt;/script>
+
+    &lt;/body>
+    &lt;/html></code></pre><h4>Now lets go briefly trough the individual parts:</h4><pre class="prettyprint source lang-html"><code>
+    &lt;div id=&quot;helloworld&quot;> {{replaced_value}} &lt;/div></code></pre><p>Inside {{}} ist an attribute property that we can control from other parts of the Program</p>
+<pre class="prettyprint source lang-js"><code>
+    dynamic = new BetaJS.Dynamics.Dynamic({
+        element: $(&quot;#helloworld&quot;)
+    });</code></pre><p>Here we create a new BetaJS Dynamic,<br>what that means and what you can do with that<br>we will explore in more details in the rest of this Tutorial</p>
+<p>The element part links the Javascript code of the Dynamic with the #helloworld element.<br>And hence we can have the control the BetaJS Dynamics provides over the #helloworld div<br>and its contents. We can then control the #helloworld div within our Javascript files<br>with the dynamic variable (Because of &quot;dynamic = new BetaJS.Dynamics.Dynamic({&quot;).</p>
+<p>An example on how to use this is the next line:</p>
+<pre class="prettyprint source lang-js"><code>
+    dynamic.set(&quot;replaced_value&quot;, &quot;Hello World&quot;);</code></pre><p>Here we create a the property within the dynamic which is called &quot;replaced_value&quot;<br>and give it the value &quot;Hello World&quot;. When the dynamic is loaded the attribute property<br>{{replaced_value}} will be replaced by its value in the HTML so that we see &quot;Hello World&quot;<br>on the actual site.<br>Properties are similar to variables in that they store data, more on BetaJS Properties can be found here: ...<br>One of the benefits of using a property here is that when we changed the value of &quot;replaced_value&quot;<br>the HTML view will update itself automatically.</p>
+<pre class="prettyprint source lang-js"><code>
+    dynamic.activate();</code></pre><p>This last part activates the dynamic and actually links the HTML with the Javascript.</p>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

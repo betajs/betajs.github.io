@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-introduction.html">Introduction to BetaJS</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-class.html">Object Orientation</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-class-notifications.html">Notifications</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-class-mixins.html">Mixins</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-class-reflection.html">Reflection</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-events.html">Event System as Observer Pattern</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-properties.html">Introduction to Properties</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-collections.html">Collections</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-iterators.html">Enumerable Lists - Iterators</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-promise.html">Asynchronous Calls using Promises</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-objs.html">Functional Helpers for Objects and Arrays</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ids.html">Identifiable Objects</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-states.html">State Machines</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>Object Orientation</h2>
+			</header>
+			
+			<article>
+			    <p>BetaJS adds basic object orientation with static methods, object methods, attributes, class variables,<br>inheritance, mixins, helper classes and more to JavaScript.</p>
+<p>Define a class uses the following syntax</p>
+<pre class="prettyprint source lang-javascript"><code>  ChildClass = ParentClass.extend(Namespace, InstanceExtension, ClassExtension, ClassStaticExtension);</code></pre><ul>
+<li><code>ChildClass</code> is the newly created Class object</li>
+<li><code>ParentClass</code> is an existing Class object; in many cases, this is <code>BetaJS.Class</code></li>
+<li><code>Namespace</code> an optional namespace that the class should attach to; can be <code>null</code>; see below</li>
+<li><code>InstanceExtension</code> a json object defining methods and attributes; see below</li>
+<li><code>ClassExtension</code> a json object defining class methods and class variables; see below</li>
+<li><code>ClassStaticExtension</code> a json object defining class methods and class variables not shared with child classes</li>
+</ul>
+<p>Here is a basic example:</p>
+<pre class="prettyprint source lang-javascript"><code>  TestClass = BetaJS.Class.extend(null, {
+
+    y: 0,
+
+    fooBar: function (x) {
+      console.log(&quot;Test Class Instance&quot;, &quot;fooBar&quot;, x, y);
+    }
+
+  }, {
+
+    staticFooBar: function (x) {
+      console.log(&quot;Test Class&quot;, &quot;staticFooBar&quot;, x);
+    }
+
+  });</code></pre><p>And here is how we would use it:</p>
+<pre class="prettyprint source lang-javascript"><code>  TestClass.staticFooBar(5);
+  var first = new TestClass();
+  first.y = 1;
+  first.foobar(2);
+  var second = new TestClass();
+  second.y = 3;
+  second.foobar(4);</code></pre><p>Resulting in the following output:</p>
+<pre class="prettyprint source"><code>  Test Class  staticFooBar  5
+  Test Class Instance  fooBar  2  1
+  Test Class Instance  fooBar  4  3</code></pre><p>If we need inheritance by calling a parent method, we need the following extension syntax:</p>
+<pre class="prettyprint source lang-javascript"><code>  TestClass2 = TestClass.extend(null, function (inherited) {
+    return {
+
+        fooBar: function (x) {
+          console.log(&quot;TestClass2 Instance&quot;, &quot;fooBar&quot;, x);
+          inherited.fooBar.call(this, x);
+        }
+
+    };
+  });</code></pre><p>And here is how we would use it:</p>
+<pre class="prettyprint source lang-javascript"><code>  var third = new TestClass2();
+  third.y = 6;
+  third.foobar(7);</code></pre><p>Resulting in the following output:</p>
+<pre class="prettyprint source"><code>  Test Class2 Instance  fooBar  7
+  Test Class Instance  fooBar  7  6</code></pre><p>In many cases, you'd want to write code that get executed upon creation of the class, as well as code for the explicit deallocation of the object. </p>
+<pre class="prettyprint source lang-javascript"><code>  TestClass3 = TestClass2.extend(null, function (inherited) {
+    return {
+
+        constructor: function (y) {
+          console.log(&quot;Create Object&quot;);
+          inherited.constructor.call(this);
+          this.y = y;
+        },
+
+        destroy: function () {
+          console.log(&quot;Destroy Object&quot;);
+          inherited.destroy.call(this);
+        }
+
+    };
+  });</code></pre><p>Here is how we would use it:</p>
+<pre class="prettyprint source lang-javascript"><code>  var fourth = new TestClass3(8);
+  fourth.foobar(9);
+  fourth.destroy();</code></pre><p>Resulting in the following output:</p>
+<pre class="prettyprint source"><code>  Create Object
+  Test Class2 Instance  fooBar  9
+  Test Class Instance  fooBar  9  8
+  Destroy Object</code></pre>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

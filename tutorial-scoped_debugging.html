@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-scoped_introduction.html">Introduction to Scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-scoped_setup.html">Setting up Scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-scoped_usage.html">How to use Scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-scoped_debugging.html">Debugging Scoped Programs</a> 
+			
+<ul>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-scoped_compilation.html">Compiling Libraries with Scoped</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>Debugging Scoped Programs</h2>
+			</header>
+			
+			<article>
+			    <p>Debugging Scoped-based programs normally boils down to understanding why some dependencies are not being resolved.</p>
+<p>The main reason for unresolved dependencies are typos.</p>
+<p>The Scoped system has support for telling you which dependencies are not met at a certain point, so you can backtrack to root cause of the problem.</p>
+<p>At any time, you can the method <code>Scoped.unresolved(namespace)</code> that will return an array of unresolved definitions within the givin namespace.</p>
+<p>For instance, if you want to know which definitions are unresolved and the globally accessible namespace, you would call <code>Scoped.unresolved(&quot;global:&quot;)</code>.</p>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

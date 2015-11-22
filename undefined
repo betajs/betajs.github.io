@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-router.html">Routers</a> 
+			
+<ul>
+	
+		<li><a href="">Routers and State Machines</a> 
+			
+<ul>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-info.html">Browser Environment</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-loader.html">Loading Assets dynamically</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-uploader.html">Uploading Files</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>Routers and State Machines</h2>
+			</header>
+			
+			<article>
+			    <p>You can combine routers with state machines. State machines in general provide a richer abstraction for state spaces while routers can be thought of a string serialization and parsing system for states.</p>
+<h3>Initialization</h3><p>Initialize the router, the state machine and the binder as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>    var router = new BetaJS.Router.Router();
+    var host = new BetaJS.States.Host();
+    var binder = new BetaJS.Router.StateRouteBinder(router, host);</code></pre><h3>Registration</h3><p>You can now register routes and state separately and connect some of them, or you bind them automatically:</p>
+<pre class="prettyprint source lang-javascript"><code>    binder.register(&quot;simple&quot;, &quot;/simple&quot;);
+    binder.register(&quot;polymorphic&quot;, &quot;/polymorphic/(key:first|second)&quot;);</code></pre><p>This results in two routes, <code>/simple</code> and <code>/polymorphic/(key:first|second)</code> in the router, saved under the route names <code>simple</code> and <code>polymorphic</code>. Additionally states named <code>Simple</code> and <code>Polymorphic</code> are created within the state machine.</p>
+<h3>Navigation</h3><p>You can now perform navigation using the router:</p>
+<pre class="prettyprint source lang-javascript"><code>    router.navigate(&quot;/simple&quot;); 
+    router.navigate(&quot;/polymorphic/second&quot;);</code></pre><p>As well as state transitions using the state machine:</p>
+<pre class="prettyprint source lang-javascript"><code>    host.next(&quot;Simple&quot;);
+    host.next(&quot;Polymorphic&quot;, {key: &quot;first&quot;});</code></pre><p>Since the router and state machine are linked to each other, transitions to either one are reflected in the other.</p>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

@@ -1,0 +1,3337 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Reference</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container bs-docs-container'>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="bs-sidebar hidden-print" role="complementary">
+                <ul class="nav bs-sidenav">
+                    
+                        <li><a href="#BetaJS.module:Functions">Functions</a> 
+                        </li>
+                    
+                        <li><a href="#BetaJS.module:Ids">Ids</a> 
+                        </li>
+                    
+                        <li><a href="#BetaJS.module:Strings">Strings</a> 
+                        </li>
+                    
+                        <li><a href="#BetaJS.module:Tokens">Tokens</a> 
+                        </li>
+                    
+                        <li><a href="#BetaJS.module:Types">Types</a> 
+                        </li>
+                    
+                </ul>
+             </div>
+        </div>
+        <div class="col-md-8">
+            
+                <header id="BetaJS.module:Functions">
+                    <h2>Functions</h2>
+                </header>
+                <article>
+                    
+                        
+                            <p>function <strong>as_method</strong>(func, instance)</p>
+
+<div class="description">
+    <p>Takes a function and an instance and returns the method call as a function</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>func</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>instance</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>instance</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>func</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>instance</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>instance</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>getArguments</strong>(args, slice)</p>
+
+<div class="description">
+    <p>Converts some other function's arguments to an array</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function arguments</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>slice</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>number of arguments to be omitted (default: 0)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function arguments</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>slice</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>number of arguments to be omitted (default: 0)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>matchArgs</strong>(args, pattern)</p>
+
+<div class="description">
+    <p>Matches functions arguments against some pattern</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function arguments</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>pattern</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>typed pattern</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function arguments</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>pattern</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>typed pattern</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>once</strong>(func)</p>
+
+<div class="description">
+    <p>Takes a function and returns a function that calls the original function on the first call and returns the return value on all subsequent call. In other words a lazy function cache.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>func</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>func</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                </article>
+            
+                <header id="BetaJS.module:Ids">
+                    <h2>Ids</h2>
+                </header>
+                <article>
+                    
+                        
+                            <p>function <strong>objectId</strong>(object, id)</p>
+
+<div class="description">
+    <p>Returns the object's unique identifier or sets it</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>(optional)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>(optional)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>uniqueId</strong>(prefix)</p>
+
+<div class="description">
+    <p>Returns a unique identifier</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>prefix</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a prefix string for the identifier (optional)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>prefix</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a prefix string for the identifier (optional)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                </article>
+            
+                <header id="BetaJS.module:Strings">
+                    <h2>Strings</h2>
+                </header>
+                <article>
+                    
+                        
+                            <p>function <strong>ends_with</strong>(s, needle)</p>
+
+<div class="description">
+    <p>Determines whether a string ends with a sub string</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string in question</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>needle</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>sub string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string in question</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>needle</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>sub string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>htmlentities</strong>(s)</p>
+
+<div class="description">
+    <p>Converts special characters in a string to html entitiy symbols</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>is_email_address</strong>(s)</p>
+
+<div class="description">
+    <p>Determines whether a string is a syntactically valid email address</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string in question</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string in question</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>js_escape</strong>(s)</p>
+
+<div class="description">
+    <p>Converts string such that it can be used in javascript by escaping special symbols</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>last_after</strong>(s, needle)</p>
+
+<div class="description">
+    <p>Returns the complete remaining part of a string after a the last occurrence of a sub string</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string in question</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>needle</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>sub string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string in question</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>needle</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>sub string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>nl2br</strong>(s)</p>
+
+<div class="description">
+    <p>Converts a string new lines to html <br /> tags</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>nltrim</strong>(s)</p>
+
+<div class="description">
+    <p>Trims all trailing and leading whitespace and removes block indentations</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>starts_with</strong>(s, needle)</p>
+
+<div class="description">
+    <p>Determines whether a string starts with a sub string</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string in question</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>needle</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>sub string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string in question</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>needle</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>sub string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>strip_html</strong>(html)</p>
+
+<div class="description">
+    <p>Removes all html from data and returns plain text</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>html</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string containing html</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>html</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string containing html</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>strip_start</strong>(s, needle)</p>
+
+<div class="description">
+    <p>Removes sub string from a string if string starts with sub string</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string in question</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>needle</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>sub string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string in question</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>needle</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>sub string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                </article>
+            
+                <header id="BetaJS.module:Tokens">
+                    <h2>Tokens</h2>
+                </header>
+                <article>
+                    
+                        
+                            <p>function <strong>generate_token</strong>(length)</p>
+
+<div class="description">
+    <p>Returns a new token</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>length</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional length of token, default is 16</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>length</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional length of token, default is 16</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                </article>
+            
+                <header id="BetaJS.module:Types">
+                    <h2>Types</h2>
+                </header>
+                <article>
+                    
+                        
+                            <p>function <strong>compare</strong>(x, y)</p>
+
+<div class="description">
+    <p>Compares two values</p>
+<p>If values are booleans, we compare them directly. If values are<br>arrays, we compare them recursively by their components. Otherwise,<br>we use localeCompare which compares strings.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>left value</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>right value</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>left value</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>right value</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>is_array</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is an array</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>is_boolean</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is boolean</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>is_defined</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is defined (could be null)</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>is_empty</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is empty (undefined, null, an empty array or<br>an empty object)</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>is_function</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is a function</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>is_none</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is undefined or null</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>is_null</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is null (which is different from being<br>undefined)</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>is_object</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is an object</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>is_string</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is a string</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>is_undefined</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is undefined (which is different from being<br>null)</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>parseBool</strong>(x)</p>
+
+<div class="description">
+    <p>Parses a boolean string</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>boolean as a string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>boolean as a string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                        
+                            <p>function <strong>type_of</strong>(x)</p>
+
+<div class="description">
+    <p>Returns the type of a given expression</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>expression</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+Result:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>expression</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+                        
+                    
+                </article>
+            
+        </div>
+    <div>
+</div>
+
+</section>
+
+<script src="scripts/bs-sidebar.js"></script>
+<link type="text/css" rel="stylesheet" href="styles/bs-sidebar.css" />
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

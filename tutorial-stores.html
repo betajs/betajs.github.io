@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-queries.html">The Query System</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-stores.html">The Store System</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-remote-store.html">Remote Store</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-delegator-stores.html">Delegator Stores</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-indices.html">Store Indices</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-modelling.html">The Model System</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-query-collections.html">Query Collections</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>The Store System</h2>
+			</header>
+			
+			<article>
+			    <p>Stores define an abstract database interface. Stores derive from the abstract class <code>BetaJS.Data.Stores.BaseStore</code> which defines the following asynchronous methods:</p>
+<h3>Insert</h3><pre class="prettyprint source lang-javascript"><code>   store.insert(instance).success(function (data) {
+     // Instance was inserted, and the updated data of instance is data (including the id)
+   }).error(function (error) {
+     // Could not insert instance
+   });</code></pre><p>An instance is a json object. Every item in a store is given a unique id upon inserting it. It is then used to identify the item from thereon.</p>
+<h3>Update</h3><pre class="prettyprint source lang-javascript"><code>   store.update(id, updatedData).success(function (data) {
+     // Instance was updated, and the updated data of instance is data
+   }).error(function (error) {
+     // Could not update instance
+   });</code></pre><h3>Remove</h3><pre class="prettyprint source lang-javascript"><code>   store.remove(id).success(function () {
+     // Instance was removed
+   }).error(function (error) {
+     // Could not removed instance
+   });</code></pre><h3>Get</h3><pre class="prettyprint source lang-javascript"><code>   store.get(id).success(function (instance) {
+     // Instance was obtained
+   }).error(function (error) {
+     // Could not read instance
+   });</code></pre><h3>Query</h3><pre class="prettyprint source lang-javascript"><code>   store.query(query, constraints).success(function (iterator) {
+     // Store was succesfully queried; the query result is an iterator over matched instances.
+   }).error(function (error) {
+     // Could not execute query
+   });</code></pre><h3>Store Classes</h3><p>The most important simple stores are:</p>
+<ul>
+<li><code>new BetaJS.Data.Stores.MemoryStore()</code>: stores all data in the temporary memory of the browser / NodeJS</li>
+<li><code>new BetaJS.Data.Stores.LocalStore({}, localStorage)</code>: stores all data in the permanent memory of the browser</li>
+<li><code>new BetaJS.Data.Stores.RemoteStore(...)</code>: stores all data in a store on a server across a network </li>
+</ul>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-scoped_introduction.html">Introduction to Scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-scoped_setup.html">Setting up Scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-scoped_usage.html">How to use Scoped</a> 
+			
+<ul>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-scoped_debugging.html">Debugging Scoped Programs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-scoped_compilation.html">Compiling Libraries with Scoped</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>How to use Scoped</h2>
+			</header>
+			
+			<article>
+			    <p>The Scoped system allows you to handle multiple libraries with separate namespaces and scopes.</p>
+<p>Scopes in the Scoped system are a tree.</p>
+<p>Subscopes of a given scope inherit all namespacing definitions.</p>
+<p>Given a scope, you can access the following different main namespaces: </p>
+<ul>
+<li><code>global</code>: this is the globally accessible namespace in JavaScript; in the browser, this would be <code>window</code></li>
+<li><code>root</code>: the root namespace of the scope in the scope tree</li>
+<li><code>local</code>: the namespace local to the current scope</li>
+<li><code>default</code>: a namespace completely private to the current scope</li>
+<li><code>parent</code>: the local namespace of the parent scope</li>
+</ul>
+<p>Namespace declarations are always given in the following notation: <code>parent:path</code> where <code>parent</code> is an existing namespace declaration and <code>path</code> is an object path identifier like <code>Main.Sub.Subsub</code>.</p>
+<p>A globally registered <code>jQuery</code> would therefore be accessible via <code>global:jQuery</code>.</p>
+<p>You can also register new namespace for your own use:</p>
+<p><code>Scoped.binding(&quot;my_namespace&quot;, &quot;parent:path&quot;)</code></p>
+<p>You can then use <code>my_namepace</code> the same way you use the pre-defined namespaces.</p>
+<p>In order to define a subscope, you'd write:</p>
+<p><code>var MyScoped = Scoped.subScope();</code></p>
+<p>A typical blueprint to structure your own library using Scoped is this:</p>
+<pre class="prettyprint source"><code>(function () {
+
+var Scoped = this.subScope();
+
+Scoped.binding(&quot;module&quot;, &quot;global:MyLibrary&quot;);
+Scoped.binding(&quot;dependency1&quot;, &quot;global:ExternalDependency1&quot;);
+Scoped.binding(&quot;dependency2&quot;, &quot;global:ExternalDependency2&quot;);
+
+// Library code
+
+}).call(Scoped);</code></pre><p>This closure blueprint makes sure not to clutter the namespace of the rest of the environment.</p>
+<p>One of the benefits of the Scoped system is that you can allow libraries to access external dependencies with different names and even overwrite the namespaces a library attaches to, so you can include two different versions of the same library without clashing their namespaces.</p>
+<p>If you want a library to use or attach to different namespaces then its default ones, you need to overwrite them as follows before including the library:<br><code>Scoped.nextScope().binding(&quot;module&quot;, &quot;global:MyLibraryAlternateNS&quot;);</code></p>
+<p>Defining dependencies is based on three primitives:</p>
+<ul>
+<li><code>Scoped.require</code>: execute code once dependencies are resolved</li>
+<li><code>Scoped.define</code>: define a module in a namespace once dependencies are resolved</li>
+<li><code>Scoped.extend</code>: extend an existing module in a namespace once dependencies are resolved</li>
+</ul>
+<p>The syntax is as follows:</p>
+<pre class="prettyprint source"><code>Scoped.require(['ns1:dependency1', 'ns2:dependency2', 'ns3:dependency3'], function (D1, D2, D3) {
+    // Execute once D1, D2, D3 are resolved.
+});
+
+Scoped.define('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependency3'], function (D1, D2, D3) {
+    // Execute once D1, D2, D3 are resolved.
+    return {
+        // Return ns:module definition.
+    };
+});
+
+Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependency3'], function (D1, D2, D3) {
+    // Execute once D1, D2, D3 are resolved.
+    return {
+        // Return ns:module extension.
+    };
+});</code></pre>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-intro.html">Introduction</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-blueprint.html">Blueprint</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-initialize.html">Initializing Dynamics</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-templates.html">Templates</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-element.html">Element</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-html-attributes.html">HTML Attributes</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-ba-click.html">The ba-click Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-tap.html">The ba-tap Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-class.html">The ba-class Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-show.html">The ba-show Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-if.html">The ba-if Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-ignore.html">ba-ignore</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-repeat.html">The ba-repeat Partial</a> 
+			
+<ul>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-ba-attrs.html">ba-attrs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-on.html">ba-on</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-return.html">The ba-return Partial</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>The ba-repeat Partial</h2>
+			</header>
+			
+			<article>
+			    <h3>Introduction</h3><p>The ba-repeat partial repeats the containing DOM elements of the DOM Elements it is placed a certain number of times.</p>
+<h5>Example 1:</h5><pre class="prettyprint source lang-html"><code>&lt;ul ba-repeat=&quot;{{ i :: [1,2] }}&quot;>
+    &lt;li>{{i}}&lt;/li>
+&lt;/ul></code></pre><p>Evaluates to</p>
+<pre class="prettyprint source lang-html"><code>&lt;ul>
+    &lt;li>1&lt;/li>
+    &lt;li>2&lt;/li>
+&lt;/ul></code></pre><h5>Example 2:</h5><pre class="prettyprint source lang-js"><code>    dynamic = new BetaJS.Dynamics.Dynamic({
+        element: $(&quot;.some_class&quot;),
+        initial:  {
+            collections : {
+                named_collection: [
+                    {item_name : &quot;Apple&quot;, item_index : &quot;1&quot;},
+                    {item_name : &quot;Orange&quot;, item_index : &quot;2&quot;},
+                ]
+            }
+        }
+    });</code></pre><pre class="prettyprint source lang-html"><code>    &lt;div class=&quot;some_class&quot; ba-repeat=&quot;{{ item ::  named_collection}}&quot;>
+        &lt;div>
+            &lt;span>{{item.item_name}}&lt;/span>
+            &lt;span>{{item.item_index}}&lt;/span>
+        &lt;/div>
+    &lt;/div></code></pre><p>Evaluates to</p>
+<pre class="prettyprint source lang-html"><code>&lt;div>
+    &lt;div>
+        &lt;span>Apple&lt;/span>
+        &lt;span>1&lt;/span>
+    &lt;/div>
+    &lt;div>
+        &lt;span>Orange&lt;/span>
+        &lt;span>2&lt;/span>
+    &lt;/div>
+&lt;/div></code></pre><h3>Advanced</h3><h4>Filters</h4><p>Filters are a way of defining rules to limit the number of items shown by the ba-repeat Partial.</p>
+<h5>Example 1:</h5><pre class="prettyprint source lang-html"><code>&lt;ul ba-repeat=&quot;{{ i ~ i == 2 :: [1,2] }}&quot;>
+    &lt;li>{{i}}&lt;/li>
+&lt;/ul></code></pre><p>Evaluates to</p>
+<pre class="prettyprint source lang-html"><code>&lt;ul>
+    &lt;li>2&lt;/li>
+&lt;/ul></code></pre><h5>Example 2:</h5><pre class="prettyprint source lang-js"><code>    dynamic = new BetaJS.Dynamics.Dynamic({
+        element: $(&quot;.some_class&quot;),
+        initial:  {
+            collections : {
+                named_collection: [
+                    {item_name : &quot;Apple&quot;, item_index : &quot;1&quot;},
+                    {item_name : &quot;Orange&quot;, item_index : &quot;2&quot;},
+                ]
+            }
+        }
+    });</code></pre><pre class="prettyprint source lang-html"><code>    &lt;div class=&quot;some_class&quot; ba-repeat=&quot;{{ item ~ item.item_index == 1 ::  named_collection}}&quot;>
+        &lt;div>
+            &lt;span>{{item.item_name}}&lt;/span>
+            &lt;span>{{item.item_index}}&lt;/span>
+        &lt;/div>
+    &lt;/div></code></pre><p>Evaluates to</p>
+<pre class="prettyprint source lang-html"><code>&lt;div>
+    &lt;div>
+        &lt;span>Apple&lt;/span>
+        &lt;span>1&lt;/span>
+    &lt;/div>
+&lt;/div></code></pre><h3>ba-repeat-element</h3><p>ba-repeat-element is a special form of ba-repeat, it repeats the element it is placed on itself.<br>The ba-repeat is the preferred partial due to performance.</p>
+<h5>Example :</h5><pre class="prettyprint source lang-html"><code>&lt;ul>
+    &lt;li ba-repeat=&quot;{{ i :: [1,2] }}&quot;>{{i}}&lt;/li>
+&lt;/ul></code></pre><p>Evaluates to</p>
+<pre class="prettyprint source lang-html"><code>&lt;ul>
+    &lt;li>1&lt;/li>
+    &lt;li>2&lt;/li>
+&lt;/ul></code></pre>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

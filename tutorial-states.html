@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-introduction.html">Introduction to BetaJS</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-class.html">Object Orientation</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-events.html">Event System as Observer Pattern</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-properties.html">Introduction to Properties</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-collections.html">Collections</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-iterators.html">Enumerable Lists - Iterators</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-promise.html">Asynchronous Calls using Promises</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-objs.html">Functional Helpers for Objects and Arrays</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ids.html">Identifiable Objects</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-states.html">State Machines</a> 
+			
+<ul>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>State Machines</h2>
+			</header>
+			
+			<article>
+			    <p>The system includes an abstract state machine that can be used for internal business logic as well as in combination with the router.</p>
+<p>A state machine consists of a <code>state machine host</code> instance which holds the <code>current state</code> instance. States itself are defined<br>by subclassing the <code>abstract state class</code>.</p>
+<p>To initialize a state machine, simply call:</p>
+<pre class="prettyprint source lang-javascript"><code>   var host = new BetaJS.States.Host();</code></pre><p>There are different ways to define new states. An adhoc way, if the state machine is used a singleton, is as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>    host.register(&quot;A&quot;, {});</code></pre><p>which registers a new state <code>A</code>.</p>
+<p>A more general way is by directly subclassing it:</p>
+<pre class="prettyprint source lang-javascript"><code>    var S = BetaJS.States.State.extend(&quot;BetaJS.Test.S&quot;);
+    var A = S.extend(&quot;BetaJS.Test.A&quot;);
+    var B = S.extend(&quot;BetaJS.Test.B&quot;);</code></pre><p>After setting up the state machine, we start with an initial state:</p>
+<pre class="prettyprint source lang-javascript"><code>   host.initialize(&quot;A&quot;);</code></pre><p>The current state can now be accessed via <code>host.state()</code>.</p>
+<p>To transition to the next state, we simply call <code>host.state().next(&quot;B&quot;)</code>.</p>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

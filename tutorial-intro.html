@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-intro.html">Introduction</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-helloworld.html">Hello World</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-blueprint.html">Blueprint</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-initialize.html">Initializing Dynamics</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-templates.html">Templates</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-element.html">Element</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-html-attributes.html">HTML Attributes</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>Introduction</h2>
+			</header>
+			
+			<article>
+			    <h2>BetaJS Dynamics Overview</h2><p>BetaJS Dynamics is a Javascript frontend framework to build the V and C in an MVC framework.<br>It has two parts:</p>
+<ul>
+<li>&quot;Dynamics&quot; : a Javascript Controller</li>
+<li>HTML Part : HTML Template/Element containing &quot;pseudo code&quot; so called Partials and Handlebars</li>
+</ul>
+<h2>Hello World Example</h2><p>The Javascript Controller:</p>
+<pre class="prettyprint source lang-js"><code>
+    dynamic = new BetaJS.Dynamics.Dynamic({
+        element: $(&quot;some_element&quot;),
+        initial : {
+            attrs : {
+                some_attribute : &quot;Hello World&quot;,
+                some_boolean : true
+            }
+        }
+    });</code></pre><p>The HTML Element:</p>
+<pre class="prettyprint source lang-html"><code>
+    &lt;some_element ba-if=&quot;{{some_boolean}}&quot;>{{some_attribute}}&lt;/some_element></code></pre><p>Will evaluate to</p>
+<pre class="prettyprint source lang-html"><code>
+    &lt;some_element>Hello World&lt;/some_element></code></pre><h2>Decpendencies:</h2><ul>
+<li>Jquery</li>
+<li>BetaJS Scoped</li>
+<li>BetaJS</li>
+</ul>
+<h2>Core Concepts</h2><h2>Dynamic</h2><h2>Partials</h2><p>Partials are a form of pseudocode to that allow you to write often used functions<br>directly into the view.</p>
+<pre class="prettyprint source lang-html"><code>
+    &lt;div ba-if=&quot;&quot;>Hello&lt;/div></code></pre><h2>Content</h2><h3>General</h3><ul>
+<li>blueprint Javascript</li>
+<li>blueprint HMTL</li>
+</ul>
+<h3>Dynamics</h3><h4>Template</h4><ul>
+<li>Template</li>
+<li>TemplateUrl</li>
+<li>Element</li>
+</ul>
+<h4>Initial</h4><ul>
+<li>Attributes</li>
+<li>Collections</li>
+<li>Scope</li>
+<li>Bind</li>
+<li>functions</li>
+</ul>
+<h4>Loading Functions</h4><ul>
+<li>create</li>
+<li>_afterActivate</li>
+</ul>
+<h3>Partials</h3><h4>Dynamic</h4><ul>
+<li>ba-attrs</li>
+<li>ba-repeat</li>
+<li>ba-share</li>
+</ul>
+<h4>View</h4><ul>
+<li>ba-class</li>
+<li>ba-if</li>
+<li>ba-show</li>
+</ul>
+<h4>User Interaction</h4><ul>
+<li>ba-click</li>
+<li>ba-on</li>
+<li>ba-return</li>
+<li>ba-tap</li>
+</ul>
+<h4>Misc</h4><ul>
+<li>ba-ignore</li>
+<li>ba-template-url</li>
+</ul>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

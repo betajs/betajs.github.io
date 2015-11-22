@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-intro.html">Introduction</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-blueprint.html">Blueprint</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-blueprint_js.html">JS</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-blueprint_html.html">HTML</a> 
+			
+<ul>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-initialize.html">Initializing Dynamics</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-templates.html">Templates</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-element.html">Element</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-html-attributes.html">HTML Attributes</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>HTML</h2>
+			</header>
+			
+			<article>
+			    <p>This Blueprint is intented as a quick reference for how to integrate the most commonly<br>used Dynamic functionalities. On specifics how they work please refer to the individual sections.</p>
+<pre class="prettyprint source lang-html"><code>
+    &lt;somedynamic>
+
+    &lt;-- Basics -->
+
+        &lt;-- Data bindings -->
+        &lt;databinding>{{attribute}}&lt;/databinding> &lt;-- This is a unidirectional binding -->
+        &lt;databinding>{{=attribute}}&lt;/databinding> &lt;-- This is a bidirectional binding -->
+
+        &lt;-- Click Events -->
+        &lt;button ba-click='some_function()'>Click me&lt;/button>
+        &lt;button ba-click='attribute = false'>Click me&lt;/button>
+        &lt;button ba-click='attribute = !attribute'>Click me&lt;/button>
+        &lt;button ba-tap='some_function()'>Click me&lt;/button> &lt;-- Tap is for use in mobile -->
+
+        &lt;-- If/Show -->
+        &lt;div ba-if='{{true}}'>This DOM Element will always be loaded&lt;/div>
+        &lt;div ba-if='{{false}}'>This DOM Element will never be loaded&lt;/div>
+        &lt;div ba-if='{{attribute}}'>This DOM Element will be loaded if {{attribute}} evluates to 'true'&lt;/div>
+        &lt;div ba-if='{{attribute.subattribute}}'>This DOM Element will be loaded if {{attribute.subattribute}} evluates to 'true'&lt;/div>
+        &lt;div ba-if='{{attribute.get('property')}}'>This DOM Element will be loaded if {{attribute.get('property')}} evluates to 'true'&lt;/div>
+        &lt;div ba-if='{{attribute == 'load'}}'>This DOM Element will be loaded if {{attribute}} evluates to 'load'&lt;/div>
+        &lt;div ba-show='{{attribute}}'>This DOM Element will be displayed if {{attribute}} evluates to 'true'&lt;/div>
+
+        &lt;-- Classes -->
+        &lt;div ba-class='{{{
+            'always' : true,
+            'sometimes' : {{attribute}},
+            'othertimes' : {{attribute.get('property') == 'other'}},
+            'never' : false
+        }}}'>Some random text&lt;/div>
+
+        &lt;-- Repeat -->
+        &lt;div ba-repeat=&quot;{{item :: ['1','2','3']}}&quot;>
+            &lt;div>
+                &lt;div>The html inside the ba-repeat item will be repeated&lt;/div>
+                &lt;div>The item tag will contain the value of the array (1/2/3): {{item}}&lt;/div>
+            &lt;/div>
+        &lt;/div>
+
+        &lt;-- DOM Events -->
+        &lt;div onmouseover=&quot;{{alert('You moved the mouse over this Element')}}&quot;>&lt;/div>
+
+        &lt;-- TODO: ba-ignore, check others -->
+
+        &lt;-- Cool Stuff -->
+        &lt;div class=&quot;{{attribute}}&quot;>Some random text&lt;/div>
+        &lt;ba-{{attribute}}>Some random text&lt;/ba-{{/attribute}}>
+        &lt;yourcustomtag-{{attribute}}>Some random text&lt;/yourcustomtag-{{/attribute}}>
+        &lt;{{attribute}}>This won't work, because of the way the Browser renders elements&lt;/{{/attribute}}>
+
+    &lt;/somedynamic></code></pre>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

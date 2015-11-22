@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Source: undefined</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section>
+	<article>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Net.SocketSenderChannel", ["module:Channels.Sender", "module:Types"], function (Sender, Types, scoped) {
+	return Sender.extend({scoped: scoped}, function (inherited) {
+		return {
+			
+			constructor: function (socket, message, ready) {
+				inherited.constructor.call(this);
+				this.__socket = socket;
+				this.__message = message;
+				this.__ready = Types.is_defined(ready) ? ready : true;
+				this.__cache = [];
+			},
+			
+			/** @suppress {missingProperties} */
+			_send: function (message, data) {
+				if (this.__ready) {
+					this.__socket.emit(this.__message, {
+						message: message,
+						data: data
+					});
+				} else {
+					this.__cache.push({
+						message: message,
+						data: data
+					});
+				}
+			},
+			
+			ready: function () {
+				this.__ready = true;
+				for (var i = 0; i &lt; this.__cache.length; ++i)
+					this._send(this.__cache[i].message, this.__cache[i].data);
+				this.__cache = [];
+			},
+			
+			unready: function () {
+			    this.__ready = false;
+			},
+			
+			socket: function () {
+			    if (arguments.length > 0)
+			        this.__socket = arguments[0];
+			    return this.__socket;
+			}
+			
+		};
+	});
+});
+
+
+Scoped.define("module:Net.SocketReceiverChannel", ["module:Channels.Receiver"], function (Receiver, scoped) {
+	return Receiver.extend({scoped: scoped}, function (inherited) {
+		return {
+						
+			constructor: function (socket, message) {
+				inherited.constructor.call(this);
+				this.__message = message;
+				this.socket(socket);
+			},
+			
+		    socket: function () {
+		        if (arguments.length > 0) {
+		            this.__socket = arguments[0];
+		            if (this.__socket) {
+		                var self = this;
+		                this.__socket.on(this.__message, function (data) {
+		                    self._receive(data.message, data.data);
+		                });
+		            }
+		        }
+		        return this.__socket;
+		    }
+	
+		};
+	});
+});
+</pre>
+	</article>
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

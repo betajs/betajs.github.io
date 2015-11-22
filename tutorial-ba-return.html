@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-intro.html">Introduction</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-blueprint.html">Blueprint</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-initialize.html">Initializing Dynamics</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-templates.html">Templates</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-element.html">Element</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-html-attributes.html">HTML Attributes</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-ba-click.html">The ba-click Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-tap.html">The ba-tap Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-class.html">The ba-class Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-show.html">The ba-show Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-if.html">The ba-if Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-ignore.html">ba-ignore</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-repeat.html">The ba-repeat Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-attrs.html">ba-attrs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-on.html">ba-on</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-return.html">The ba-return Partial</a> 
+			
+<ul>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>The ba-return Partial</h2>
+			</header>
+			
+			<article>
+			    <p>The ba-return Partial executes the code passed into it, or calls a function from the related Dynamic,<br>when the user presses the return/enter key when he is in the input field this is placed on.</p>
+<h4>Example:</h4><p>Will call an alert pop-up displaying the text in the input field.</p>
+<pre class="prettyprint source lang-html"><code>&lt;/input ba-return=&quot;alert({{input_value}})&quot; value={{input_value}}></code></pre>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

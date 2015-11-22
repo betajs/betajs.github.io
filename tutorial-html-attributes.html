@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-intro.html">Introduction</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-blueprint.html">Blueprint</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-initialize.html">Initializing Dynamics</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-templates.html">Templates</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-element.html">Element</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-html-attributes.html">HTML Attributes</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-ba-click.html">The ba-click Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-tap.html">The ba-tap Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-class.html">The ba-class Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-show.html">The ba-show Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-if.html">The ba-if Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-ignore.html">ba-ignore</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-repeat.html">The ba-repeat Partial</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-attrs.html">ba-attrs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-on.html">ba-on</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ba-return.html">The ba-return Partial</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>HTML Attributes</h2>
+			</header>
+			
+			<article>
+			    <h2>Partials</h2><p>Partials are a way to integrate and/or connect the Controller (C of the MVC layout) with the View.<br>They are placed onto HTML DOM elements/nodes and are evaluated by BetaJS-Dynamic Javascript functions who<br>manipulate the related DOM elements/nodes and thus changing the View (V of the MVC).</p>
+<p>The Partials will only work if they are within the Scope of an active Dynamic</p>
+<h4>General layout:</h4><pre class="prettyprint source lang-html"><code>&lt;div ba-partialname=&quot;related attributes/code&quot;>&lt;div></code></pre><h4>Example 1 - ba-if:</h4><p>The ba-if Partial is used to automatically add or remove DOM Elements depending on the<br>boolean value of a given condition.</p>
+<pre class="prettyprint source lang-html"><code>&lt;div ba-if=&quot;{{1 === 1}}&quot;>&lt;h1>Hi&lt;/h1>&lt;div></code></pre><p>Will evaluate to</p>
+<pre class="prettyprint source lang-html"><code>&lt;div>&lt;h1>Hi&lt;/h1>&lt;div></code></pre><p>And</p>
+<pre class="prettyprint source lang-html"><code>&lt;div ba-if=&quot;{{1 === 2}}&quot;>&lt;h1>Hi&lt;/h1>&lt;div></code></pre><p>Will evaluate to</p>
+<pre class="prettyprint source lang-html"><code>&lt;div>&lt;div></code></pre><h2>Overview of Partials:</h2><h3>User Interaction:</h3><ul>
+<li>ba-click</li>
+<li>ba-tap</li>
+<li>ba-return</li>
+</ul>
+<h3>Changing the View</h3><ul>
+<li>ba-class</li>
+<li>ba-if</li>
+<li>ba-show</li>
+</ul>
+<h3>Others</h3><ul>
+<li>ba-repeat</li>
+<li>ba-on</li>
+<li>ba-template-url</li>
+<li>ba-ignore</li>
+</ul>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

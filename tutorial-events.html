@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-introduction.html">Introduction to BetaJS</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-class.html">Object Orientation</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-events.html">Event System as Observer Pattern</a> 
+			
+<ul>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-properties.html">Introduction to Properties</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-collections.html">Collections</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-iterators.html">Enumerable Lists - Iterators</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-promise.html">Asynchronous Calls using Promises</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-objs.html">Functional Helpers for Objects and Arrays</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ids.html">Identifiable Objects</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-states.html">State Machines</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>Event System as Observer Pattern</h2>
+			</header>
+			
+			<article>
+			    <p>The event system allows you to emit different events with custom event data from class instances<br>that other components can listen to.</p>
+<p>Event emitters can either inherit from the <em>BetaJS.Events.Events</em> class or include the <em>BetaJS.Events.EventsMixin</em> mixin.</p>
+<pre class="prettyprint source"><code>    var events = new BetaJS.Events.Events();</code></pre><p>Events can be emitted by calling the <em>trigger</em> function. The first argument is the name of the event, all following arguments are custom data that is passed along.</p>
+<pre class="prettyprint source"><code>    events.trigger(&quot;event_name&quot;, event_data1, event_data2);</code></pre><p>Other components can listen to events by using the <em>on</em> method:</p>
+<pre class="prettyprint source"><code>    events.on(&quot;event_name&quot;, function (event_arg1, event_arg2) {
+        // Do something
+    }, function_context);</code></pre><p>The function context is optional.</p>
+<p>Once the component is done listening for events, it can unregister by calling <em>off</em>:</p>
+<pre class="prettyprint source"><code>    events.off(&quot;event_name&quot;, null, function_context);</code></pre>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

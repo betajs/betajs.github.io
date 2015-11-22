@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-queries.html">The Query System</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-stores.html">The Store System</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-modelling.html">The Model System</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-validations.html">Model Attribute Validations</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-query-collections.html">Query Collections</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>The Model System</h2>
+			</header>
+			
+			<article>
+			    <p>The modelling system puts an abstraction layer on top of stores that allows us to treat database instances as properties such that changes in the properties instance are reflected back to the database and vice versa.</p>
+<p>The role of json instances in the store system is provided by so-called <code>Models</code> whereas the role of the stores is provied by so-called <code>Tables</code>.</p>
+<p>A <code>Model</code> class is a sub class of <code>Properties</code>. When you define your own model, you always define a scheme:</p>
+<pre class="prettyprint source lang-javascript"><code>   var MyModel = BetaJS.Data.Modelling.Model.extend(null, {
+   }, function (inherited) {
+        return {
+            _initializeScheme: function () {
+                var scheme = inherited._initializeScheme.call(this);
+                scheme.first_name = {
+                    type: &quot;string&quot;
+                };
+                scheme.last_name = {
+                    type: &quot;string&quot;
+                };
+                return scheme;
+           }
+        };
+   });</code></pre><p>You usually do not instantiate model instances directly. Instead, you create a <code>Table</code> instance based on a <code>store</code> (which stores the actual data):</p>
+<pre class="prettyprint source lang-javascript"><code>   var myTable = new BetaJS.Data.Modelling.Table(store, MyModel);</code></pre><h3>Create new models</h3><p>This table instance can now be used to create a new model:</p>
+<pre class="prettyprint source lang-javascript"><code>   var myModel = myTable.newModel({
+       first_name: &quot;Donald&quot;,
+       last_name: &quot;Duck&quot;
+   });
+   myModel.save().success(function () {...}).error(function () {...});</code></pre><h3>Delete a model</h3><p>Model instances can be removed from the table:</p>
+<pre class="prettyprint source lang-javascript"><code>  myModel.remove();</code></pre><h3>Update a model</h3><p>Model instances are automatically updated and saved when you change their property attributes:</p>
+<pre class="prettyprint source lang-javascript"><code>  myModel.set(&quot;first_name&quot;, &quot;Daisy&quot;);</code></pre><h3>Obtain a model by id</h3><p>Model instances can be obtained from the table as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>  myTable.findById(id).success(function (myModel) {
+    ...
+  }).error(function (error) {...});</code></pre><h3>Obtain a single model by a query</h3><p>Model instances can be obtained from the table as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>  myTable.findBy({first_name: &quot;Donald&quot;}).success(function (myModel) {
+    ...
+  }).error(function (error) {...});</code></pre><h3>Obtain multiple models by a query</h3><p>Model instances can be obtained from the table as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>  myTable.allBy(query, constraints).success(function (modelIterator) {
+    ...
+  }).error(function (error) {...});</code></pre>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-introduction.html">Introduction to BetaJS</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-class.html">Object Orientation</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-class-notifications.html">Notifications</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-class-mixins.html">Mixins</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-class-reflection.html">Reflection</a> 
+			
+<ul>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-events.html">Event System as Observer Pattern</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-properties.html">Introduction to Properties</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-collections.html">Collections</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-iterators.html">Enumerable Lists - Iterators</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-promise.html">Asynchronous Calls using Promises</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-objs.html">Functional Helpers for Objects and Arrays</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-ids.html">Identifiable Objects</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-states.html">State Machines</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>Reflection</h2>
+			</header>
+			
+			<article>
+			    <p>Here are some useful reflection methods that you can use at runtime.</p>
+<p>Given an instance <code>instance</code>, you can execute the following reflections:</p>
+<ul>
+<li><code>instance.cls</code>: the class that <code>instance</code> is an instance of</li>
+<li><code>instance.instance_of(cls)</code>: is this instance an instance of <code>cls</code>?</li>
+<li><code>instance.destroyed()</code>: is this instance already destroyed?</li>
+<li><code>instance.weakDestroy()</code>: destroy only if not already destroyed</li>
+<li><code>instance.cid()</code>: unique id of instance</li>
+<li><code>instance.auto_destroy(obj)</code>: automatically destroy <code>obj</code> when destroying <code>instance</code></li>
+</ul>
+<p>Given a class <code>cls</code>, you can execute the following reflections:</p>
+<ul>
+<li><code>cls.parent</code>: the parent class</li>
+<li><code>cls.children</code>: all direct child classes</li>
+<li><code>cls.classname</code>: class name as a string</li>
+<li><code>cls.ancestor_of(cls2)</code>: is <code>cls</code> an ancestor of <code>cls2</code>? </li>
+<li><code>cls.is_class(cls2)</code>: is <code>cls2</code> a class?</li>
+<li><code>cls.is_class_instance(instance)</code>: is <code>instance</code> a class instance?</li>
+<li><code>cls.is_instance_of(instance)</code>: is <code>instance</code> a class instance and an instance of this class?</li>
+</ul>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-router.html">Routers</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-info.html">Browser Environment</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-loader.html">Loading Assets dynamically</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-uploader.html">Uploading Files</a> 
+			
+<ul>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>Uploading Files</h2>
+			</header>
+			
+			<article>
+			    <p>Different browser require different techniques for asynchronous uploading of files and binary large objects (BLOBs).</p>
+<p>This library takes care of that.</p>
+<pre class="prettyprint source lang-javascript"><code>    var uploader = BetaJS.Browser.Upload.FileUploader.create({
+        url: &quot;//.../post&quot;,
+        source: file_object_or_blob,
+        serverSupportChunked: false, // server supports chunked traffic via ResumableJS?
+        serverSupportPostMessage: false, // server supports postMessage fallback for old browsers? 
+        resumable: {
+            // resumable options
+        }               
+    });
+    uploader.on(&quot;success&quot;, function (data) {
+        // success data from server
+    }, this).on(&quot;error&quot;, function (data) {
+        // error data from server
+    }, this).on(&quot;progress&quot;, function (uploaded, total) {
+        // progress data
+    }, this);
+    uploader.upload();</code></pre><p>There is also support for uploading multiple files at once:</p>
+<pre class="prettyprint source lang-javascript"><code>    var multiUploader = new BetaJS.Browser.Upload.MultiUploader();
+    multiUploader.addUploader(uploader1);
+    multiUploader.addUploader(uploader2);
+    multiUploader.addUploader(uploader3);
+    multiUploader.upload();</code></pre>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Guides</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section class="tutorial-section">
+
+<div class='container'>
+	<div class="row">
+
+	   <!-- Menu -->
+		<div class="col-md-4">
+			
+
+
+<ul>
+	
+		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs.html">betajs</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-queries.html">The Query System</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-stores.html">The Store System</a> 
+			
+		</li>
+	
+		<li><a href="tutorial-modelling.html">The Model System</a> 
+			
+<ul>
+	
+		<li><a href="tutorial-validations.html">Model Attribute Validations</a> 
+			
+<ul>
+	
+</ul>
+
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-query-collections.html">Query Collections</a> 
+			
+		</li>
+	
+</ul>
+
+		</li>
+	
+		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
+			
+		</li>
+	
+</ul>
+
+		</div>
+
+		<!-- Main -->
+		<div class="col-md-8">
+			<header>
+			    <h2>Model Attribute Validations</h2>
+			</header>
+			
+			<article>
+			    <p>Validators allow you to add value validations to your model scheme that prevent invalid attributes from being saved to the store. You can add validators to your model scheme as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>            _initializeScheme: function () {
+                var scheme = inherited._initializeScheme.call(this);
+                scheme.first_name = {
+                    type: &quot;string&quot;,
+                    validate: new BetaJS.Data.Modelling.Validators.PresentValidator()
+                };
+                scheme.last_name = {
+                    type: &quot;string&quot;,
+                    validate: new BetaJS.Data.Modelling.Validators.PresentValidator()
+                };
+                return scheme;
+           }</code></pre><p>The validate arguments admits both direct validator instances as well as an array of validator instances if you need to attach more than one validator.</p>
+<p>The system currently supports the following validators:</p>
+<ul>
+<li><em>PresentValidator</em>: ensures that the value is not null or empty</li>
+<li><em>LengthValidator({min_length, max_length})</em>: ensures that the value is of a certain string length</li>
+<li><em>EmailValidator</em>: ensures that the value is an email</li>
+<li><em>UniqueValidator(key)</em>: ensures that the value is unique in the store</li>
+<li><em>ConditionalValidator(condition, validator)</em>: ensures that a validator is valid given that the condition is satisfied</li>
+</ul>
+			</article>
+		</div>
+
+	<div>
+</div>
+
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>

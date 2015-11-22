@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title> Source: undefined</title>
+	
+		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+	</head>
+
+	<body>
+	
+        <script src="scripts/jquery.js"></script>
+
+		
+<header>
+    <a href="index.html">BetaJS</a>
+            <a href="tutorials.html">Guides</a>
+        
+            <a href="modules.html">Reference</a>
+        
+</header>
+
+<style>
+body>header {
+  width: 100%;
+  display : flex;
+  padding : 0 20px;
+  background : lightsteelblue;
+}
+header a {
+  line-height : 50px;
+  padding : 0 20px;
+  margin : 0 5px;
+
+  font-size : 16px;
+  letter-spacing : .4px;
+  color : white;
+}
+header a:hover {
+    background : lightsalmon;
+    color : white;
+    text-decoration : none;
+}
+</style>
+	
+		<section>
+	<article>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Partials.IgnorePartial", ["module:Handlers.Partial"], function (Partial, scoped) {
+  /**
+   * @name ba-ignore
+   *
+   * @description
+   * The ba-ignore partial instructs the BetaJS Dynamics process to not process
+   * anything of the inner Html within the given element implementing the
+   * ba-ignore partial. The ba-ignore partial is often used to stop the
+   * processing of an inline script tag.
+   *
+   * @example &lt;div ba-attrs="{{{test: 'hi'}}}">&lt;p ba-ignore>{{test}}&lt;/p>&lt;/div>
+   * // Renders &lt;div ...>&lt;p ba-ignore>{{test}}&lt;/p>&lt;/div>
+   */
+ 	var Cls = Partial.extend({scoped: scoped}, function (inherited) {
+ 		return {
+			
+ 			constructor: function (node, args, value) {
+ 				inherited.constructor.apply(this, arguments);
+ 				node.deactivate();
+ 			}
+ 		
+ 		};
+ 	});
+ 	Cls.register("ba-ignore");
+	return Cls;
+});
+</pre>
+	</article>
+</section>
+
+	
+		<script src="scripts/sunlight.js"></script>
+		<script src="scripts/docstrap.lib.js"></script>
+		<script src="scripts/bootstrap.js"></script>
+		<script>
+            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
+                var $this = $( this );
+        
+                var example = $this.find( "code" );
+                exampleText = example.html();
+                var lang = /{@lang (.*?)}/.exec( exampleText );
+                if ( lang && lang[1] ) {
+                    exampleText = exampleText.replace( lang[0], "" );
+                    example.html( exampleText );
+                    lang = lang[1];
+                } else {
+                    lang = "javascript";
+                }
+        
+                if ( lang ) {
+        
+                    $this
+                    .addClass( "sunlight-highlight-" + lang )
+                    .addClass( "linenums" )
+                    .html( example.html() );
+        
+                }
+            } );
+  			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		</script>
+        <script src="scripts/beta.js"></script>
+        <script src="scripts/beta-browser.js"></script>
+        <script src="scripts/betajs-dynamics.js"></script>
+
+	</body>
+	
+</html>
