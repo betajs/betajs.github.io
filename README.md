@@ -12,7 +12,7 @@ The frameworks are lacking proper documentation and demos at this point, but we 
 ## Frameworks
 
 
-### betajs-scoped 0.0.1
+### betajs-scoped 0.0.3
 
 BetaJS-Scoped is a small module for scoped loading of modules and dependencies.
 
@@ -71,7 +71,7 @@ MIT
 
 
 
-### betajs 1.0.0
+### betajs 1.0.11
 
 BetaJS is a general-purpose JavaScript framework for doing awesome things.
 
@@ -143,7 +143,7 @@ This software may include modified and unmodified portions of:
 
 
 
-### betajs-browser 1.0.0
+### betajs-browser 1.0.4
 
 BetaJS-Browser is a client-side JavaScript framework for Browser-specific methods.
 
@@ -218,7 +218,7 @@ This software may include modified and unmodified portions of:
 
 
 
-### betajs-data 1.0.0
+### betajs-data 1.0.6
 
 BetaJS-Data is a general-purpose JavaScript framework for handling RESTful operations and ActiveRecord abstractions.
 
@@ -289,7 +289,7 @@ MIT
 
 
 
-### betajs-server 1.0.0
+### betajs-server 1.0.1
 
 BetaJS-Server is a server-side JavaScript framework extension for BetaJS.
 
@@ -341,7 +341,7 @@ MIT
 
 
 
-### betajs-ui 1.0.0
+### betajs-ui 1.0.1
 
 BetaJS-UI is a library for enabling gestures and interactions such as drag and drop.
 
@@ -373,10 +373,10 @@ Active, In Development
 #### CDN
 | Resource | URL |
 | :----- | -------: |
-| beta-ui.js | [http://cdn.rawgit.com/betajs/betajs-ui/master/dist/beta-ui.js](http://cdn.rawgit.com/betajs/betajs-ui/master/dist/beta-ui.js) |
-| beta-ui.min.js | [http://cdn.rawgit.com/betajs/betajs-ui/master/dist/beta-ui.min.js](http://cdn.rawgit.com/betajs/betajs-ui/master/dist/beta-ui.min.js) |
-| beta-ui-noscoped.js | [http://cdn.rawgit.com/betajs/betajs-ui/master/dist/beta-ui-noscoped.js](http://cdn.rawgit.com/betajs/betajs-ui/master/dist/beta-ui-noscoped.js) |
-| beta-ui-noscoped.min.js | [http://cdn.rawgit.com/betajs/betajs-ui/master/dist/beta-ui-noscoped.min.js](http://cdn.rawgit.com/betajs/betajs-ui/master/dist/beta-ui-noscoped.min.js) |
+| beta-ui.js | [http://cdn.rawgit.com/betajs/betajs-ui/master/dist/betajs-ui.js](http://cdn.rawgit.com/betajs/betajs-ui/master/dist/betajs-ui.js) |
+| beta-ui.min.js | [http://cdn.rawgit.com/betajs/betajs-ui/master/dist/betajs-ui.min.js](http://cdn.rawgit.com/betajs/betajs-ui/master/dist/betajs-ui.min.js) |
+| beta-ui-noscoped.js | [http://cdn.rawgit.com/betajs/betajs-ui/master/dist/betajs-ui-noscoped.js](http://cdn.rawgit.com/betajs/betajs-ui/master/dist/betajs-ui-noscoped.js) |
+| beta-ui-noscoped.min.js | [http://cdn.rawgit.com/betajs/betajs-ui/master/dist/betajs-ui-noscoped.min.js](http://cdn.rawgit.com/betajs/betajs-ui/master/dist/betajs-ui-noscoped.min.js) |
 
 
 #### Unit Tests
@@ -413,9 +413,9 @@ MIT
 
 
 
-### betajs-dynamics 0.0.1
+### betajs-dynamics 0.0.9
 
-BetaJS-Dynamics is a dynamic dom templating engine.
+BetaJS-Dynamics is a dynamic DOM templating engine.
 
 
 #### Status
@@ -485,7 +485,7 @@ MIT
 
 
 
-### betajs-flash 0.0.1
+### betajs-flash 0.0.2
 
 BetaJS-Flash is a Flash-JavaScript bridging framework
 
@@ -546,7 +546,7 @@ MIT
 
 
 
-### betajs-media 0.0.1
+### betajs-media 0.0.3
 
 BetaJS-Media is a JavaScript media framework
 
@@ -603,6 +603,12 @@ Active, In Development
 MIT
 
 
+#### Credits
+
+This software may include modified and unmodified portions of:
+- TypedArray, From microphone to .WAV with: getUserMedia and Web Audio, (c) Thibault Imbert
+- Media Stream Recorder, https://github.com/streamproc/MediaStreamRecorder
+- Whammy Recorder, https://github.com/antimatter15/whammy
 
 
 

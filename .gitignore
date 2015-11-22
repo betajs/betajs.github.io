@@ -5,3 +5,5 @@
 node_modules
 .idea
 npm-debug.log
+temp/
+jsdoc.conf.json
