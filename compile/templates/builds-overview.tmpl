@@ -1,0 +1,31 @@
+<h4>Overview</h4>
+<p>The framework contains the following modules:</p>
+<br>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Module</th>
+                <th>Description</th>
+                <th>Version</th>
+            </tr>
+        </thead>
+
+        <tbody>
+			<?js
+				for (var fkey in this.custom.frameworks) {
+					var framework = this.custom.frameworks[fkey];
+			?>
+	            <tr>
+	                <td class="td-highlight brown">
+                		<a href="<?js= framework.repository.url.replace("git://", "http://").replace(".git", "") ?>">
+	                		<?js= fkey ?>
+	                	</a>
+	                </td>
+	                <td><?js= framework.description ?></td>
+	                <td><?js= framework.version ?></td>
+	            </tr>
+	        <?js } ?>
+		</tbody>
+	</table>
+</div>

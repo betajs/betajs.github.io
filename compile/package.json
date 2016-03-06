@@ -1,17 +1,18 @@
 {  
-   "name":"betajs-web",
+   "name":"betajs-framework",
    "version":"1.0.0",
-   "description":"BetaJS is a collection of JavaScript framework for doing awesome things.",
+   "description":"BetaJS is a collection of JavaScript modules for building web apps.",
    "homepage":"http://betajs.com",
    "contributors":[  
       "Oliver Friedmann",
       "Victor Lingenthal"
    ],
-   "license":"MIT",
+   "license":"Apache-2.0",
    "devDependencies":{  
+    	"lodash": "",
       "grunt":"",
       "grunt-contrib-jshint":"",
-      "grunt-contrib-nodeunit":"",
+      "grunt-contrib-copy":"",
       "grunt-contrib-concat":"",
       "grunt-contrib-uglify":"",
       "grunt-contrib-clean":"",
@@ -36,6 +37,7 @@
       "url":"git://github.com/betajs/betajs.github.io"
    },
    "meta":{  
+	  "blog": "http://blog.betajs.com",
       "frameworks":[  
          "betajs-scoped",
          "betajs",
@@ -46,7 +48,12 @@
          "betajs-dynamics",
          "betajs-flash",
          "betajs-media",
-         "betajs-codemirror"
+         "betajs-media-components",
+         "betajs-codemirror",
+         "betajs-richeditor",
+         "betajs-debug",
+         "grunt-betajs-docs-compile",
+         "grunt-betajs-templates"
       ],
       "tutorials":[  
          "betajs-scoped",                   

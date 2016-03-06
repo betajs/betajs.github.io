@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Guides</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						
+
+<div class="col-md-8">
+	<div id="main">
+		<section class="tutorial-section">
+	
+
+		<header>
+		    <h2>Guides</h2>
+		</header>
+		
+		<article>
+		    <p>Here is on overview over all modules covered in these guides:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Module</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#betajs-scoped">betajs-scoped</a></td>
+<td>BetaJS-Scoped is a small module for scoped loading of modules and dependencies.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#betajs">betajs</a></td>
+<td>BetaJS is a general-purpose JavaScript helper module. It contains a variety of helper functions and classes.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#betajs-browser">betajs-browser</a></td>
+<td>BetaJS-Browser is a client-side JavaScript framework for Browser-specific methods.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#betajs-data">betajs-data</a></td>
+<td>BetaJS-Data is a general-purpose JavaScript framework for handling RESTful operations and ActiveRecord abstractions.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#betajs-server">betajs-server</a></td>
+<td>BetaJS-Server is a server-side JavaScript framework extension for BetaJS.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#betajs-ui">betajs-ui</a></td>
+<td>BetaJS-UI is a library for enabling gestures and interactions such as drag and drop.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#betajs-dynamics">betajs-dynamics</a></td>
+<td>BetaJS-Dynamics is a dynamic DOM templating engine.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#betajs-flash">betajs-flash</a></td>
+<td>BetaJS-Flash is a Flash-JavaScript bridging framework</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#betajs-media">betajs-media</a></td>
+<td>BetaJS-Media is a JavaScript media framework</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#betajs-media-components">betajs-media-components</a></td>
+<td>BetaJS-Media-Components is a JavaScript media UI components framework</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#betajs-codemirror">betajs-codemirror</a></td>
+<td>BetaJS-Codemirror is a Codemirror Plugin for the BetaJS Framework.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#betajs-richeditor">betajs-richeditor</a></td>
+<td>BetaJS-Richeditor is a rich editor plugin based on content editable using the BetaJS Framework.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#betajs-debug">betajs-debug</a></td>
+<td>BetaJS-Debug is a library for debugging BetaJS-based applications.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#grunt-betajs-docs-compile">grunt-betajs-docs-compile</a></td>
+<td>Build BetaJS documentations based on JSDOC.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#grunt-betajs-templates">grunt-betajs-templates</a></td>
+<td>Build BetaJS templates.</td>
+</tr>
+</tbody>
+</table>
+		</article>
+		
+		</section>
+		
+	</div>
+</div>		
+<div class="clearfix">
+</div>
+<div class="col-md-3">
+	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md">
+
+<div class="list-group">
+
+	
+		<a class="list-group-item active" href="tutorial-guides.html">
+			<span class="toc-h1">
+				Guides
+			</span>
+		</a> 
+		
+	
+		
+	
+		<a class="list-group-item " href="tutorial-betajs-scoped.html">
+			<span class="toc-h1">
+				betajs-scoped
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs.html">
+			<span class="toc-h1">
+				betajs
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs-browser.html">
+			<span class="toc-h1">
+				betajs-browser
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs-data.html">
+			<span class="toc-h1">
+				betajs-data
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs-dynamics.html">
+			<span class="toc-h1">
+				betajs-dynamics
+			</span>
+		</a> 
+				
+	
+
+</div>
+</div>
+</div>
+
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <!-- jQuery -->
+        <script src="assets/js/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/script.js"></script>
+
+        <!-- Sunlight -->
+		<script src="assets/js/sunlight.js"></script>
+		<script>
+			$( "pre" ).each( function () {
+			    var $this = $( this );
+		
+			    var example = $this.find( "code" );
+			    exampleText = example.html();
+			    var lang = /{@lang (.*?)}/.exec( exampleText );
+			    if ( lang && lang[1] ) {
+			        exampleText = exampleText.replace( lang[0], "" );
+			        example.html( exampleText );
+			        lang = lang[1];
+			    } else {
+			        lang = "javascript";
+			    }
+		
+			    if ( lang ) {
+		
+			        $this
+			        .addClass( "sunlight-highlight-" + lang )
+			        .addClass( "linenums" )
+			        .html( example.html() );
+		
+			    }
+			} );
+			Sunlight.highlightAll( {lineNumbers : true});
+		</script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] || function () {
+					(i[r].q = i[r].q || []).push( arguments )
+				}, i[r].l = 1 * new Date();
+				a = s.createElement( o ),
+					m = s.getElementsByTagName( o )[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore( a, m )
+			})( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+		
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

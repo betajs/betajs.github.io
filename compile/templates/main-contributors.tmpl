@@ -1,0 +1,26 @@
+<section class="contributors">
+    <div class="container">
+        <h1 class="sub-heading"><span class="beta">Beta</span><span class="js">JS</span> Architects</h1>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="contributors_wrap">
+                    <ul class="list-unstyled list-inline cotributor-list">
+						<?js this.custom.strings.contributors.forEach(function (contributor) { ?>
+                        	<li>
+                        		<a href="<?js= contributor.url ?>"><?js= contributor.name ?></a>
+                        	</li>
+                        <?js }) ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h2 class="sub-heading">Our Sponsors Include</h2>
+        <div class="row row-centered">
+            <div class="col-centered">
+            	<?js this.custom.strings.sponsors.forEach(function (sponsor) { ?>
+            		<a href="<?js= sponsor.url ?>"><img alt="<?js= sponsor.name ?>" src="assets/img/<?js= sponsor.img ?>"></a>
+                <?js }) ?>                    		
+        	</div>
+        </div>
+    </div>
+</section>

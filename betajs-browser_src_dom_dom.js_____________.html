@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs-browser/src/dom/dom.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs-browser/src/dom/dom.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Dom", [
+    "base:Objs",
+    "jquery:",
+    "base:Types",
+    "module:Info"
+], function (Objs, $, Types, Info) {
+	return {
+		
+		outerHTML: function (element) {
+			if (!Info.isFirefox() || Info.firefoxVersion() >= 11)
+				return element.outerHTML;
+			return $('&lt;div>').append($(element).clone()).html();
+		},
+		
+		changeTag: function (node, name) {
+			var replacement = document.createElement(name);
+			for (var i = 0; i &lt; node.attributes.length; ++i)
+				replacement.setAttribute(node.attributes[i].nodeName, node.attributes[i].nodeValue);
+		    while (node.firstChild)
+		        replacement.appendChild(node.firstChild);
+		    node.parentNode.replaceChild(replacement, node);
+			return replacement;
+		},		
+		
+		traverseNext: function (node, skip_children) {
+			if ("get" in node)
+				node = node.get(0);
+			if (node.firstChild &amp;&amp; !skip_children)
+				return $(node.firstChild);
+			if (!node.parentNode)
+				return null;
+			if (node.nextSibling)
+				return $(node.nextSibling);
+			return this.traverseNext(node.parentNode, true);
+		},
+		
+		/** @suppress {checkTypes} */
+		selectNode : function(node, offset) {
+			node = $(node).get(0);
+			var selection = null;
+			var range = null;
+			if (window.getSelection) {
+				selection = window.getSelection();
+				selection.removeAllRanges();
+				range = document.createRange();
+			} else if (document.selection) {
+				selection = document.selection;
+				range = selection.createRange();
+			}
+			if (offset) {
+				range.setStart(node, offset);
+				range.setEnd(node, offset);
+				selection.addRange(range);
+			} else {
+				range.selectNode(node);
+				selection.addRange(range);
+			}
+		},
+	
+		/** @suppress {checkTypes} */
+		selectionStartNode : function() {
+			if (window.getSelection)
+				return $(window.getSelection().getRangeAt(0).startContainer);
+			else if (document.selection)
+				return $(document.selection.createRange().startContainer);
+			return null;
+		},
+		
+		/** @suppress {checkTypes} */
+		selectedHtml : function() {
+			if (window.getSelection)
+				return window.getSelection().toString();
+			else if (document.selection)
+				return document.selection.createRange().htmlText;
+			return "";
+		},
+		
+		/** @suppress {checkTypes} */
+		selectionAncestor : function() {
+			if (window.getSelection)
+				return $(window.getSelection().getRangeAt(0).commonAncestorContainer);
+			else if (document.selection)
+				return $(document.selection.createRange().parentElement());
+			return null;
+		},
+		
+		/** @suppress {checkTypes} */
+		selectionStartOffset: function () {
+			if (window.getSelection)
+				return window.getSelection().getRangeAt(0).startOffset;
+			else if (document.selection)
+				return document.selection.createRange().startOffset;
+			return null;
+		},
+		
+		/** @suppress {checkTypes} */
+		selectionEndOffset: function () {
+			if (window.getSelection)
+				return window.getSelection().getRangeAt(0).endOffset;
+			else if (document.selection)
+				return document.selection.createRange().endOffset;
+			return null;
+		},
+	
+		/** @suppress {checkTypes} */
+		selectionStart : function() {
+			if (window.getSelection)
+				return $(window.getSelection().getRangeAt(0).startContainer);
+			else if (document.selection)
+				return $(document.selection.createRange().startContainer);
+			return null;
+		},
+	
+		/** @suppress {checkTypes} */
+		selectionEnd : function() {
+			if (window.getSelection)
+				return $(window.getSelection().getRangeAt(0).endContainer);
+			else if (document.selection)
+				return $(document.selection.createRange().endContainer);
+			return null;
+		},
+		
+		/** @suppress {checkTypes} */
+		selectionNonEmpty: function () {
+			var start = this.selectionStart();
+			var end = this.selectionEnd();
+			return start &amp;&amp; end &amp;&amp; start.get(0) &amp;&amp; end.get(0) &amp;&amp; (start.get(0) != end.get(0) || this.selectionStartOffset() != this.selectionEndOffset());
+		},
+		
+		/** @suppress {checkTypes} */
+		selectionContained: function (node) {
+			return node.has(this.selectionStart()).length > 0 &amp;&amp; node.has(this.selectionEnd()).length > 0;
+		},
+	
+		/** @suppress {checkTypes} */
+		selectionNodes: function () {
+			var result = [];
+			var start = this.selectionStart();
+			var end = this.selectionEnd();
+			result.push(start);
+			var current = start;
+			while (current.get(0) != end.get(0)) {
+				current = this.traverseNext(current);
+				result.push(current);
+			}
+			return result;
+		},
+		
+		/** @suppress {checkTypes} */
+		selectionLeaves: function () {
+			return Objs.filter(this.selectionNodes(), function (node) { return node.children().length === 0; });
+		},
+		
+		contentSiblings: function (node) {
+			return node.parent().contents().filter(function () {
+				return this != node.get(0);
+			});
+		},
+		
+		remove_tag_from_parent_path: function (node, tag, context) {	
+			tag = tag.toLowerCase();
+			node = $(node);
+			var parents = node.parents(context ? context + " " + tag : tag);
+			for (var i = 0; i &lt; parents.length; ++i) {
+				var parent = parents.get(i);
+				parent = $(parent);
+				while (node.get(0) != parent.get(0)) {
+					this.contentSiblings(node).wrap("&lt;" + tag + ">&lt;/" + tag + ">");
+					node = node.parent();
+				}
+				parent.contents().unwrap();
+			}
+		},
+		
+		/** @suppress {checkTypes} */
+		selectionSplitOffsets: function () {
+			var startOffset = this.selectionStartOffset();
+			var endOffset = this.selectionEndOffset();
+			var start = this.selectionStart();
+			var end = this.selectionEnd();
+			var single = start.get(0) == end.get(0);
+			if (endOffset &lt; end.get(0).wholeText.length) {
+				var endElem = end.get(0);
+				endElem.splitText(endOffset);
+				end = $(endElem);
+				if (single)
+					start = end;
+			}
+			if (startOffset > 0) {
+				start = $(start.get(0).splitText(startOffset));
+				if (single)
+					end = start;
+			}
+			this.selectRange(start, end);
+		},
+		
+		/** @suppress {checkTypes} */
+		selectRange: function (start_node, end_node, start_offset, end_offset) {
+			start_node = $(start_node);
+			end_node = $(end_node);
+			var selection = null;
+			var range = null;
+			if (window.getSelection) {
+				selection = window.getSelection();
+				selection.removeAllRanges();
+				range = document.createRange();
+			} else if (document.selection) {
+				selection = document.selection;
+				range = selection.createRange();
+			}
+			range.setStart(start_node.get(0), start_offset || 0);
+			range.setEnd(end_node.get(0), end_offset || end_node.get(0).data.length);
+			selection.addRange(range);
+		},
+		
+		splitNode: function (node, start_offset, end_offset) {
+			node = $(node);
+			start_offset = start_offset || 0;
+			end_offset = end_offset || node.get(0).data.length;
+			if (end_offset &lt; node.get(0).data.length) {
+				var elem = node.get(0);
+				elem.splitText(end_offset);
+				node = $(elem);
+			}
+			if (start_offset > 0) 
+				node = $(node.get(0).splitText(start_offset));
+			return node;
+		},
+		
+		entitiesToUnicode: function (s) {
+			if (!s || !Types.is_string(s) || s.indexOf("&amp;") &lt; 0)
+				return s;
+			var temp = document.createElement("span");
+			temp.innerHTML = s;
+			s = $(temp).text();
+			if (temp.remove)
+				temp.remove();
+			return s;
+		}
+				
+	};
+});</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

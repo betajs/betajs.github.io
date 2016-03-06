@@ -1,0 +1,24 @@
+<h5 class="side_heading">Guides</h5>
+<ul class="guide_sidebar">
+	<?js tutorials.children.forEach(function(bjsmodule) { ?>
+		<li>
+			<a href="#<?js= bjsmodule.name ?>" class="has-dropdown"><?js= bjsmodule.title ?></a>
+			<ul>
+				<?js bjsmodule.children.forEach(function(bjschapter) { ?>
+					<li>
+						<a href="#<?js= bjschapter.name ?>" class="<?js= bjschapter.children.length ? 'has-dropdown' : '' ?>"><?js= bjschapter.title ?></a>
+						<?js if (bjschapter.children.length) { ?>
+							<ul>
+								<?js bjschapter.children.forEach(function(bjssubchapter) { ?>
+									<li>
+										<a href="#<?js= bjssubchapter.name ?>"><?js= bjssubchapter.title ?></a>
+									</li>
+								<?js }) ?>
+							</ul>
+						<?js } ?>
+					</li>
+				<?js }) ?>
+			</ul>
+		</li>
+	<?js }) ?>
+</ul>

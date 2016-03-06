@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: grunt-betajs-docs-compile/src/render.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: grunt-betajs-docs-compile/src/render.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">module.exports = function (environment) {
+	var _ = require("underscore");
+	var fs = require("jsdoc/fs");
+
+	/** Render Utilities
+	 * @module Render
+	 */
+	return {
+		
+		
+		/** Finds a template file by name and returns its content
+		 *
+		 * @param {string} templateName - file name of template without path and extension
+		 * @return {string} content of template file
+		 */
+		readTemplate: function (templateName) {
+			var ts = environment.paths.templateDirectores;
+			
+			for (var i = 0; i &lt; ts.length; ++i) {
+				var fname = ts[i] + "/" + templateName + ".tmpl";
+				if (fs.existsSync(fname))
+					return environment.globals.fileSupport.readFile(fname);
+			}
+			throw ("Template '" + templateName + "' not found.");
+		},
+
+		
+		/** Renders a template file by name to a string
+		 *
+		 * @param {string} templateName - file name of template without path and extension
+		 * @param {object} data - data object that is embedded in the rendering environment
+		 * @return {string} content of rendered template
+		 */
+		renderTemplate: function (templateName, data) {
+			return (_.template(this.readTemplate(templateName), null, {
+		        evaluate: /&lt;\?js([\s\S]+?)\?>/g,
+		        interpolate: /&lt;\?js=([\s\S]+?)\?>/g,
+		        escape: /&lt;\?js~([\s\S]+?)\?>/g
+		    })).call(environment, _.extend({render: this}, data));
+		},
+		
+		
+		/** Renders a template file by name embedded in the layout to a string
+		 *
+		 * @param {string} templateName - file name of template without path and extension
+		 * @param {object} data - data object that is embedded in the rendering environment
+		 * @return {string} content of rendered template within the layout
+		 */
+		renderPage: function (templateName, data) {
+			return this.renderTemplate("layout", _.extend({
+				header: this.renderTemplate("header", data),
+				footer: this.renderTemplate("footer", data),
+				main: this.renderTemplate(templateName, data),
+				template_name: templateName				
+			}, data));
+		},
+		
+		
+		/** Renders a template file by name embedded in the layout to a file name
+		 *
+		 * @param {string} fileName - output filename relative to the output paths in the environment
+		 * @param {string} templateName - file name of template without path and extension
+		 * @param {object} data - data object that is embedded in the rendering environment
+		 * @param {boolean} resolveLinks - resolve links in rendered page (default false)
+		 * @return {string} content of rendered template within the layout
+		 */
+		renderPageToFile: function (fileName, templateName, data, resolveLinks) {
+			data.file_name = fileName;
+			var rendered = this.renderPage(templateName, data);
+			if (resolveLinks)
+				rendered = environment.globals.helper.resolveLinks(rendered);
+			environment.globals.fileSupport.writeFile(environment.paths.output + "/" + fileName, rendered);
+		}
+		
+	};
+};
+</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

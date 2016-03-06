@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Reference</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div class="col-md-8">
+	<div id="main">
+		<section class="tutorial-section">
+	
+
+        <header id="BetaJS.module:Types">
+            <h2>Types</h2>
+        </header>
+        <article>
+            
+                
+                    <p>function <strong>compare</strong>(x, y)</p>
+
+<div class="description">
+    <p>Compares two values</p>
+<p>If values are booleans, we compare them directly. If values are<br>arrays, we compare them recursively by their components. Otherwise,<br>we use localeCompare which compares strings.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>left value</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>right value</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>1 if x &gt; y, -1 if x &lt; y and 0 if x == y</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>is_array</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is an array</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if x is an array</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>is_boolean</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is boolean</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if x is boolean</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>is_defined</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is defined (could be null)</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if x is defined</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>is_empty</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is empty (undefined, null, an empty array or<br>an empty object)</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if x is empty</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>is_function</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is a function</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if x is a function</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>is_none</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is undefined or null</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if x is undefined or null</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>is_null</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is null (which is different from being<br>undefined)</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if x is null</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>is_object</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is an object</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if x is an object</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>is_string</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is a string</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if x is a a string</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>is_undefined</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is undefined (which is different from being<br>null)</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if x is undefined</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>parseBool</strong>(x)</p>
+
+<div class="description">
+    <p>Parses a boolean string</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>boolean as a string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>boolean value</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>type_of</strong>(x)</p>
+
+<div class="description">
+    <p>Returns the type of a given expression</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>expression</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>type string</p>
+</div>
+
+
+
+
+    
+
+                
+            
+        </article>
+		
+		</section>
+		
+	</div>
+</div>		
+<div class="clearfix">
+</div>
+<div class="col-md-3">
+	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"><div class="list-group">
+	
+		<a class="list-group-item " href="BetaJS.module_Functions.html">
+			<span class="toc-h1">
+				Functions
+			</span>
+		</a>
+	
+		<a class="list-group-item " href="BetaJS.module_Ids.html">
+			<span class="toc-h1">
+				Ids
+			</span>
+		</a>
+	
+		<a class="list-group-item " href="BetaJS.module_Strings.html">
+			<span class="toc-h1">
+				Strings
+			</span>
+		</a>
+	
+		<a class="list-group-item " href="BetaJS.module_Tokens.html">
+			<span class="toc-h1">
+				Tokens
+			</span>
+		</a>
+	
+		<a class="list-group-item active" href="BetaJS.module_Types.html">
+			<span class="toc-h1">
+				Types
+			</span>
+		</a>
+	
+		<a class="list-group-item " href="module-FileSupport.html">
+			<span class="toc-h1">
+				FileSupport
+			</span>
+		</a>
+	
+		<a class="list-group-item " href="module-Render.html">
+			<span class="toc-h1">
+				Render
+			</span>
+		</a>
+	
+</div>
+</div>
+</div>
+
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

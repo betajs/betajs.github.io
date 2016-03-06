@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs/src/iterators/base_iterators.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs/src/iterators/base_iterators.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Iterators.ArrayIterator", ["module:Iterators.Iterator"], function (Iterator, scoped) {
+	return Iterator.extend({scoped: scoped}, function (inherited) {
+		
+		/** ArrayIterator Class
+		 * 
+		 * @class BetaJS.Iterators.ArrayIterator
+		 */
+		return {
+
+			/** Creates an Array Iterator
+			 * 
+			 * @param arr array
+			 */
+			constructor: function (arr) {
+				inherited.constructor.call(this);
+				this.__array = arr;
+				this.__i = 0;
+			},
+
+			/** Determines whether there are more items.
+			 * 
+			 * @return true if there are more items
+			 */
+			hasNext: function () {
+				return this.__i &lt; this.__array.length;
+			},
+
+			/** Returns the next items if there is one.
+			 * 
+			 * @return next item
+			 */
+			next: function () {
+				var ret = this.__array[this.__i];
+				this.__i++;
+				return ret;
+			}
+		};
+	}, {
+
+		byIterate: function (iterate_func, iterate_func_ctx) {
+			var result = [];
+			iterate_func.call(iterate_func_ctx || this, function (item) {
+				result.push(item);
+			}, this);
+			return new this(result);
+		}
+	});
+});
+
+
+Scoped.define("module:Iterators.ObjectKeysIterator", ["module:Iterators.ArrayIterator"], function (ArrayIterator, scoped) {
+	return ArrayIterator.extend({scoped: scoped}, function (inherited) {
+		return {
+
+			constructor: function (obj) {
+				inherited.constructor.call(this, Object.keys(obj));
+			}
+
+		};
+	});
+});
+
+
+Scoped.define("module:Iterators.ObjectValuesIterator", ["module:Iterators.ArrayIterator", "module:Objs"], function (ArrayIterator, Objs, scoped) {
+	return ArrayIterator.extend({scoped: scoped}, function (inherited) {
+		return {
+
+			constructor: function (obj) {
+				inherited.constructor.call(this, Objs.values(obj));
+			}
+
+		};
+	});
+});
+
+
+Scoped.define("module:Iterators.LazyMultiArrayIterator", ["module:Iterators.LazyIterator"], function (Iterator, scoped) {
+	return Iterator.extend({scoped: scoped}, function (inherited) {
+		return {
+
+			constructor: function (next_callback, next_context) {
+				inherited.constructor.call(this);
+				this.__next_callback = next_callback;
+				this.__next_context = next_context;
+				this.__array = null;
+				this.__i = 0;
+			},
+
+			_next: function () {
+				if (this.__array === null || this.__i >= this.__array.length) {
+					this.__array = this.__next_callback.apply(this.__next_context);
+					this.__i = 0;
+				}
+				if (this.__array !== null) {
+					var ret = this.__array[this.__i];
+					this.__i++;
+					return ret;
+				} else
+					this._finished();
+			}
+
+		};
+	});
+});
+</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

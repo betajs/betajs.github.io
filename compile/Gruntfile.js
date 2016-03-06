@@ -12,7 +12,11 @@ module.exports = function(grunt) {
 		};
 	});
 
-	var tutorialsMeta = {};
+	var tutorialsMeta = {
+		/*"guides": {
+			title: "Guides"
+		}*/
+	};
 	PACKAGE.meta.tutorials.forEach(function(framework) {
 		tutorialsMeta[framework] = {
 			title : framework,
@@ -26,6 +30,8 @@ module.exports = function(grunt) {
 	PACKAGE.meta.frameworks.forEach(function(framework) {
 		frameworks[framework] = grunt.file.readJSON(BASE_PATH + framework
 				+ '/package.json');
+		if (frameworks[framework].meta.summarydoc)
+			frameworks[framework].meta.summary = grunt.file.read(BASE_PATH + framework + "/" + frameworks[framework].meta.summarydoc);
 		sources.push(BASE_PATH + framework + '/src/*.js');
 		sources.push(BASE_PATH + framework + '/src/*/*.js');
 		sources.push(BASE_PATH + framework + '/src/**/*.js');
@@ -45,6 +51,17 @@ module.exports = function(grunt) {
 							'../README.md' : [ 'readme.tpl' ]
 						}
 					},
+					builds : {
+						options : {
+							data : {
+								collection : PACKAGE,
+								frameworks : frameworks
+							}
+						},
+						files : {
+							'../BUILDS.md' : [ 'builds.tpl' ]
+						}
+					},
 					tutorials : {
 						options : {
 							data : {
@@ -53,6 +70,17 @@ module.exports = function(grunt) {
 						},
 						files : {
 							'temp/tutorials.json' : [ 'json.tpl' ]
+						}
+					},
+					guide_overview: {
+						options : {
+							data : {
+								collection : PACKAGE,
+								frameworks : frameworks
+							}
+						},
+						files: {
+							'temp/guides.md': [ 'guides.tpl' ]
 						}
 					},
 					"jsdoc": {
@@ -70,22 +98,57 @@ module.exports = function(grunt) {
 										"outputSourceFiles": true,
 										"outputSourcePath": true,
 										"systemName": "BetaJS",
-										"footer": "",
-										"copyright": "BetaJS (c) - MIT License",
+										"footer": "Copyright &COPY; 2016 BetaJS / All rights reserved",
+										"copyright": "BetaJS (c) - Apache 2.0 License",
 										"navType": "vertical",
-										"theme": "cerulean",
+										"theme": "paper",
 										"linenums": true,
 										"collapseSymbols": false,
 										"inverseNav": true,
 										"highlightTutorialCode": true,
 										"protocol": "fred://",
 										"singleTutorials": true,
-										"emptyTutorials": true
+										"singleModules": true,
+										"copyAssets": false,
+										"templates": "./templates",
+										"analytics": {
+											"ua": "UA-43747442-1",
+											"domain": "betajs.com"
+										}
 									},
 									"markdown": {
 										"parser": "gfm",
 										"hardwrap": true
-									}
+									},
+									"custom": {
+										"pkg": PACKAGE,
+										"strings": grunt.file.readJSON("strings.json"),
+										"frameworks": frameworks
+									},
+									"pages": {
+										"home": {
+											"title": "Home",
+											"navbar": true,
+											"first": true,
+											"url": "index.html"
+										},
+										"builds": {
+											"title": "Builds",
+											"navbar": true,
+											"first": false,
+											"template": "builds"
+										}/*,
+										"blog": {
+											"title": "Blog",
+											"url": PACKAGE.meta.blog,
+											"navbar": true
+										}*//*,
+										"github": {
+											"title": "GitHub",
+											"url": PACKAGE.repository.url.replace("git://", "http://").replace(".git", ""),
+											"navbar": true
+										}*/
+									}									
 								}
 							}
 						},
@@ -97,6 +160,14 @@ module.exports = function(grunt) {
 				copy : {
 					tutorials : {
 						files : tutorials
+					},
+					assets : {
+						files : [{
+							expand : true,
+							cwd : "./assets",
+							src : '**/*',
+							dest : '../assets'
+						}]				
 					}
 				},
 				clean : [ './temp/*', './jsdoc.conf.json' ],
@@ -105,7 +176,6 @@ module.exports = function(grunt) {
 						src : sources,
 						options : {
 							destination : '../',
-							//template : 'node_modules/grunt-betajs-docs-compile',
 							template : '../../grunt-betajs-docs-compile',
 							configure : './jsdoc.conf.json',
 							tutorials : './temp'
@@ -126,6 +196,6 @@ module.exports = function(grunt) {
 		});
 	});
 
-	grunt.registerTask('default', [ 'template:readme', 'template:jsdoc', 'copy:tutorials', "tutorial-overview-pages",
+	grunt.registerTask('default', [ 'copy:assets', 'template:readme', 'template:jsdoc', 'copy:tutorials', "template:guide_overview", "tutorial-overview-pages",
 			'template:tutorials', 'jsdoc', 'clean' ]);
 };

@@ -1,148 +1,101 @@
 <!DOCTYPE html>
 
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Guides</title>
 
-	<head>
-	
-		<meta charset="utf-8">
-		<title> Guides</title>
-	
-		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
-		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
-	
-	</head>
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
 
-	<body>
-	
-        <script src="scripts/jquery.js"></script>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
 
-		
-<header>
-    <a href="index.html">BetaJS</a>
-            <a href="tutorials.html">Guides</a>
-        
-            <a href="modules.html">Reference</a>
-        
-</header>
-
-<style>
-body>header {
-  width: 100%;
-  display : flex;
-  padding : 0 20px;
-  background : lightsteelblue;
-}
-header a {
-  line-height : 50px;
-  padding : 0 20px;
-  margin : 0 5px;
-
-  font-size : 16px;
-  letter-spacing : .4px;
-  color : white;
-}
-header a:hover {
-    background : lightsalmon;
-    color : white;
-    text-decoration : none;
-}
-</style>
-	
-		<section class="tutorial-section">
-
-<div class='container'>
-	<div class="row">
-
-	   <!-- Menu -->
-		<div class="col-md-4">
-			
-
-
-<ul>
-	
-		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-betajs.html">betajs</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
-			
-<ul>
-	
-		<li><a href="tutorial-intro.html">Introduction</a> 
-			
-<ul>
-	
-		<li><a href="tutorial-helloworld.html">Hello World</a> 
-			
-<ul>
-	
-</ul>
-
-		</li>
-	
-</ul>
-
-		</li>
-	
-		<li><a href="tutorial-blueprint.html">Blueprint</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-initialize.html">Initializing Dynamics</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-templates.html">Templates</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-element.html">Element</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-html-attributes.html">HTML Attributes</a> 
-			
-		</li>
-	
-</ul>
-
-		</li>
-	
-</ul>
-
-		</div>
-
-		<!-- Main -->
-		<div class="col-md-8">
-			<header>
-			    <h2>Hello World</h2>
 			</header>
 			
-			<article>
-			    <h2>This is the Hello World Project</h2><p>Before we start we assume that you know the basics of HTML,<br>Javascript, Jquery and how to use these locally in your Browser.</p>
-<p>Our &quot;Hello World&quot; File is one HTML that loads the BetaJS Framework and some other required files in the head.<br>And runs a very basic &quot;Hello World&quot; Script in the body.</p>
-<p>If everything is set up correctly you should see &quot;Hello World&quot;<br>if you load the helloworld.html displayed in the box below in the Browser.</p>
+			<div class="container" id="toc-content">
+				<div class="row">
+						
+
+<div class="col-md-8">
+	<div id="main">
+		<section class="tutorial-section">
+	
+
+		<header>
+		    <h2>Hello World Example</h2>
+		</header>
+		
+		<article>
+		    <p>Our &quot;Hello World&quot; a one-page html that loads the BetaJS framework and some other required files in the head. And runs a very basic &quot;Hello World&quot; script in the body.</p>
+<p>If everything is set up correctly you should see &quot;Hello World&quot; if you load the helloworld.html displayed in the box below in the your browser, and making sure that all the assets are present as well.</p>
 <pre class="prettyprint source lang-html"><code>
     &lt;!DOCTYPE html>
     &lt;html>
     &lt;head lang=&quot;en&quot;>
         &lt;meta charset=&quot;UTF-8&quot;>
         &lt;title>Hello World&lt;/title>
-            &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js&quot;>&lt;/script>
-            &lt;script src=&quot;vendors/beta.js&quot;>&lt;/script>
-            &lt;script src=&quot;vendors/beta-browser-noscoped.js&quot;>&lt;/script>
+        &lt;script src=&quot;vendors/jquery.min.js&quot;>&lt;/script>
+        &lt;script src=&quot;vendors/beta.js&quot;>&lt;/script>
+        &lt;script src=&quot;vendors/betajs-browser-noscoped.js&quot;>&lt;/script>
         &lt;script src=&quot;vendors/betajs-dynamics.js&quot;>&lt;/script>
     &lt;/head>
     &lt;body>
@@ -151,7 +104,7 @@ header a:hover {
 
         &lt;script>
 
-            dynamic = new BetaJS.Dynamics.Dynamic({
+            var dynamic = new BetaJS.Dynamics.Dynamic({
                 element: $(&quot;#helloworld&quot;)
             });
 
@@ -161,64 +114,145 @@ header a:hover {
         &lt;/script>
 
     &lt;/body>
-    &lt;/html></code></pre><h4>Now lets go briefly trough the individual parts:</h4><pre class="prettyprint source lang-html"><code>
-    &lt;div id=&quot;helloworld&quot;> {{replaced_value}} &lt;/div></code></pre><p>Inside {{}} ist an attribute property that we can control from other parts of the Program</p>
+    &lt;/html></code></pre><h4>Now lets go briefly through the individual parts:</h4><pre class="prettyprint source lang-html"><code>
+    &lt;div id=&quot;helloworld&quot;> {{replaced_value}} &lt;/div></code></pre><p>Inside {{}} ist an attribute property that we can control from other parts of the application.</p>
 <pre class="prettyprint source lang-js"><code>
     dynamic = new BetaJS.Dynamics.Dynamic({
         element: $(&quot;#helloworld&quot;)
-    });</code></pre><p>Here we create a new BetaJS Dynamic,<br>what that means and what you can do with that<br>we will explore in more details in the rest of this Tutorial</p>
-<p>The element part links the Javascript code of the Dynamic with the #helloworld element.<br>And hence we can have the control the BetaJS Dynamics provides over the #helloworld div<br>and its contents. We can then control the #helloworld div within our Javascript files<br>with the dynamic variable (Because of &quot;dynamic = new BetaJS.Dynamics.Dynamic({&quot;).</p>
-<p>An example on how to use this is the next line:</p>
+    });</code></pre><p>Here, we are creating a new dynamic, and make it responsible for handling the subtree under the dom node <code>#helloworld</code>.</p>
 <pre class="prettyprint source lang-js"><code>
-    dynamic.set(&quot;replaced_value&quot;, &quot;Hello World&quot;);</code></pre><p>Here we create a the property within the dynamic which is called &quot;replaced_value&quot;<br>and give it the value &quot;Hello World&quot;. When the dynamic is loaded the attribute property<br>{{replaced_value}} will be replaced by its value in the HTML so that we see &quot;Hello World&quot;<br>on the actual site.<br>Properties are similar to variables in that they store data, more on BetaJS Properties can be found here: ...<br>One of the benefits of using a property here is that when we changed the value of &quot;replaced_value&quot;<br>the HTML view will update itself automatically.</p>
+    dynamic.set(&quot;replaced_value&quot;, &quot;Hello World&quot;);</code></pre><p>Here, we create set an attribute &quot;replaced_value&quot; and give it the value &quot;Hello World&quot;. When the dynamic is loaded, the handlebars {{replaced_value}} will be replaced by its value in the DOM so that we see &quot;Hello World&quot; on the actual site.</p>
+<p>Dynamic attributes are a key value store based on the BetaJS Properties class.</p>
+<p>The HTML view will update itself automatically when attributes in the dynamic are changed.</p>
 <pre class="prettyprint source lang-js"><code>
-    dynamic.activate();</code></pre><p>This last part activates the dynamic and actually links the HTML with the Javascript.</p>
-			</article>
-		</div>
-
-	<div>
+    dynamic.activate();</code></pre><p>This last part activates the dynamic and binds the HTML to the JS controller.</p>
+		</article>
+		
+		</section>
+		
+	</div>
+</div>		
+<div class="clearfix">
 </div>
+<div class="col-md-3">
+	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md">
 
-</section>
+<div class="list-group">
 
 	
-		<script src="scripts/sunlight.js"></script>
-		<script src="scripts/docstrap.lib.js"></script>
-		<script src="scripts/bootstrap.js"></script>
-		<script>
-            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
-                var $this = $( this );
-        
-                var example = $this.find( "code" );
-                exampleText = example.html();
-                var lang = /{@lang (.*?)}/.exec( exampleText );
-                if ( lang && lang[1] ) {
-                    exampleText = exampleText.replace( lang[0], "" );
-                    example.html( exampleText );
-                    lang = lang[1];
-                } else {
-                    lang = "javascript";
-                }
-        
-                if ( lang ) {
-        
-                    $this
-                    .addClass( "sunlight-highlight-" + lang )
-                    .addClass( "linenums" )
-                    .html( example.html() );
-        
-                }
-            } );
-  			Sunlight.highlightAll( {
-				lineNumbers : true,
-				showMenu : true,
-				enableDoclinks : true
-			} );
-		</script>
-        <script src="scripts/beta.js"></script>
-        <script src="scripts/beta-browser.js"></script>
-        <script src="scripts/betajs-dynamics.js"></script>
+		<a class="list-group-item " href="tutorial-betajs-scoped.html">
+			<span class="toc-h1">
+				betajs-scoped
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs.html">
+			<span class="toc-h1">
+				betajs
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs-browser.html">
+			<span class="toc-h1">
+				betajs-browser
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs-data.html">
+			<span class="toc-h1">
+				betajs-data
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs-dynamics.html">
+			<span class="toc-h1">
+				betajs-dynamics
+			</span>
+		</a> 
+		
+	
+		<a class="list-group-item " href="tutorial-intro.html">
+			<span class="toc-h2">
+				Introduction
+			</span>
+		</a> 
+		
+	
+		<a class="list-group-item active" href="tutorial-helloworld.html">
+			<span class="toc-h3">
+				Hello World Example
+			</span>
+		</a> 
+		
+	
+		
+	
+		<a class="list-group-item " href="tutorial-core_concepts.html">
+			<span class="toc-h3">
+				Core Concepts
+			</span>
+		</a> 
+				
+	
+		
+	
+		<a class="list-group-item " href="tutorial-blueprint.html">
+			<span class="toc-h2">
+				Blueprints
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-dyn_js.html">
+			<span class="toc-h2">
+				Dynamics Javascript
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-html-attributes.html">
+			<span class="toc-h2">
+				DOM Partials
+			</span>
+		</a> 
+				
+	
+		
+	
 
+</div>
+</div>
+</div>
+
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
 	</body>
 	
 </html>

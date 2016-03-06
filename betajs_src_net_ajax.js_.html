@@ -1,85 +1,117 @@
 <!DOCTYPE html>
 
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs/src/net/ajax.js</title>
 
-	<head>
-	
-		<meta charset="utf-8">
-		<title> Source: undefined</title>
-	
-		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
-		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
-	
-	</head>
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
 
-	<body>
-	
-        <script src="scripts/jquery.js"></script>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
 
-		
-<header>
-    <a href="index.html">BetaJS</a>
-            <a href="tutorials.html">Guides</a>
-        
-            <a href="modules.html">Reference</a>
-        
-</header>
-
-<style>
-body>header {
-  width: 100%;
-  display : flex;
-  padding : 0 20px;
-  background : lightsteelblue;
-}
-header a {
-  line-height : 50px;
-  padding : 0 20px;
-  margin : 0 5px;
-
-  font-size : 16px;
-  letter-spacing : .4px;
-  color : white;
-}
-header a:hover {
-    background : lightsalmon;
-    color : white;
-    text-decoration : none;
-}
-</style>
-	
-		<section>
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
 	<article>
+		<h2>Source: betajs/src/net/ajax.js</h2>
 		<pre
-			class="sunlight-highlight-javascript linenums">Scoped.define("module:Net.AjaxException", ["module:Exceptions.Exception"], function (Exception, scoped) {
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Net.AjaxException", [
+    "module:Exceptions.Exception",
+    "module:Objs"
+], function (Exception, Objs, scoped) {
 	return Exception.extend({scoped: scoped}, function (inherited) {
 		return {
-		
+
 			constructor: function (status_code, status_text, data) {
 				inherited.constructor.call(this, status_code + ": " + status_text);
 				this.__status_code = status_code;
 				this.__status_text = status_text;
 				this.__data = data;
 			},
-			
+
 			status_code: function () {
 				return this.__status_code;
 			},
-			
+
 			status_text: function () {
 				return this.__status_text;
 			},
-			
+
 			data: function () {
 				return this.__data;
 			},
-			
+
 			json: function () {
-				var obj = inherited.json.call(this);
-				obj.data = this.data();
-				return obj;
+				return Objs.extend({
+					data: this.data(),
+					status_code: this.status_code(),
+					status_text: this.status_text()
+				}, inherited.json.call(this));
 			}
-		
+			
 		};
 	});
 });
@@ -94,127 +126,94 @@ header a:hover {
  * 
  */
 
-Scoped.define("module:Net.AbstractAjax", ["module:Class", "module:Objs", "module:Net.AjaxException", "module:Net.Uri"], function (Class, Objs, AjaxException, Uri, scoped) {
-	return Class.extend({scoped: scoped}, function (inherited) {
+Scoped.define("module:Net.AbstractAjax", [ "module:Class", "module:Objs", "module:Net.Uri" ], function(Class, Objs, Uri, scoped) {
+	return Class.extend({ scoped : scoped }, function(inherited) {
 		return {
 
-			constructor: function (options) {
+			constructor : function(options) {
 				inherited.constructor.call(this);
 				this.__options = Objs.extend({
-					"method": "GET",
-					"data": {}
+					"method" : "GET",
+					"data" : {}
 				}, options);
 			},
-			
-			syncCall: function (options) {
-				try {
-          if (this._shouldMap(options)) {
-            options = this._mapPutToPost(options);
-          }
 
-					return this._syncCall(Objs.extend(Objs.clone(this.__options, 1), options));
-				} catch (e) {
-					throw AjaxException.ensure(e);
-				}
-			},
-			
-			asyncCall: function (options) {
-
-        if (this._shouldMap(options)) {
-          options = this._mapPutToPost(options);
-        }
-
-				return this._asyncCall(Objs.extend(Objs.clone(this.__options, 1), options));
-			},
-			
-			_syncCall: function (options) {
-				throw "Unsupported";
-			},
-		
-			_asyncCall: function (options) {
-				throw "Unsupported";
+			asyncCall : function(options) {
+				if (this._shouldMap(options))
+					options = this._mapPutToPost(options);
+				return this._asyncCall(Objs.extend(Objs
+						.clone(this.__options, 1), options));
 			},
 
-      /**
-       * @method _shouldMap
-       *
-       * Check if should even attempt a mapping. Important to not assume
-       * that the method option is always specified.
-       *
-       * @return Boolean
-       */
-      _shouldMap: function (options) {
-        return this.__options.mapPutToPost &amp;&amp;
-          options.method &amp;&amp; options.method.toLowerCase() === "put";
+			_asyncCall : function(options) {
+				throw "Abstract";
+			},
 
-      },
+			/**
+			 * @method _shouldMap
+			 * 
+			 * Check if should even attempt a mapping. Important to not assume
+			 * that the method option is always specified.
+			 * 
+			 * @return Boolean
+			 */
+			_shouldMap : function(options) {
+				return this.__options.mapPutToPost &amp;&amp; options.method &amp;&amp; options.method.toLowerCase() === "put";
+			},
 
-      /**
-       * @method _mapPutToPost
-       *
-       * Some implementations of PUT to not supporting sending data with the PUT
-       * request. This fix converts the Request to use POST, so the data is
-       * sent, but the server still thinks it is receiving a PUT request.
-       *
-       * @param {object} options
-       *
-       * @return {object}
-       */
-      _mapPutToPost: function(options) {
-        options.method = "POST";
-        options.uri = Uri.appendUriParams(
-          options.uri, {
-          _method: "PUT"
-        });
+			/**
+			 * @method _mapPutToPost
+			 * 
+			 * Some implementations of PUT to not supporting sending data with
+			 * the PUT request. This fix converts the Request to use POST, so
+			 * the data is sent, but the server still thinks it is receiving a
+			 * PUT request.
+			 * 
+			 * @param {object}
+			 *            options
+			 * 
+			 * @return {object}
+			 */
+			_mapPutToPost : function(options) {
+				options.method = "POST";
+				options.uri = Uri.appendUriParams(options.uri, {
+					_method : "PUT"
+				});
 
-        return options;
-      }
+				return options;
+			}
 		};
 	});
 });
-
 </pre>
 	</article>
 </section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
 
-	
-		<script src="scripts/sunlight.js"></script>
-		<script src="scripts/docstrap.lib.js"></script>
-		<script src="scripts/bootstrap.js"></script>
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
 		<script>
-            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
-                var $this = $( this );
-        
-                var example = $this.find( "code" );
-                exampleText = example.html();
-                var lang = /{@lang (.*?)}/.exec( exampleText );
-                if ( lang && lang[1] ) {
-                    exampleText = exampleText.replace( lang[0], "" );
-                    example.html( exampleText );
-                    lang = lang[1];
-                } else {
-                    lang = "javascript";
-                }
-        
-                if ( lang ) {
-        
-                    $this
-                    .addClass( "sunlight-highlight-" + lang )
-                    .addClass( "linenums" )
-                    .html( example.html() );
-        
-                }
-            } );
-  			Sunlight.highlightAll( {
-				lineNumbers : true,
-				showMenu : true,
-				enableDoclinks : true
-			} );
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
 		</script>
-        <script src="scripts/beta.js"></script>
-        <script src="scripts/beta-browser.js"></script>
-        <script src="scripts/betajs-dynamics.js"></script>
-
+		
+		
 	</body>
 	
 </html>

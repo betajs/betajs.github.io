@@ -1,0 +1,15 @@
+<h3>betajs-data</h3>
+<p>
+	The data module handles abstract data stores, operating on both client and server. It supports standard RESTful architecture and third-party server systems providing a RESTful API.
+</p>
+<pre><code>store.insert(instance).success(function (data) {
+   // Instance was inserted, and the updated data of instance is data (including the id)
+}).error(function (error) {
+   // Could not insert instance
+});
+
+store.query(query, constraints).success(function (iterator) {
+   // Store was succesfully queried; the query result is an iterator over matched instances.
+}).error(function (error) {
+   // Could not execute query
+});</code></pre>

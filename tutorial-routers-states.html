@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Guides</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						
+
+<div class="col-md-8">
+	<div id="main">
+		<section class="tutorial-section">
+	
+
+		<header>
+		    <h2>Routers and State Machines</h2>
+		</header>
+		
+		<article>
+		    <p>You can combine routers with state machines. State machines in general provide a richer abstraction for state spaces while routers can be thought of a string serialization and parsing system for states.</p>
+<h3>Initialization</h3><p>Initialize the router, the state machine and the binder as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>    var router = new BetaJS.Router.Router();
+    var host = new BetaJS.States.Host();
+    var binder = new BetaJS.Router.StateRouteBinder(router, host);</code></pre><h3>Registration</h3><p>You can now register routes and state separately and connect some of them, or you bind them automatically:</p>
+<pre class="prettyprint source lang-javascript"><code>    binder.register(&quot;simple&quot;, &quot;/simple&quot;);
+    binder.register(&quot;polymorphic&quot;, &quot;/polymorphic/(key:first|second)&quot;);</code></pre><p>This results in two routes, <code>/simple</code> and <code>/polymorphic/(key:first|second)</code> in the router, saved under the route names <code>simple</code> and <code>polymorphic</code>. Additionally states named <code>Simple</code> and <code>Polymorphic</code> are created within the state machine.</p>
+<h3>Navigation</h3><p>You can now perform navigation using the router:</p>
+<pre class="prettyprint source lang-javascript"><code>    router.navigate(&quot;/simple&quot;); 
+    router.navigate(&quot;/polymorphic/second&quot;);</code></pre><p>As well as state transitions using the state machine:</p>
+<pre class="prettyprint source lang-javascript"><code>    host.next(&quot;Simple&quot;);
+    host.next(&quot;Polymorphic&quot;, {key: &quot;first&quot;});</code></pre><p>Since the router and state machine are linked to each other, transitions to either one are reflected in the other.</p>
+		</article>
+		
+		</section>
+		
+	</div>
+</div>		
+<div class="clearfix">
+</div>
+<div class="col-md-3">
+	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md">
+
+<div class="list-group">
+
+	
+		<a class="list-group-item " href="tutorial-betajs-scoped.html">
+			<span class="toc-h1">
+				betajs-scoped
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs.html">
+			<span class="toc-h1">
+				betajs
+			</span>
+		</a> 
+		
+	
+		<a class="list-group-item " href="tutorial-class.html">
+			<span class="toc-h2">
+				Object Orientation
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-events.html">
+			<span class="toc-h2">
+				Event System as Observer Pattern
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-properties.html">
+			<span class="toc-h2">
+				Introduction to Properties
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-collections.html">
+			<span class="toc-h2">
+				Collections
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-iterators.html">
+			<span class="toc-h2">
+				Enumerable Lists - Iterators
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-promise.html">
+			<span class="toc-h2">
+				Asynchronous Calls using Promises
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-objs.html">
+			<span class="toc-h2">
+				Functional Helpers for Objects and Arrays
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-ids.html">
+			<span class="toc-h2">
+				Identifiable Objects
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-states.html">
+			<span class="toc-h2">
+				State Machines
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-router.html">
+			<span class="toc-h2">
+				Routers
+			</span>
+		</a> 
+		
+	
+		<a class="list-group-item active" href="tutorial-routers-states.html">
+			<span class="toc-h3">
+				Routers and State Machines
+			</span>
+		</a> 
+		
+	
+		
+	
+		
+	
+		
+	
+		<a class="list-group-item " href="tutorial-betajs-browser.html">
+			<span class="toc-h1">
+				betajs-browser
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs-data.html">
+			<span class="toc-h1">
+				betajs-data
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs-dynamics.html">
+			<span class="toc-h1">
+				betajs-dynamics
+			</span>
+		</a> 
+				
+	
+
+</div>
+</div>
+</div>
+
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

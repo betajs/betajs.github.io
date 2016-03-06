@@ -1,0 +1,24 @@
+<h3 class="page-title">Guides</h3>
+<h5 class="title-desc">Here is on overview over all modules covered in these guides:</h5>
+<br>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Module</th>
+                <th>Description</th>
+
+            </tr>
+        </thead>
+        <tbody>
+	    	<?js this.custom.pkg.meta.frameworks.forEach(function (framework) { ?>
+	        <tr>
+	            <td class="td-highlight brown"><?js= framework ?></td>
+	            <td><?js= this.custom.frameworks[framework].description ?></td>
+	        </tr>
+	        <?js }, this) ?>
+        </tbody>
+    </table>
+</div>
+<br>
+<br>

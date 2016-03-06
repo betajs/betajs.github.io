@@ -1,0 +1,31 @@
+{
+	"contributors": [{
+		"name": "Oliver Friedmann",
+		"url": "http://oliverfriedmann.com"
+	}, {
+		"name": "Victor Lingenthal",
+		"url": "https://github.com/victorlingenthal"
+	}],
+	"sponsors": [{
+		"name": "Ziggeo",
+		"img": "ziggeo.png",
+		"url": "http://ziggeo.com"
+	}],
+	"main": {
+		"benefit1": {
+			"image": "browser.png",
+			"heading": "Full Browser Support",
+			"body": "Works on Desktop, Mobile, Cordova and NodeJS. The modularized architecture allows you to use common modules on both client and server, and specialized modules in the specific environments."
+		},
+		"benefit2": {
+			"image": "eye.png",
+			"heading": "Open-Source Platform",
+			"body": "BetaJS is fully open-sourced and comes with the industry-standard Apache-2.0 license. All our code is maintained openly on GitHub. Pull requests more than welcome."
+		},
+		"benefit3": {
+			"image": "code_window.png",
+			"heading": "Simple Interface",
+			"body": "BetaJS has been designed with simplicity and maximum customizability in mind. It does not impose a particular style of writing JS and works well in combination with other libraries."
+		}
+	}
+}

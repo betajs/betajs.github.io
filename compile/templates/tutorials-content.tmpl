@@ -1,0 +1,21 @@
+<?js function tut(tutorials, level) { ?>
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="<?js= tutorials.name ?>">
+			<h<?js= level ?>><?js= tutorials.title ?></h<?js= level ?>>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <?js= tutorials.parse() ?>
+		</article>
+	</div>
+	
+	<?js tutorials.children.forEach(function(entry) { ?>
+	    <?js tut(entry, level + 1); ?>
+	<?js }); ?>
+	
+<?js } ?>
+
+<?js tut(tutorials, 0); ?>

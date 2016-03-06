@@ -1,0 +1,63 @@
+<?js
+
+	var compatability = {
+		"nodejs": "NodeJS",
+		"chrome": "Chrome",
+		"firefox": "Firefox",
+		"safari": "Safari",
+		"opera": "Opera",
+		"internet explorer": "Internet Explorer",
+		"edge": "Edge",
+		"ios": "iOS",
+		"android": "Android"		
+	};
+		
+?>
+
+
+
+<h4>Compatability</h4>
+<p>The software has been tested to operate properly in the following environments:</p>
+<br>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Module</th>
+                <?js for (var key in compatability) { ?>
+                	<th><?js= compatability[key] ?></th>
+                <?js } ?>
+            </tr>
+        </thead>
+
+        <tbody>
+			<?js
+				for (var fkey in this.custom.frameworks) {
+					var framework = this.custom.frameworks[fkey];
+			?>
+	            <tr>
+	                <td class="td-highlight brown"><?js= fkey ?></td>
+	                <?js
+            			for (var ckey in compatability) {
+							var found = false;
+							for (var cckey in framework.meta.compatability) {
+								if (cckey.toLowerCase() === ckey) {
+					?>
+						<td><?js= framework.meta.compatability[cckey] ?></td>
+	                <?js 
+									found = true;
+									break;
+								}
+							}
+							if (!found) {
+					?>
+						<td>-</td>
+					<?js
+							}
+						}
+					?>
+				</tr>	
+	        <?js } ?>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,23 @@
+<h3>betajs-scoped</h3>
+<p>
+	The Scoped system allows you to handle multiple libraries with separate namespaces and scopes.
+	It allows libraries to access external dependencies with different names and even overwrite the namespaces a library attaches to,
+	so you can include two different versions of the same library without clashing their namespaces.
+</p>
+<pre><code>Scoped.require(['ns1:dependency1', 'ns2:dependency2', 'ns3:dependency3'], function (D1, D2, D3) {
+    // Execute once D1, D2, D3 are resolved.
+});
+
+Scoped.define('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependency3'], function (D1, D2, D3) {
+    // Execute once D1, D2, D3 are resolved.
+    return {
+        // Return ns:module definition.
+    };
+});
+
+Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependency3'], function (D1, D2, D3) {
+    // Execute once D1, D2, D3 are resolved.
+    return {
+        // Return ns:module extension.
+    };
+});</code></pre>

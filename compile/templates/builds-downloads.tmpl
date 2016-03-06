@@ -1,0 +1,33 @@
+<h4>Downloads</h4>
+<br>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Module</th>
+                <th>Downloads</th>
+            </tr>
+        </thead>
+
+        <tbody>
+			<?js
+				for (var fkey in this.custom.frameworks) {
+					var framework = this.custom.frameworks[fkey];
+			?>
+	            <tr>
+	                <td class="td-highlight brown">
+	                	<a href="<?js= framework.repository.url.replace("git://", "http://").replace(".git", "") ?>">
+	                		<?js= fkey ?>
+	                	</a>
+	                </td>
+	                <td>
+	                <?js for (var filename in framework.meta.cdn) { ?>
+	                	<a href="<?js= framework.meta.cdn[filename] ?>"><?js= filename ?></a>
+	                	&nbsp;
+	                <?js } ?>
+	                </td>	                
+	            </tr>
+	        <?js } ?>
+		</tbody>
+	</table>
+</div>

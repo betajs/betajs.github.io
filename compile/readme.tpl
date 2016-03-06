@@ -1,78 +1,67 @@
-# BetaJS Collection <%= collection.version %>
+# The BetaJS Framework
 
-<%= collection.description %>
+
+## Abstract
+
+BetaJS is a multi-purpose framework for both NodeJS as well as browser environments.
+
+It is split into separate modules, some of which run in both environments, others only run in either of them.
+
+The main goal of the framework is the support of highly customized large-scale applications.
+
+Here is on overview over all modules included:
+
+| Module | Description |
+| :----- | ----------- | <%
+
+	collection.meta.frameworks.forEach(function (framework) {
+		
+%>
+| <%= framework %> | <%=
+frameworks[framework].description %> |<%
+			
+	})
+
+%> 
+
 
 
 ## Status
-Most of the frameworks are production ready and feature many unit tests.
 
-The frameworks are lacking proper documentation and demos at this point, but we are working hard on improving on this.
-
-
-## Frameworks
-<% var indent = "##"; %><% for (var key in frameworks) { %><% var framework = frameworks[key]; %>
-
-<%= indent %># <%= framework.name %> <%= framework.version %>
-
-<%= framework.description %>
+The framework is actively maintained, production ready and in production use. The guides and particularly the reference are under construction.
 
 
-<%= indent %>## Status
-<%= framework.meta.status %>
+## Basic Usage
+
+<% for (var fkey in frameworks) {
+		var framework = frameworks[fkey];
+		if (framework.meta.summary) {
+%>### <%= fkey %>
+
+<%= framework.meta.summary %>
+
+<% }		
+	}
+
+%> 
+
+## Main Contributors
+
+- Oliver Friedmann
+- Victor Lingenthal
 
 
-<%= indent %>## Links
-| Resource   | URL |
-| :--------- | --: |
-| Homepage   | [<%= framework.homepage %>](<%= framework.homepage %>) |
-| Git        | [<%= framework.repository.url %>](<%= framework.repository.url %>) |
-| Repository | [<%= framework.repository.url.replace("git://", "http://").replace(".git", "") %>](<%= framework.repository.url.replace("git://", "http://").replace(".git", "") %>) |
+## Sponsors
 
-<% if (framework.meta.compatability) { %>
-<%= indent %>## Compatability (Tested)
-| Target | Versions |
-| :----- | -------: |
-<% for (var key in framework.meta.compatability) { %>| <%= key %> | <%= framework.meta.compatability[key] %> |
-<% } %><% } %>
-<% if (framework.meta.cdn) { %>
-<%= indent %>## CDN
-| Resource | URL |
-| :----- | -------: |
-<% for (var key in framework.meta.cdn) { %>| <%= key %> | [<%= framework.meta.cdn[key] %>](<%= framework.meta.cdn[key] %>) |
-<% } %><% } %>
-<% if (framework.meta.tests) { %>
-<%= indent %>## Unit Tests
-| Resource | URL |
-| :----- | -------: |
-<% for (var key in framework.meta.tests) { %>| <%= key %> | [Run](<%= framework.meta.tests[key] %>) |
-<% } %><% } %>
-<% if (framework.meta.dependencies) { %>
-<%= indent %>## Dependencies
-| Name | URL |
-| :----- | -------: |
-<% for (var key in framework.meta.dependencies) { %>| <%= key %> | [Open](<%= framework.meta.dependencies[key] %>) |
-<% } %><% } %>
-<% if (framework.meta.weakDependencies) { %>
-<%= indent %>## Weak Dependencies
-| Name | URL |
-| :----- | -------: |
-<% for (var key in framework.meta.weakDependencies) { %>| <%= key %> | [Open](<%= framework.meta.weakDependencies[key] %>) |
-<% } %><% } %>
-
-<%= indent %>## Contributors
-<% framework.contributors.forEach(function (contributor) { %>
-- <%= contributor %><% }) %>
+- [Ziggeo](http://ziggeo.com), the video API for asynchronous video recording and playback
 
 
-<%= indent %>## License
+## License
 
-<%= framework.license %>
+Licensed under the Apache License, Version 2.0 (the "License"). You may obtain a copy of the License at
 
+   http://www.apache.org/licenses/LICENSE-2.0
 
-<% if (framework.meta.credits) { %><%= indent %>## Credits
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
-This software may include modified and unmodified portions of:<% framework.meta.credits.forEach(function (credit) { %>
-- <%= credit %><% }) %>
-<% } %>
-
-<% } %>
+See the License for the specific language governing permissions and limitations under the License.

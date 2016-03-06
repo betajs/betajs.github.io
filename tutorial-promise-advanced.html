@@ -1,153 +1,91 @@
 <!DOCTYPE html>
 
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Guides</title>
 
-	<head>
-	
-		<meta charset="utf-8">
-		<title> Guides</title>
-	
-		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
-		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
-	
-	</head>
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
 
-	<body>
-	
-        <script src="scripts/jquery.js"></script>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
 
-		
-<header>
-    <a href="index.html">BetaJS</a>
-            <a href="tutorials.html">Guides</a>
-        
-            <a href="modules.html">Reference</a>
-        
-</header>
-
-<style>
-body>header {
-  width: 100%;
-  display : flex;
-  padding : 0 20px;
-  background : lightsteelblue;
-}
-header a {
-  line-height : 50px;
-  padding : 0 20px;
-  margin : 0 5px;
-
-  font-size : 16px;
-  letter-spacing : .4px;
-  color : white;
-}
-header a:hover {
-    background : lightsalmon;
-    color : white;
-    text-decoration : none;
-}
-</style>
-	
-		<section class="tutorial-section">
-
-<div class='container'>
-	<div class="row">
-
-	   <!-- Menu -->
-		<div class="col-md-4">
-			
-
-
-<ul>
-	
-		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-betajs.html">betajs</a> 
-			
-<ul>
-	
-		<li><a href="tutorial-introduction.html">Introduction to BetaJS</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-class.html">Object Orientation</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-events.html">Event System as Observer Pattern</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-properties.html">Introduction to Properties</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-collections.html">Collections</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-iterators.html">Enumerable Lists - Iterators</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-promise.html">Asynchronous Calls using Promises</a> 
-			
-<ul>
-	
-		<li><a href="tutorial-promise-advanced.html">Advanced Uses</a> 
-			
-<ul>
-	
-</ul>
-
-		</li>
-	
-</ul>
-
-		</li>
-	
-		<li><a href="tutorial-objs.html">Functional Helpers for Objects and Arrays</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-ids.html">Identifiable Objects</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-states.html">State Machines</a> 
-			
-		</li>
-	
-</ul>
-
-		</li>
-	
-		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
-			
-		</li>
-	
-</ul>
-
-		</div>
-
-		<!-- Main -->
-		<div class="col-md-8">
-			<header>
-			    <h2>Advanced Uses</h2>
 			</header>
 			
-			<article>
-			    <p>The <code>Promise</code> module has additional functionality for advanced use. We highlight some of it here.</p>
+			<div class="container" id="toc-content">
+				<div class="row">
+						
+
+<div class="col-md-8">
+	<div id="main">
+		<section class="tutorial-section">
+	
+
+		<header>
+		    <h2>Advanced Uses</h2>
+		</header>
+		
+		<article>
+		    <p>The <code>Promise</code> module has additional functionality for advanced use. We highlight some of it here.</p>
 <p>Often, you want to transform the successful result value into something else but leave the error message alone:</p>
 <pre class="prettyprint source lang-javascript"><code>   var promise2 = promise1.mapSuccess(function (value) {
      return do-computation-with-value;
@@ -157,52 +95,168 @@ header a:hover {
      var promise2 = call_function_that_returns_a_promise(value);
      return promise2;
    });</code></pre><p>The success call of <code>promise3</code> then depends on the successful calls of <code>promise1</code> and subsequently <code>promise2</code>.</p>
-			</article>
-		</div>
-
-	<div>
+		</article>
+		
+		</section>
+		
+	</div>
+</div>		
+<div class="clearfix">
 </div>
+<div class="col-md-3">
+	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md">
 
-</section>
+<div class="list-group">
 
 	
-		<script src="scripts/sunlight.js"></script>
-		<script src="scripts/docstrap.lib.js"></script>
-		<script src="scripts/bootstrap.js"></script>
-		<script>
-            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
-                var $this = $( this );
-        
-                var example = $this.find( "code" );
-                exampleText = example.html();
-                var lang = /{@lang (.*?)}/.exec( exampleText );
-                if ( lang && lang[1] ) {
-                    exampleText = exampleText.replace( lang[0], "" );
-                    example.html( exampleText );
-                    lang = lang[1];
-                } else {
-                    lang = "javascript";
-                }
-        
-                if ( lang ) {
-        
-                    $this
-                    .addClass( "sunlight-highlight-" + lang )
-                    .addClass( "linenums" )
-                    .html( example.html() );
-        
-                }
-            } );
-  			Sunlight.highlightAll( {
-				lineNumbers : true,
-				showMenu : true,
-				enableDoclinks : true
-			} );
-		</script>
-        <script src="scripts/beta.js"></script>
-        <script src="scripts/beta-browser.js"></script>
-        <script src="scripts/betajs-dynamics.js"></script>
+		<a class="list-group-item " href="tutorial-betajs-scoped.html">
+			<span class="toc-h1">
+				betajs-scoped
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs.html">
+			<span class="toc-h1">
+				betajs
+			</span>
+		</a> 
+		
+	
+		<a class="list-group-item " href="tutorial-class.html">
+			<span class="toc-h2">
+				Object Orientation
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-events.html">
+			<span class="toc-h2">
+				Event System as Observer Pattern
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-properties.html">
+			<span class="toc-h2">
+				Introduction to Properties
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-collections.html">
+			<span class="toc-h2">
+				Collections
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-iterators.html">
+			<span class="toc-h2">
+				Enumerable Lists - Iterators
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-promise.html">
+			<span class="toc-h2">
+				Asynchronous Calls using Promises
+			</span>
+		</a> 
+		
+	
+		<a class="list-group-item active" href="tutorial-promise-advanced.html">
+			<span class="toc-h3">
+				Advanced Uses
+			</span>
+		</a> 
+		
+	
+		
+	
+		
+	
+		<a class="list-group-item " href="tutorial-objs.html">
+			<span class="toc-h2">
+				Functional Helpers for Objects and Arrays
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-ids.html">
+			<span class="toc-h2">
+				Identifiable Objects
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-states.html">
+			<span class="toc-h2">
+				State Machines
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-router.html">
+			<span class="toc-h2">
+				Routers
+			</span>
+		</a> 
+				
+	
+		
+	
+		<a class="list-group-item " href="tutorial-betajs-browser.html">
+			<span class="toc-h1">
+				betajs-browser
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs-data.html">
+			<span class="toc-h1">
+				betajs-data
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs-dynamics.html">
+			<span class="toc-h1">
+				betajs-dynamics
+			</span>
+		</a> 
+				
+	
 
+</div>
+</div>
+</div>
+
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
 	</body>
 	
 </html>

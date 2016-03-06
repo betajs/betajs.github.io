@@ -1,239 +1,270 @@
 <!DOCTYPE html>
 
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Guides</title>
 
-	<head>
-	
-		<meta charset="utf-8">
-		<title> Guides</title>
-	
-		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
-		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
-	
-	</head>
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
 
-	<body>
-	
-        <script src="scripts/jquery.js"></script>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
 
-		
-<header>
-    <a href="index.html">BetaJS</a>
-            <a href="tutorials.html">Guides</a>
-        
-            <a href="modules.html">Reference</a>
-        
-</header>
-
-<style>
-body>header {
-  width: 100%;
-  display : flex;
-  padding : 0 20px;
-  background : lightsteelblue;
-}
-header a {
-  line-height : 50px;
-  padding : 0 20px;
-  margin : 0 5px;
-
-  font-size : 16px;
-  letter-spacing : .4px;
-  color : white;
-}
-header a:hover {
-    background : lightsalmon;
-    color : white;
-    text-decoration : none;
-}
-</style>
-	
-		<section class="tutorial-section">
-
-<div class='container'>
-	<div class="row">
-
-	   <!-- Menu -->
-		<div class="col-md-4">
-			
-
-
-<ul>
-	
-		<li><a href="tutorial-betajs-scoped.html">betajs-scoped</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-betajs.html">betajs</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-betajs-browser.html">betajs-browser</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-betajs-data.html">betajs-data</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-betajs-dynamics.html">betajs-dynamics</a> 
-			
-<ul>
-	
-		<li><a href="tutorial-intro.html">Introduction</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-blueprint.html">Blueprint</a> 
-			
-<ul>
-	
-		<li><a href="tutorial-blueprint_js.html">JS</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-blueprint_html.html">HTML</a> 
-			
-<ul>
-	
-</ul>
-
-		</li>
-	
-</ul>
-
-		</li>
-	
-		<li><a href="tutorial-initialize.html">Initializing Dynamics</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-templates.html">Templates</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-element.html">Element</a> 
-			
-		</li>
-	
-		<li><a href="tutorial-html-attributes.html">HTML Attributes</a> 
-			
-		</li>
-	
-</ul>
-
-		</li>
-	
-</ul>
-
-		</div>
-
-		<!-- Main -->
-		<div class="col-md-8">
-			<header>
-			    <h2>HTML</h2>
 			</header>
 			
-			<article>
-			    <p>This Blueprint is intented as a quick reference for how to integrate the most commonly<br>used Dynamic functionalities. On specifics how they work please refer to the individual sections.</p>
-<pre class="prettyprint source lang-html"><code>
-    &lt;somedynamic>
+			<div class="container" id="toc-content">
+				<div class="row">
+						
 
-    &lt;-- Basics -->
+<div class="col-md-8">
+	<div id="main">
+		<section class="tutorial-section">
+	
 
-        &lt;-- Data bindings -->
-        &lt;databinding>{{attribute}}&lt;/databinding> &lt;-- This is a unidirectional binding -->
-        &lt;databinding>{{=attribute}}&lt;/databinding> &lt;-- This is a bidirectional binding -->
+		<header>
+		    <h2>HTML</h2>
+		</header>
+		
+		<article>
+		    <pre class="prettyprint source lang-html"><code>
+&lt;somedynamic>
 
-        &lt;-- Click Events -->
-        &lt;button ba-click='some_function()'>Click me&lt;/button>
-        &lt;button ba-click='attribute = false'>Click me&lt;/button>
-        &lt;button ba-click='attribute = !attribute'>Click me&lt;/button>
-        &lt;button ba-tap='some_function()'>Click me&lt;/button> &lt;-- Tap is for use in mobile -->
+&lt;-- Basics -->
 
-        &lt;-- If/Show -->
-        &lt;div ba-if='{{true}}'>This DOM Element will always be loaded&lt;/div>
-        &lt;div ba-if='{{false}}'>This DOM Element will never be loaded&lt;/div>
-        &lt;div ba-if='{{attribute}}'>This DOM Element will be loaded if {{attribute}} evluates to 'true'&lt;/div>
-        &lt;div ba-if='{{attribute.subattribute}}'>This DOM Element will be loaded if {{attribute.subattribute}} evluates to 'true'&lt;/div>
-        &lt;div ba-if='{{attribute.get('property')}}'>This DOM Element will be loaded if {{attribute.get('property')}} evluates to 'true'&lt;/div>
-        &lt;div ba-if='{{attribute == 'load'}}'>This DOM Element will be loaded if {{attribute}} evluates to 'load'&lt;/div>
-        &lt;div ba-show='{{attribute}}'>This DOM Element will be displayed if {{attribute}} evluates to 'true'&lt;/div>
+    &lt;-- Data bindings -->
+    &lt;databinding>{{attribute}}&lt;/databinding>
+        &lt;-- This is a unidirectional binding, meaning the DOM Element will get updated -->
+        &lt;-- if the Attribute in the Dynamic changes, but it will not update the Attribute in the Dynamics if the DOM changes -->
+    &lt;databinding>{{=attribute}}&lt;/databinding>
+    &lt;-- This is a bidirectional binding -->
 
-        &lt;-- Classes -->
-        &lt;div ba-class='{{{
-            'always' : true,
-            'sometimes' : {{attribute}},
-            'othertimes' : {{attribute.get('property') == 'other'}},
-            'never' : false
-        }}}'>Some random text&lt;/div>
+    &lt;-- Click Events -->
+    &lt;button ba-click='some_function()'>Click me&lt;/button>
+    &lt;button ba-click='attribute = false'>Click me&lt;/button>
+    &lt;button ba-click='attribute = !attribute'>Click me&lt;/button>
+    &lt;button ba-tap='some_function()'>Click me&lt;/button> &lt;-- Tap is for use in mobile -->
 
-        &lt;-- Repeat -->
-        &lt;div ba-repeat=&quot;{{item :: ['1','2','3']}}&quot;>
-            &lt;div>
-                &lt;div>The html inside the ba-repeat item will be repeated&lt;/div>
-                &lt;div>The item tag will contain the value of the array (1/2/3): {{item}}&lt;/div>
-            &lt;/div>
+    &lt;-- If/Show -->
+    &lt;div ba-if='{{true}}'>This DOM Element will always be loaded&lt;/div>
+    &lt;div ba-if='{{false}}'>This DOM Element will never be loaded&lt;/div>
+    &lt;div ba-if='{{attribute}}'>This DOM Element will be loaded if {{attribute}} evluates to 'true'&lt;/div>
+    &lt;div ba-if='{{attribute.subattribute}}'>This DOM Element will be loaded if {{attribute.subattribute}} evluates to 'true'&lt;/div>
+    &lt;div ba-if='{{attribute.get('property')}}'>This DOM Element will be loaded if {{attribute.get('property')}} evluates to 'true'&lt;/div>
+    &lt;div ba-if='{{attribute == 'load'}}'>This DOM Element will be loaded if {{attribute}} evluates to 'load'&lt;/div>
+    &lt;div ba-show='{{attribute}}'>This DOM Element will be displayed if {{attribute}} evluates to 'true'&lt;/div>
+
+    &lt;-- Classes -->
+    &lt;div ba-class='{{{
+        'always' : true,
+        'sometimes' : {{attribute}},
+        'othertimes' : {{attribute.get('property') == 'other'}},
+        'never' : false
+    }}}'>Some random text&lt;/div>
+
+    &lt;-- Repeat -->
+    &lt;div ba-repeat=&quot;{{item :: ['1','2','3']}}&quot;>
+        &lt;div>
+            &lt;div>The html inside the ba-repeat item will be repeated&lt;/div>
+            &lt;div>The item tag will contain the value of the array (1/2/3): {{item}}&lt;/div>
         &lt;/div>
+    &lt;/div>
 
-        &lt;-- DOM Events -->
-        &lt;div onmouseover=&quot;{{alert('You moved the mouse over this Element')}}&quot;>&lt;/div>
+&lt;-- Advanced Handlebar Examples -->
 
-        &lt;-- TODO: ba-ignore, check others -->
+    &lt;div class=&quot;{{attribute}}&quot;>Some random text&lt;/div>
+    &lt;div onmouseover=&quot;{{alert('You moved the mouse over this Element')}}&quot;>&lt;/div>
+    &lt;ba-{{attribute}}>Some random text&lt;/ba-{{/attribute}}>
+    &lt;yourcustomtag-{{attribute}}>Some random text&lt;/yourcustomtag-{{/attribute}}>
+    //Note
+    &lt;{{attribute}}>This won't work, because of the way the Browser renders elements&lt;/{{/attribute}}>
 
-        &lt;-- Cool Stuff -->
-        &lt;div class=&quot;{{attribute}}&quot;>Some random text&lt;/div>
-        &lt;ba-{{attribute}}>Some random text&lt;/ba-{{/attribute}}>
-        &lt;yourcustomtag-{{attribute}}>Some random text&lt;/yourcustomtag-{{/attribute}}>
-        &lt;{{attribute}}>This won't work, because of the way the Browser renders elements&lt;/{{/attribute}}>
-
-    &lt;/somedynamic></code></pre>
-			</article>
-		</div>
-
-	<div>
+&lt;/somedynamic></code></pre>
+		</article>
+		
+		</section>
+		
+	</div>
+</div>		
+<div class="clearfix">
 </div>
+<div class="col-md-3">
+	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md">
 
-</section>
+<div class="list-group">
 
 	
-		<script src="scripts/sunlight.js"></script>
-		<script src="scripts/docstrap.lib.js"></script>
-		<script src="scripts/bootstrap.js"></script>
-		<script>
-            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
-                var $this = $( this );
-        
-                var example = $this.find( "code" );
-                exampleText = example.html();
-                var lang = /{@lang (.*?)}/.exec( exampleText );
-                if ( lang && lang[1] ) {
-                    exampleText = exampleText.replace( lang[0], "" );
-                    example.html( exampleText );
-                    lang = lang[1];
-                } else {
-                    lang = "javascript";
-                }
-        
-                if ( lang ) {
-        
-                    $this
-                    .addClass( "sunlight-highlight-" + lang )
-                    .addClass( "linenums" )
-                    .html( example.html() );
-        
-                }
-            } );
-  			Sunlight.highlightAll( {
-				lineNumbers : true,
-				showMenu : true,
-				enableDoclinks : true
-			} );
-		</script>
-        <script src="scripts/beta.js"></script>
-        <script src="scripts/beta-browser.js"></script>
-        <script src="scripts/betajs-dynamics.js"></script>
+		<a class="list-group-item " href="tutorial-betajs-scoped.html">
+			<span class="toc-h1">
+				betajs-scoped
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs.html">
+			<span class="toc-h1">
+				betajs
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs-browser.html">
+			<span class="toc-h1">
+				betajs-browser
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs-data.html">
+			<span class="toc-h1">
+				betajs-data
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-betajs-dynamics.html">
+			<span class="toc-h1">
+				betajs-dynamics
+			</span>
+		</a> 
+		
+	
+		<a class="list-group-item " href="tutorial-intro.html">
+			<span class="toc-h2">
+				Introduction
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-blueprint.html">
+			<span class="toc-h2">
+				Blueprints
+			</span>
+		</a> 
+		
+	
+		<a class="list-group-item " href="tutorial-blueprint_js.html">
+			<span class="toc-h3">
+				Javascript
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item active" href="tutorial-blueprint_html.html">
+			<span class="toc-h3">
+				HTML
+			</span>
+		</a> 
+		
+	
+		
+	
+		
+	
+		<a class="list-group-item " href="tutorial-dyn_js.html">
+			<span class="toc-h2">
+				Dynamics Javascript
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-html-attributes.html">
+			<span class="toc-h2">
+				DOM Partials
+			</span>
+		</a> 
+				
+	
+		
+	
 
+</div>
+</div>
+</div>
+
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
 	</body>
 	
 </html>

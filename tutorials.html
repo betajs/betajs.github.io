@@ -1,609 +1,627 @@
 <!DOCTYPE html>
 
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Guides</title>
 
-	<head>
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div class="content-wraper">
+    <section class="guides">
+        <div class="container">
+            <div class="row">            
+                <div class="col-md-3 col-lg-3 hidden-sm hidden-xs" style="position:fixed;height:100%;overflow-y:scroll">
+                    <div class="guide_left">
+                       	<h5 class="side_heading">Guides</h5>
+<ul class="guide_sidebar">
 	
-		<meta charset="utf-8">
-		<title> Guides</title>
+		<li>
+			<a href="#betajs-scoped" class="has-dropdown">betajs-scoped</a>
+			<ul>
+				
+					<li>
+						<a href="#scoped_introduction" class="">Introduction to Scoped</a>
+						
+					</li>
+				
+					<li>
+						<a href="#scoped_setup" class="">Setting up Scoped</a>
+						
+					</li>
+				
+					<li>
+						<a href="#scoped_usage" class="">How to use Scoped</a>
+						
+					</li>
+				
+					<li>
+						<a href="#scoped_debugging" class="">Debugging Scoped Programs</a>
+						
+					</li>
+				
+					<li>
+						<a href="#scoped_compilation" class="">Compiling Libraries with Scoped</a>
+						
+					</li>
+				
+			</ul>
+		</li>
 	
-		<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
-		<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+		<li>
+			<a href="#betajs" class="has-dropdown">betajs</a>
+			<ul>
+				
+					<li>
+						<a href="#class" class="has-dropdown">Object Orientation</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#class-notifications">Notifications</a>
+									</li>
+								
+									<li>
+										<a href="#class-mixins">Mixins</a>
+									</li>
+								
+									<li>
+										<a href="#class-reflection">Reflection</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+					<li>
+						<a href="#events" class="">Event System as Observer Pattern</a>
+						
+					</li>
+				
+					<li>
+						<a href="#properties" class="has-dropdown">Introduction to Properties</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#properties-advanced">Advanced Properties</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+					<li>
+						<a href="#collections" class="has-dropdown">Collections</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#collections-filtered">Filtered Collections</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+					<li>
+						<a href="#iterators" class="has-dropdown">Enumerable Lists - Iterators</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#iterators-advanced">Advanced Iterators</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+					<li>
+						<a href="#promise" class="has-dropdown">Asynchronous Calls using Promises</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#promise-advanced">Advanced Uses</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+					<li>
+						<a href="#objs" class="">Functional Helpers for Objects and Arrays</a>
+						
+					</li>
+				
+					<li>
+						<a href="#ids" class="">Identifiable Objects</a>
+						
+					</li>
+				
+					<li>
+						<a href="#states" class="">State Machines</a>
+						
+					</li>
+				
+					<li>
+						<a href="#router" class="has-dropdown">Routers</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#routers-states">Routers and State Machines</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+			</ul>
+		</li>
 	
-	</head>
-
-	<body>
+		<li>
+			<a href="#betajs-browser" class="has-dropdown">betajs-browser</a>
+			<ul>
+				
+					<li>
+						<a href="#browser_router" class="">Browser Router</a>
+						
+					</li>
+				
+					<li>
+						<a href="#info" class="">Browser Environment</a>
+						
+					</li>
+				
+					<li>
+						<a href="#loader" class="">Loading Assets dynamically</a>
+						
+					</li>
+				
+					<li>
+						<a href="#uploader" class="">Uploading Files</a>
+						
+					</li>
+				
+			</ul>
+		</li>
 	
-        <script src="scripts/jquery.js"></script>
-
-		
-<header>
-    <a href="index.html">BetaJS</a>
-            <a href="tutorials.html">Guides</a>
-        
-            <a href="modules.html">Reference</a>
-        
-</header>
-
-<style>
-body>header {
-  width: 100%;
-  display : flex;
-  padding : 0 20px;
-  background : lightsteelblue;
-}
-header a {
-  line-height : 50px;
-  padding : 0 20px;
-  margin : 0 5px;
-
-  font-size : 16px;
-  letter-spacing : .4px;
-  color : white;
-}
-header a:hover {
-    background : lightsalmon;
-    color : white;
-    text-decoration : none;
-}
-</style>
+		<li>
+			<a href="#betajs-data" class="has-dropdown">betajs-data</a>
+			<ul>
+				
+					<li>
+						<a href="#queries" class="has-dropdown">The Query System</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#constrained-queries">Constrained Queries</a>
+									</li>
+								
+									<li>
+										<a href="#query-engine">The Query Engine</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+					<li>
+						<a href="#stores" class="has-dropdown">The Store System</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#remote-store">Remote Store</a>
+									</li>
+								
+									<li>
+										<a href="#delegator-stores">Delegator Stores</a>
+									</li>
+								
+									<li>
+										<a href="#indices">Store Indices</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+					<li>
+						<a href="#modelling" class="has-dropdown">The Model System</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#validations">Model Attribute Validations</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+					<li>
+						<a href="#query-collections" class="">Query Collections</a>
+						
+					</li>
+				
+			</ul>
+		</li>
 	
-		<main>
-
-<menu>
-
-
-<ul class="nav bs-sidenav">
-    
-        <li><a href="#betajs-scoped">betajs-scoped</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#scoped_introduction">Introduction to Scoped</a>
-            
-<ul class="nav ">
-    
+		<li>
+			<a href="#betajs-dynamics" class="has-dropdown">betajs-dynamics</a>
+			<ul>
+				
+					<li>
+						<a href="#intro" class="has-dropdown">Introduction</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#helloworld">Hello World Example</a>
+									</li>
+								
+									<li>
+										<a href="#core_concepts">Core Concepts</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+					<li>
+						<a href="#blueprint" class="has-dropdown">Blueprints</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#blueprint_js">Javascript</a>
+									</li>
+								
+									<li>
+										<a href="#blueprint_html">HTML</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+					<li>
+						<a href="#dyn_js" class="has-dropdown">Dynamics Javascript</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#initialize">Initializing Dynamics</a>
+									</li>
+								
+									<li>
+										<a href="#templates">Templates</a>
+									</li>
+								
+									<li>
+										<a href="#element">Element</a>
+									</li>
+								
+									<li>
+										<a href="#_afterActivate">_afterActivate</a>
+									</li>
+								
+									<li>
+										<a href="#scopes">Accessing Dynamics</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+					<li>
+						<a href="#html-attributes" class="has-dropdown">DOM Partials</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#ba-click">ba-click</a>
+									</li>
+								
+									<li>
+										<a href="#ba-tap">ba-tap</a>
+									</li>
+								
+									<li>
+										<a href="#ba-class">ba-class</a>
+									</li>
+								
+									<li>
+										<a href="#ba-show">ba-show</a>
+									</li>
+								
+									<li>
+										<a href="#ba-if">ba-if</a>
+									</li>
+								
+									<li>
+										<a href="#ba-ignore">ba-ignore</a>
+									</li>
+								
+									<li>
+										<a href="#ba-repeat">ba-repeat</a>
+									</li>
+								
+									<li>
+										<a href="#ba-attrs">ba-attrs</a>
+									</li>
+								
+									<li>
+										<a href="#ba-on">ba-on</a>
+									</li>
+								
+									<li>
+										<a href="#ba-return">ba-return</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+			</ul>
+		</li>
+	
 </ul>
-
-        </li>
-    
-        <li><a href="#scoped_setup">Setting up Scoped</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#scoped_usage">How to use Scoped</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#scoped_debugging">Debugging Scoped Programs</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#scoped_compilation">Compiling Libraries with Scoped</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#betajs">betajs</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#introduction">Introduction to BetaJS</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#class">Object Orientation</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#class-notifications">Notifications</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#class-mixins">Mixins</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#class-reflection">Reflection</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#events">Event System as Observer Pattern</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#properties">Introduction to Properties</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#properties-advanced">Advanced Properties</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#collections">Collections</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#collections-filtered">Filtered Collections</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#iterators">Enumerable Lists - Iterators</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#iterators-advanced">Advanced Iterators</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#promise">Asynchronous Calls using Promises</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#promise-advanced">Advanced Uses</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#objs">Functional Helpers for Objects and Arrays</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#ids">Identifiable Objects</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#states">State Machines</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#betajs-browser">betajs-browser</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#router">Routers</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#routers-states">Routers and State Machines</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#info">Browser Environment</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#loader">Loading Assets dynamically</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#uploader">Uploading Files</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#betajs-data">betajs-data</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#queries">The Query System</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#constrained-queries">Constrained Queries</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#query-engine">The Query Engine</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#stores">The Store System</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#remote-store">Remote Store</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#delegator-stores">Delegator Stores</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#indices">Store Indices</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#modelling">The Model System</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#validations">Model Attribute Validations</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#query-collections">Query Collections</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#betajs-dynamics">betajs-dynamics</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#intro">Introduction</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#helloworld">Hello World</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#blueprint">Blueprint</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#blueprint_js">JS</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#blueprint_html">HTML</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#initialize">Initializing Dynamics</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#templates">Templates</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#element">Element</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#html-attributes">HTML Attributes</a>
-            
-<ul class="nav ">
-    
-        <li><a href="#ba-click">The ba-click Partial</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#ba-tap">The ba-tap Partial</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#ba-class">The ba-class Partial</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#ba-show">The ba-show Partial</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#ba-if">The ba-if Partial</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#ba-ignore">ba-ignore</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#ba-repeat">The ba-repeat Partial</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#ba-attrs">ba-attrs</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#ba-on">ba-on</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-        <li><a href="#ba-return">The ba-return Partial</a>
-            
-<ul class="nav ">
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-        </li>
-    
-</ul>
-
-</menu>
-
-<content>
-
-
-
-
-<header id="">
-    <h2></h2>
-</header>
-
-<article>
-    
-</article>
-
-    
-<header id="betajs-scoped">
-    <h2>betajs-scoped</h2>
-</header>
-
-<article>
-    <p>BetaJS-Scoped is a small module for scoped loading of modules and dependencies.</p>
-</article>
-
-    
-<header id="scoped_introduction">
-    <h2>Introduction to Scoped</h2>
-</header>
-
-<article>
-    <p>The Scoped system allows you to resolve and define module dependencies, similar to RequireJS. </p>
-</article>
-
-
-
-    
-<header id="scoped_setup">
-    <h2>Setting up Scoped</h2>
-</header>
-
-<article>
-    <p>The Scoped system needs to be loaded once in the beginning. It has no dependencies itself.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 hidden-sm hidden-xs">
+                </div>
+                <div class="col-md-8 col-lg-8 col-sm-12 guides-section">
+                	<h3 class="page-title">Guides</h3>
+<h5 class="title-desc">Here is on overview over all modules covered in these guides:</h5>
+<br>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Module</th>
+                <th>Description</th>
+
+            </tr>
+        </thead>
+        <tbody>
+	    	
+	        <tr>
+	            <td class="td-highlight brown">betajs-scoped</td>
+	            <td>BetaJS-Scoped is a small module for scoped loading of modules and dependencies.</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">betajs</td>
+	            <td>BetaJS is a general-purpose JavaScript helper module. It contains a variety of helper functions and classes.</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">betajs-browser</td>
+	            <td>BetaJS-Browser is a client-side JavaScript framework for Browser-specific methods.</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">betajs-data</td>
+	            <td>BetaJS-Data is a general-purpose JavaScript framework for handling RESTful operations and ActiveRecord abstractions.</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">betajs-server</td>
+	            <td>BetaJS-Server is a server-side JavaScript framework extension for BetaJS.</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">betajs-ui</td>
+	            <td>BetaJS-UI is a library for enabling gestures and interactions such as drag and drop.</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">betajs-dynamics</td>
+	            <td>BetaJS-Dynamics is a dynamic DOM templating engine.</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">betajs-flash</td>
+	            <td>BetaJS-Flash is a Flash-JavaScript bridging framework</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">betajs-media</td>
+	            <td>BetaJS-Media is a JavaScript media framework</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">betajs-media-components</td>
+	            <td>BetaJS-Media-Components is a JavaScript media UI components framework</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">betajs-codemirror</td>
+	            <td>BetaJS-Codemirror is a Codemirror Plugin for the BetaJS Framework.</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">betajs-richeditor</td>
+	            <td>BetaJS-Richeditor is a rich editor plugin based on content editable using the BetaJS Framework.</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">betajs-debug</td>
+	            <td>BetaJS-Debug is a library for debugging BetaJS-based applications.</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">grunt-betajs-docs-compile</td>
+	            <td>Build BetaJS documentations based on JSDOC.</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">grunt-betajs-templates</td>
+	            <td>Build BetaJS templates.</td>
+	        </tr>
+	        
+        </tbody>
+    </table>
+</div>
+<br>
+<br>
+
+                    
+
+
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="">
+			<h0></h0>
+			</div>
+		<? } ?>
+	
+		<article>
+		    
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="betajs-scoped">
+			<h1>betajs-scoped</h1>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>BetaJS-Scoped is a small module for scoped loading of modules and dependencies.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="scoped_introduction">
+			<h2>Introduction to Scoped</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The Scoped system allows you to resolve and define module dependencies, similar to RequireJS. </p>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="scoped_setup">
+			<h2>Setting up Scoped</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The Scoped system needs to be loaded once in the beginning. It has no dependencies itself.</p>
 <p>It can be either loaded directly by including Scoped:</p>
-<pre class="prettyprint source"><code>   &lt;script src=&quot;//cdn.rawgit.com/betajs/betajs-scoped/master/dist/scoped.min.js&quot;>&lt;/script></code></pre><p>Or you can compiled into one of your libraries.</p>
+<pre class="prettyprint source"><code>   &lt;script src=&quot;//cdn.rawgit.com/betajs/betajs-scoped/master/dist/scoped.min.js&quot;>&lt;/script></code></pre><p>Or you can compile it into one of your libraries.</p>
 <p>You can even include it more than once without any issues.  </p>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="scoped_usage">
-    <h2>How to use Scoped</h2>
-</header>
-
-<article>
-    <p>The Scoped system allows you to handle multiple libraries with separate namespaces and scopes.</p>
-<p>Scopes in the Scoped system are a tree.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="scoped_usage">
+			<h2>How to use Scoped</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The Scoped system allows you to handle multiple libraries with separate namespaces and scopes.</p>
+<p>Scopes in the Scoped system are organized in a tree structure.</p>
 <p>Subscopes of a given scope inherit all namespacing definitions.</p>
-<p>Given a scope, you can access the following different main namespaces: </p>
+<p>Given a scope, you can access the following different main pre-defined namespaces: </p>
 <ul>
 <li><code>global</code>: this is the globally accessible namespace in JavaScript; in the browser, this would be <code>window</code></li>
 <li><code>root</code>: the root namespace of the scope in the scope tree</li>
@@ -619,7 +637,8 @@ header a:hover {
 <p>In order to define a subscope, you'd write:</p>
 <p><code>var MyScoped = Scoped.subScope();</code></p>
 <p>A typical blueprint to structure your own library using Scoped is this:</p>
-<pre class="prettyprint source"><code>(function () {
+<pre class="prettyprint source lang-javascript"><code>
+(function () {
 
 var Scoped = this.subScope();
 
@@ -631,8 +650,10 @@ Scoped.binding(&quot;dependency2&quot;, &quot;global:ExternalDependency2&quot;);
 
 }).call(Scoped);</code></pre><p>This closure blueprint makes sure not to clutter the namespace of the rest of the environment.</p>
 <p>One of the benefits of the Scoped system is that you can allow libraries to access external dependencies with different names and even overwrite the namespaces a library attaches to, so you can include two different versions of the same library without clashing their namespaces.</p>
-<p>If you want a library to use or attach to different namespaces then its default ones, you need to overwrite them as follows before including the library:<br><code>Scoped.nextScope().binding(&quot;module&quot;, &quot;global:MyLibraryAlternateNS&quot;);</code></p>
-<p>Defining dependencies is based on three primitives:</p>
+<p>If you want a library to use or attach to different namespaces then its default ones, you need to overwrite them as follows before including the library:</p>
+<pre class="prettyprint source lang-javascript"><code>    Scoped.nextScope().binding(&quot;module&quot;, &quot;global:MyLibraryAlternateNS&quot;, {
+        readonly: true
+    });</code></pre><p>Defining dependencies is based on three primitives:</p>
 <ul>
 <li><code>Scoped.require</code>: execute code once dependencies are resolved</li>
 <li><code>Scoped.define</code>: define a module in a namespace once dependencies are resolved</li>
@@ -656,92 +677,104 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
         // Return ns:module extension.
     };
 });</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="scoped_debugging">
-    <h2>Debugging Scoped Programs</h2>
-</header>
-
-<article>
-    <p>Debugging Scoped-based programs normally boils down to understanding why some dependencies are not being resolved.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="scoped_debugging">
+			<h2>Debugging Scoped Programs</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Debugging Scoped-based programs normally boils down to understanding why some dependencies are not being resolved.</p>
 <p>The main reason for unresolved dependencies are typos.</p>
-<p>The Scoped system has support for telling you which dependencies are not met at a certain point, so you can backtrack to root cause of the problem.</p>
-<p>At any time, you can the method <code>Scoped.unresolved(namespace)</code> that will return an array of unresolved definitions within the givin namespace.</p>
-<p>For instance, if you want to know which definitions are unresolved and the globally accessible namespace, you would call <code>Scoped.unresolved(&quot;global:&quot;)</code>.</p>
-</article>
+<p>The Scoped system has support for telling you which dependencies are not met at a certain point, so you can backtrack the root cause of the problem.</p>
+<p>At any time, you can call the method <code>Scoped.unresolved(namespace)</code> that will return an array of unresolved definitions within the given namespace.</p>
+<p>For instance, if you want to know which definitions are unresolved in the globally accessible namespace, you would call <code>Scoped.unresolved(&quot;global:&quot;)</code>.</p>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="scoped_compilation">
-    <h2>Compiling Libraries with Scoped</h2>
-</header>
-
-<article>
-    <p>You can use the Scoped system to pre-compile libraries based on Scoped in order to only include required sub modules.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="scoped_compilation">
+			<h2>Compiling Libraries with Scoped</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>You can use the Scoped system to pre-compile libraries based on Scoped in order to only include required sub modules.</p>
 <p>The grunt configuration looks as follows:</p>
 <pre class="prettyprint source lang-js"><code>grunt.initConfig({
-  betajs_scoped: {
-    // TODO
+  scoped: {
+      dist: {
+          dest: &quot;compiled.js&quot;,
+          externals: [&quot;namespace1&quot;, &quot;namespace2&quot;],
+          src: [{
+                 src: &quot;source1.js&quot;,
+                 bindings: {
+                        &quot;binding1&quot;: &quot;namespace1&quot;,
+                        &quot;binding2&quot;: &quot;namespace2&quot;
+                 },
+                 full: false,
+                 require: [&quot;namespaceX&quot;, &quot;namespaceY&quot;]
+          }, {
+            ...
+          }]
+      }
   }
-});</code></pre>
-</article>
+});
 
+grunt.loadNpmTasks('betajs-scoped');</code></pre>
+		</article>
+	</div>
+	
+	
+	
 
+	
+	
 
-
-
-    
-<header id="betajs">
-    <h2>betajs</h2>
-</header>
-
-<article>
-    <p>BetaJS is a general-purpose JavaScript framework for doing awesome things.</p>
-</article>
-
-    
-<header id="introduction">
-    <h2>Introduction to BetaJS</h2>
-</header>
-
-<article>
-    <p>BetaJS is a 'lightweight' Javascript Framework with several independent, combinable Frameworks<br>to for writing full stack web applications.</p>
-<p>For this some parts build on other current well-established web technologies: NodesJS, JQuery and Socket.io</p>
-<p>One of the goals of BetaJS is to be rapidly and easily deployable for demos and prototypes,<br>with the added benefit of being able to scale these into production ready Products/</p>
-<h2>Overview of core features</h2><p>BetaJS is the core component that provides several features that are used widely among all the BetaJS Frameworks.<br>The main concepts are:</p>
-<ul>
-<li>Object Orientation</li>
-<li>Properties<ul>
-<li>Events</li>
-</ul>
-</li>
-</ul>
-<h2>Example Code</h2><pre class="prettyprint source lang-js"><code>
-    var property = new BetaJS.Properties.Properties({a: &quot;initial value&quot;});
-
-    property.set(&quot;a&quot;, &quot;second value&quot;);
-
-    var x = property.get(&quot;a&quot;);
-    // x === &quot;second value&quot;
-
-    property.of('change:a', function(newValue, oldValue) {
-        console.log('The value of a has been changed');
-    });</code></pre>
-</article>
-
-
-
-    
-<header id="class">
-    <h2>Object Orientation</h2>
-</header>
-
-<article>
-    <p>BetaJS adds basic object orientation with static methods, object methods, attributes, class variables,<br>inheritance, mixins, helper classes and more to JavaScript.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="betajs">
+			<h1>betajs</h1>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>BetaJS is a general-purpose JavaScript helper module. It contains a variety of helper functions and classes.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="class">
+			<h2>Object Orientation</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>BetaJS adds basic object orientation with static methods, object methods, attributes, class variables,<br>inheritance, mixins, helper classes and more to JavaScript.</p>
 <p>Define a class uses the following syntax</p>
 <pre class="prettyprint source lang-javascript"><code>  ChildClass = ParentClass.extend(Namespace, InstanceExtension, ClassExtension, ClassStaticExtension);</code></pre><ul>
 <li><code>ChildClass</code> is the newly created Class object</li>
@@ -815,15 +848,21 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
   Test Class2 Instance  fooBar  9
   Test Class Instance  fooBar  9  8
   Destroy Object</code></pre>
-</article>
-
-    
-<header id="class-notifications">
-    <h2>Notifications</h2>
-</header>
-
-<article>
-    <p>Notifications allow you to send messages within an instance. This is particularly useful in combination with Mixins as it allows multiple methods to be executed when a certain event happens.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="class-notifications">
+			<h3>Notifications</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Notifications allow you to send messages within an instance. This is particularly useful in combination with Mixins as it allows multiple methods to be executed when a certain event happens.</p>
 <p>To trigger a notification, you call <code>_notify</code> within the scope of an instance method:</p>
 <pre class="prettyprint source lang-javascript"><code>    this._notify(&quot;my_internal_event&quot;, param1, param2);</code></pre><p>The same instance, derived instances as well as derived instances using mixins can now listen to it as follows:</p>
 <pre class="prettyprint source lang-javascript"><code>   _notifications: {
@@ -838,17 +877,24 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
    internal_event_call_handler: function (param1, param2) {
      // handler code
    }</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="class-mixins">
-    <h2>Mixins</h2>
-</header>
-
-<article>
-    <p>A mixin is an additional set of methods and attributes that can be mixed in while extending a class:</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="class-mixins">
+			<h3>Mixins</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>A mixin is an additional set of methods and attributes that can be mixed in while extending a class:</p>
 <pre class="prettyprint source lang-javascript"><code>  SubClass = ParentClass.extend(null, [Mixin1, Mixin2, ..., {
     // actual code of sub class
   }]);</code></pre><p>A mixin itself is a simple json object:</p>
@@ -869,17 +915,24 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
       }
     }
   };</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="class-reflection">
-    <h2>Reflection</h2>
-</header>
-
-<article>
-    <p>Here are some useful reflection methods that you can use at runtime.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="class-reflection">
+			<h3>Reflection</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Here are some useful reflection methods that you can use at runtime.</p>
 <p>Given an instance <code>instance</code>, you can execute the following reflections:</p>
 <ul>
 <li><code>instance.cls</code>: the class that <code>instance</code> is an instance of</li>
@@ -899,19 +952,27 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 <li><code>cls.is_class_instance(instance)</code>: is <code>instance</code> a class instance?</li>
 <li><code>cls.is_instance_of(instance)</code>: is <code>instance</code> a class instance and an instance of this class?</li>
 </ul>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
+	
+	
 
-
-
-
-    
-<header id="events">
-    <h2>Event System as Observer Pattern</h2>
-</header>
-
-<article>
-    <p>The event system allows you to emit different events with custom event data from class instances<br>that other components can listen to.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="events">
+			<h2>Event System as Observer Pattern</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The event system allows you to emit different events with custom event data from class instances<br>that other components can listen to.</p>
 <p>Event emitters can either inherit from the <em>BetaJS.Events.Events</em> class or include the <em>BetaJS.Events.EventsMixin</em> mixin.</p>
 <pre class="prettyprint source"><code>    var events = new BetaJS.Events.Events();</code></pre><p>Events can be emitted by calling the <em>trigger</em> function. The first argument is the name of the event, all following arguments are custom data that is passed along.</p>
 <pre class="prettyprint source"><code>    events.trigger(&quot;event_name&quot;, event_data1, event_data2);</code></pre><p>Other components can listen to events by using the <em>on</em> method:</p>
@@ -920,17 +981,24 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
     }, function_context);</code></pre><p>The function context is optional.</p>
 <p>Once the component is done listening for events, it can unregister by calling <em>off</em>:</p>
 <pre class="prettyprint source"><code>    events.off(&quot;event_name&quot;, null, function_context);</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="properties">
-    <h2>Introduction to Properties</h2>
-</header>
-
-<article>
-    <p>Instances of type Properties allow setting and getting of arbitrary attributes (including nested JSON).</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="properties">
+			<h2>Introduction to Properties</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Instances of type Properties allow setting and getting of arbitrary attributes (including nested JSON).</p>
 <pre class="prettyprint source"><code>    var properties = new BetaJS.Properties.Properties({
         a: &quot;initial value&quot;
     });
@@ -938,69 +1006,96 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
     properties.set(&quot;a&quot;, &quot;second value&quot;);
 
     var x = properties.get(&quot;a&quot;);
-    // x === &quot;other value&quot;</code></pre><p>It implements the Events Mixin and emits change events whenever attributes are introduced, changed or removed.</p>
-<pre class="prettyprint source"><code>    properties.on(&quot;change:a&quot;, function (value) {
+    // x === &quot;second value&quot;</code></pre><p>It implements the Events Mixin and emits change events whenever attributes are introduced, changed or removed.</p>
+<pre class="prettyprint source"><code>    properties.on(&quot;change:a&quot;, function (value, oldValue) {
         console.log(&quot;a has been changed: &quot;, value);
     });
 
     properties.set(&quot;a&quot;, &quot;third value&quot;);
     // will trigger the change event</code></pre><p>It supports uni-directional and bi-directional data-binding to other properties instances.</p>
 <p>Finally, it supports computed attributes that depend on other attributes in the object. </p>
-</article>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="properties-advanced">
+			<h3>Advanced Properties</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <h4>Declaring a property and assigning new values to it</h4><pre class="prettyprint source lang-js"><code>
+    var properties_a = new BetaJS.Properties.Properties();
 
-    
-<header id="properties-advanced">
-    <h2>Advanced Properties</h2>
-</header>
-
-<article>
-    <p>Declaring a property and assigning new values to it</p>
-<pre class="prettyprint source lang-js"><code>
-    var property_a = new BetaJS.Properties.Properties();
-
-    var x = property_a.get(&quot;value_1&quot;);
+    var x = properties_a.get(&quot;value_1&quot;);
     // x === undefined
 
-    var property_b = new BetaJS.Properties.Properties({
+    var properties_b = new BetaJS.Properties.Properties({
         value_2: &quot;This is Value 2&quot;
     });
 
-    var x = property_b.get(&quot;value_2&quot;);
+    var x = properties_b.get(&quot;value_2&quot;);
     // x === &quot;This is Value 2&quot;
 
-    property_a.set(&quot;value_1&quot;, &quot;Some Property Value&quot;);
+    properties_a.set(&quot;value_1&quot;, &quot;Some Property Value&quot;);
 
-    var x = property_a.get(&quot;value_1&quot;);
-    // x === &quot;Some Property Value&quot;</code></pre><p>Nested Properties</p>
+    var x = properties_a.get(&quot;value_1&quot;);
+    // x === &quot;Some Property Value&quot;</code></pre><h4>Nested Properties</h4><pre class="prettyprint source lang-js"><code>
+    var properties = new BetaJS.Properties.Properties();
+
+    properties.set(&quot;prop.value_a&quot;,&quot;This is value_a&quot;);
+
+    var x = properties.get(&quot;prop.value_a&quot;);
+    // x === &quot;This is value_a&quot;</code></pre><h4>Computed Properties</h4><p>Computed Properties are Properties that use other Properties as a Basis and the value<br>of the computed Property will be changed automatically if the Properties they are based on are changed.<br>This is done automatically by the Events System.</p>
 <pre class="prettyprint source lang-js"><code>
-    var property = new BetaJS.Properties.Properties();
+    var properties = new BetaJS.Properties.Properties();
 
-    property.set(&quot;prop.value_a&quot;,&quot;This is value_a&quot;);
+    properties.set(&quot;value1&quot;,&quot;This is value 1&quot;);
+    properties.set(&quot;value2&quot;,&quot;This is value 2&quot;);
 
-    var x = property.get(&quot;prop.value_a&quot;);
-    // x === &quot;This is value_a&quot;</code></pre>
-</article>
+    properties.compute(&quot;computed_value&quot;, function () {
+        return &quot;The Values are: &quot; + this.get(&quot;value1&quot;) + &quot;, &quot; + this.get(&quot;value2&quot;);
+    },[&quot;value1&quot;, &quot;value2&quot;]);
+    properties.get(&quot;computed_value&quot;);
+    //Will compute to: &quot;The Values are: This is value 1, This is value 2&quot;
 
+    properties.set(&quot;value1&quot;,&quot;Value 1 has changed&quot;);
+    properties.get(&quot;computed_value&quot;);
+    //Will now compute to: &quot;The Values are: Value 1 has changed, This is value 2&quot;</code></pre>
+		</article>
+	</div>
+	
+	
+	
 
+	
+	
 
-
-
-    
-<header id="collections">
-    <h2>Collections</h2>
-</header>
-
-<article>
-    <p>A collection is a dynamic list that allows for observers to listen for change events. Every item in a collection is based on a properties instance.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="collections">
+			<h2>Collections</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>A collection is a dynamic list that allows for observers to listen for change events. Every item in a collection is based on a properties instance.</p>
 <p>Create a Collection:</p>
 <pre class="prettyprint source"><code>    var collection = new BetaJS.Collections.Collection();</code></pre><p>Create a Collection with Data inside:</p>
-<pre class="prettyprint source"><code>    var collection = new BetaJS.Collections.Collection(
-        {
-            item1: &quot;This is Item 1&quot;;
-            item2: 2;
-            item3: 3;
-        }
-    );</code></pre><p>You can add, remove and access items as follows:</p>
+<pre class="prettyprint source"><code>    var collection = new BetaJS.Collections.Collection({
+        objects: [{
+            {title: &quot;This is Item 1&quot;},
+            {title: &quot;This is Item 2&quot;},
+            {title: &quot;This is Item 3&quot;}
+        }]
+    });</code></pre><p>You can add, remove and access items as follows:</p>
 <pre class="prettyprint source"><code>    collection.add(item);
     collection.remove(item);
     collection.getByIndex(0);</code></pre><p>Item can either implement <em>Properties</em> or be a bare JSON object in which case it will be converted to a Properties instance.</p>
@@ -1014,24 +1109,28 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
     });
 
     collection.on(&quot;update&quot;, function (item, key, value) {
-        // TODO: item has been added
+        // TODO: item has been updated
     });</code></pre>
-</article>
-
-    
-<header id="collections-filtered">
-    <h2>Filtered Collections</h2>
-</header>
-
-<article>
-    <p>Given a collection, you might want to derive one (or many) subcollections that filter the content of the base collection.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="collections-filtered">
+			<h3>Filtered Collections</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Given a collection, you might want to derive one (or many) subcollections that filter the content of the base collection.</p>
 <pre class="prettyprint source"><code>    var collection = new BetaJS.Collections.Collection();</code></pre><p>You can then define the filtered collection as follows:</p>
 <pre class="prettyprint source"><code>    var filtered_collection = new BetaJS.Collections.FilteredCollection(collection, function (item) {
-
         // return true if item should be contained in this collection.
     }, optional_context);</code></pre><p>The filtered collection updates automatically when the parent collection is updated, and vice versa.</p>
-<p>##Example:</p>
-<pre class="prettyprint source"><code>    var collection = new BetaJS.Collections.Collection(
+<h4>Example:</h4><pre class="prettyprint source"><code>    var collection = new BetaJS.Collections.Collection(
         {
             item1: {
                 string: &quot;This is Item 1&quot;,
@@ -1049,31 +1148,39 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
     );
 
     var filtered_collection = new BetaJS.Collections.FilteredCollection(collection, function (item) {
-        return item.value == 2
-        //The new collection will contain only item2 from the collection above
+        return item.get(&quot;value&quot;) === 2;
+        // The new collection will only contain item2 from the collection above.
         // i.e. filtered_collection.count() == 1
     }, optional_context);
 
-    //However if you now add an item to the collection that has also a value of 2 it will also be in the filtered collection i.e.
+    // However if you now add an item to the original collection that has also a value of 2, it will also be in the filtered collection, i.e.:
     collection.add({
         string : &quot;This is a fourth Item also with value 2&quot;,
         value : 2
     })
     // i.e. filtered_collection.count() == 2</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
+	
+	
 
-
-
-
-    
-<header id="iterators">
-    <h2>Enumerable Lists - Iterators</h2>
-</header>
-
-<article>
-    <p>An iterator is an object that allows you to enumerate items of some list. The most commonly used iterator is based on an array:</p>
-<pre class="prettyprint source"><code>    var iterator = new BetaJS.Iterators.ArrayIterator([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]);</code></pre><p>An iterator instance exposes two methods: <em>hasNext</em>, telling you whether there are more elements in iterator<br>that you haven't seen yet, and <em>next</em>, which returns the next element in the iterator and moves the internal<br>position forward.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="iterators">
+			<h2>Enumerable Lists - Iterators</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>An iterator is an object that allows you to enumerate items of some list. The most commonly used iterator is based on an array:</p>
+<pre class="prettyprint source"><code>    var iterator = new BetaJS.Iterators.ArrayIterator([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]);</code></pre><p>An iterator instance exposes two methods: <em>hasNext</em>, telling you whether there are more elements in the iterator<br>that you haven't seen yet, and <em>next</em>, which returns the next element in the iterator and moves the internal<br>position forward.</p>
 <p>A typical iterator use looks as follows, enumerating all items:</p>
 <pre class="prettyprint source"><code>    while (iterator.hasNext()) {
         var item = iterator.next();
@@ -1088,15 +1195,21 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 <p>If you have an object instead of an array, you can create an object key iterator as follows:</p>
 <pre class="prettyprint source"><code>    var iterator = new BetaJS.Iterators.ObjectKeysIterator({a: 1, b: 2, c: 3});</code></pre><p>As well as a value iterator:</p>
 <pre class="prettyprint source"><code>    var iterator = new BetaJS.Iterators.ObjectValuesIterator({a: 1, b: 2, c: 3});</code></pre>
-</article>
-
-    
-<header id="iterators-advanced">
-    <h2>Advanced Iterators</h2>
-</header>
-
-<article>
-    <p>In some cases, you want to perform certain transformations on a list before actually processing it. Such transformations<br>include filtering items, sorting the list, skipping items and limiting the number of items. You might even want to<br>combine some of these transformations.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="iterators-advanced">
+			<h3>Advanced Iterators</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>In some cases, you want to perform certain transformations on a list before actually processing it. Such transformations<br>include filtering items, sorting the list, skipping items and limiting the number of items. You might even want to<br>combine some of these transformations.</p>
 <p>Iterators can be chained in the following sense: given an iterator, you can automatically create a new iterator based on<br>it while performing a transformation on it.</p>
 <p>For the sake of this paragraph, assume that we already have an iterator object called <em>baseIterator</em> (which could be an ArrayIterator).</p>
 <p>For filtering items, you can use the <em>FilteredIterator</em>:  </p>
@@ -1106,22 +1219,30 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 <pre class="prettyprint source"><code>    var iterator = new BetaJS.Iterators.SortedIterator(baseIterator, function (item1, item2) {
         // return 1 if item1 > item2, -1 if item1 &lt; item2 and 0 if item1 == item2 
     });</code></pre><p>For skipping e.g. 10 items, you can use the <em>SkipIterator</em>:</p>
-<pre class="prettyprint source"><code>    var iterator = new BetaJS.Iterators.SkipIterator(baseIterator, 10);</code></pre><p>For limit the result to e.g. 50 items, you can use the <em>LimitIterator</em>:</p>
+<pre class="prettyprint source"><code>    var iterator = new BetaJS.Iterators.SkipIterator(baseIterator, 10);</code></pre><p>For limiting the result to e.g. 50 items, you can use the <em>LimitIterator</em>:</p>
 <pre class="prettyprint source"><code>    var iterator = new BetaJS.Iterators.SkipIterator(baseIterator, 50);</code></pre><p>You can also combine these iterators to, e.g. skip 10 items and return 50:</p>
 <pre class="prettyprint source"><code>    var iterator = new BetaJS.Iterators.LimitIterator(new BetaJS.Iterators.SkipIterator(baseIterator, 10), 50);</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
+	
+	
 
-
-
-
-    
-<header id="promise">
-    <h2>Asynchronous Calls using Promises</h2>
-</header>
-
-<article>
-    <p>A <code>promise</code> is an abstraction for handling asynchronous callbacks. It allows you to disconnect the handling of an asynchronous event from the emitter.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="promise">
+			<h2>Asynchronous Calls using Promises</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>A <code>promise</code> is an abstraction for handling asynchronous callbacks. It allows you to disconnect the handling of an asynchronous event from the emitter.</p>
 <p>Normally, you'd write a function that requires an asynchronous callback as follows:</p>
 <pre class="prettyprint source lang-javascript"><code>   function emitter(callback) {
       // some code that ends up calling callback()
@@ -1129,7 +1250,7 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 <pre class="prettyprint source lang-javascript"><code>   emitter(function (...) {
      // some code that should be called in the callback
    });</code></pre><p>Promises try to disconnect this as follows:</p>
-<pre class="prettyprint source lang-javascript"><code>   function emitter(callback) {
+<pre class="prettyprint source lang-javascript"><code>   function emitter() {
       var promise = BetaJS.Promise.create();
       // some code that ends up calling promise.asyncSuccess();
       return promise;
@@ -1155,15 +1276,21 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
    promise.error(function (error) {
      // code
    });</code></pre>
-</article>
-
-    
-<header id="promise-advanced">
-    <h2>Advanced Uses</h2>
-</header>
-
-<article>
-    <p>The <code>Promise</code> module has additional functionality for advanced use. We highlight some of it here.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="promise-advanced">
+			<h3>Advanced Uses</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The <code>Promise</code> module has additional functionality for advanced use. We highlight some of it here.</p>
 <p>Often, you want to transform the successful result value into something else but leave the error message alone:</p>
 <pre class="prettyprint source lang-javascript"><code>   var promise2 = promise1.mapSuccess(function (value) {
      return do-computation-with-value;
@@ -1173,19 +1300,27 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
      var promise2 = call_function_that_returns_a_promise(value);
      return promise2;
    });</code></pre><p>The success call of <code>promise3</code> then depends on the successful calls of <code>promise1</code> and subsequently <code>promise2</code>.</p>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
+	
+	
 
-
-
-
-    
-<header id="objs">
-    <h2>Functional Helpers for Objects and Arrays</h2>
-</header>
-
-<article>
-    <p>The <em>Objs</em> module includes support functions for handling javascript objects and arrays.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="objs">
+			<h2>Functional Helpers for Objects and Arrays</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The <em>Objs</em> module includes support functions for handling javascript objects and arrays.</p>
 <p>You can, for instance, iterate over arrays and objects as follows:</p>
 <pre class="prettyprint source"><code>    BetaJS.Objs.iter({key1: &quot;value1&quot;, key2: &quot;value2&quot;}, function (value, key) {
        console.log(key, &quot; : &quot;, value):
@@ -1209,17 +1344,24 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
        return value;
     });
     // result === [16, 25]</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="ids">
-    <h2>Identifiable Objects</h2>
-</header>
-
-<article>
-    <p>The BetaJS system has a small library for generating unique this. This can be used for all kinds of purposes, but primarily for uniquely identifiying objects.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ids">
+			<h2>Identifiable Objects</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The BetaJS system has a small library for generating unique IDs. This can be used for all kinds of purposes, but primarily for uniquely identifiying objects.</p>
 <p>Since JavaScript has no notion of using pointers (to objects) as keys in hashes, it is impossible to save an identifier to an object without artificial ids.</p>
 <p>Unique ids can be generated as follows:</p>
 <pre class="prettyprint source lang-javascript"><code>    var id = BetaJS.Ids.uniqueId(); // e.g. &quot;123&quot;
@@ -1237,20 +1379,27 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 <p>Generators can be used as follows:</p>
 <pre class="prettyprint source lang-javascript"><code>    var generator = new TimedIdGenerator();
     var id = generator.generate();</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="states">
-    <h2>State Machines</h2>
-</header>
-
-<article>
-    <p>The system includes an abstract state machine that can be used for internal business logic as well as in combination with the router.</p>
-<p>A state machine consists of a <code>state machine host</code> instance which holds the <code>current state</code> instance. States itself are defined<br>by subclassing the <code>abstract state class</code>.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="states">
+			<h2>State Machines</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The system includes an abstract state machine that can be used for internal business logic as well as in combination with the router.</p>
+<p>A state machine consists of a <code>state machine host</code> instance which holds the <code>current state</code> instance. States itself are defined by subclassing the <code>abstract state class</code>.</p>
 <p>To initialize a state machine, simply call:</p>
-<pre class="prettyprint source lang-javascript"><code>   var host = new BetaJS.States.Host();</code></pre><p>There are different ways to define new states. An adhoc way, if the state machine is used a singleton, is as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>   var host = new BetaJS.States.Host();</code></pre><p>There are different ways to define new states. An adhoc way, if the state machine is used as a singleton, is as follows:</p>
 <pre class="prettyprint source lang-javascript"><code>    host.register(&quot;A&quot;, {});</code></pre><p>which registers a new state <code>A</code>.</p>
 <p>A more general way is by directly subclassing it:</p>
 <pre class="prettyprint source lang-javascript"><code>    var S = BetaJS.States.State.extend(&quot;BetaJS.Test.S&quot;);
@@ -1258,48 +1407,62 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
     var B = S.extend(&quot;BetaJS.Test.B&quot;);</code></pre><p>After setting up the state machine, we start with an initial state:</p>
 <pre class="prettyprint source lang-javascript"><code>   host.initialize(&quot;A&quot;);</code></pre><p>The current state can now be accessed via <code>host.state()</code>.</p>
 <p>To transition to the next state, we simply call <code>host.state().next(&quot;B&quot;)</code>.</p>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-
-
-    
-<header id="betajs-browser">
-    <h2>betajs-browser</h2>
-</header>
-
-<article>
-    <p>BetaJS-Browser is a client-side JavaScript framework for Browser-specific methods.</p>
-</article>
-
-    
-<header id="router">
-    <h2>Routers</h2>
-</header>
-
-<article>
-    <p>The Browser Router package adds routing functionality to the BetaJS Router that allows you to:</p>
-<ul>
-<li>bind a router to location hash routes</li>
-<li>bind a router to location routes</li>
-<li>bind a router to the browser location history</li>
-</ul>
-<p>We assume that we already have created a router:</p>
-<pre class="prettyprint source lang-js"><code>  var router = new BetaJS.Router.Router();</code></pre><p>To bind a hash location route binder, we need to include the following external dependency:</p>
-<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;http://cdn.rawgit.com/cowboy/jquery-hashchange/master/jquery.ba-hashchange.js&quot;>&lt;/script></code></pre><p>Then, we can add the location hash route binder as follows:</p>
-<pre class="prettyprint source lang-js"><code>  var hashRouteBinder = new BetaJS.Browser.HashRouteBinder(router);</code></pre><p>Similarly, we can add a location route binder:</p>
-<pre class="prettyprint source lang-js"><code>  var locationRouteBinder = new BetaJS.Browser.LocationRouteBinder(router);</code></pre><p>Finally the history route binder allows you to control the browser history while navigating with your router:</p>
-<pre class="prettyprint source lang-js"><code>  var historyRouteBinder = new BetaJS.Browser.HistoryRouteBinder(router);</code></pre>
-</article>
-
-    
-<header id="routers-states">
-    <h2>Routers and State Machines</h2>
-</header>
-
-<article>
-    <p>You can combine routers with state machines. State machines in general provide a richer abstraction for state spaces while routers can be thought of a string serialization and parsing system for states.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="router">
+			<h2>Routers</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The Router package adds Routing functionality to BetaJS.</p>
+<p>This functionality is particularly useful in Single Page Web applications, as it creates an easy abstraction for navigating the internal structure of the application.</p>
+<p>The Router in the BetaJS system is completely abstract.</p>
+<h3>Setup</h3><p>A router is created by creating an instance of the <code>Router</code> object.</p>
+<pre class="prettyprint source"><code>  var router = new BetaJS.Router.Router();</code></pre><h3>Binding Routes</h3><p>The just created <code>router</code> object does nothing at this point, because it does not<br>know about any routes. So the next step is binding routes to <code>router</code>.</p>
+<pre class="prettyprint source"><code>  /**
+   * @param {string} name
+   * @param {string} routeUrl
+   */
+  router.bind(&quot;test&quot;, &quot;/test&quot;);</code></pre><h3>Navigation</h3><p>It is now possible to navigate to &quot;test&quot; by calling the <code>navigate</code> method.</p>
+<pre class="prettyprint source"><code>  router.navigate(&quot;/test&quot;);</code></pre><h3>Route Events</h3><p>When the router navigates to &quot;/test&quot;, it triggers an <code>event</code>. Learn more about events by looking at the <code>BetaJS.Events.Events</code> documentation. The name of the event is &quot;dispatch:test&quot;. More generally, it is &quot;dispatch:ROUTENAME&quot;.</p>
+<p>Conducting an action based on the current route is as simple as listening for the proper event.</p>
+<pre class="prettyprint source"><code>  var events = BetaJS.Events.Events();
+  events.on(&quot;dispatch:test&quot;, function() {
+    console.log(&quot;Navigated to test.&quot;);
+  });</code></pre><h3>Routes with Arguments</h3><p>Now, suppose you want to navigate to the fourth post on a blog site. First, bind the route.</p>
+<pre class="prettyprint source"><code>  /**
+   * ...
+   * @param {function} callback
+   */
+  router.bind(&quot;post&quot;, &quot;/posts/(id:[0-9]*)&quot;, function(args) {
+    console.log(&quot;You navigated to blog post #&quot; + args.id);
+  });</code></pre><p>This route binding looks different because it contains a URL argument. It is possible to bind arguments from the url, which will be passed when the Event is omitted. Additionally, the previous example shows a new way to execute code during routing. The callback function will be called when the route is navigated to. It receives arguments from the url as the first argument to the callback.</p>
+<p>Naturally, much more can be done with routers, but this is an introduction to the basic features.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="routers-states">
+			<h3>Routers and State Machines</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>You can combine routers with state machines. State machines in general provide a richer abstraction for state spaces while routers can be thought of a string serialization and parsing system for states.</p>
 <h3>Initialization</h3><p>Initialize the router, the state machine and the binder as follows:</p>
 <pre class="prettyprint source lang-javascript"><code>    var router = new BetaJS.Router.Router();
     var host = new BetaJS.States.Host();
@@ -1311,19 +1474,74 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
     router.navigate(&quot;/polymorphic/second&quot;);</code></pre><p>As well as state transitions using the state machine:</p>
 <pre class="prettyprint source lang-javascript"><code>    host.next(&quot;Simple&quot;);
     host.next(&quot;Polymorphic&quot;, {key: &quot;first&quot;});</code></pre><p>Since the router and state machine are linked to each other, transitions to either one are reflected in the other.</p>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
+	
+	
 
+	
+	
 
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="betajs-browser">
+			<h1>betajs-browser</h1>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>BetaJS-Browser is a client-side JavaScript framework for Browser-specific methods.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="browser_router">
+			<h2>Browser Router</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The Browser Router package adds routing functionality to the BetaJS Router that allows you to:</p>
+<ul>
+<li>bind a router to location hash routes</li>
+<li>bind a router to location routes</li>
+<li>bind a router to the browser location history</li>
+</ul>
+<p>We assume that we already have created a router:</p>
+<pre class="prettyprint source lang-js"><code>  var router = new BetaJS.Router.Router();</code></pre><p>To bind a hash location route binder, we need to include the following external dependency:</p>
+<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;http://cdn.rawgit.com/cowboy/jquery-hashchange/master/jquery.ba-hashchange.js&quot;>&lt;/script></code></pre><p>Then, we can add the location hash route binder as follows:</p>
+<pre class="prettyprint source lang-js"><code>  var hashRouteBinder = new BetaJS.Browser.HashRouteBinder(router);</code></pre><p>Similarly, we can add a location route binder:</p>
+<pre class="prettyprint source lang-js"><code>  var locationRouteBinder = new BetaJS.Browser.LocationRouteBinder(router);</code></pre><p>Finally the history route binder allows you to control the browser history while navigating with your router:</p>
+<pre class="prettyprint source lang-js"><code>  var historyRouteBinder = new BetaJS.Browser.HistoryRouteBinder(router);</code></pre>
+		</article>
+	</div>
+	
+	
+	
 
-
-    
-<header id="info">
-    <h2>Browser Environment</h2>
-</header>
-
-<article>
-    <p>This module allows you to gather information about the browser environment, e.g.:</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="info">
+			<h2>Browser Environment</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>This module allows you to gather information about the browser environment, e.g.:</p>
 <ul>
 <li><code>isIOS()</code>: iOS device?</li>
 <li><code>isAndroid()</code>: Android device?</li>
@@ -1342,17 +1560,24 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 <li><code>isLinux()</code>: Linux?</li>
 <li><code>internetExplorerVersion()</code>: IE version</li>
 </ul>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="loader">
-    <h2>Loading Assets dynamically</h2>
-</header>
-
-<article>
-    <p>The loader allows you to asynchronously load scripts, styles and html:</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="loader">
+			<h2>Loading Assets dynamically</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The loader allows you to asynchronously load scripts, styles and html:</p>
 <pre class="prettyprint source lang-javascript"><code>    BetaJS.Browser.Loader.loadScript(&quot;//.../script.js&quot;, function () {
         // Loaded scripts.js
     });
@@ -1364,17 +1589,24 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
     BetaJS.Browser.Loader.loadHtml(&quot;//.../web.html&quot;, function (content) {
         // Loaded web.html
     });</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="uploader">
-    <h2>Uploading Files</h2>
-</header>
-
-<article>
-    <p>Different browser require different techniques for asynchronous uploading of files and binary large objects (BLOBs).</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="uploader">
+			<h2>Uploading Files</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Different browsers require different techniques for asynchronously uploading of files and binary large objects (BLOBs).</p>
 <p>This library takes care of that.</p>
 <pre class="prettyprint source lang-javascript"><code>    var uploader = BetaJS.Browser.Upload.FileUploader.create({
         url: &quot;//.../post&quot;,
@@ -1398,28 +1630,42 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
     multiUploader.addUploader(uploader2);
     multiUploader.addUploader(uploader3);
     multiUploader.upload();</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
+	
+	
 
-
-
-
-    
-<header id="betajs-data">
-    <h2>betajs-data</h2>
-</header>
-
-<article>
-    <p>BetaJS-Data is a general-purpose JavaScript framework for handling RESTful operations and ActiveRecord abstractions.</p>
-</article>
-
-    
-<header id="queries">
-    <h2>The Query System</h2>
-</header>
-
-<article>
-    <p>The <strong>Query System</strong> allows you to formulate queries and evaluate them on a given instance.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="betajs-data">
+			<h1>betajs-data</h1>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>BetaJS-Data is a general-purpose JavaScript framework for handling RESTful operations and ActiveRecord abstractions.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="queries">
+			<h2>The Query System</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The <strong>Query System</strong> allows you to formulate queries and evaluate them on a given instance.</p>
 <p>We first introduce the query language itself:</p>
 <pre class="prettyprint source lang-javascript"><code>/*
  * atoms :== [atom, ...]
@@ -1445,15 +1691,21 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
   evaluate(query, {&quot;age&quot;: 16, ...}) === false
   evaluate(query, {&quot;first_name&quot;: &quot;Guybrush&quot;, ...}) === false
   evaluate(query, {&quot;gender&quot;: &quot;male&quot;, &quot;age&quot;: 17, &quot;first_name&quot;: &quot;Simon&quot;}) === true</code></pre>
-</article>
-
-    
-<header id="constrained-queries">
-    <h2>Constrained Queries</h2>
-</header>
-
-<article>
-    <p>While the query language itself only allows you to specify a condition that instances have to satisfy, <strong>constrained queries</strong> allow you to additionally limit the number of query results as well as specify the order in which the query results come in.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="constrained-queries">
+			<h3>Constrained Queries</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>While the query language itself only allows you to specify a condition that instances have to satisfy, <strong>constrained queries</strong> allow you to additionally limit the number of query results as well as specify the order in which the query results come in.</p>
 <p>Given a <code>query</code>, a <code>constrainedQuery</code> looks as follows:</p>
 <pre class="prettyprint source lang-javascript"><code>   constrainedQuery = {
      query: query,
@@ -1467,31 +1719,46 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
        }
      }
    }</code></pre><p>All options are optional.  </p>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="query-engine">
-    <h2>The Query Engine</h2>
-</header>
-
-<article>
-    <p>Different query systems have different query capabilities. For instance, one system might not be able to skip search results while another system might not be able to sort. The query engine solves the following problem: given a constrained query, a query system with well-known query capabilities, compute the most efficient super query that the underlying query system can perform, perform the super query and map the super query to the actual query at hand.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="query-engine">
+			<h3>The Query Engine</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Different query systems have different query capabilities. For instance, one system might not be able to skip search results while another system might not be able to sort. The query engine solves the following problem: given a constrained query, a query system with well-known query capabilities, compute the most efficient super query that the underlying query system can perform, perform the super query and map the super query to the actual query at hand.</p>
 <p>It is used internally by the stores.</p>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
+	
+	
 
-
-
-
-    
-<header id="stores">
-    <h2>The Store System</h2>
-</header>
-
-<article>
-    <p>Stores define an abstract database interface. Stores derive from the abstract class <code>BetaJS.Data.Stores.BaseStore</code> which defines the following asynchronous methods:</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="stores">
+			<h2>The Store System</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Stores define an abstract database interface. Stores derive from the abstract class <code>BetaJS.Data.Stores.BaseStore</code> which defines the following asynchronous methods:</p>
 <h3>Insert</h3><pre class="prettyprint source lang-javascript"><code>   store.insert(instance).success(function (data) {
      // Instance was inserted, and the updated data of instance is data (including the id)
    }).error(function (error) {
@@ -1519,15 +1786,21 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 <li><code>new BetaJS.Data.Stores.LocalStore({}, localStorage)</code>: stores all data in the permanent memory of the browser</li>
 <li><code>new BetaJS.Data.Stores.RemoteStore(...)</code>: stores all data in a store on a server across a network </li>
 </ul>
-</article>
-
-    
-<header id="remote-store">
-    <h2>Remote Store</h2>
-</header>
-
-<article>
-    <p>The <em>RemoteStore</em> implements a RESTful access to a server-side store. It can be instantiated as follows:</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="remote-store">
+			<h3>Remote Store</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The <em>RemoteStore</em> implements a RESTful access to a server-side store. It can be instantiated as follows:</p>
 <pre class="prettyprint source lang-javascript"><code>  var store = new BetaJS.Stores.RemoteStore(ajax, restOptions, storeOptions);</code></pre><p>Here, <code>ajax</code> needs to be an instance of <code>BetaJS.Net.AbstractAjax</code>, e.g. <code>BetaJS.Browser.JQueryAjax</code> if operated within the context of a browser.</p>
 <p>Second, <code>restOptions</code> is a JSON object accepting the following optional configuration parameters:</p>
 <ul>
@@ -1541,17 +1814,24 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 <li><em>uriMap</em>: an associative map, mapping all store primitives to functions returning the uri postfix</li>
 <li><em>toURI</em>: a function, mapping store primitives to the uri postfix</li>
 </ul>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="delegator-stores">
-    <h2>Delegator Stores</h2>
-</header>
-
-<article>
-    <p>Delegator Stores are Store classes that delegate calls to other, underlying stores while transforming the requests in different useful ways:</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="delegator-stores">
+			<h3>Delegator Stores</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Delegator Stores are Store classes that delegate calls to other, underlying stores while transforming the requests in different useful ways:</p>
 <ul>
 <li><em>SimulatorStore</em>: Allows you to simulate the target store being online / offline.</li>
 <li><em>ReadyStore</em>: Allows you to queue up and postpone calls to the target store until you acknowledge it to be ready to accept actual calls.</li>
@@ -1561,32 +1841,47 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 <li><em>MultiplexerStore</em>: Allows you to route calls to a number of underlying stores, depending on the context.</li>
 <li><em>ContextualizedStore</em>: Alows you to decode / encode contexts into calls to the underlying store.</li>
 </ul>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="indices">
-    <h2>Store Indices</h2>
-</header>
-
-<article>
-    <p>Store indices are database indices. By adding indices for certain keys to your stores, you can speed up queries. Indices can be created as follows, given a <code>store</code>:</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="indices">
+			<h3>Store Indices</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Store indices are database indices. By adding indices for certain keys to your stores, you can speed up queries. Indices can be created as follows, given a <code>store</code>:</p>
 <pre class="prettyprint source lang-javascript"><code>    store.indices.first_name = new BetaJS.Data.Stores.MemoryIndex(store, &quot;first_name&quot;);
     store.indices.last_name = new BetaJS.Data.Stores.MemoryIndex(store, &quot;last_name&quot;);</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
+	
+	
 
-
-
-
-    
-<header id="modelling">
-    <h2>The Model System</h2>
-</header>
-
-<article>
-    <p>The modelling system puts an abstraction layer on top of stores that allows us to treat database instances as properties such that changes in the properties instance are reflected back to the database and vice versa.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="modelling">
+			<h2>The Model System</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The modelling system puts an abstraction layer on top of stores that allows us to treat database instances as properties such that changes in the properties instance are reflected back to the database and vice versa.</p>
 <p>The role of json instances in the store system is provided by so-called <code>Models</code> whereas the role of the stores is provied by so-called <code>Tables</code>.</p>
 <p>A <code>Model</code> class is a sub class of <code>Properties</code>. When you define your own model, you always define a scheme:</p>
 <pre class="prettyprint source lang-javascript"><code>   var MyModel = BetaJS.Data.Modelling.Model.extend(null, {
@@ -1621,15 +1916,21 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 <pre class="prettyprint source lang-javascript"><code>  myTable.allBy(query, constraints).success(function (modelIterator) {
     ...
   }).error(function (error) {...});</code></pre>
-</article>
-
-    
-<header id="validations">
-    <h2>Model Attribute Validations</h2>
-</header>
-
-<article>
-    <p>Validators allow you to add value validations to your model scheme that prevent invalid attributes from being saved to the store. You can add validators to your model scheme as follows:</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="validations">
+			<h3>Model Attribute Validations</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Validators allow you to add value validations to your model scheme that prevent invalid attributes from being saved to the store. You can add validators to your model scheme as follows:</p>
 <pre class="prettyprint source lang-javascript"><code>            _initializeScheme: function () {
                 var scheme = inherited._initializeScheme.call(this);
                 scheme.first_name = {
@@ -1650,19 +1951,27 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 <li><em>UniqueValidator(key)</em>: ensures that the value is unique in the store</li>
 <li><em>ConditionalValidator(condition, validator)</em>: ensures that a validator is valid given that the condition is satisfied</li>
 </ul>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
+	
+	
 
-
-
-
-    
-<header id="query-collections">
-    <h2>Query Collections</h2>
-</header>
-
-<article>
-    <p>Query Collections are collections which are based on a store or a table query. Its items are either instantiated properties from the query result (if it is based on a store) or instantied models (if it is based on a table).</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="query-collections">
+			<h2>Query Collections</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Query Collections are collections which are based on a store or a table query. Its items are either instantiated properties from the query result (if it is based on a store) or instantied models (if it is based on a table).</p>
 <p>Query Collections should be seen as a <strong>read only</strong> representation of a query. You should never add elements directly to a query collection. Instead, you should add the instance to the store or the table.</p>
 <pre class="prettyprint source lang-javascript"><code>   var tableQC = new BetaJS.Data.Collections.TableQueryCollection(table, query, options);
    var storeQC = new BetaJS.Data.Collections.StoreQueryCollection(store, query, options);</code></pre><p>The following (among other) options are supported:</p>
@@ -1673,113 +1982,87 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 <li><code>range</code>: limit query results (default disabled)</li>
 <li><code>auto</code>: should the system immediately run the query (default false)</li>
 </ul>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
+	
+	
 
-
-
-
-    
-<header id="betajs-dynamics">
-    <h2>betajs-dynamics</h2>
-</header>
-
-<article>
-    <p>BetaJS-Dynamics is a dynamic DOM templating engine.</p>
-</article>
-
-    
-<header id="intro">
-    <h2>Introduction</h2>
-</header>
-
-<article>
-    <h2>BetaJS Dynamics Overview</h2><p>BetaJS Dynamics is a Javascript frontend framework to build the V and C in an MVC framework.<br>It has two parts:</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="betajs-dynamics">
+			<h1>betajs-dynamics</h1>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>BetaJS-Dynamics is a dynamic DOM templating engine.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="intro">
+			<h2>Introduction</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <h2>BetaJS Dynamics Overview</h2><p>BetaJS Dynamics is a JavaScript frontend framework. It generally has two parts:</p>
 <ul>
-<li>&quot;Dynamics&quot; : a Javascript Controller</li>
-<li>HTML Part : HTML Template/Element containing &quot;pseudo code&quot; so called Partials and Handlebars</li>
+<li><em>Dynamics</em> : a JavaScript Controller interface</li>
+<li><em>HTML Templates</em> : HTML Template / Element containing a fragment of JS, so called partials, handlebars and subdynamics</li>
 </ul>
-<h2>Hello World Example</h2><p>The Javascript Controller:</p>
+<h2>Example</h2><p>The Javascript Controller:</p>
 <pre class="prettyprint source lang-js"><code>
-    dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;some_element&quot;),
+    var dynamic = new BetaJS.Dynamics.Dynamic({
+        element: $(&quot;some_element&quot;).html(),
         initial : {
             attrs : {
-                some_attribute : &quot;Hello World&quot;,
+                some_attribute : &quot;This is some Text&quot;,
                 some_boolean : true
             }
         }
     });</code></pre><p>The HTML Element:</p>
+<pre class="prettyprint source lang-html"><code>&lt;script type='text/template'>
+    &lt;some_element ba-if=&quot;{{some_boolean}}&quot;>{{some_attribute}}&lt;/some_element>
+&lt;/script></code></pre><p>Will evaluate to</p>
 <pre class="prettyprint source lang-html"><code>
-    &lt;some_element ba-if=&quot;{{some_boolean}}&quot;>{{some_attribute}}&lt;/some_element></code></pre><p>Will evaluate to</p>
-<pre class="prettyprint source lang-html"><code>
-    &lt;some_element>Hello World&lt;/some_element></code></pre><h2>Decpendencies:</h2><ul>
-<li>Jquery</li>
-<li>BetaJS Scoped</li>
-<li>BetaJS</li>
-</ul>
-<h2>Core Concepts</h2><h2>Dynamic</h2><h2>Partials</h2><p>Partials are a form of pseudocode to that allow you to write often used functions<br>directly into the view.</p>
-<pre class="prettyprint source lang-html"><code>
-    &lt;div ba-if=&quot;&quot;>Hello&lt;/div></code></pre><h2>Content</h2><h3>General</h3><ul>
-<li>blueprint Javascript</li>
-<li>blueprint HMTL</li>
-</ul>
-<h3>Dynamics</h3><h4>Template</h4><ul>
-<li>Template</li>
-<li>TemplateUrl</li>
-<li>Element</li>
-</ul>
-<h4>Initial</h4><ul>
-<li>Attributes</li>
-<li>Collections</li>
-<li>Scope</li>
-<li>Bind</li>
-<li>functions</li>
-</ul>
-<h4>Loading Functions</h4><ul>
-<li>create</li>
-<li>_afterActivate</li>
-</ul>
-<h3>Partials</h3><h4>Dynamic</h4><ul>
-<li>ba-attrs</li>
-<li>ba-repeat</li>
-<li>ba-share</li>
-</ul>
-<h4>View</h4><ul>
-<li>ba-class</li>
-<li>ba-if</li>
-<li>ba-show</li>
-</ul>
-<h4>User Interaction</h4><ul>
-<li>ba-click</li>
-<li>ba-on</li>
-<li>ba-return</li>
-<li>ba-tap</li>
-</ul>
-<h4>Misc</h4><ul>
-<li>ba-ignore</li>
-<li>ba-template-url</li>
-</ul>
-</article>
-
-    
-<header id="helloworld">
-    <h2>Hello World</h2>
-</header>
-
-<article>
-    <h2>This is the Hello World Project</h2><p>Before we start we assume that you know the basics of HTML,<br>Javascript, Jquery and how to use these locally in your Browser.</p>
-<p>Our &quot;Hello World&quot; File is one HTML that loads the BetaJS Framework and some other required files in the head.<br>And runs a very basic &quot;Hello World&quot; Script in the body.</p>
-<p>If everything is set up correctly you should see &quot;Hello World&quot;<br>if you load the helloworld.html displayed in the box below in the Browser.</p>
+    &lt;some_element>This is some Text&lt;/some_element></code></pre>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="helloworld">
+			<h3>Hello World Example</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Our &quot;Hello World&quot; a one-page html that loads the BetaJS framework and some other required files in the head. And runs a very basic &quot;Hello World&quot; script in the body.</p>
+<p>If everything is set up correctly you should see &quot;Hello World&quot; if you load the helloworld.html displayed in the box below in the your browser, and making sure that all the assets are present as well.</p>
 <pre class="prettyprint source lang-html"><code>
     &lt;!DOCTYPE html>
     &lt;html>
     &lt;head lang=&quot;en&quot;>
         &lt;meta charset=&quot;UTF-8&quot;>
         &lt;title>Hello World&lt;/title>
-            &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js&quot;>&lt;/script>
-            &lt;script src=&quot;vendors/beta.js&quot;>&lt;/script>
-            &lt;script src=&quot;vendors/beta-browser-noscoped.js&quot;>&lt;/script>
+        &lt;script src=&quot;vendors/jquery.min.js&quot;>&lt;/script>
+        &lt;script src=&quot;vendors/beta.js&quot;>&lt;/script>
+        &lt;script src=&quot;vendors/betajs-browser-noscoped.js&quot;>&lt;/script>
         &lt;script src=&quot;vendors/betajs-dynamics.js&quot;>&lt;/script>
     &lt;/head>
     &lt;body>
@@ -1788,7 +2071,7 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 
         &lt;script>
 
-            dynamic = new BetaJS.Dynamics.Dynamic({
+            var dynamic = new BetaJS.Dynamics.Dynamic({
                 element: $(&quot;#helloworld&quot;)
             });
 
@@ -1798,188 +2081,266 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
         &lt;/script>
 
     &lt;/body>
-    &lt;/html></code></pre><h4>Now lets go briefly trough the individual parts:</h4><pre class="prettyprint source lang-html"><code>
-    &lt;div id=&quot;helloworld&quot;> {{replaced_value}} &lt;/div></code></pre><p>Inside {{}} ist an attribute property that we can control from other parts of the Program</p>
+    &lt;/html></code></pre><h4>Now lets go briefly through the individual parts:</h4><pre class="prettyprint source lang-html"><code>
+    &lt;div id=&quot;helloworld&quot;> {{replaced_value}} &lt;/div></code></pre><p>Inside {{}} ist an attribute property that we can control from other parts of the application.</p>
 <pre class="prettyprint source lang-js"><code>
     dynamic = new BetaJS.Dynamics.Dynamic({
         element: $(&quot;#helloworld&quot;)
-    });</code></pre><p>Here we create a new BetaJS Dynamic,<br>what that means and what you can do with that<br>we will explore in more details in the rest of this Tutorial</p>
-<p>The element part links the Javascript code of the Dynamic with the #helloworld element.<br>And hence we can have the control the BetaJS Dynamics provides over the #helloworld div<br>and its contents. We can then control the #helloworld div within our Javascript files<br>with the dynamic variable (Because of &quot;dynamic = new BetaJS.Dynamics.Dynamic({&quot;).</p>
-<p>An example on how to use this is the next line:</p>
+    });</code></pre><p>Here, we are creating a new dynamic, and make it responsible for handling the subtree under the dom node <code>#helloworld</code>.</p>
 <pre class="prettyprint source lang-js"><code>
-    dynamic.set(&quot;replaced_value&quot;, &quot;Hello World&quot;);</code></pre><p>Here we create a the property within the dynamic which is called &quot;replaced_value&quot;<br>and give it the value &quot;Hello World&quot;. When the dynamic is loaded the attribute property<br>{{replaced_value}} will be replaced by its value in the HTML so that we see &quot;Hello World&quot;<br>on the actual site.<br>Properties are similar to variables in that they store data, more on BetaJS Properties can be found here: ...<br>One of the benefits of using a property here is that when we changed the value of &quot;replaced_value&quot;<br>the HTML view will update itself automatically.</p>
+    dynamic.set(&quot;replaced_value&quot;, &quot;Hello World&quot;);</code></pre><p>Here, we create set an attribute &quot;replaced_value&quot; and give it the value &quot;Hello World&quot;. When the dynamic is loaded, the handlebars {{replaced_value}} will be replaced by its value in the DOM so that we see &quot;Hello World&quot; on the actual site.</p>
+<p>Dynamic attributes are a key value store based on the BetaJS Properties class.</p>
+<p>The HTML view will update itself automatically when attributes in the dynamic are changed.</p>
 <pre class="prettyprint source lang-js"><code>
-    dynamic.activate();</code></pre><p>This last part activates the dynamic and actually links the HTML with the Javascript.</p>
-</article>
+    dynamic.activate();</code></pre><p>This last part activates the dynamic and binds the HTML to the JS controller.</p>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-
-
-    
-<header id="blueprint">
-    <h2>Blueprint</h2>
-</header>
-
-<article>
-    
-</article>
-
-    
-<header id="blueprint_js">
-    <h2>JS</h2>
-</header>
-
-<article>
-    <p>This Blueprint is intented as a quick reference for how to integrate the most commonly<br>used Dynamic functionalities. On specifics how they work please refer to the individual sections.</p>
-<pre class="prettyprint source lang-js"><code>
-    BetaJS.Dynamics.Dynamic.extend(&quot;BetaJS.Dynamics.Dynamictemplate&quot;, {
-
-    //Creates one dynamics instance
-    dynamic = new BetaJS.Dynamics.Dynamic({
-
-        //Only use one of the following three concurrently
-        templateUrl : &quot;templates/template.html&quot;,                         //This contains the relative file path to an external template
-        template : &quot;&lt;div>Internal Template {{some_attribute}}&lt;/div>&quot;,
-        element : $(&quot;.someclass&quot;),
-
-        initial : {
-
-            attrs : {
-                some_attribute: true
-            },
-            bind : {
-                parent_dynamic_attribute: &quot;&lt;:attribute_in_parent_dynamic&quot;
-            },
-            collections : {
-                some_collection: ['one','two']
-            },
-            scope : {
-                parent_dynamic: &quot;&lt;&quot;
-            },
-
-            create : {
-                //Reading and writing attribute values
-                var attribute = this.get('some_attribute');
-                this.set('some_attribute',false);
-
-                //Manipulating Collections
-                this.get('some_collection').add('three');
-                this.get('some_collection').remove('one');
-
-                //Accessing other Dynamics
-                var scope_attr = this.scopes.parent_dynamic.get('attribute_in_parent_dynamic');
-                var bind_attr = this.get('parent_dynamic_attribute');
-                if (scope_attr == bind_attr)
-                    console.log('This is set up correctly');
-
-                //Accessing functions
-                this.call('some_function');
-            },
-
-            functions : {
-                some_function : () {
-                    this.element() //to access the element itself
-                }
-            }
-
-        },
-
-        _afterActivate : function (element) {
-            console.log('This message is displayed after the dynamic is activated');
-            //element passes you the element where the Dynamic is active on as a Jquery Object/Element
-            element.find(&quot;.somechildnode&quot;);
-        }
-
-    });</code></pre>
-</article>
-
-
-
-    
-<header id="blueprint_html">
-    <h2>HTML</h2>
-</header>
-
-<article>
-    <p>This Blueprint is intented as a quick reference for how to integrate the most commonly<br>used Dynamic functionalities. On specifics how they work please refer to the individual sections.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="core_concepts">
+			<h3>Core Concepts</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <h4>Dynamics</h4><p>Dynamics are at the very core of this framework, representing its view components.</p>
+<h4>Handlebars</h4><p>Handlebars are a way to do one of two things:</p>
+<ul>
+<li>Evaluate simple JavaScript expressions</li>
+<li>Put variables (text) from the Javascipt dynamic into the DOM at the relevant places</li>
+</ul>
 <pre class="prettyprint source lang-html"><code>
-    &lt;somedynamic>
+    &lt;div class=&quot;{{some_class}}&quot;>Hello&lt;/div></code></pre><h4>Partials</h4><p>Partials are a form of pseudocode that allow you to attach particular behaviour to nodes in the DOM/view.</p>
+<pre class="prettyprint source lang-html"><code>
+    &lt;div ba-if=&quot;&quot;>Hello&lt;/div></code></pre>
+		</article>
+	</div>
+	
+	
+	
 
-    &lt;-- Basics -->
+	
+	
 
-        &lt;-- Data bindings -->
-        &lt;databinding>{{attribute}}&lt;/databinding> &lt;-- This is a unidirectional binding -->
-        &lt;databinding>{{=attribute}}&lt;/databinding> &lt;-- This is a bidirectional binding -->
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="blueprint">
+			<h2>Blueprints</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>These blueprints iareintented as a quick reference for how to integrate the most commonly used dynamic functionalities.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="blueprint_js">
+			<h3>Javascript</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <pre class="prettyprint source lang-js"><code>
+BetaJS.Dynamics.Dynamic.extend(&quot;BetaJS.Dynamics.Dynamictemplate&quot;, {
 
-        &lt;-- Click Events -->
-        &lt;button ba-click='some_function()'>Click me&lt;/button>
-        &lt;button ba-click='attribute = false'>Click me&lt;/button>
-        &lt;button ba-click='attribute = !attribute'>Click me&lt;/button>
-        &lt;button ba-tap='some_function()'>Click me&lt;/button> &lt;-- Tap is for use in mobile -->
+    //Only use one of the following three concurrently
+    templateUrl : &quot;templates/template.html&quot;,
+    template : &quot;&lt;div>Internal Template {{some_attribute}}&lt;/div>&quot;,
+    element : $(&quot;.someclass&quot;),
 
-        &lt;-- If/Show -->
-        &lt;div ba-if='{{true}}'>This DOM Element will always be loaded&lt;/div>
-        &lt;div ba-if='{{false}}'>This DOM Element will never be loaded&lt;/div>
-        &lt;div ba-if='{{attribute}}'>This DOM Element will be loaded if {{attribute}} evluates to 'true'&lt;/div>
-        &lt;div ba-if='{{attribute.subattribute}}'>This DOM Element will be loaded if {{attribute.subattribute}} evluates to 'true'&lt;/div>
-        &lt;div ba-if='{{attribute.get('property')}}'>This DOM Element will be loaded if {{attribute.get('property')}} evluates to 'true'&lt;/div>
-        &lt;div ba-if='{{attribute == 'load'}}'>This DOM Element will be loaded if {{attribute}} evluates to 'load'&lt;/div>
-        &lt;div ba-show='{{attribute}}'>This DOM Element will be displayed if {{attribute}} evluates to 'true'&lt;/div>
 
-        &lt;-- Classes -->
-        &lt;div ba-class='{{{
-            'always' : true,
-            'sometimes' : {{attribute}},
-            'othertimes' : {{attribute.get('property') == 'other'}},
-            'never' : false
-        }}}'>Some random text&lt;/div>
+    bindings : {
+        parent_dynamic_attribute: &quot;&lt;:attribute_in_parent_dynamic&quot;
+    },
+    scope : {
+        parent_dynamic: &quot;&lt;&quot;
+    },
 
-        &lt;-- Repeat -->
-        &lt;div ba-repeat=&quot;{{item :: ['1','2','3']}}&quot;>
-            &lt;div>
-                &lt;div>The html inside the ba-repeat item will be repeated&lt;/div>
-                &lt;div>The item tag will contain the value of the array (1/2/3): {{item}}&lt;/div>
-            &lt;/div>
+
+    attrs : {
+        some_attribute: true,
+        computed_attribute : 'default value',
+        dependency1 : 'Hel',
+        dependency2 : 'lo'
+
+    },
+    collections : {
+        some_collection: ['one','two']
+    },
+
+    computed : {
+        'computed_attribute:dependency1,dependency2' : function () {
+            return dependency1 + dependency2;
+        }
+    }
+
+    create : {
+        //Reading and writing attribute values
+        var attribute = this.get('some_attribute');
+        this.set('some_attribute',false);
+
+        //Manipulating Collections
+        this.get('some_collection').add('three');
+        this.get('some_collection').remove('one');
+
+        //Accessing other Dynamics
+        var scope_attr = this.scope.parent_dynamic.get('attribute_in_parent_dynamic');
+        var bind_attr = this.get('parent_dynamic_attribute');
+        if (scope_attr == bind_attr)
+            console.log('This is set up correctly');
+
+        //Accessing functions
+        this.call('some_function');
+    },
+
+    functions : {
+        some_function : () {
+            this.element() //to access the element itself
+        }
+    },
+
+    _afterActivate : function (element) {
+        console.log('This message is displayed after the dynamic is activated');
+        //element passes you the element where the Dynamic is active on as a Jquery Object/Element
+        element.find(&quot;.somechildnode&quot;);
+    }
+
+});</code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="blueprint_html">
+			<h3>HTML</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <pre class="prettyprint source lang-html"><code>
+&lt;somedynamic>
+
+&lt;-- Basics -->
+
+    &lt;-- Data bindings -->
+    &lt;databinding>{{attribute}}&lt;/databinding>
+        &lt;-- This is a unidirectional binding, meaning the DOM Element will get updated -->
+        &lt;-- if the Attribute in the Dynamic changes, but it will not update the Attribute in the Dynamics if the DOM changes -->
+    &lt;databinding>{{=attribute}}&lt;/databinding>
+    &lt;-- This is a bidirectional binding -->
+
+    &lt;-- Click Events -->
+    &lt;button ba-click='some_function()'>Click me&lt;/button>
+    &lt;button ba-click='attribute = false'>Click me&lt;/button>
+    &lt;button ba-click='attribute = !attribute'>Click me&lt;/button>
+    &lt;button ba-tap='some_function()'>Click me&lt;/button> &lt;-- Tap is for use in mobile -->
+
+    &lt;-- If/Show -->
+    &lt;div ba-if='{{true}}'>This DOM Element will always be loaded&lt;/div>
+    &lt;div ba-if='{{false}}'>This DOM Element will never be loaded&lt;/div>
+    &lt;div ba-if='{{attribute}}'>This DOM Element will be loaded if {{attribute}} evluates to 'true'&lt;/div>
+    &lt;div ba-if='{{attribute.subattribute}}'>This DOM Element will be loaded if {{attribute.subattribute}} evluates to 'true'&lt;/div>
+    &lt;div ba-if='{{attribute.get('property')}}'>This DOM Element will be loaded if {{attribute.get('property')}} evluates to 'true'&lt;/div>
+    &lt;div ba-if='{{attribute == 'load'}}'>This DOM Element will be loaded if {{attribute}} evluates to 'load'&lt;/div>
+    &lt;div ba-show='{{attribute}}'>This DOM Element will be displayed if {{attribute}} evluates to 'true'&lt;/div>
+
+    &lt;-- Classes -->
+    &lt;div ba-class='{{{
+        'always' : true,
+        'sometimes' : {{attribute}},
+        'othertimes' : {{attribute.get('property') == 'other'}},
+        'never' : false
+    }}}'>Some random text&lt;/div>
+
+    &lt;-- Repeat -->
+    &lt;div ba-repeat=&quot;{{item :: ['1','2','3']}}&quot;>
+        &lt;div>
+            &lt;div>The html inside the ba-repeat item will be repeated&lt;/div>
+            &lt;div>The item tag will contain the value of the array (1/2/3): {{item}}&lt;/div>
         &lt;/div>
+    &lt;/div>
 
-        &lt;-- DOM Events -->
-        &lt;div onmouseover=&quot;{{alert('You moved the mouse over this Element')}}&quot;>&lt;/div>
+&lt;-- Advanced Handlebar Examples -->
 
-        &lt;-- TODO: ba-ignore, check others -->
+    &lt;div class=&quot;{{attribute}}&quot;>Some random text&lt;/div>
+    &lt;div onmouseover=&quot;{{alert('You moved the mouse over this Element')}}&quot;>&lt;/div>
+    &lt;ba-{{attribute}}>Some random text&lt;/ba-{{/attribute}}>
+    &lt;yourcustomtag-{{attribute}}>Some random text&lt;/yourcustomtag-{{/attribute}}>
+    //Note
+    &lt;{{attribute}}>This won't work, because of the way the Browser renders elements&lt;/{{/attribute}}>
 
-        &lt;-- Cool Stuff -->
-        &lt;div class=&quot;{{attribute}}&quot;>Some random text&lt;/div>
-        &lt;ba-{{attribute}}>Some random text&lt;/ba-{{/attribute}}>
-        &lt;yourcustomtag-{{attribute}}>Some random text&lt;/yourcustomtag-{{/attribute}}>
-        &lt;{{attribute}}>This won't work, because of the way the Browser renders elements&lt;/{{/attribute}}>
+&lt;/somedynamic></code></pre>
+		</article>
+	</div>
+	
+	
+	
 
-    &lt;/somedynamic></code></pre>
-</article>
+	
+	
 
-
-
-
-
-    
-<header id="initialize">
-    <h2>Initializing Dynamics</h2>
-</header>
-
-<article>
-    <p>There are currently two ways to create Dynamics:</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="dyn_js">
+			<h2>Dynamics Javascript</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Following is a more detailed description of the Javascript Contoller part of the Dynamics System.</p>
+<p>For a quick Overview please Reference the Blueprint JS:link</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="initialize">
+			<h3>Initializing Dynamics</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>You can create Dynamics both as instances and as classes which can be instantiated.</p>
 <ul>
 <li>As one Instance of a BetaJS Dynamic</li>
 <li>Create a new BetaJS Dynamics Class of which you can create multiple instances</li>
 </ul>
-<h4>Instances</h4><pre class="prettyprint source lang-js"><code>
-    dynamic = new BetaJS.Dynamics.Dynamic({
+<h4>Instance</h4><pre class="prettyprint source lang-js"><code>
+    var dynamic = new BetaJS.Dynamics.Dynamic({
         templateUrl : &quot;templates/template.html&quot;,
+        element: document.body
     });
 
     //This is only necessary if this dynamic is stand-alone
     //If the dynamic is the child of another dynamic it is not necessary
-    dynamic.activate();</code></pre><h4>Classes</h4><p>You can create new Dynamics classes using the code below:</p>
+    dynamic.activate();</code></pre><h4>Class</h4><p>You can create new dynamics classes using the code below:</p>
 <pre class="prettyprint source lang-js"><code>
     BetaJS.Dynamics.Dynamic.extend(&quot;BetaJS.Dynamics.Classname&quot;, {
 
@@ -1988,9 +2349,9 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
     }).register(&quot;ba-htmltagname&quot;);</code></pre><p>These classes can be instanciated in two ways,<br>either in the Javascript,</p>
 <pre class="prettyprint source lang-js"><code>
     var new_instance = new BetaJS.Dynamics.Classname();
-    new_instance.activate();</code></pre><p>or in the DOM:</p>
+    new_instance.activate();</code></pre><p>or by just adding the DOM tagname :</p>
 <pre class="prettyprint source lang-html"><code>
-    &lt;ba-htmltagname>&lt;/ba-htmltagname></code></pre><h4>Conveniencemethods:</h4><p>These Codesnippets are for rapid deployment and easy code-maintainment:</p>
+    &lt;ba-htmltagname>&lt;/ba-htmltagname></code></pre><h4>Convenience Methods:</h4><p>These code snippets can be quickly copy&amp;pasted:</p>
 <ul>
 <li>templateUrl matching the classname</li>
 </ul>
@@ -2020,61 +2381,188 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
     templateUrl: &quot;templates/%/%.html&quot;,
 
     }).register();</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="templates">
-    <h2>Templates</h2>
-</header>
-
-<article>
-    <p>There are currently two ways to link Dynamic code to a template:</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="templates">
+			<h3>Templates</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>There are currently two ways to link dynamic code to a template:</p>
 <ul>
 <li>Internal Templates defined inside the Javascript Code</li>
 <li>External Templates defined in an external file</li>
 </ul>
-<p>They can not both be combined.</p>
-<pre class="prettyprint source lang-js"><code>
-    dynamic = new BetaJS.Dynamics.Dynamic({
-        templateUrl : &quot;templates/template.html&quot;,         //This contains the relative file path to an external template
-        template : &quot;&lt;div>Internal Template&lt;/div>&quot;
-    });</code></pre><h4>Convenience method for template names:</h4><p>If you are using</p>
+<p>They are mutually exclusive.</p>
 <pre class="prettyprint source lang-js"><code>
     dynamic = new BetaJS.Dynamics.Dynamic({
         templateUrl : &quot;templates/template.html&quot;,         //This contains the relative file path to an external template
         template : &quot;&lt;div>Internal Template&lt;/div>&quot;
     });</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="element">
-    <h2>Element</h2>
-</header>
-
-<article>
-    <p>Instead of using templates you can also just link a dynamic<br>to an already existing html element by using Jquery to link to the element.</p>
-<p>If several elements are passed in ??? happens</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="element">
+			<h3>Element</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Instead of using templates, you can also link a dynamic to an already existing html element which will then be evaluated by the dynamics system.</p>
 <pre class="prettyprint source lang-js"><code>
     dynamic = new BetaJS.Dynamics.Dynamic({
         element : $(&quot;.someclass&quot;)
     });</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="_afterActivate">
+			<h3>_afterActivate</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The Code here gets exectued after the dynamic has finished loading in the DOM.</p>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="scopes">
+			<h3>Accessing Dynamics</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Scopes offer a way to directly access Attributes, Collections and Methods in other Dynamics.</p>
+<p>You access other Dynamics by either directly addressing Parent or Children of certain dynamics.</p>
+<p>Basic Usage Example:</p>
+<pre class="prettyprint source lang-js"><code>
+    BetaJS.Dynamics.Dynamic.extend(&quot;BetaJS.Dynamics.Childdynamic&quot;, {
+
+        template : &quot;&lt;div>{{text}}&lt;/div>&quot;
+
+        attrs : {text: &quot;Hello World!&quot;}
+
+        functions : {
+            call_me : function () {
+                alert(&quot;You wanted an alert?&quot;);
+            }
+        }
+
+    });
 
 
+    BetaJS.Dynamics.Dynamic.extend(&quot;BetaJS.Dynamics.ScopeExample&quot;, {
 
-    
-<header id="html-attributes">
-    <h2>HTML Attributes</h2>
-</header>
+        template : &quot;&lt;ba-childdynamic>&lt;ba-childdynamics>&quot;
 
-<article>
-    <h2>Partials</h2><p>Partials are a way to integrate and/or connect the Controller (C of the MVC layout) with the View.<br>They are placed onto HTML DOM elements/nodes and are evaluated by BetaJS-Dynamic Javascript functions who<br>manipulate the related DOM elements/nodes and thus changing the View (V of the MVC).</p>
-<p>The Partials will only work if they are within the Scope of an active Dynamic</p>
-<h4>General layout:</h4><pre class="prettyprint source lang-html"><code>&lt;div ba-partialname=&quot;related attributes/code&quot;>&lt;div></code></pre><h4>Example 1 - ba-if:</h4><p>The ba-if Partial is used to automatically add or remove DOM Elements depending on the<br>boolean value of a given condition.</p>
+        scopes : {
+            child_dynamic: &quot;>[tagname='ba-childdynamic']&quot;,
+        },
+
+        create : {
+            //Examples of Accessing another Dynamics
+            var child_text = this.scopes.child_dynamic.get('text');
+            // child_text will evaluate to &quot;Hello World&quot;
+
+            this.scopes.child_dynamic.set('text','New Hello World Text');
+            //The child dynamic evaluation will now be changed from
+            //&quot;&lt;div>Hello World&lt;/div> to
+            //&quot;&lt;div>New Hello World Text&lt;/div> to
+
+            this.scopes.child_dynamic.call('call_me');
+            // This will call the alert in the childdynamic (You wanted an alert?)
+
+        }
+
+    });</code></pre><p>More examples:</p>
+<pre class="prettyprint source lang-js"><code>
+    BetaJS.Dynamics.Dynamic.extend(&quot;BetaJS.Dynamics.ScopeExample&quot;, {
+
+        scopes : {
+            //This gives you the Dynamic
+            parent_dynamic: &quot;&lt;&quot;,
+            specific_child: &quot;>[tagname='ba-tagname']&quot;,
+            specific_in_all_children: &quot;>+[tagname='ba-tagname']&quot;
+
+            //This gives you a query result of the Dynamics
+            child_dynamics: &quot;>&quot;,
+            all_children: &quot;>+&quot;,
+            parents_children_dynamics: &quot;&lt;>&quot;,
+            parents_childrens_children_dynamics: &quot;&lt;>>&quot;,
+        },
+
+        create : {
+
+            //Examples of Accessing other Dynamics
+
+            //Directly
+            var scope_attr = this.scopes.parent_dynamic.get('attribute_in_parent_dynamic');
+            // scope_attr is an attribute from the parent_dynamic
+
+            //Query Collection
+            var json_data = this.scopes.child_dynamics.get(0);
+            // json_data is a JSON object that contains the attribute values from the first child_dynamic
+            var json_data = this.scopes.child_dynamics.get(0).materialize();
+
+        }
+
+    });</code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="html-attributes">
+			<h2>DOM Partials</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <h2>Partials</h2><p>Partials are placed onto HTML DOM elements/nodes and are evaluated by the dynamics system, manipulating the related DOM elements/nodes and thus changing the view.</p>
+<h4>General layout:</h4><pre class="prettyprint source lang-html"><code>&lt;div ba-partialname=&quot;related attributes/code&quot;>&lt;div></code></pre><h4>Example 1 - ba-if:</h4><p>The ba-if Partial is used to automatically add or remove DOM elements and subdynamics depending on the boolean value of a given condition.</p>
 <pre class="prettyprint source lang-html"><code>&lt;div ba-if=&quot;{{1 === 1}}&quot;>&lt;h1>Hi&lt;/h1>&lt;div></code></pre><p>Will evaluate to</p>
 <pre class="prettyprint source lang-html"><code>&lt;div>&lt;h1>Hi&lt;/h1>&lt;div></code></pre><p>And</p>
 <pre class="prettyprint source lang-html"><code>&lt;div ba-if=&quot;{{1 === 2}}&quot;>&lt;h1>Hi&lt;/h1>&lt;div></code></pre><p>Will evaluate to</p>
@@ -2094,86 +2582,97 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 <li>ba-template-url</li>
 <li>ba-ignore</li>
 </ul>
-</article>
-
-    
-<header id="ba-click">
-    <h2>The ba-click Partial</h2>
-</header>
-
-<article>
-    <p>The ba-click Partial executes the code passed into it when the User clicks on the related DOM element.<br>(or calls a function from the related Dynamic).</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ba-click">
+			<h3>ba-click</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The ba-click partial executes the code passed into it when the user clicks on the related DOM element. (or calls a function defined in the dynamic)</p>
 <h4>Example 1:</h4><p>Will call an alert pop-up</p>
-<pre class="prettyprint source lang-html"><code>&lt;div ba-click=&quot;alert('Hi')&quot;>&lt;h1>Hi&lt;/h1>&lt;div></code></pre><h4>Example 2:</h4><p>Will Show/Hide the &quot;<h1>Hi</h1>&quot;  element when you click on the surrounding div element.</p>
+<pre class="prettyprint source lang-html"><code>&lt;div ba-click=&quot;alert('Hi')&quot;>&lt;h1>Hi&lt;/h1>&lt;div></code></pre><h4>Example 2:</h4><p>Will Show/Hide the h1-element when you click on the surrounding div element.</p>
 <pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot; ba-click=&quot;boolean != boolean&quot;>
     &lt;h1 ba-show=&quot;boolean&quot;>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
         element: $(&quot;.some_class&quot;),
-        initial:  {
-            attrs : {
-                boolean : true
-            }
+        attrs : {
+            boolean : true
         }
     });</code></pre><h4>Example 3:</h4><p>Will also call an alert pop-up</p>
 <pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot; ba-click=&quot;some_function()&quot;>
     &lt;h1>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
         element: $(&quot;.some_class&quot;),
-        initial:  {
-            functions : {
-                some_function : function () {
-                    alert('Another alert');
-                }
+        functions : {
+            some_function : function () {
+                alert('Another alert');
             }
         }
     });</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="ba-tap">
-    <h2>The ba-tap Partial</h2>
-</header>
-
-<article>
-    <p>The ba-tap partial is similar to the ba-click and is meant to be used with touchscreen interfaces,<br>it executes the code passed into it, or calls a function from the related Dynamic when the user taps on the screen.</p>
-<h4>Note</h4><p>In particular this partial is useful when the ba-click experiences a delay on touchscreen surfaces.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ba-tap">
+			<h3>ba-tap</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The ba-tap partial is similar to the ba-click and is meant to be used with touchscreen interfaces for faster click response times.</p>
 <h4>Example 1:</h4><p>Will call an alert pop-up</p>
-<pre class="prettyprint source lang-html"><code>&lt;div ba-tap=&quot;alert('Hi')&quot;>&lt;h1>Hi&lt;/h1>&lt;div></code></pre><h4>Example 2:</h4><p>Will Show/Hide the &quot;<h1>Hi</h1>&quot;  element when you click on the surrounding div element.</p>
+<pre class="prettyprint source lang-html"><code>&lt;div ba-tap=&quot;alert('Hi')&quot;>&lt;h1>Hi&lt;/h1>&lt;div></code></pre><h4>Example 2:</h4><p>Will toggle the heading element when you click on the surrounding div element.</p>
 <pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot; ba-tap=&quot;boolean != boolean&quot;>
     &lt;h1 ba-show=&quot;boolean&quot;>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
         element: $(&quot;.some_class&quot;),
-        initial:  {
-            attrs : {
-                boolean : true
-            }
+        attrs : {
+            boolean : true
         }
-    });</code></pre><h4>Example 3:</h4><p>Will also call an alert pop-up</p>
+    });</code></pre><h4>Example 3:</h4><p>Will call an alert pop-up</p>
 <pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot; ba-tap=&quot;some_function()&quot;>
     &lt;h1>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
         element: $(&quot;.some_class&quot;),
-        initial:  {
-            functions : {
-                some_function : function () {
-                    alert('Another alert');
-                }
+        functions : {
+            some_function : function () {
+                alert('Another alert');
             }
         }
     });</code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="ba-class">
-    <h2>The ba-class Partial</h2>
-</header>
-
-<article>
-    <p>The ba-class Partial dynamically sets the class of a given element based on<br>the boolean value of a given expression</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ba-class">
+			<h3>ba-class</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The ba-class partial dynamically sets the css class of a given element based on the boolean value of a given expression</p>
 <h4>Example</h4><pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot; ba-class=&quot;{{{
             &quot;class_a&quot; : true,
             &quot;class_b&quot; : 1===2,
@@ -2182,37 +2681,42 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
     &lt;h1>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
         element: $(&quot;.some_class&quot;),
-        initial:  {
-            attrs : {
-                some_property : true
-            }
+        attrs : {
+            some_property : true
         }
     });</code></pre><p>Evaluates to</p>
 <pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class class_a class_c&quot;
     &lt;h1>Hi&lt;/h1>
 &lt;div></code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="ba-show">
-    <h2>The ba-show Partial</h2>
-</header>
-
-<article>
-    <p>The ba-show Partial is used to automatically show or hide DOM Elements depending on the<br>boolean value of a given condition.</p>
-<h4>Note</h4><p>Ba-if is really just a convenience method to show/hide DOM elements.</p>
-<p>If ba-show evaluates to false it will apply the css property &quot;display: none&quot; to the DOM element it is placed on.<br>In comparison if ba-if evaluates to false it will also free all the resources of all underlying dynamics.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ba-show">
+			<h3>ba-show</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The ba-show partial is used to automatically show or hide DOM Elements depending on the boolean value of a given condition.</p>
+<h4>Note</h4><p>ba-show is really just a convenience method to show/hide DOM elements.</p>
+<p>If ba-show evaluates to false it will apply the css property &quot;display: none&quot; to the DOM element it is placed on. In comparison, if ba-if evaluates to false it will also free all the resources of all underlying dynamics.</p>
 <p>ba-if:</p>
 <ul>
-<li>Less memory usage</li>
-<li>Potentially slower loading time</li>
+<li>(+) Less memory usage</li>
+<li>(-) Potentially slower loading time</li>
 </ul>
 <p>ba-show:</p>
 <ul>
-<li>Faster loading time</li>
-<li>More memory</li>
+<li>(+) Faster loading time</li>
+<li>(-) More memory</li>
 </ul>
 <h4>Example 1:</h4><pre class="prettyprint source lang-html"><code>&lt;div ba-show=&quot;{{1 === 1}}&quot;>&lt;h1>Hi&lt;/h1>&lt;div></code></pre><p>Will evaluate to</p>
 <pre class="prettyprint source lang-html"><code>&lt;div>&lt;h1>Hi&lt;/h1>&lt;div></code></pre><p>And</p>
@@ -2221,10 +2725,8 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
     &lt;h1>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
         element: $(&quot;.some_class&quot;),
-        initial:  {
-            attrs : {
-                some_attribute: true
-            }
+        attrs : {
+            some_attribute: true
         }
     });</code></pre><p>Will evaluate to</p>
 <pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot;>
@@ -2234,27 +2736,34 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 <pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot;>
     &lt;h1 style='display: none'>Hi&lt;/h1>
 &lt;div></code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="ba-if">
-    <h2>The ba-if Partial</h2>
-</header>
-
-<article>
-    <p>The ba-if Partial is used to automatically display or hide DOM Elements depending on the<br>boolean value of a given condition.</p>
-<h4>Note</h4><p>If ba-if evaluates to false it will free all the resources of all underlying dynamics.<br>In comparison ba-show does not do this.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ba-if">
+			<h3>ba-if</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The ba-if partial is used to automatically display or hide DOM Elements depending on the boolean value of a given condition.</p>
+<h4>Note</h4><p>If ba-if evaluates to false it will free all the resources of all underlying dynamics. In comparison ba-show does not do this.</p>
 <p>ba-if:</p>
 <ul>
-<li>Less memory usage</li>
-<li>Potentially slower loading time</li>
+<li>(+) Less memory usage</li>
+<li>(-) Potentially slower loading time</li>
 </ul>
 <p>ba-show:</p>
 <ul>
-<li>Faster loading time</li>
-<li>More memory</li>
+<li>(+) Faster loading time</li>
+<li>(-) More memory</li>
 </ul>
 <h4>Example 1:</h4><pre class="prettyprint source lang-html"><code>&lt;div ba-if=&quot;{{1 === 1}}&quot;>&lt;h1>Hi&lt;/h1>&lt;div></code></pre><p>Will evaluate to</p>
 <pre class="prettyprint source lang-html"><code>&lt;div>&lt;h1 style=&quot;display:block;&quot;>Hi&lt;/h1>&lt;div></code></pre><p>And</p>
@@ -2263,10 +2772,8 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
     &lt;h1>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
         element: $(&quot;.some_class&quot;),
-        initial:  {
-            attrs : {
-                some_attribute: true
-            }
+        attrs : {
+            some_attribute: true
         }
     });</code></pre><p>Will evaluate to</p>
 <pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot; style=&quot;display:block;&quot;>
@@ -2275,28 +2782,43 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
 <pre class="prettyprint source lang-js"><code>    some_dynamic.set(&quot;some_attribute&quot;,false);</code></pre><p>The View will be changed to</p>
 <pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot;>
 &lt;div></code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ba-ignore">
+			<h3>ba-ignore</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The ba-ignore partial disables the loading of the dynamic it is placed on.</p>
+<p>This is particulary useful if you need to bind an outside view engine to a particular dom element.</p>
+		</article>
+	</div>
+	
+	
+	
 
-
-    
-<header id="ba-ignore">
-    <h2>ba-ignore</h2>
-</header>
-
-<article>
-    <p>The ba-ignore Partial disables the loading of the Dynamic it is placed on.</p>
-</article>
-
-
-
-    
-<header id="ba-repeat">
-    <h2>The ba-repeat Partial</h2>
-</header>
-
-<article>
-    <h3>Introduction</h3><p>The ba-repeat partial repeats the containing DOM elements of the DOM Elements it is placed a certain number of times.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ba-repeat">
+			<h3>ba-repeat</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <h4>Introduction</h4><p>The ba-repeat partial repeats the containing DOM elements of the DOM Elements it is placed in a certain number of times.</p>
 <h5>Example 1:</h5><pre class="prettyprint source lang-html"><code>&lt;ul ba-repeat=&quot;{{ i :: [1,2] }}&quot;>
     &lt;li>{{i}}&lt;/li>
 &lt;/ul></code></pre><p>Evaluates to</p>
@@ -2305,13 +2827,11 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
     &lt;li>2&lt;/li>
 &lt;/ul></code></pre><h5>Example 2:</h5><pre class="prettyprint source lang-js"><code>    dynamic = new BetaJS.Dynamics.Dynamic({
         element: $(&quot;.some_class&quot;),
-        initial:  {
-            collections : {
-                named_collection: [
-                    {item_name : &quot;Apple&quot;, item_index : &quot;1&quot;},
-                    {item_name : &quot;Orange&quot;, item_index : &quot;2&quot;},
-                ]
-            }
+        collections : {
+            named_collection: [
+                {item_name : &quot;Apple&quot;, item_index : &quot;1&quot;},
+                {item_name : &quot;Orange&quot;, item_index : &quot;2&quot;},
+            ]
         }
     });</code></pre><pre class="prettyprint source lang-html"><code>    &lt;div class=&quot;some_class&quot; ba-repeat=&quot;{{ item ::  named_collection}}&quot;>
         &lt;div>
@@ -2328,7 +2848,7 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
         &lt;span>Orange&lt;/span>
         &lt;span>2&lt;/span>
     &lt;/div>
-&lt;/div></code></pre><h3>Advanced</h3><h4>Filters</h4><p>Filters are a way of defining rules to limit the number of items shown by the ba-repeat Partial.</p>
+&lt;/div></code></pre><h4>Advanced</h4><h5>Filters</h5><p>Filters are a way of defining rules to limit the number of items shown by the ba-repeat partial.</p>
 <h5>Example 1:</h5><pre class="prettyprint source lang-html"><code>&lt;ul ba-repeat=&quot;{{ i ~ i == 2 :: [1,2] }}&quot;>
     &lt;li>{{i}}&lt;/li>
 &lt;/ul></code></pre><p>Evaluates to</p>
@@ -2336,13 +2856,11 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
     &lt;li>2&lt;/li>
 &lt;/ul></code></pre><h5>Example 2:</h5><pre class="prettyprint source lang-js"><code>    dynamic = new BetaJS.Dynamics.Dynamic({
         element: $(&quot;.some_class&quot;),
-        initial:  {
-            collections : {
-                named_collection: [
-                    {item_name : &quot;Apple&quot;, item_index : &quot;1&quot;},
-                    {item_name : &quot;Orange&quot;, item_index : &quot;2&quot;},
-                ]
-            }
+        collections : {
+            named_collection: [
+                {item_name : &quot;Apple&quot;, item_index : &quot;1&quot;},
+                {item_name : &quot;Orange&quot;, item_index : &quot;2&quot;},
+            ]
         }
     });</code></pre><pre class="prettyprint source lang-html"><code>    &lt;div class=&quot;some_class&quot; ba-repeat=&quot;{{ item ~ item.item_index == 1 ::  named_collection}}&quot;>
         &lt;div>
@@ -2355,25 +2873,49 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
         &lt;span>Apple&lt;/span>
         &lt;span>1&lt;/span>
     &lt;/div>
-&lt;/div></code></pre><h3>ba-repeat-element</h3><p>ba-repeat-element is a special form of ba-repeat, it repeats the element it is placed on itself.<br>The ba-repeat is the preferred partial due to performance.</p>
+&lt;/div></code></pre><h4>Sort</h4><p>Sort is a way to define a sorting algorithm for collection in the ba-repeat partial.</p>
+<h5>Example 1:</h5><pre class="prettyprint source lang-js"><code>var dynamic = new BetaJS.Dynamics.Dynamic({
+    element: root.get(0),
+    collections: {
+        items: [{test: &quot;A&quot;}, {test: &quot;D&quot;}, {test: &quot;C&quot;}, {test: &quot;B&quot;}]
+    }
+});
+dynamic.get(&quot;items&quot;).set_compare(function (x, y) {
+    return x.get(&quot;test&quot;) &lt; y.get(&quot;test&quot;) ? 1 : -1;
+});</code></pre><pre class="prettyprint source lang-html"><code>&lt;ul ba-repeat=&quot;{{ item :: items }}&quot;>
+    &lt;li>{{item}}&lt;/li>
+&lt;/ul></code></pre><p>Evaluates to</p>
+<pre class="prettyprint source lang-html"><code>&lt;ul>
+    &lt;li>A&lt;/li>
+    &lt;li>B&lt;/li>
+    &lt;li>C&lt;/li>
+    &lt;li>D&lt;/li>
+&lt;/ul></code></pre><h4>ba-repeat-element</h4><p>ba-repeat-element is a special form of ba-repeat, it repeats the element it is placed on itself. The ba-repeat is the preferred partial due to performance.</p>
 <h5>Example :</h5><pre class="prettyprint source lang-html"><code>&lt;ul>
-    &lt;li ba-repeat=&quot;{{ i :: [1,2] }}&quot;>{{i}}&lt;/li>
+    &lt;li ba-repeat-element=&quot;{{ i :: [1,2] }}&quot;>{{i}}&lt;/li>
 &lt;/ul></code></pre><p>Evaluates to</p>
 <pre class="prettyprint source lang-html"><code>&lt;ul>
     &lt;li>1&lt;/li>
     &lt;li>2&lt;/li>
 &lt;/ul></code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="ba-attrs">
-    <h2>ba-attrs</h2>
-</header>
-
-<article>
-    <p>The ba-attrs Partial allows you to set initial property values for a dynamic from within its DOM scope.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ba-attrs">
+			<h3>ba-attrs</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The ba-attrs Partial allows you to set initial property values for a dynamic from within its DOM scope.</p>
 <h4>Example:</h4><pre class="prettyprint source lang-html"><code>    &lt;div class=&quot;some_class&quot; ba-attrs=&quot;{{{foobar: 'xyz'}}}&quot;>
         &lt;ba-innertest ba-attrs=&quot;{{{tester: 'abc'}}}&quot;>
         &lt;/ba-innertest>
@@ -2390,143 +2932,92 @@ Scoped.extend('ns:module', ['ns1:dependency1', 'ns2:dependency2', 'ns3:dependenc
         &lt;outer>abc&lt;/outer>&lt;inner>&lt;/inner>
     &lt;/div>
     &lt;testouter>&lt;/testouter>&lt;testinner>xyz&lt;/testinner></code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="ba-on">
-    <h2>ba-on</h2>
-</header>
-
-<article>
-    <p>The ba-on Partial executes the code passed into it when the specified DOM event is fired.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ba-on">
+			<h3>ba-on</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The ba-on partial executes the code passed into it when the specified DOM event is fired.</p>
 <h4>Example:</h4><p>Will call an alert if somebody hovers the mouse over the element</p>
 <pre class="prettyprint source lang-html"><code>&lt;div ba-on:mouseover=&quot;alert('Hi')&quot;>Hover me&lt;div></code></pre>
-</article>
+		</article>
+	</div>
+	
+	
+	
 
-
-
-    
-<header id="ba-return">
-    <h2>The ba-return Partial</h2>
-</header>
-
-<article>
-    <p>The ba-return Partial executes the code passed into it, or calls a function from the related Dynamic,<br>when the user presses the return/enter key when he is in the input field this is placed on.</p>
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ba-return">
+			<h3>ba-return</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The ba-return partial executes the code passed into it, or calls a function from the related dynamic, when the user presses the return/enter key when he is in the input field this is placed on.</p>
 <h4>Example:</h4><p>Will call an alert pop-up displaying the text in the input field.</p>
-<pre class="prettyprint source lang-html"><code>&lt;/input ba-return=&quot;alert({{input_value}})&quot; value={{input_value}}></code></pre>
-</article>
+<pre class="prettyprint source lang-html"><code>&lt;input ba-return=&quot;alert({{input_value}})&quot; value={{input_value}} /></code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
 
 
-
-
-
-
-
-
-
-<footer>
-
-
-	<span class="copyright">
-	BetaJS (c) - MIT License
-	</span>
-	<br />
-
-<span class="jsdoc-message">
-	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-	on Sun Nov 22 2015.
-</span>
+				</div>
+            </div>
+        </div>
+    </section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
 </footer>
 
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
 
-
-</content>
-
-</main>
-
-
-
-<style>
-html, body {
-  height : 100%;
-  margin :  0px;
-
-  display : flex;
-  flex-direction : column;
-}
-
-header {
-  flex :  0 0 50px;
-}
-
-main {
-  flex : 1 1 0;
-  display : flex;
-}
-
-menu, content {
-  margin : 0;
-  padding : 20px 0 20px 20px;
-  overflow : scroll;
-}
-
-menu {
-  flex : 0 0 200px;
-  border-right : 1px solid lightsteelblue;
-}
-
-content {
-  flex: 1 1 0;
-}
-
-.bs-sidenav .nav a {
-  height : 30px;
-  line-height : 30px;
-  padding : 0 0 0 30px ;
-  font-size : 12px ;
-}
-
-</style>
-	
-		<script src="scripts/sunlight.js"></script>
-		<script src="scripts/docstrap.lib.js"></script>
-		<script src="scripts/bootstrap.js"></script>
+		<!--Google Analytics-->
+		
 		<script>
-            $( ".tutorial-section pre, .readme-section pre" ).each( function () {
-                var $this = $( this );
-        
-                var example = $this.find( "code" );
-                exampleText = example.html();
-                var lang = /{@lang (.*?)}/.exec( exampleText );
-                if ( lang && lang[1] ) {
-                    exampleText = exampleText.replace( lang[0], "" );
-                    example.html( exampleText );
-                    lang = lang[1];
-                } else {
-                    lang = "javascript";
-                }
-        
-                if ( lang ) {
-        
-                    $this
-                    .addClass( "sunlight-highlight-" + lang )
-                    .addClass( "linenums" )
-                    .html( example.html() );
-        
-                }
-            } );
-  			Sunlight.highlightAll( {
-				lineNumbers : true,
-				showMenu : true,
-				enableDoclinks : true
-			} );
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
 		</script>
-        <script src="scripts/beta.js"></script>
-        <script src="scripts/beta-browser.js"></script>
-        <script src="scripts/betajs-dynamics.js"></script>
-
+		
+		
 	</body>
 	
 </html>

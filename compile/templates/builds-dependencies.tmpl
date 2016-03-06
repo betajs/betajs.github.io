@@ -1,0 +1,42 @@
+<?js
+
+		var mapper = function (deps) {
+			var result = [];
+			if (deps) {
+				for (var key in deps)
+					result.push(key);
+			}
+			return result.join(", ");
+		};
+		
+?>
+
+
+
+<h4>Dependencies</h4>
+<p>The single packages have the following dependencies:</p>
+<br>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Module</th>
+                <th>Dependencies</th>
+                <th>Weak Dependencies</th>
+            </tr>
+        </thead>
+
+        <tbody>
+			<?js
+				for (var fkey in this.custom.frameworks) {
+					var framework = this.custom.frameworks[fkey];
+			?>
+	            <tr>
+	                <td class="td-highlight brown"><?js= fkey ?></td>
+	                <td><?js= mapper(framework.meta.dependencies) ?></td>
+	                <td><?js= mapper(framework.meta.weakDependencies) ?></td>
+	            </tr>
+	        <?js } ?>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,25 @@
+<header class="home_header">
+	<?js= header ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1><?js= this.custom.pkg.description ?></h1>
+
+                    <p class="text-center"><a class="btn btn-default btn-outline white btn-lg" href="builds.html">Download</a></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="content-wraper">
+
+	<?js= render.renderTemplate('main-benefits') ?>
+	<?js= render.renderTemplate('main-modules') ?>
+	<?js= render.renderTemplate('main-examples') ?>
+	<?js= render.renderTemplate('main-contributors') ?>
+	<?js= render.renderTemplate('main-bottom-cta') ?>
+	
+</div>
