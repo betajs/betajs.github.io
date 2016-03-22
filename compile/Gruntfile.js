@@ -132,22 +132,17 @@ module.exports = function(grunt) {
 											"first": true,
 											"url": "index.html"
 										},
+										"blog": {
+											"title": "Blog",
+											"url": PACKAGE.meta.blog,
+											"navbar": true
+										},
 										"builds": {
 											"title": "Builds",
 											"navbar": true,
 											"first": false,
 											"template": "builds"
-										}/*,
-										"blog": {
-											"title": "Blog",
-											"url": PACKAGE.meta.blog,
-											"navbar": true
-										}*//*,
-										"github": {
-											"title": "GitHub",
-											"url": PACKAGE.repository.url.replace("git://", "http://").replace(".git", ""),
-											"navbar": true
-										}*/
+										}
 									}									
 								}
 							}
