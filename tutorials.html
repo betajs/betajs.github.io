@@ -446,6 +446,38 @@
 			</ul>
 		</li>
 	
+		<li>
+			<a href="#betajs-media-components" class="has-dropdown">betajs-media-components</a>
+			<ul>
+				
+					<li>
+						<a href="#video_player_component" class="has-dropdown">Video Player Component</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#embedding_video_player_component">Embedding</a>
+									</li>
+								
+									<li>
+										<a href="#advanced_video_player_component">Advanced Options</a>
+									</li>
+								
+									<li>
+										<a href="#themes_video_player_component">Themes</a>
+									</li>
+								
+									<li>
+										<a href="#locales_video_player_component">Locales</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+			</ul>
+		</li>
+	
 </ul>
                     </div>
                 </div>
@@ -2982,6 +3014,154 @@ dynamic.get(&quot;items&quot;).set_compare(function (x, y) {
 		    <p>The ba-return partial executes the code passed into it, or calls a function from the related dynamic, when the user presses the return/enter key when he is in the input field this is placed on.</p>
 <h4>Example:</h4><p>Will call an alert pop-up displaying the text in the input field.</p>
 <pre class="prettyprint source lang-html"><code>&lt;input ba-return=&quot;alert({{input_value}})&quot; value={{input_value}} /></code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="betajs-media-components">
+			<h1>betajs-media-components</h1>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>BetaJS-Media-Components is a JavaScript media UI components framework</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="video_player_component">
+			<h2>Video Player Component</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Our video player is a dynamic component named <code>ba-videoplayer</code>.</p>
+<p>Its main parameters are <code>poster</code> and <code>source</code>, specifying the <code>poster</code> image as well as the video <code>source</code> file.</p>
+<p>Depending on the browser, device and video format at hand, the system will automatically determine whether HTML 5 video can used or whether to fall back to Flash.</p>
+<p>If you want to use Flash, make sure to initialize the Flash bridging framework of BetaJS:</p>
+<pre class="prettyprint source lang-javascript"><code>    BetaJS.Flash.options = {
+        flashFile: &quot;http://files.betajs.com/betajs-flash.swf&quot; // location of your flash file
+    };</code></pre>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="embedding_video_player_component">
+			<h3>Embedding</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>As always with the dynamics system, there are two ways to to activate it.</p>
+<p>You can embed it somewhere in the HTML dom and active the dynamic system on of its parent nodes (here: on the document body):</p>
+<pre class="prettyprint source lang-html"><code>    &lt;ba-videoplayer ba-loop ba-poster=&quot;...&quot; ba-source=&quot;...&quot;>
+    &lt;/ba-videoplayer></code></pre><pre class="prettyprint source lang-javascript"><code>    BetaJS.Dynamics.Dynamic.activate();</code></pre><p>The other way is to define a parent dom node and embed it via JavaScript:</p>
+<pre class="prettyprint source lang-html"><code>    &lt;div id='parent'>&lt;/div></code></pre><pre class="prettyprint source lang-javascript"><code>    var player = BetaJS.MediaComponents.VideoPlayer.Dynamics.Player({
+        element: document.getElementById('parent'),
+        attrs: {
+            poster: &quot;...&quot;,
+            source: &quot;...&quot;
+        }
+    });
+    player.activate();</code></pre><p>The particular sizing of the player can be set by adding normal css classes or styles to the <code>ba-videoplayer</code> element.</p>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="advanced_video_player_component">
+			<h3>Advanced Options</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The advanced options allow you to configure the player even more precisely:</p>
+<ul>
+<li>forceflash: Always use Flash instead of HTML5</li>
+<li>noflash: Never use Flash</li>
+<li>autoplay: Immediately play the video back</li>
+<li>preload: Preload the video file immediately</li>
+<li>loop: Loop the video file</li>
+<li>nofullscreen: Disallow the fullscreen button</li>
+<li>stretch: Stretch the video to fill the surrounding container </li>
+</ul>
+<p>For example:</p>
+<pre class="prettyprint source lang-html"><code>    &lt;ba-videoplayer ba-stretch ba-nofullscreen ba-loop ba-poster=&quot;...&quot; ba-source=&quot;...&quot;>
+    &lt;/ba-videoplayer></code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="themes_video_player_component">
+			<h3>Themes</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Themes are a combination of CSS classes, HTML templates and potentially subdynamics.</p>
+<p>The <code>default</code> theme is automatically applied to the player if not otherwise specified and looks as follows:</p>
+<iframe width="100%" height="290px" src="http://jsfiddle.net/betajs/1vt9y816/3/embedded/html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+<p>The <code>modern</code> theme can be manually applied:</p>
+<iframe width="100%" height="290px" src="http://jsfiddle.net/betajs/8gznkemj/3/embedded/html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="locales_video_player_component">
+			<h3>Locales</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The system supports multiple locales, fully independent of the selected theme.</p>
+<p>The current locales is auto-detected by analysing the browser at hand, but can also be overwritten explicitly:</p>
+<pre class="prettyprint source lang-javascript"><code>    BetaJS.MediaComponents.Assets.strings.setLocale(&quot;de&quot;);</code></pre><p>Whenever a particular string asset doesn't exist in the specified locale, the system automatically falls back to the default string in English.</p>
+<p>You can also define your own locale:</p>
+<pre class="prettyprint source lang-javascript"><code>    BetaJS.MediaComponents.Assets.strings.register({
+        &quot;ba-videoplayer-playbutton.tooltip&quot;: &quot;Klaki ludi video.&quot; 
+    }, [&quot;language:esperanto&quot;]);</code></pre>
 		</article>
 	</div>
 	

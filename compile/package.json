@@ -60,7 +60,8 @@
          "betajs",
          "betajs-browser",
          "betajs-data",
-         "betajs-dynamics"
+         "betajs-dynamics",
+         "betajs-media-components"
       ]
    }
 }

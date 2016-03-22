@@ -91,63 +91,16 @@
 	
 
 		<header>
-		    <h2>HTML</h2>
+		    <h2>Themes</h2>
 		</header>
 		
 		<article>
-		    <pre class="prettyprint source lang-html"><code>
-&lt;somedynamic>
+		    <p>Themes are a combination of CSS classes, HTML templates and potentially subdynamics.</p>
+<p>The <code>default</code> theme is automatically applied to the player if not otherwise specified and looks as follows:</p>
+<iframe width="100%" height="290px" src="http://jsfiddle.net/betajs/1vt9y816/3/embedded/html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-&lt;-- Basics -->
-
-    &lt;-- Data bindings -->
-    &lt;databinding>{{attribute}}&lt;/databinding>
-        &lt;-- This is a unidirectional binding, meaning the DOM Element will get updated -->
-        &lt;-- if the Attribute in the Dynamic changes, but it will not update the Attribute in the Dynamics if the DOM changes -->
-    &lt;databinding>{{=attribute}}&lt;/databinding>
-    &lt;-- This is a bidirectional binding -->
-
-    &lt;-- Click Events -->
-    &lt;button ba-click='some_function()'>Click me&lt;/button>
-    &lt;button ba-click='attribute = false'>Click me&lt;/button>
-    &lt;button ba-click='attribute = !attribute'>Click me&lt;/button>
-    &lt;button ba-tap='some_function()'>Click me&lt;/button> &lt;-- Tap is for use in mobile -->
-
-    &lt;-- If/Show -->
-    &lt;div ba-if='{{true}}'>This DOM Element will always be loaded&lt;/div>
-    &lt;div ba-if='{{false}}'>This DOM Element will never be loaded&lt;/div>
-    &lt;div ba-if='{{attribute}}'>This DOM Element will be loaded if {{attribute}} evluates to 'true'&lt;/div>
-    &lt;div ba-if='{{attribute.subattribute}}'>This DOM Element will be loaded if {{attribute.subattribute}} evluates to 'true'&lt;/div>
-    &lt;div ba-if='{{attribute.get('property')}}'>This DOM Element will be loaded if {{attribute.get('property')}} evluates to 'true'&lt;/div>
-    &lt;div ba-if='{{attribute == 'load'}}'>This DOM Element will be loaded if {{attribute}} evluates to 'load'&lt;/div>
-    &lt;div ba-show='{{attribute}}'>This DOM Element will be displayed if {{attribute}} evluates to 'true'&lt;/div>
-
-    &lt;-- Classes -->
-    &lt;div ba-class='{{{
-        'always' : true,
-        'sometimes' : {{attribute}},
-        'othertimes' : {{attribute.get('property') == 'other'}},
-        'never' : false
-    }}}'>Some random text&lt;/div>
-
-    &lt;-- Repeat -->
-    &lt;div ba-repeat=&quot;{{item :: ['1','2','3']}}&quot;>
-        &lt;div>
-            &lt;div>The html inside the ba-repeat item will be repeated&lt;/div>
-            &lt;div>The item tag will contain the value of the array (1/2/3): {{item}}&lt;/div>
-        &lt;/div>
-    &lt;/div>
-
-&lt;-- Advanced Handlebar Examples -->
-
-    &lt;div class=&quot;{{attribute}}&quot;>Some random text&lt;/div>
-    &lt;div onmouseover=&quot;{{alert('You moved the mouse over this Element')}}&quot;>&lt;/div>
-    &lt;ba-{{attribute}}>Some random text&lt;/ba-{{/attribute}}>
-    &lt;yourcustomtag-{{attribute}}>Some random text&lt;/yourcustomtag-{{/attribute}}>
-    //Note
-    &lt;{{attribute}}>This won't work, because of the way the Browser renders elements&lt;/{{/attribute}}>
-
-&lt;/somedynamic></code></pre>
+<p>The <code>modern</code> theme can be manually applied:</p>
+<iframe width="100%" height="290px" src="http://jsfiddle.net/betajs/8gznkemj/3/embedded/html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 		</article>
 		
 		</section>
@@ -195,62 +148,55 @@
 				betajs-dynamics
 			</span>
 		</a> 
-		
-	
-		<a class="list-group-item " href="tutorial-intro.html">
-			<span class="toc-h2">
-				Introduction
-			</span>
-		</a> 
 				
-	
-		<a class="list-group-item " href="tutorial-blueprint.html">
-			<span class="toc-h2">
-				Blueprints
-			</span>
-		</a> 
-		
-	
-		<a class="list-group-item " href="tutorial-blueprint_js.html">
-			<span class="toc-h3">
-				Javascript
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item active" href="tutorial-blueprint_html.html">
-			<span class="toc-h3">
-				HTML
-			</span>
-		</a> 
-		
-	
-		
-	
-		
-	
-		<a class="list-group-item " href="tutorial-dyn_js.html">
-			<span class="toc-h2">
-				Dynamics Javascript
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-html-attributes.html">
-			<span class="toc-h2">
-				DOM Partials
-			</span>
-		</a> 
-				
-	
-		
 	
 		<a class="list-group-item " href="tutorial-betajs-media-components.html">
 			<span class="toc-h1">
 				betajs-media-components
 			</span>
 		</a> 
+		
+	
+		<a class="list-group-item " href="tutorial-video_player_component.html">
+			<span class="toc-h2">
+				Video Player Component
+			</span>
+		</a> 
+		
+	
+		<a class="list-group-item " href="tutorial-embedding_video_player_component.html">
+			<span class="toc-h3">
+				Embedding
+			</span>
+		</a> 
 				
+	
+		<a class="list-group-item " href="tutorial-advanced_video_player_component.html">
+			<span class="toc-h3">
+				Advanced Options
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item active" href="tutorial-themes_video_player_component.html">
+			<span class="toc-h3">
+				Themes
+			</span>
+		</a> 
+		
+	
+		
+	
+		<a class="list-group-item " href="tutorial-locales_video_player_component.html">
+			<span class="toc-h3">
+				Locales
+			</span>
+		</a> 
+				
+	
+		
+	
+		
 	
 
 </div>
