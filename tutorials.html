@@ -447,6 +447,38 @@
 		</li>
 	
 		<li>
+			<a href="#betajs-flash" class="has-dropdown">betajs-flash</a>
+			<ul>
+				
+					<li>
+						<a href="#flash_bridging" class="">Flash Bridging</a>
+						
+					</li>
+				
+					<li>
+						<a href="#flash_registry" class="">Flash Registry</a>
+						
+					</li>
+				
+					<li>
+						<a href="#embedding_flash" class="">Embedding Flash</a>
+						
+					</li>
+				
+					<li>
+						<a href="#flash_objects" class="">Flash Objects</a>
+						
+					</li>
+				
+					<li>
+						<a href="#flash_events" class="">Flash Events</a>
+						
+					</li>
+				
+			</ul>
+		</li>
+	
+		<li>
 			<a href="#betajs-media-components" class="has-dropdown">betajs-media-components</a>
 			<ul>
 				
@@ -3020,6 +3052,148 @@ dynamic.get(&quot;items&quot;).set_compare(function (x, y) {
 	
 	
 
+	
+	
+
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="betajs-flash">
+			<h1>betajs-flash</h1>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>BetaJS-Flash is a Flash-JavaScript bridging framework</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="flash_bridging">
+			<h2>Flash Bridging</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>This framework allows you to access flash objects and functions without recompiling the Flash file itself.</p>
+<p>The framework marshals and unmarshals creating and destroying Flash objects, calling methods and accessing attributes. </p>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="flash_registry">
+			<h2>Flash Registry</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>In order to be able to instantiate Flash objects and call methods on these objects, we need to create a <code>Flash Registry</code> and register all the entities that we want to call:</p>
+<pre class="prettyprint source lang-javascript"><code>    var registry = new BetaJS.Flash.FlashClassRegistry();
+    registry.register(&quot;flash.media.Video&quot;, [&quot;attachNetStream&quot;]);
+    registry.register(&quot;flash.display.Sprite&quot;, [&quot;addChild&quot;]);
+    registry.register(&quot;flash.net.NetStream&quot;, [&quot;play&quot;, &quot;addEventListener&quot;]);
+    registry.register(&quot;flash.net.NetConnection&quot;, [&quot;connect&quot;, &quot;addEventListener&quot;]);</code></pre><p>In this example, we register the classes <code>flash.media.Video</code>, <code>flash.display.Sprite</code>, <code>flash.net.NetStream</code> and <code>flash.net.NetConnection</code>,<br>and on those classes the instance methods <code>attachNetStream</code>, <code>addChild</code>, <code>play</code>, <code>addEventListener</code> and <code>connect</code>.</p>
+<p>It suffices to only register the methods you are intending to call.</p>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="embedding_flash">
+			<h2>Embedding Flash</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Once the registry is defined, we need to add our Flash embedding to the DOM.</p>
+<p>We assume a container element like the following one:</p>
+<pre class="prettyprint source lang-html"><code>    &lt;div id='embed-here'>&lt;/div></code></pre><p>We can then embed Flash as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>    var embedding = new BetaJS.Flash.FlashEmbedding($(&quot;#embed-here&quot;).get(0), {
+        registry: registry,
+        wrap: true
+    }, {
+        flashFile: &quot;betajs-flash/dist/betajs-flash.swf&quot;
+    });</code></pre><p>This call embeds a Flash embedding within the given container, using the <code>registry</code> we defined previously, and linking to general Flash bridging file.</p>
+<p>Before accessing the embedding, we have to wait for the ready event:</p>
+<pre class="prettyprint source lang-javascript"><code>    embedding.ready(function () {
+        // Execute Flash functions on the embedding.
+    });</code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="flash_objects">
+			<h2>Flash Objects</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Once the embedding is ready, we can instantiate objects, call methods and access properties as we normally would in Flash.</p>
+<p>Note that you can only access objects and method defined in the registry.</p>
+<pre class="prettyprint source lang-javascript"><code>    var main = embedding.flashMain();
+    var stage = main.get(&quot;stage&quot;);
+    stage.set(&quot;scaleMode&quot;, &quot;noScale&quot;);
+    stage.set(&quot;align&quot;, &quot;TL&quot;);
+    var video = embedding.newObject(&quot;flash.media.Video&quot;, stage.get(&quot;stageWidth&quot;), stage.get(&quot;stageHeight&quot;));
+    main.addChildVoid(video);</code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="flash_events">
+			<h2>Flash Events</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Many Flash objects provide so-called <code>Event Listeners</code>. The framework allows to create callbacks in JavaScript, that can be passed in as <code>Event Listeners</code>:</p>
+<pre class="prettyprint source lang-javascript"><code>    var connection = embedding.newObject(&quot;flash.net.NetConnection&quot;);
+    var cb = embedding.newCallback(function () {
+        var stream = embedding.newObject(&quot;flash.net.NetStream&quot;, connection);
+        video.attachNetStreamVoid(stream);
+        stream.playVoid(&quot;movie.mp4&quot;);
+    });
+    connection.addEventListener(&quot;netStatus&quot;, cb);
+    connection.connectVoid(null);</code></pre>
+		</article>
+	</div>
+	
 	
 	
 

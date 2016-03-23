@@ -61,6 +61,7 @@
          "betajs-browser",
          "betajs-data",
          "betajs-dynamics",
+         "betajs-flash",
          "betajs-media-components"
       ]
    }
