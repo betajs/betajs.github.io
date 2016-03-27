@@ -91,22 +91,19 @@
 	
 
 		<header>
-		    <h2>Embedding</h2>
+		    <h2>Flash Events</h2>
 		</header>
 		
 		<article>
-		    <p>As always with the dynamics system, there are two ways to to activate it.</p>
-<p>You can embed it somewhere in the HTML dom and active the dynamic system on of its parent nodes (here: on the document body):</p>
-<pre class="prettyprint source lang-html"><code>    &lt;ba-videoplayer ba-loop ba-poster=&quot;...&quot; ba-source=&quot;...&quot;>
-    &lt;/ba-videoplayer></code></pre><pre class="prettyprint source lang-javascript"><code>    BetaJS.Dynamics.Dynamic.activate();</code></pre><p>The other way is to define a parent dom node and embed it via JavaScript:</p>
-<pre class="prettyprint source lang-html"><code>    &lt;div id='parent'>&lt;/div></code></pre><pre class="prettyprint source lang-javascript"><code>    var player = BetaJS.MediaComponents.VideoPlayer.Dynamics.Player({
-        element: document.getElementById('parent'),
-        attrs: {
-            poster: &quot;...&quot;,
-            source: &quot;...&quot;
-        }
+		    <p>Many Flash objects provide so-called <code>Event Listeners</code>. The framework allows to create callbacks in JavaScript, that can be passed in as <code>Event Listeners</code>:</p>
+<pre class="prettyprint source lang-javascript"><code>    var connection = embedding.newObject(&quot;flash.net.NetConnection&quot;);
+    var cb = embedding.newCallback(function () {
+        var stream = embedding.newObject(&quot;flash.net.NetStream&quot;, connection);
+        video.attachNetStreamVoid(stream);
+        stream.playVoid(&quot;movie.mp4&quot;);
     });
-    player.activate();</code></pre><p>The particular sizing of the player can be set by adding normal css classes or styles to the <code>ba-videoplayer</code> element.</p>
+    connection.addEventListener(&quot;netStatus&quot;, cb);
+    connection.connectVoid(null);</code></pre>
 		</article>
 		
 		</section>
@@ -168,55 +165,53 @@
 				betajs-flash
 			</span>
 		</a> 
+		
+	
+		<a class="list-group-item " href="tutorial-flash_bridging.html">
+			<span class="toc-h2">
+				Flash Bridging
+			</span>
+		</a> 
 				
+	
+		<a class="list-group-item " href="tutorial-flash_registry.html">
+			<span class="toc-h2">
+				Flash Registry
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-embedding_flash.html">
+			<span class="toc-h2">
+				Embedding Flash
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item " href="tutorial-flash_objects.html">
+			<span class="toc-h2">
+				Flash Objects
+			</span>
+		</a> 
+				
+	
+		<a class="list-group-item active" href="tutorial-flash_events.html">
+			<span class="toc-h2">
+				Flash Events
+			</span>
+		</a> 
+		
+	
+		
+	
+		
 	
 		<a class="list-group-item " href="tutorial-betajs-media-components.html">
 			<span class="toc-h1">
 				betajs-media-components
 			</span>
 		</a> 
-		
-	
-		<a class="list-group-item " href="tutorial-video_player_component.html">
-			<span class="toc-h2">
-				Video Player Component
-			</span>
-		</a> 
-		
-	
-		<a class="list-group-item active" href="tutorial-embedding_video_player_component.html">
-			<span class="toc-h3">
-				Embedding
-			</span>
-		</a> 
-		
-	
-		
-	
-		<a class="list-group-item " href="tutorial-advanced_video_player_component.html">
-			<span class="toc-h3">
-				Advanced Options
-			</span>
-		</a> 
 				
-	
-		<a class="list-group-item " href="tutorial-themes_video_player_component.html">
-			<span class="toc-h3">
-				Themes
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-locales_video_player_component.html">
-			<span class="toc-h3">
-				Locales
-			</span>
-		</a> 
-				
-	
-		
-	
-		
 	
 
 </div>

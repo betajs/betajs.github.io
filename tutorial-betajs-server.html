@@ -91,22 +91,11 @@
 	
 
 		<header>
-		    <h2>Embedding</h2>
+		    <h2>betajs-server</h2>
 		</header>
 		
 		<article>
-		    <p>As always with the dynamics system, there are two ways to to activate it.</p>
-<p>You can embed it somewhere in the HTML dom and active the dynamic system on of its parent nodes (here: on the document body):</p>
-<pre class="prettyprint source lang-html"><code>    &lt;ba-videoplayer ba-loop ba-poster=&quot;...&quot; ba-source=&quot;...&quot;>
-    &lt;/ba-videoplayer></code></pre><pre class="prettyprint source lang-javascript"><code>    BetaJS.Dynamics.Dynamic.activate();</code></pre><p>The other way is to define a parent dom node and embed it via JavaScript:</p>
-<pre class="prettyprint source lang-html"><code>    &lt;div id='parent'>&lt;/div></code></pre><pre class="prettyprint source lang-javascript"><code>    var player = BetaJS.MediaComponents.VideoPlayer.Dynamics.Player({
-        element: document.getElementById('parent'),
-        attrs: {
-            poster: &quot;...&quot;,
-            source: &quot;...&quot;
-        }
-    });
-    player.activate();</code></pre><p>The particular sizing of the player can be set by adding normal css classes or styles to the <code>ba-videoplayer</code> element.</p>
+		    <p>BetaJS-Server is a server-side JavaScript framework extension for BetaJS.</p>
 		</article>
 		
 		</section>
@@ -149,12 +138,28 @@
 		</a> 
 				
 	
-		<a class="list-group-item " href="tutorial-betajs-server.html">
+		<a class="list-group-item active" href="tutorial-betajs-server.html">
 			<span class="toc-h1">
 				betajs-server
 			</span>
 		</a> 
+		
+	
+		<a class="list-group-item " href="tutorial-server-databases.html">
+			<span class="toc-h2">
+				Databases
+			</span>
+		</a> 
 				
+	
+		<a class="list-group-item " href="tutorial-server-database-stores.html">
+			<span class="toc-h2">
+				Database Stores
+			</span>
+		</a> 
+				
+	
+		
 	
 		<a class="list-group-item " href="tutorial-betajs-dynamics.html">
 			<span class="toc-h1">
@@ -175,48 +180,7 @@
 				betajs-media-components
 			</span>
 		</a> 
-		
-	
-		<a class="list-group-item " href="tutorial-video_player_component.html">
-			<span class="toc-h2">
-				Video Player Component
-			</span>
-		</a> 
-		
-	
-		<a class="list-group-item active" href="tutorial-embedding_video_player_component.html">
-			<span class="toc-h3">
-				Embedding
-			</span>
-		</a> 
-		
-	
-		
-	
-		<a class="list-group-item " href="tutorial-advanced_video_player_component.html">
-			<span class="toc-h3">
-				Advanced Options
-			</span>
-		</a> 
 				
-	
-		<a class="list-group-item " href="tutorial-themes_video_player_component.html">
-			<span class="toc-h3">
-				Themes
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-locales_video_player_component.html">
-			<span class="toc-h3">
-				Locales
-			</span>
-		</a> 
-				
-	
-		
-	
-		
 	
 
 </div>

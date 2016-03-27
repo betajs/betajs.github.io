@@ -328,6 +328,23 @@
 		</li>
 	
 		<li>
+			<a href="#betajs-server" class="has-dropdown">betajs-server</a>
+			<ul>
+				
+					<li>
+						<a href="#server-databases" class="">Databases</a>
+						
+					</li>
+				
+					<li>
+						<a href="#server-database-stores" class="">Database Stores</a>
+						
+					</li>
+				
+			</ul>
+		</li>
+	
+		<li>
 			<a href="#betajs-dynamics" class="has-dropdown">betajs-dynamics</a>
 			<ul>
 				
@@ -2056,6 +2073,77 @@ grunt.loadNpmTasks('betajs-scoped');</code></pre>
 <li><code>range</code>: limit query results (default disabled)</li>
 <li><code>auto</code>: should the system immediately run the query (default false)</li>
 </ul>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="betajs-server">
+			<h1>betajs-server</h1>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>BetaJS-Server is a server-side JavaScript framework extension for BetaJS.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="server-databases">
+			<h2>Databases</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>We provide a simple abstraction for databases and tables, with a concrete implementation for MongoDB.</p>
+<p>First, you instantiate a database, e.g. a MongoDB:</p>
+<pre class="prettyprint source lang-javascript"><code>    var database = new BetaJS.Server.Databases.MongoDatabase(&quot;mongodb://localhost/database&quot;);</code></pre><p>The <code>MongoDatabase</code> class inherits from the abstract <code>Database</code> class.</p>
+<p>Once you have a <code>database</code> instance, you can access database tables / collections as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>    var table = database.getTable('my-table-name');</code></pre><p>A <code>table</code> instance allows you to perform the typical (asynchronous) CRUD operations on the table:</p>
+<pre class="prettyprint source lang-javascript"><code>    table.insertRow({row data}).success(function (inserted) {...}).error(function (error) {...});
+
+    table.removeRow({remove query}).success(function () {...}).error(function (error) {...});
+    table.removeById(id).success(function () {...}).error(function (error) {...});
+
+    table.updateRow({update query}, {row data}).success(function (updated) {...}).error(function (error) {...});
+    table.updateById(id, {row data}).success(function (updated) {...}).error(function (error) {...});
+
+    table.find({search query}, {limit, skip, sort}).success(function (rowIterator) {...}).error(function (error) {...});
+    table.findOne({search query}, {skip, sort}).success(function (row) {...}).error(function (error) {...});
+    table.findById(id).success(function (row) {...}).error(function (error) {...});</code></pre><p>In most cases, you would not access database table instances directly but through the abstraction of a store.</p>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="server-database-stores">
+			<h2>Database Stores</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Database Stores allow you to access a database table through the abstract of a <code>Store</code>, providing all the additional functionality from the <code>BetaJS-Data</code> module.</p>
+<p>Once you have instantiated your <code>database</code> instance, you can create a corresponding <code>Store</code> for a table as follows, e.g. for a MongoDB:</p>
+<pre class="prettyprint source lang-javascript"><code>    var store = new BetaJS.Server.Stores.MongoDatabaseStore(database, &quot;my-database-table&quot;);</code></pre>
 		</article>
 	</div>
 	

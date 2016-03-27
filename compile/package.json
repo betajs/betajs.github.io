@@ -60,6 +60,7 @@
          "betajs",
          "betajs-browser",
          "betajs-data",
+         "betajs-server",
          "betajs-dynamics",
          "betajs-flash",
          "betajs-media-components"

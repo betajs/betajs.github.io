@@ -91,22 +91,26 @@
 	
 
 		<header>
-		    <h2>Embedding</h2>
+		    <h2>Databases</h2>
 		</header>
 		
 		<article>
-		    <p>As always with the dynamics system, there are two ways to to activate it.</p>
-<p>You can embed it somewhere in the HTML dom and active the dynamic system on of its parent nodes (here: on the document body):</p>
-<pre class="prettyprint source lang-html"><code>    &lt;ba-videoplayer ba-loop ba-poster=&quot;...&quot; ba-source=&quot;...&quot;>
-    &lt;/ba-videoplayer></code></pre><pre class="prettyprint source lang-javascript"><code>    BetaJS.Dynamics.Dynamic.activate();</code></pre><p>The other way is to define a parent dom node and embed it via JavaScript:</p>
-<pre class="prettyprint source lang-html"><code>    &lt;div id='parent'>&lt;/div></code></pre><pre class="prettyprint source lang-javascript"><code>    var player = BetaJS.MediaComponents.VideoPlayer.Dynamics.Player({
-        element: document.getElementById('parent'),
-        attrs: {
-            poster: &quot;...&quot;,
-            source: &quot;...&quot;
-        }
-    });
-    player.activate();</code></pre><p>The particular sizing of the player can be set by adding normal css classes or styles to the <code>ba-videoplayer</code> element.</p>
+		    <p>We provide a simple abstraction for databases and tables, with a concrete implementation for MongoDB.</p>
+<p>First, you instantiate a database, e.g. a MongoDB:</p>
+<pre class="prettyprint source lang-javascript"><code>    var database = new BetaJS.Server.Databases.MongoDatabase(&quot;mongodb://localhost/database&quot;);</code></pre><p>The <code>MongoDatabase</code> class inherits from the abstract <code>Database</code> class.</p>
+<p>Once you have a <code>database</code> instance, you can access database tables / collections as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>    var table = database.getTable('my-table-name');</code></pre><p>A <code>table</code> instance allows you to perform the typical (asynchronous) CRUD operations on the table:</p>
+<pre class="prettyprint source lang-javascript"><code>    table.insertRow({row data}).success(function (inserted) {...}).error(function (error) {...});
+
+    table.removeRow({remove query}).success(function () {...}).error(function (error) {...});
+    table.removeById(id).success(function () {...}).error(function (error) {...});
+
+    table.updateRow({update query}, {row data}).success(function (updated) {...}).error(function (error) {...});
+    table.updateById(id, {row data}).success(function (updated) {...}).error(function (error) {...});
+
+    table.find({search query}, {limit, skip, sort}).success(function (rowIterator) {...}).error(function (error) {...});
+    table.findOne({search query}, {skip, sort}).success(function (row) {...}).error(function (error) {...});
+    table.findById(id).success(function (row) {...}).error(function (error) {...});</code></pre><p>In most cases, you would not access database table instances directly but through the abstraction of a store.</p>
 		</article>
 		
 		</section>
@@ -154,7 +158,25 @@
 				betajs-server
 			</span>
 		</a> 
+		
+	
+		<a class="list-group-item active" href="tutorial-server-databases.html">
+			<span class="toc-h2">
+				Databases
+			</span>
+		</a> 
+		
+	
+		
+	
+		<a class="list-group-item " href="tutorial-server-database-stores.html">
+			<span class="toc-h2">
+				Database Stores
+			</span>
+		</a> 
 				
+	
+		
 	
 		<a class="list-group-item " href="tutorial-betajs-dynamics.html">
 			<span class="toc-h1">
@@ -175,48 +197,7 @@
 				betajs-media-components
 			</span>
 		</a> 
-		
-	
-		<a class="list-group-item " href="tutorial-video_player_component.html">
-			<span class="toc-h2">
-				Video Player Component
-			</span>
-		</a> 
-		
-	
-		<a class="list-group-item active" href="tutorial-embedding_video_player_component.html">
-			<span class="toc-h3">
-				Embedding
-			</span>
-		</a> 
-		
-	
-		
-	
-		<a class="list-group-item " href="tutorial-advanced_video_player_component.html">
-			<span class="toc-h3">
-				Advanced Options
-			</span>
-		</a> 
 				
-	
-		<a class="list-group-item " href="tutorial-themes_video_player_component.html">
-			<span class="toc-h3">
-				Themes
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-locales_video_player_component.html">
-			<span class="toc-h3">
-				Locales
-			</span>
-		</a> 
-				
-	
-		
-	
-		
 	
 
 </div>
