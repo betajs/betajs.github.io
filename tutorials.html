@@ -496,6 +496,43 @@
 		</li>
 	
 		<li>
+			<a href="#betajs-media" class="has-dropdown">betajs-media</a>
+			<ul>
+				
+					<li>
+						<a href="#media-playback" class="has-dropdown">Video Playback</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#media-flash-player">Flash Player</a>
+									</li>
+								
+									<li>
+										<a href="#media-video-player">Video Player</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+					<li>
+						<a href="#media-recording" class="has-dropdown">Video Recording</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#media-webrtc-recorder">WebRTC Recording</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+			</ul>
+		</li>
+	
+		<li>
 			<a href="#betajs-media-components" class="has-dropdown">betajs-media-components</a>
 			<ul>
 				
@@ -3282,6 +3319,162 @@ dynamic.get(&quot;items&quot;).set_compare(function (x, y) {
 		</article>
 	</div>
 	
+	
+	
+
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="betajs-media">
+			<h1>betajs-media</h1>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>BetaJS-Media is a JavaScript media framework</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="media-playback">
+			<h2>Video Playback</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The video playback abstractions of this module allow cross-browser playback of videos.</p>
+<p>This module only handles the playback itself without putting any UI/UX state machine on the player.</p>
+<p>The cross-browser capabilities itself are based on HTML5 video playback with the abilitiy to fallback to Flash.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="media-flash-player">
+			<h3>Flash Player</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The <code>Flash Player</code> component allows you to either polyfill an existing video element if necessary or to directly embed<br>a Flash polyfill into the DOM.</p>
+<p>For polyfilling a video element, the polyfill call is invoked as follows:</p>
+<pre class="prettyprint source lang-html"><code>    &lt;video autoplay loop poster=&quot;movie.png&quot; style=&quot;width:50%&quot; muted>
+        &lt;source src=&quot;movie.mp4&quot; type=&quot;video/mp4&quot; />
+    &lt;/video></code></pre><pre class="prettyprint source lang-javascript"><code>    BetaJS.Media.Player.FlashPlayer.polyfill($(&quot;video&quot;).get(0)).success(function (video) {
+        // video has been successfully polyfilled or kept they way it was if possible
+    });</code></pre><p>You can even impose styles and typical attributes on the video element.</p>
+<p>The Flash polyfill also allows you to use typical Flash protocols like <code>RTMP</code>:</p>
+<pre class="prettyprint source lang-html"><code>    &lt;video poster=&quot;movie.png&quot;>
+        &lt;source src=&quot;rtmp://localhost:1935/vod/video.flv&quot; type=&quot;video/flv&quot; />
+    &lt;/video></code></pre><p>Instead of polyfilling an element, you can also explicitly embed the player:</p>
+<pre class="prettyprint source lang-html"><code>   &lt;div id='element'>
+   &lt;/div></code></pre><pre class="prettyprint source lang-javascript"><code>    var player = BetaJS.Media.Player.FlashPlayer.attach($(&quot;#element&quot;).get(0), {
+        autoplay : true,
+        loop : true,
+        muted: true,
+        poster : &quot;movie.png&quot;,
+        sources: [{src: &quot;movie.mp4&quot;}]
+    });</code></pre><p>The <code>player</code> object itself understands the typical <code>video</code>-element methods and emits the typical dom events as well.</p>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="media-video-player">
+			<h3>Video Player</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Polyfilling with Flash helps to make videos play across more browser, but the access to the native video element<br>is not ideal and also not reliable in terms of emitted events and behaviour.</p>
+<p>The <code>VideoPlayerWrapper</code> class provides a completely uniform interface to all video playback systems:</p>
+<pre class="prettyprint source lang-html"><code>    &lt;video>
+    &lt;/video></code></pre><pre class="prettyprint source lang-javascript"><code>    BetaJS.Media.Player.VideoPlayerWrapper.create({
+        element: $(&quot;video&quot;).get(0),
+        poster: &quot;movie.png&quot;,
+        source: &quot;movie.mp4&quot;,
+        //forceflash: true
+    }).success(function (instance) {
+        // instance.play();
+        // instance.pause();
+        // instance.enterFullscreen();
+    }).error(function (error) {
+    });</code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="media-recording">
+			<h2>Video Recording</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The video playback abstractions of this module allow cross-browser playback of videos.</p>
+<p>Currently, the system only allows for WebRTC recording.</p>
+<p>This module only handles the recording itself without putting any UI/UX state machine on the recorder.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="media-webrtc-recorder">
+			<h3>WebRTC Recording</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The <code>WebRTC Recorder</code> abstraction is based on <code>MediaRecorder</code> on browsers that support it and manual encoding to <code>webm</code> on all others.</p>
+<p>Given a <code>video</code> element in the DOM, it is initialized as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>    var view = BetaJS.Media.WebRTC.RecorderWrapper.create({
+        video: $(&quot;video&quot;).get(0)
+    });
+    view.on(&quot;bound&quot;, function (stream) {
+        view.startRecord();
+        ...
+        view.stopRecord();
+    });
+    view.on(&quot;data&quot;, function (video_blob, audio_blob) {
+        // Handle data
+    });
+    view.bindMedia();</code></pre>
+		</article>
+	</div>
+	
+	
+	
+
 	
 	
 

@@ -63,6 +63,7 @@
          "betajs-server",
          "betajs-dynamics",
          "betajs-flash",
+         "betajs-media",
          "betajs-media-components"
       ]
    }

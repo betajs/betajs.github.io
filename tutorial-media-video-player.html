@@ -91,27 +91,24 @@
 	
 
 		<header>
-		    <h2>ba-attrs</h2>
+		    <h2>Video Player</h2>
 		</header>
 		
 		<article>
-		    <p>The ba-attrs Partial allows you to set initial property values for a dynamic from within its DOM scope.</p>
-<h4>Example:</h4><pre class="prettyprint source lang-html"><code>    &lt;div class=&quot;some_class&quot; ba-attrs=&quot;{{{foobar: 'xyz'}}}&quot;>
-        &lt;ba-innertest ba-attrs=&quot;{{{tester: 'abc'}}}&quot;>
-        &lt;/ba-innertest>
-    &lt;/div>
-    &lt;testouter>{{foobar}}&lt;/testouter>&lt;testinner>{{tester}}&lt;/testinner></code></pre><pre class="prettyprint source lang-js"><code>    BetaJS.Dynamics.Dynamic.extend(null, {
-        template: '&lt;outer>{{foobar}}&lt;/outer>&lt;inner>{{tester}}&lt;/inner>',
-    }).register(&quot;ba-innertest&quot;);
-
-    var dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $('.some_class')
-    });
-    dynamic.activate();</code></pre><p>Will evaluate to</p>
-<pre class="prettyprint source lang-html"><code>    &lt;div class=&quot;some_class&quot;>
-        &lt;outer>abc&lt;/outer>&lt;inner>&lt;/inner>
-    &lt;/div>
-    &lt;testouter>&lt;/testouter>&lt;testinner>xyz&lt;/testinner></code></pre>
+		    <p>Polyfilling with Flash helps to make videos play across more browser, but the access to the native video element<br>is not ideal and also not reliable in terms of emitted events and behaviour.</p>
+<p>The <code>VideoPlayerWrapper</code> class provides a completely uniform interface to all video playback systems:</p>
+<pre class="prettyprint source lang-html"><code>    &lt;video>
+    &lt;/video></code></pre><pre class="prettyprint source lang-javascript"><code>    BetaJS.Media.Player.VideoPlayerWrapper.create({
+        element: $(&quot;video&quot;).get(0),
+        poster: &quot;movie.png&quot;,
+        source: &quot;movie.mp4&quot;,
+        //forceflash: true
+    }).success(function (instance) {
+        // instance.play();
+        // instance.pause();
+        // instance.enterFullscreen();
+    }).error(function (error) {
+    });</code></pre>
 		</article>
 		
 		</section>
@@ -166,111 +163,7 @@
 				betajs-dynamics
 			</span>
 		</a> 
-		
-	
-		<a class="list-group-item " href="tutorial-intro.html">
-			<span class="toc-h2">
-				Introduction
-			</span>
-		</a> 
 				
-	
-		<a class="list-group-item " href="tutorial-blueprint.html">
-			<span class="toc-h2">
-				Blueprints
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-dyn_js.html">
-			<span class="toc-h2">
-				Dynamics Javascript
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-html-attributes.html">
-			<span class="toc-h2">
-				DOM Partials
-			</span>
-		</a> 
-		
-	
-		<a class="list-group-item " href="tutorial-ba-click.html">
-			<span class="toc-h3">
-				ba-click
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-ba-tap.html">
-			<span class="toc-h3">
-				ba-tap
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-ba-class.html">
-			<span class="toc-h3">
-				ba-class
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-ba-show.html">
-			<span class="toc-h3">
-				ba-show
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-ba-if.html">
-			<span class="toc-h3">
-				ba-if
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-ba-ignore.html">
-			<span class="toc-h3">
-				ba-ignore
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-ba-repeat.html">
-			<span class="toc-h3">
-				ba-repeat
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item active" href="tutorial-ba-attrs.html">
-			<span class="toc-h3">
-				ba-attrs
-			</span>
-		</a> 
-		
-	
-		
-	
-		<a class="list-group-item " href="tutorial-ba-on.html">
-			<span class="toc-h3">
-				ba-on
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-ba-return.html">
-			<span class="toc-h3">
-				ba-return
-			</span>
-		</a> 
-				
-	
-		
-	
-		
 	
 		<a class="list-group-item " href="tutorial-betajs-flash.html">
 			<span class="toc-h1">
@@ -284,7 +177,41 @@
 				betajs-media
 			</span>
 		</a> 
+		
+	
+		<a class="list-group-item " href="tutorial-media-playback.html">
+			<span class="toc-h2">
+				Video Playback
+			</span>
+		</a> 
+		
+	
+		<a class="list-group-item " href="tutorial-media-flash-player.html">
+			<span class="toc-h3">
+				Flash Player
+			</span>
+		</a> 
 				
+	
+		<a class="list-group-item active" href="tutorial-media-video-player.html">
+			<span class="toc-h3">
+				Video Player
+			</span>
+		</a> 
+		
+	
+		
+	
+		
+	
+		<a class="list-group-item " href="tutorial-media-recording.html">
+			<span class="toc-h2">
+				Video Recording
+			</span>
+		</a> 
+				
+	
+		
 	
 		<a class="list-group-item " href="tutorial-betajs-media-components.html">
 			<span class="toc-h1">
