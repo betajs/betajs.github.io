@@ -564,6 +564,23 @@
 			</ul>
 		</li>
 	
+		<li>
+			<a href="#betajs-debug" class="has-dropdown">betajs-debug</a>
+			<ul>
+				
+					<li>
+						<a href="#debug-profiling-methods" class="">Profiling Method Calls</a>
+						
+					</li>
+				
+					<li>
+						<a href="#debug-profiling-instances" class="">Profiling Instantiations</a>
+						
+					</li>
+				
+			</ul>
+		</li>
+	
 </ul>
                     </div>
                 </div>
@@ -3623,6 +3640,93 @@ dynamic.get(&quot;items&quot;).set_compare(function (x, y) {
 	
 	
 
+	
+	
+
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="betajs-debug">
+			<h1>betajs-debug</h1>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>BetaJS-Debug is a library for debugging BetaJS-based applications.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="debug-profiling-methods">
+			<h2>Profiling Method Calls</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The debugging profiles allows to hook single or all methods of a BetaJS object or class.</p>
+<p>This is particularly helpful for understanding how often a particular method, object or class is being called.</p>
+<p>If you want to hook class method <code>foobar</code> of class <code>C</code>, you can write:</p>
+<pre class="prettyprint source lang-javascript"><code>    var hook = BetaJSDebug.Hooks.hookMethod(&quot;foobar&quot;, C, function (method, Cls, args, callContext) {
+        // called when the method foobar is being called.
+    }, function (method, Cls, args, callContext, result) {
+        // called after the method foobar was called
+    });</code></pre><p>After you're done, you can unregister the hook as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>    BetaJSDebug.Hooks.unhookMethod(hook);</code></pre><p>You can also hook instance methods. Assume that class <code>C</code> also has an instance method <code>method</code>:</p>
+<pre class="prettyprint source lang-javascript"><code>    var hook = BetaJSDebug.Hooks.hookPrototypeMethod(&quot;method&quot;, C, function (method, Cls, args, callContext) {
+        // called when the method foobar is being called.
+    }, function (method, Cls, args, callContext, result) {
+        // called after the method foobar was called
+    });</code></pre><p>Finally, you can also hook all class / instance methods:</p>
+<pre class="prettyprint source lang-javascript"><code>    var hooks = BetaJSDebug.Hooks.hookMethods(C, function (method, Cls, args, callContext) {
+        // called when the method foobar is being called.
+    }, function (method, Cls, args, callContext, result) {
+        // called after the method foobar was called
+    });</code></pre><pre class="prettyprint source lang-javascript"><code>    var hooks = BetaJSDebug.Hooks.hookPrototypeMethods(C, function (method, Cls, args, callContext) {
+        // called when the method foobar is being called.
+    }, function (method, Cls, args, callContext, result) {
+        // called after the method foobar was called
+    });</code></pre><pre class="prettyprint source lang-javascript"><code>    BetaJSDebug.Hooks.unhookMethods(hooks);</code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="debug-profiling-instances">
+			<h2>Profiling Instantiations</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Profiling instantiation allows you to find memory leaks, by counting how many instances are present at a particular time.</p>
+<p>To start monitoring instantiation of a particular base class <code>BaseClass</code>, we create a sub class <code>filter</code> (more on that in a second) and set up the debugger:</p>
+<pre class="prettyprint source lang-javascript"><code>    var debugger = BetaJSDebug.Instances.monitorInstances(BaseClass, filter);</code></pre><p>Once you're done debugging, you can unregister the debugger as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>    BetaJSDebug.Instances.unmonitorInstances(debugger);</code></pre><p>The easiest way to inspect the instance monitor at any point, is to convert the data to an HTML table (which can be added to the DOM, e.g. using jQuery):</p>
+<pre class="prettyprint source lang-javascript"><code>    BetaJSDebug.Instances.toHTMLTable(debugger);</code></pre><p>Filters allow you to restrict the sub classes of the <code>BaseClass</code> that you want to track. You can create basic filters and then use compound filters to combine them:</p>
+<ul>
+<li><code>BetaJSDebug.Instances.allFilter()</code>: matches all classes</li>
+<li><code>BetaJSDebug.Instances.andFilter(filters)</code>: matches if all filters in the array match</li>
+<li><code>BetaJSDebug.Instances.orFilter(filters)</code>: matches if one filter in the array matches</li>
+<li><code>BetaJSDebug.Instances.regexFilter(regex)</code>: matches if the class name matches the regular expression</li>
+<li><code>BetaJSDebug.Instances.ancestryFilter(filter)</code>: matches if the class or any of the ancestors matches the filter</li>
+</ul>
+		</article>
+	</div>
+	
 	
 	
 

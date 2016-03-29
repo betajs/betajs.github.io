@@ -91,15 +91,22 @@
 	
 
 		<header>
-		    <h2>Debugging Scoped Programs</h2>
+		    <h2>Profiling Instantiations</h2>
 		</header>
 		
 		<article>
-		    <p>Debugging Scoped-based programs normally boils down to understanding why some dependencies are not being resolved.</p>
-<p>The main reason for unresolved dependencies are typos.</p>
-<p>The Scoped system has support for telling you which dependencies are not met at a certain point, so you can backtrack the root cause of the problem.</p>
-<p>At any time, you can call the method <code>Scoped.unresolved(namespace)</code> that will return an array of unresolved definitions within the given namespace.</p>
-<p>For instance, if you want to know which definitions are unresolved in the globally accessible namespace, you would call <code>Scoped.unresolved(&quot;global:&quot;)</code>.</p>
+		    <p>Profiling instantiation allows you to find memory leaks, by counting how many instances are present at a particular time.</p>
+<p>To start monitoring instantiation of a particular base class <code>BaseClass</code>, we create a sub class <code>filter</code> (more on that in a second) and set up the debugger:</p>
+<pre class="prettyprint source lang-javascript"><code>    var debugger = BetaJSDebug.Instances.monitorInstances(BaseClass, filter);</code></pre><p>Once you're done debugging, you can unregister the debugger as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>    BetaJSDebug.Instances.unmonitorInstances(debugger);</code></pre><p>The easiest way to inspect the instance monitor at any point, is to convert the data to an HTML table (which can be added to the DOM, e.g. using jQuery):</p>
+<pre class="prettyprint source lang-javascript"><code>    BetaJSDebug.Instances.toHTMLTable(debugger);</code></pre><p>Filters allow you to restrict the sub classes of the <code>BaseClass</code> that you want to track. You can create basic filters and then use compound filters to combine them:</p>
+<ul>
+<li><code>BetaJSDebug.Instances.allFilter()</code>: matches all classes</li>
+<li><code>BetaJSDebug.Instances.andFilter(filters)</code>: matches if all filters in the array match</li>
+<li><code>BetaJSDebug.Instances.orFilter(filters)</code>: matches if one filter in the array matches</li>
+<li><code>BetaJSDebug.Instances.regexFilter(regex)</code>: matches if the class name matches the regular expression</li>
+<li><code>BetaJSDebug.Instances.ancestryFilter(filter)</code>: matches if the class or any of the ancestors matches the filter</li>
+</ul>
 		</article>
 		
 		</section>
@@ -119,46 +126,7 @@
 				betajs-scoped
 			</span>
 		</a> 
-		
-	
-		<a class="list-group-item " href="tutorial-scoped_introduction.html">
-			<span class="toc-h2">
-				Introduction to Scoped
-			</span>
-		</a> 
 				
-	
-		<a class="list-group-item " href="tutorial-scoped_setup.html">
-			<span class="toc-h2">
-				Setting up Scoped
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-scoped_usage.html">
-			<span class="toc-h2">
-				How to use Scoped
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item active" href="tutorial-scoped_debugging.html">
-			<span class="toc-h2">
-				Debugging Scoped Programs
-			</span>
-		</a> 
-		
-	
-		
-	
-		<a class="list-group-item " href="tutorial-scoped_compilation.html">
-			<span class="toc-h2">
-				Compiling Libraries with Scoped
-			</span>
-		</a> 
-				
-	
-		
 	
 		<a class="list-group-item " href="tutorial-betajs.html">
 			<span class="toc-h1">
@@ -221,7 +189,25 @@
 				betajs-debug
 			</span>
 		</a> 
+		
+	
+		<a class="list-group-item " href="tutorial-debug-profiling-methods.html">
+			<span class="toc-h2">
+				Profiling Method Calls
+			</span>
+		</a> 
 				
+	
+		<a class="list-group-item active" href="tutorial-debug-profiling-instances.html">
+			<span class="toc-h2">
+				Profiling Instantiations
+			</span>
+		</a> 
+		
+	
+		
+	
+		
 	
 
 </div>

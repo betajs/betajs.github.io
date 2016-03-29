@@ -91,15 +91,33 @@
 	
 
 		<header>
-		    <h2>Debugging Scoped Programs</h2>
+		    <h2>Profiling Method Calls</h2>
 		</header>
 		
 		<article>
-		    <p>Debugging Scoped-based programs normally boils down to understanding why some dependencies are not being resolved.</p>
-<p>The main reason for unresolved dependencies are typos.</p>
-<p>The Scoped system has support for telling you which dependencies are not met at a certain point, so you can backtrack the root cause of the problem.</p>
-<p>At any time, you can call the method <code>Scoped.unresolved(namespace)</code> that will return an array of unresolved definitions within the given namespace.</p>
-<p>For instance, if you want to know which definitions are unresolved in the globally accessible namespace, you would call <code>Scoped.unresolved(&quot;global:&quot;)</code>.</p>
+		    <p>The debugging profiles allows to hook single or all methods of a BetaJS object or class.</p>
+<p>This is particularly helpful for understanding how often a particular method, object or class is being called.</p>
+<p>If you want to hook class method <code>foobar</code> of class <code>C</code>, you can write:</p>
+<pre class="prettyprint source lang-javascript"><code>    var hook = BetaJSDebug.Hooks.hookMethod(&quot;foobar&quot;, C, function (method, Cls, args, callContext) {
+        // called when the method foobar is being called.
+    }, function (method, Cls, args, callContext, result) {
+        // called after the method foobar was called
+    });</code></pre><p>After you're done, you can unregister the hook as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>    BetaJSDebug.Hooks.unhookMethod(hook);</code></pre><p>You can also hook instance methods. Assume that class <code>C</code> also has an instance method <code>method</code>:</p>
+<pre class="prettyprint source lang-javascript"><code>    var hook = BetaJSDebug.Hooks.hookPrototypeMethod(&quot;method&quot;, C, function (method, Cls, args, callContext) {
+        // called when the method foobar is being called.
+    }, function (method, Cls, args, callContext, result) {
+        // called after the method foobar was called
+    });</code></pre><p>Finally, you can also hook all class / instance methods:</p>
+<pre class="prettyprint source lang-javascript"><code>    var hooks = BetaJSDebug.Hooks.hookMethods(C, function (method, Cls, args, callContext) {
+        // called when the method foobar is being called.
+    }, function (method, Cls, args, callContext, result) {
+        // called after the method foobar was called
+    });</code></pre><pre class="prettyprint source lang-javascript"><code>    var hooks = BetaJSDebug.Hooks.hookPrototypeMethods(C, function (method, Cls, args, callContext) {
+        // called when the method foobar is being called.
+    }, function (method, Cls, args, callContext, result) {
+        // called after the method foobar was called
+    });</code></pre><pre class="prettyprint source lang-javascript"><code>    BetaJSDebug.Hooks.unhookMethods(hooks);</code></pre>
 		</article>
 		
 		</section>
@@ -119,46 +137,7 @@
 				betajs-scoped
 			</span>
 		</a> 
-		
-	
-		<a class="list-group-item " href="tutorial-scoped_introduction.html">
-			<span class="toc-h2">
-				Introduction to Scoped
-			</span>
-		</a> 
 				
-	
-		<a class="list-group-item " href="tutorial-scoped_setup.html">
-			<span class="toc-h2">
-				Setting up Scoped
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-scoped_usage.html">
-			<span class="toc-h2">
-				How to use Scoped
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item active" href="tutorial-scoped_debugging.html">
-			<span class="toc-h2">
-				Debugging Scoped Programs
-			</span>
-		</a> 
-		
-	
-		
-	
-		<a class="list-group-item " href="tutorial-scoped_compilation.html">
-			<span class="toc-h2">
-				Compiling Libraries with Scoped
-			</span>
-		</a> 
-				
-	
-		
 	
 		<a class="list-group-item " href="tutorial-betajs.html">
 			<span class="toc-h1">
@@ -221,7 +200,25 @@
 				betajs-debug
 			</span>
 		</a> 
+		
+	
+		<a class="list-group-item active" href="tutorial-debug-profiling-methods.html">
+			<span class="toc-h2">
+				Profiling Method Calls
+			</span>
+		</a> 
+		
+	
+		
+	
+		<a class="list-group-item " href="tutorial-debug-profiling-instances.html">
+			<span class="toc-h2">
+				Profiling Instantiations
+			</span>
+		</a> 
 				
+	
+		
 	
 
 </div>
