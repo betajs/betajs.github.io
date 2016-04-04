@@ -18,16 +18,16 @@ Here is on overview over all modules included:
 | betajs-browser | BetaJS-Browser is a client-side JavaScript framework for Browser-specific methods. |
 | betajs-data | BetaJS-Data is a general-purpose JavaScript framework for handling RESTful operations and ActiveRecord abstractions. |
 | betajs-server | BetaJS-Server is a server-side JavaScript framework extension for BetaJS. |
-| betajs-ui | BetaJS-UI is a library for enabling gestures and interactions such as drag and drop. |
 | betajs-dynamics | BetaJS-Dynamics is a dynamic DOM templating engine. |
+| betajs-ui | BetaJS-UI is a library for enabling gestures and interactions such as drag and drop. |
 | betajs-flash | BetaJS-Flash is a Flash-JavaScript bridging framework |
 | betajs-media | BetaJS-Media is a JavaScript media framework |
 | betajs-media-components | BetaJS-Media-Components is a JavaScript media UI components framework |
-| betajs-codemirror | BetaJS-Codemirror is a Codemirror Plugin for the BetaJS Framework. |
-| betajs-richeditor | BetaJS-Richeditor is a rich editor plugin based on content editable using the BetaJS Framework. |
 | betajs-debug | BetaJS-Debug is a library for debugging BetaJS-based applications. |
+| grunt-betajs-templates | Build BetaJS templates. |
 | grunt-betajs-docs-compile | Build BetaJS documentations based on JSDOC. |
-| grunt-betajs-templates | Build BetaJS templates. | 
+| betajs-codemirror | BetaJS-Codemirror is a Codemirror Plugin for the BetaJS Framework. |
+| betajs-richeditor | BetaJS-Richeditor is a rich editor plugin based on content editable using the BetaJS Framework. | 
 
 
 
@@ -279,33 +279,6 @@ The BetaJS Server module contains the following subsystems:
 ```
 
 
-### betajs-ui
-
-```js
-
-    	BetaJS.UI.Interactions.Drag.multiple($(".doodad"), {
-            enabled : true,
-            clone_element: true
-        }, function (drag) {
-            drag.on("move", function (event) {
-            	event.actionable_modifier.csscls("focus", true);
-            	event.modifier.csscls("unfocus", true);
-            });
-        });
-        
-```
-
-```html
-    	<div class="doodads">
-	        <div class="doodad"><div class="inner">Doodad 1</div></div>
-	        <div class="doodad"><div class="inner">Doodad 2</div></div>
-	        <div class="doodad"><div class="inner">Doodad 3</div></div>
-	        <div class="doodad"><div class="inner">Doodad 4</div></div>
-	        <div class="doodad"><div class="inner">Doodad 5</div></div>
-    	</div>
-```
-
-
 ### betajs-dynamics
 
 The Javascript Controller:
@@ -339,6 +312,33 @@ Will evaluate to
 
     <some_element>This is some Text</some_element>
 
+```
+
+
+### betajs-ui
+
+```js
+
+    	BetaJS.UI.Interactions.Drag.multiple($(".doodad"), {
+            enabled : true,
+            clone_element: true
+        }, function (drag) {
+            drag.on("move", function (event) {
+            	event.actionable_modifier.csscls("focus", true);
+            	event.modifier.csscls("unfocus", true);
+            });
+        });
+        
+```
+
+```html
+    	<div class="doodads">
+	        <div class="doodad"><div class="inner">Doodad 1</div></div>
+	        <div class="doodad"><div class="inner">Doodad 2</div></div>
+	        <div class="doodad"><div class="inner">Doodad 3</div></div>
+	        <div class="doodad"><div class="inner">Doodad 4</div></div>
+	        <div class="doodad"><div class="inner">Doodad 5</div></div>
+    	</div>
 ```
 
 
@@ -434,51 +434,6 @@ Will evaluate to
 ```
 
 
-### betajs-codemirror
-
-```html
-
-		<ba-codemirror ba-trim ba-language='html'>
-			<div>
-				<h1>H1 None</h1>
-				<br />
-				<strong>Strong 1</strong> Text 1 <code>Code 1</code><br />
-				<code style="text-decoration: underline" >Code 2</code><strong> Strong 2</strong>
-				<div style="font-size: 24px; font-family: Helvetica;">Text 2</div>
-			</div>
-		</ba-codemirror>
-
-```
-
-```javascript
-
-	BetaJS.Dynamics.Dynamic.activate();
-
-```
-
-
-### betajs-richeditor
-
-```html
-
-		<ba-richeditor>
-			<div>
-				<h1>H1 None</h1>
-				<br />
-				<strong>Strong 1</strong> Text 1 <code>Code 1</code><br />
-				<u>Code 2</u><strong> Strong 2</strong>
-				<div style="font-size: 24px; font-family: Helvetica;">Text 2</div>
-			</div>
-		</ba-richeditor>
-```
-
-```javascript
-
-	BetaJS.Dynamics.Dynamic.activate();
-
-```
-
-
 ### betajs-debug
 
 ```js
@@ -493,6 +448,64 @@ Will evaluate to
 
 ```
 
+
+### grunt-betajs-templates
+
+#### Overview
+In your project's Gruntfile, add a section named `betajs_templates` to the data object passed into `grunt.initConfig()`.
+
+#### Options
+The namespace of each `betajs_templates` namespace **must** be specified. See
+any of the examples for guidance on specifying the namespace option.
+
+```js
+grunt.initConfig({
+  betajs_templates: {
+    dist: {
+      files: {
+        "dest/betajs-templates.js": [
+          "src/my_first_template.html",
+          "src/my_second_template.html",
+          "src/my_last_templates.html"
+        ]
+      },
+      options: {
+        namespace: 'App.Templates'
+      }
+    },
+  },
+});
+```
+
+Naturally, it is possible to specify a different namespace for each subtask.
+Multiple namespaces for different subtasks can be seen in the example below.
+
+```js
+grunt.initConfig({
+  betajs_templates: {
+    dashboard: {
+      files: {
+        "dest/betajs-dashboard-templates.js": [
+          "dashboard/*.html",
+        ]
+      },
+      options: {
+        namespace: 'App.Dashboard'
+      }
+    },
+    homepage: {
+      files: {
+        "dest/betajs-homepage-templates.js": [
+          "homepage/*.html"
+        ]
+      },
+      options: {
+        namespace: 'App.Homepage'
+      }
+    }
+  }
+});
+```
 
 ### grunt-betajs-docs-compile
 
@@ -572,63 +585,50 @@ This is mostly preserved and copied from [Ink-Docstrap](https://www.npmjs.com/pa
 }
 ```
 
-### grunt-betajs-templates
+### betajs-codemirror
 
-#### Overview
-In your project's Gruntfile, add a section named `betajs_templates` to the data object passed into `grunt.initConfig()`.
+```html
 
-#### Options
-The namespace of each `betajs_templates` namespace **must** be specified. See
-any of the examples for guidance on specifying the namespace option.
+		<ba-codemirror ba-trim ba-language='html'>
+			<div>
+				<h1>H1 None</h1>
+				<br />
+				<strong>Strong 1</strong> Text 1 <code>Code 1</code><br />
+				<code style="text-decoration: underline" >Code 2</code><strong> Strong 2</strong>
+				<div style="font-size: 24px; font-family: Helvetica;">Text 2</div>
+			</div>
+		</ba-codemirror>
 
-```js
-grunt.initConfig({
-  betajs_templates: {
-    dist: {
-      files: {
-        "dest/betajs-templates.js": [
-          "src/my_first_template.html",
-          "src/my_second_template.html",
-          "src/my_last_templates.html"
-        ]
-      },
-      options: {
-        namespace: 'App.Templates'
-      }
-    },
-  },
-});
 ```
 
-Naturally, it is possible to specify a different namespace for each subtask.
-Multiple namespaces for different subtasks can be seen in the example below.
+```javascript
 
-```js
-grunt.initConfig({
-  betajs_templates: {
-    dashboard: {
-      files: {
-        "dest/betajs-dashboard-templates.js": [
-          "dashboard/*.html",
-        ]
-      },
-      options: {
-        namespace: 'App.Dashboard'
-      }
-    },
-    homepage: {
-      files: {
-        "dest/betajs-homepage-templates.js": [
-          "homepage/*.html"
-        ]
-      },
-      options: {
-        namespace: 'App.Homepage'
-      }
-    }
-  }
-});
+	BetaJS.Dynamics.Dynamic.activate();
+
 ```
+
+
+### betajs-richeditor
+
+```html
+
+		<ba-richeditor>
+			<div>
+				<h1>H1 None</h1>
+				<br />
+				<strong>Strong 1</strong> Text 1 <code>Code 1</code><br />
+				<u>Code 2</u><strong> Strong 2</strong>
+				<div style="font-size: 24px; font-family: Helvetica;">Text 2</div>
+			</div>
+		</ba-richeditor>
+```
+
+```javascript
+
+	BetaJS.Dynamics.Dynamic.activate();
+
+```
+
 
  
 

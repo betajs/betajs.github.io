@@ -44,16 +44,16 @@
          "betajs-browser",
          "betajs-data",
          "betajs-server",
-         "betajs-ui",
          "betajs-dynamics",
+         "betajs-ui",
          "betajs-flash",
          "betajs-media",
          "betajs-media-components",
-         "betajs-codemirror",
-         "betajs-richeditor",
          "betajs-debug",
+         "grunt-betajs-templates",
          "grunt-betajs-docs-compile",
-         "grunt-betajs-templates"
+         "betajs-codemirror",
+         "betajs-richeditor"
       ],
       "tutorials":[  
          "betajs-scoped",                   
@@ -62,10 +62,15 @@
          "betajs-data",
          "betajs-server",
          "betajs-dynamics",
+         "betajs-ui",
          "betajs-flash",
          "betajs-media",
          "betajs-media-components",
-         "betajs-debug"
+         "betajs-debug",
+         "grunt-betajs-templates",
+         "grunt-betajs-docs-compile",
+         "betajs-codemirror",
+         "betajs-richeditor"
       ]
    }
 }

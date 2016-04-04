@@ -87,7 +87,7 @@
     <section class="guides">
         <div class="container">
             <div class="row">            
-                <div class="col-md-3 col-lg-3 hidden-sm hidden-xs" style="position:fixed;height:100%;overflow-y:scroll">
+                <div class="col-md-3 col-lg-3 hidden-sm hidden-xs" style="position:fixed;height:75%;overflow-y:scroll">
                     <div class="guide_left">
                        	<h5 class="side_heading">Guides</h5>
 <ul class="guide_sidebar">
@@ -464,6 +464,44 @@
 		</li>
 	
 		<li>
+			<a href="#betajs-ui" class="has-dropdown">betajs-ui</a>
+			<ul>
+				
+					<li>
+						<a href="#ui-interactions" class="has-dropdown">Interactions</a>
+						
+							<ul>
+								
+									<li>
+										<a href="#ui-drag">Drag</a>
+									</li>
+								
+									<li>
+										<a href="#ui-drop">Drop</a>
+									</li>
+								
+									<li>
+										<a href="#ui-pinch">Pinch</a>
+									</li>
+								
+							</ul>
+						
+					</li>
+				
+					<li>
+						<a href="#ui-gestures" class="">Gestures</a>
+						
+					</li>
+				
+					<li>
+						<a href="#ui-dynamics" class="">Dynamics</a>
+						
+					</li>
+				
+			</ul>
+		</li>
+	
+		<li>
 			<a href="#betajs-flash" class="has-dropdown">betajs-flash</a>
 			<ul>
 				
@@ -581,6 +619,54 @@
 			</ul>
 		</li>
 	
+		<li>
+			<a href="#grunt-betajs-templates" class="has-dropdown">grunt-betajs-templates</a>
+			<ul>
+				
+					<li>
+						<a href="#getting-started-templates" class="">Getting Started</a>
+						
+					</li>
+				
+			</ul>
+		</li>
+	
+		<li>
+			<a href="#grunt-betajs-docs-compile" class="has-dropdown">grunt-betajs-docs-compile</a>
+			<ul>
+				
+					<li>
+						<a href="#install-docs-compile" class="">Getting Started</a>
+						
+					</li>
+				
+			</ul>
+		</li>
+	
+		<li>
+			<a href="#betajs-codemirror" class="has-dropdown">betajs-codemirror</a>
+			<ul>
+				
+					<li>
+						<a href="#getting-started-codemirror" class="">Getting Started</a>
+						
+					</li>
+				
+			</ul>
+		</li>
+	
+		<li>
+			<a href="#betajs-richeditor" class="has-dropdown">betajs-richeditor</a>
+			<ul>
+				
+					<li>
+						<a href="#getting-started-richeditor" class="">Getting Started</a>
+						
+					</li>
+				
+			</ul>
+		</li>
+	
 </ul>
                     </div>
                 </div>
@@ -627,13 +713,13 @@
 	        </tr>
 	        
 	        <tr>
-	            <td class="td-highlight brown">betajs-ui</td>
-	            <td>BetaJS-UI is a library for enabling gestures and interactions such as drag and drop.</td>
+	            <td class="td-highlight brown">betajs-dynamics</td>
+	            <td>BetaJS-Dynamics is a dynamic DOM templating engine.</td>
 	        </tr>
 	        
 	        <tr>
-	            <td class="td-highlight brown">betajs-dynamics</td>
-	            <td>BetaJS-Dynamics is a dynamic DOM templating engine.</td>
+	            <td class="td-highlight brown">betajs-ui</td>
+	            <td>BetaJS-UI is a library for enabling gestures and interactions such as drag and drop.</td>
 	        </tr>
 	        
 	        <tr>
@@ -652,18 +738,13 @@
 	        </tr>
 	        
 	        <tr>
-	            <td class="td-highlight brown">betajs-codemirror</td>
-	            <td>BetaJS-Codemirror is a Codemirror Plugin for the BetaJS Framework.</td>
-	        </tr>
-	        
-	        <tr>
-	            <td class="td-highlight brown">betajs-richeditor</td>
-	            <td>BetaJS-Richeditor is a rich editor plugin based on content editable using the BetaJS Framework.</td>
-	        </tr>
-	        
-	        <tr>
 	            <td class="td-highlight brown">betajs-debug</td>
 	            <td>BetaJS-Debug is a library for debugging BetaJS-based applications.</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">grunt-betajs-templates</td>
+	            <td>Build BetaJS templates.</td>
 	        </tr>
 	        
 	        <tr>
@@ -672,8 +753,13 @@
 	        </tr>
 	        
 	        <tr>
-	            <td class="td-highlight brown">grunt-betajs-templates</td>
-	            <td>Build BetaJS templates.</td>
+	            <td class="td-highlight brown">betajs-codemirror</td>
+	            <td>BetaJS-Codemirror is a Codemirror Plugin for the BetaJS Framework.</td>
+	        </tr>
+	        
+	        <tr>
+	            <td class="td-highlight brown">betajs-richeditor</td>
+	            <td>BetaJS-Richeditor is a rich editor plugin based on content editable using the BetaJS Framework.</td>
 	        </tr>
 	        
         </tbody>
@@ -3205,6 +3291,251 @@ dynamic.get(&quot;items&quot;).set_compare(function (x, y) {
 	
 	<div class="tutorial-section">
 		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="betajs-ui">
+			<h1>betajs-ui</h1>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>BetaJS-UI is a library for enabling gestures and interactions such as drag and drop.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ui-interactions">
+			<h2>Interactions</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Interactions allow you to register particular user interactions like drag, drop, swipe, pinch, scroll etc. on DOM elements.<br>You can react to events emitted by the respective interactions.<br>The interaction system is completely independent of any UI/UX framework.</p>
+<p>All interactions are configuered as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>    var interaction = new InteractionClass(domElement, {
+        options
+    });
+
+    interaction.on(&quot;event&quot;, function () {
+        // React to particular interaction event.
+    });</code></pre><p>You can also instantiate multiple interactions at once when providing a jQuery selector for multiple elements:</p>
+<pre class="prettyprint source lang-javascript"><code>    InteractionClass.multiple(jqueryElements, {
+        options
+    }, function (interaction) {
+        interaction.on(&quot;event&quot;, function () {
+            // React to particular interaction event.
+        });
+    });</code></pre>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ui-drag">
+			<h3>Drag</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The drag interaction allows the user to drag a dom element within constraints. This allows you to enable two types of drag interactions:</p>
+<ul>
+<li>a standard drag: here, the element is cloned and positioned absolutely on the body, allowing the user to move it around freely</li>
+<li>a restricted drag: here, the element is just moved within its parent container, to e.g. implement a swipe-like interaction</li>
+</ul>
+<p>Finally, the drag interaction works well with the drop interaction, to fully implement a drag-and-drop-like system.</p>
+<p>A standard drag, in which the element is being cloned (temporarily), can be instantiated as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>    var drag = BetaJS.UI.Interactions.Drag(domElement, {
+        enabled : true,
+        clone_element: true
+    });
+
+    drag.on(&quot;move&quot;, function (event) {
+        event.actionable_modifier.csscls(&quot;focus&quot;, true);
+        event.modifier.csscls(&quot;unfocus&quot;, true);
+    });</code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ui-drop">
+			<h3>Drop</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The drop interaction allows you accept dropped elements originating from a drag interaction.</p>
+<pre class="prettyprint source lang-javascript"><code>    var drag = new BetaJS.UI.Interactions.Drag(dragSourceElement, {
+        droppable: true,
+        enabled : true,
+        clone_element: true,
+        remove_element_on_drop : true
+    });
+
+    drag.on(&quot;move&quot;, function (event) {
+        event.actionable_modifier.csscls(&quot;focus&quot;, true);
+        event.modifier.csscls(&quot;unfocus&quot;, true);
+    });
+
+    var drop = new BetaJS.UI.Interactions.Drop(dropTargetElement, {
+        enabled : true
+    });
+    drop.on(&quot;hover&quot;, function(dr) {
+        dr.modifier.css(&quot;border&quot;, &quot;4px solid green&quot;);
+    });
+    drop.on(&quot;dropped&quot;, function(event) {
+        $(&quot;#drop&quot;).append(event.source.element.html());
+    });</code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ui-pinch">
+			<h3>Pinch</h3>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The pinch interaction allows the user to zoom in/out within a particular dom element.</p>
+<p>For this example, assume the following dom element:</p>
+<pre class="prettyprint source lang-html"><code>    &lt;div class=&quot;pinch&quot; style=&quot;width: 200px; height: 200px&quot;>
+        Pinch Me
+    &lt;/div></code></pre><p>We initialize the pinch interaction:</p>
+<pre class="prettyprint source lang-javascript"><code>    var pinch = new BetaJS.UI.Interactions.Pinch($(&quot;.pinch&quot;), {
+        enabled: true
+    });</code></pre><p>Once the user initiates a pinch, we need to react to it by resizing the underlying dom element, e.g. as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>    pinch.on(&quot;pinch&quot;, function (details) {
+        $(&quot;.pinch&quot;).css(&quot;width&quot;, (parseInt($(&quot;.pinch&quot;).css(&quot;width&quot;), 10) + details.delta_last.x) + &quot;px&quot;);
+        $(&quot;.pinch&quot;).css(&quot;height&quot;, (parseInt($(&quot;.pinch&quot;).css(&quot;height&quot;), 10) + details.delta_last.y) + &quot;px&quot;);
+    });</code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ui-gestures">
+			<h2>Gestures</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The gesture allows you to react to particular touch / click gestures and kick off interactions based on a successful gesture.</p>
+<p>The gesture system is implemented as a competitive state engine. That particularly enables you to register multiple gestures on DOM elements, competing with each other.</p>
+<p>A gesture is registered on a DOM element as follows:</p>
+<pre class="prettyprint source lang-javascript"><code>    var gesture = new BetaJS.UI.Gestures.Gesture(domElement, BetaJS.UI.Gestures.defaultGesture({
+        mouse_up_activate: false,
+        wait_time: 750,
+        wait_activate: true,
+        disable_x: 10,
+        disable_y: 10,
+        enable_x: -1,
+        enable_y: -1
+    }));</code></pre><p>This gesture, for instance, is activated by touching the particular dom element, waiting 750 ms and not moving more than 10 pixels both in horizontal and vertical drection.</p>
+<p>You can react to a successful gesture or to an unsuccessful gesture as follows&gt;</p>
+<pre class="prettyprint source lang-javascript"><code>    gesture.on(&quot;activate&quot;, function () {
+        // ...
+    });
+    gesture.on(&quot;deactivate&quot;, function () {
+        // ...
+    });</code></pre><p>The most typical use case combines gestures with interactions. The interactions are configured slightly differently, to not automatically kick off once the user starts to interact with the DOM element. This part is now handled by the gesture.</p>
+<p>Here is a typical example:</p>
+<pre class="prettyprint source lang-javascript"><code>    var drag = new BetaJS.UI.Interactions.Drag(domElement, {
+        enabled : true,
+        clone_element: true,
+        start_event: null                
+    });
+    gesture.on(&quot;activate&quot;, drag.start, drag);
+    gesture.on(&quot;deactivate&quot;, drag.stop, drag);</code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="ui-dynamics">
+			<h2>Dynamics</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Both the interaction and the gesture system are completely independent from any frontend system. That includes the dynamics system.</p>
+<p>BetaJS UI contains a small optional bridging system that makes it particularly easy to apply both gestures and interactions to dom elements within the dynamics system, by applying partials to the respective dom elements:</p>
+<pre class="prettyprint source lang-html"><code>    &lt;div ba-gesture:drag=&quot;{{{data: user_data, options: drag_gesture_options}}}&quot;
+         ba-interaction:drag=&quot;{{{data: user_data, options: drag_interaction_options}}}&quot;>
+    &lt;/div></code></pre><p>There can be multiple gestures and interactions applied to a single dom element.</p>
+<p>The value part of both the gesture and the interaction partials contain a (dynamically generated) JSON object with a <code>data</code> parameter (which can be, for instance, an item from a <code>ba-repeat</code> partial) and an <code>options</code> parameter. While the options can be given explicitly as a JSON as well, it is recommended to outsource the options into the attributes of the dynamic:</p>
+<pre class="prettyprint source lang-javascript"><code>BetaJS.Dynamics.Dynamic.activate({
+    element: document.body,
+    attrs: {
+        drag_gesture_options: {
+            mouse_up_activate: false,
+            wait_time: 750,
+            wait_activate: true,
+            disable_x: 10,
+            disable_y: 10,
+            enable_x: -1,
+            enable_y: -1,
+            interaction: &quot;drag&quot;
+        },
+        drag_interaction_options: {
+            type: &quot;drag&quot;,
+            clone_element: true,
+            start_event: null,
+            events: {
+                &quot;move&quot;: function (doodad, event) {
+                    event.actionable_modifier.csscls(&quot;focus&quot;, true);
+                    event.modifier.csscls(&quot;unfocus&quot;, true);
+                }
+            }
+        }
+    }
+});</code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
 			<div id="betajs-flash">
 			<h1>betajs-flash</h1>
 			</div>
@@ -3724,6 +4055,275 @@ dynamic.get(&quot;items&quot;).set_compare(function (x, y) {
 <li><code>BetaJSDebug.Instances.regexFilter(regex)</code>: matches if the class name matches the regular expression</li>
 <li><code>BetaJSDebug.Instances.ancestryFilter(filter)</code>: matches if the class or any of the ancestors matches the filter</li>
 </ul>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="grunt-betajs-templates">
+			<h1>grunt-betajs-templates</h1>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Build BetaJS templates.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="getting-started-templates">
+			<h2>Getting Started</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <h4>Overview</h4><p>In your project's Gruntfile, add a section named <code>betajs_templates</code> to the data object passed into <code>grunt.initConfig()</code>.</p>
+<h4>Options</h4><p>The namespace of each <code>betajs_templates</code> namespace <strong>must</strong> be specified. See<br>any of the examples for guidance on specifying the namespace option.</p>
+<pre class="prettyprint source lang-js"><code>grunt.initConfig({
+  betajs_templates: {
+    dist: {
+      files: {
+        &quot;dest/betajs-templates.js&quot;: [
+          &quot;src/my_first_template.html&quot;,
+          &quot;src/my_second_template.html&quot;,
+          &quot;src/my_last_templates.html&quot;
+        ]
+      },
+      options: {
+        namespace: 'App.Templates'
+      }
+    },
+  },
+});</code></pre><p>Naturally, it is possible to specify a different namespace for each subtask.<br>Multiple namespaces for different subtasks can be seen in the example below.</p>
+<pre class="prettyprint source lang-js"><code>grunt.initConfig({
+  betajs_templates: {
+    dashboard: {
+      files: {
+        &quot;dest/betajs-dashboard-templates.js&quot;: [
+          &quot;dashboard/*.html&quot;,
+        ]
+      },
+      options: {
+        namespace: 'App.Dashboard'
+      }
+    },
+    homepage: {
+      files: {
+        &quot;dest/betajs-homepage-templates.js&quot;: [
+          &quot;homepage/*.html&quot;
+        ]
+      },
+      options: {
+        namespace: 'App.Homepage'
+      }
+    }
+  }
+});</code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="grunt-betajs-docs-compile">
+			<h1>grunt-betajs-docs-compile</h1>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>Build BetaJS documentations based on JSDOC.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="install-docs-compile">
+			<h2>Getting Started</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>This plugin requires Grunt <code>~0.4.5</code></p>
+<p>If you haven't used <a href="http://gruntjs.com/">Grunt</a> before, be sure to check out the <a href="http://gruntjs.com/getting-started">Getting Started</a> guide, as it explains how to create a <a href="http://gruntjs.com/sample-gruntfile">Gruntfile</a> as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:</p>
+<pre class="prettyprint source lang-shell"><code>npm install grunt-betajs-docs-compile --save-dev</code></pre><p>Once the plugin has been installed, it may be enabled via the jsdoc plugin inside your Gruntfile with this line of JavaScript:</p>
+<pre class="prettyprint source lang-js"><code>grunt.loadNpmTasks('grunt-jsdoc');</code></pre><h2>The &quot;jsdoc&quot; task</h2><pre class="prettyprint source lang-js"><code>        jsdoc : {
+            dist : {
+                src : sources,
+                options : {
+                    destination : '../',
+                    template : 'node_modules/grunt-betajs-docs-compile',
+                    configure : './jsdoc.conf.json',
+                    tutorials : './tutorials'
+                }
+            }
+        }</code></pre><h2>Additional configuration</h2><p>Additional configuration can be done in the jsdoc.conf.json. It might looks like this:</p>
+<pre class="prettyprint source lang-js"><code>{
+    &quot;tags&quot;: {
+        &quot;allowUnknownTags&quot;: true
+    },
+    &quot;plugins&quot;: [&quot;plugins/markdown&quot;],
+
+    &quot;templates&quot;: {
+        &quot;cleverLinks&quot;: false,
+        &quot;monospaceLinks&quot;: false,
+        &quot;dateFormat&quot;: &quot;ddd MMM Do YYYY&quot;,
+        &quot;outputSourceFiles&quot;: true,
+        &quot;outputSourcePath&quot;: true,
+        &quot;systemName&quot;: &quot;FooBar&quot;,
+        &quot;footer&quot;: &quot;&quot;,
+        &quot;copyright&quot;: &quot;MIT License&quot;,
+        &quot;navType&quot;: &quot;vertical&quot;,
+        &quot;theme&quot;: &quot;cerulean&quot;,
+        &quot;linenums&quot;: true,
+        &quot;collapseSymbols&quot;: false,
+        &quot;inverseNav&quot;: true,
+        &quot;highlightTutorialCode&quot;: true,
+        &quot;protocol&quot;: &quot;fred://&quot;
+    },
+    &quot;markdown&quot;: {
+        &quot;parser&quot;: &quot;gfm&quot;,
+        &quot;hardwrap&quot;: true
+    }
+}</code></pre><p>This is mostly preserved and copied from <a href="https://www.npmjs.com/package/ink-docstrap">Ink-Docstrap</a>. Additionally, you can use the following optional arguments:</p>
+<pre class="prettyprint source lang-js"><code>{
+    ...
+
+    &quot;templates&quot;: {
+        ...
+
+        &quot;template&quot;: &quot;my/local/template/directory&quot;,
+        &quot;emptyTutorials&quot;: false || true,
+        &quot;singleTutorials&quot;: false || true,
+        &quot;singleModules&quot;: false || true
+    },
+
+    ...
+
+    &quot;pages&quot;: {
+        &quot;about&quot;: {
+            &quot;title&quot;: &quot;About&quot;,
+            &quot;source&quot;: &quot;./about.md&quot;
+        }
+    }
+}</code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="betajs-codemirror">
+			<h1>betajs-codemirror</h1>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>BetaJS-Codemirror is a Codemirror Plugin for the BetaJS Framework.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="getting-started-codemirror">
+			<h2>Getting Started</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The codemirror module registers a wrapper for the Codemirror Editor via the dynamics system. You can instantiate it as follows:</p>
+<pre class="prettyprint source lang-html"><code>
+        &lt;ba-codemirror ba-trim ba-language='html'>
+            &lt;div>
+                &lt;h1>H1 None&lt;/h1>
+                &lt;br />
+                &lt;strong>Strong 1&lt;/strong> Text 1 &lt;code>Code 1&lt;/code>&lt;br />
+                &lt;code style=&quot;text-decoration: underline&quot; >Code 2&lt;/code>&lt;strong> Strong 2&lt;/strong>
+                &lt;div style=&quot;font-size: 24px; font-family: Helvetica;&quot;>Text 2&lt;/div>
+            &lt;/div>
+        &lt;/ba-codemirror></code></pre><pre class="prettyprint source lang-javascript"><code>
+    BetaJS.Dynamics.Dynamic.activate();</code></pre>
+		</article>
+	</div>
+	
+	
+	
+
+	
+	
+
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="betajs-richeditor">
+			<h1>betajs-richeditor</h1>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>BetaJS-Richeditor is a rich editor plugin based on content editable using the BetaJS Framework.</p>
+		</article>
+	</div>
+	
+	
+	    
+	
+	<div class="tutorial-section">
+		<? if (tutorials.name && tutorials.title) { ?>
+			<div id="getting-started-richeditor">
+			<h2>Getting Started</h2>
+			</div>
+		<? } ?>
+	
+		<article>
+		    <p>The richeditor module registers a rich editor component via the dynamics system. You can instantiate it as follows:</p>
+<pre class="prettyprint source lang-html"><code>
+        &lt;ba-richeditor>
+            &lt;div>
+                &lt;h1>H1 None&lt;/h1>
+                &lt;br />
+                &lt;strong>Strong 1&lt;/strong> Text 1 &lt;code>Code 1&lt;/code>&lt;br />
+                &lt;u>Code 2&lt;/u>&lt;strong> Strong 2&lt;/strong>
+                &lt;div style=&quot;font-size: 24px; font-family: Helvetica;&quot;>Text 2&lt;/div>
+            &lt;/div>
+        &lt;/ba-richeditor></code></pre><pre class="prettyprint source lang-javascript"><code>
+    BetaJS.Dynamics.Dynamic.activate();</code></pre>
 		</article>
 	</div>
 	
