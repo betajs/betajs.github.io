@@ -130,6 +130,11 @@ Parameters:
 
             <td class="type">
             
+                
+<span class="param-type">function</span>
+
+
+            
             </td>
 
             
@@ -147,6 +152,11 @@ Parameters:
             
 
             <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
             
             </td>
 
@@ -167,6 +177,94 @@ Returns:
         
 <div class="param-desc">
     <p>method call</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>callWithin</strong>(context, method)</p>
+
+<div class="description">
+    <p>Call an object method.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object instance</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>method</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function or string of method</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>result of function call</p>
 </div>
 
 
@@ -231,6 +329,11 @@ Parameters:
 
             <td class="type">
             
+                
+<span class="param-type">integer</span>
+
+
+            
             </td>
 
             
@@ -254,13 +357,25 @@ Returns:
 
 
 
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">array</span>
+
+
+	</dd>
+</dl>
+
 
     
 
                 
             
                 
-                    <p>function <strong>matchArgs</strong>(args, pattern)</p>
+                    <p>function <strong>matchArgs</strong>(args, skip, pattern)</p>
 
 <div class="description">
     <p>Matches functions arguments against some pattern</p>
@@ -309,10 +424,38 @@ Parameters:
 
         <tr>
             
+                <td class="name"><code>skip</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>number of arguments to be omitted (default: 0)</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
                 <td class="name"><code>pattern</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
             
             </td>
 
@@ -336,6 +479,182 @@ Returns:
 </div>
 
 
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>newClass</strong>(cls)</p>
+
+<div class="description">
+    <p>Creates a new class instance with arguments.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>cls</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Class</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>class instance</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">function</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>newClassFunc</strong>(cls)</p>
+
+<div class="description">
+    <p>Creates a function for creating new instances of a class.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>cls</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Class</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>class instantiation function</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">function</span>
+
+
+	</dd>
+</dl>
 
 
     
@@ -379,6 +698,11 @@ Parameters:
 
             <td class="type">
             
+                
+<span class="param-type">function</span>
+
+
+            
             </td>
 
             
@@ -418,6 +742,12 @@ Returns:
 <div class="col-md-3">
 	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"><div class="list-group">
 	
+		<a class="list-group-item " href="BetaJS.module_Comparators.html">
+			<span class="toc-h1">
+				Comparators
+			</span>
+		</a>
+	
 		<a class="list-group-item active" href="BetaJS.module_Functions.html">
 			<span class="toc-h1">
 				Functions
@@ -448,15 +778,57 @@ Returns:
 			</span>
 		</a>
 	
+		<a class="list-group-item " href="module-Attach.html">
+			<span class="toc-h1">
+				Attach
+			</span>
+		</a>
+	
 		<a class="list-group-item " href="module-FileSupport.html">
 			<span class="toc-h1">
 				FileSupport
 			</span>
 		</a>
 	
+		<a class="list-group-item " href="module-Globals.html">
+			<span class="toc-h1">
+				Globals
+			</span>
+		</a>
+	
+		<a class="list-group-item " href="module-Helper.html">
+			<span class="toc-h1">
+				Helper
+			</span>
+		</a>
+	
+		<a class="list-group-item " href="module-JavaScript.html">
+			<span class="toc-h1">
+				JavaScript
+			</span>
+		</a>
+	
+		<a class="list-group-item " href="module-Namespace.html">
+			<span class="toc-h1">
+				Namespace
+			</span>
+		</a>
+	
+		<a class="list-group-item " href="module-Public.html">
+			<span class="toc-h1">
+				Public
+			</span>
+		</a>
+	
 		<a class="list-group-item " href="module-Render.html">
 			<span class="toc-h1">
 				Render
+			</span>
+		</a>
+	
+		<a class="list-group-item " href="module-Scoped.html">
+			<span class="toc-h1">
+				Scoped
 			</span>
 		</a>
 	

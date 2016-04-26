@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BetaJS - Reference</title>
+		<title>BetaJS - Source: betajs-scoped/src/main/public.js</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
@@ -83,186 +83,67 @@
 			
 			<div class="container" id="toc-content">
 				<div class="row">
-						<div class="col-md-8">
-	<div id="main">
-		<section class="tutorial-section">
-	
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs-scoped/src/main/public.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">var globalNamespace = newNamespace({tree: true, global: true});
+var rootNamespace = newNamespace({tree: true});
+var rootScope = newScope(null, rootNamespace, rootNamespace, globalNamespace);
 
-        <header id="BetaJS.module:Tokens">
-            <h2>Tokens</h2>
-        </header>
-        <article>
-            
-                
-                    <p>function <strong>generate_token</strong>(length)</p>
-
-<div class="description">
-    <p>Returns a new token</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
+var Public = Helper.extend(rootScope, (function () {  
+/** 
+ * This module includes all public functions of the Scoped system.
+ * 
+ * It includes all methods of the root scope and the Attach module.
+ * 
+ * @module Public
+ * @access public
+ */
+return {
 		
-		<th>Name</th>
+	guid: "/* @echo GUID */",
+	version: '/* @echo MAJOR_VERSION */./* @echo MINOR_VERSION */',
 		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
+	upgrade: Attach.upgrade,
+	attach: Attach.attach,
+	detach: Attach.detach,
+	exports: Attach.exports,
 	
-
-        <tr>
-            
-                <td class="name"><code>length</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional length of token, default is 16</p></td>
-        </tr>
-
+	/**
+	 * Exports all data contained in the Scoped system.
+	 * 
+	 * @return data of the Scoped system.
+	 * @access private
+	 */
+	__exportScoped: function () {
+		return {
+			globalNamespace: globalNamespace.__export(),
+			rootNamespace: rootNamespace.__export(),
+			rootScope: rootScope.__export()
+		};
+	},
 	
-	</tbody>
-</table>
+	/**
+	 * Import data into the Scoped system.
+	 * 
+	 * @param data of the Scoped system.
+	 * @access private
+	 */
+	__importScoped: function (data) {
+		globalNamespace.__import(data.globalNamespace);
+		rootNamespace.__import(data.rootNamespace);
+		rootScope.__import(data.rootScope);
+	}
+	
+};
 
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>token</p>
+}));
+</pre>
+	</article>
+</section>
 </div>
-
-
-
-
-    
-
-                
-            
-        </article>
-		
-		</section>
-		
-	</div>
-</div>		
-<div class="clearfix">
-</div>
-<div class="col-md-3">
-	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"><div class="list-group">
-	
-		<a class="list-group-item " href="BetaJS.module_Comparators.html">
-			<span class="toc-h1">
-				Comparators
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Functions.html">
-			<span class="toc-h1">
-				Functions
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Ids.html">
-			<span class="toc-h1">
-				Ids
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Strings.html">
-			<span class="toc-h1">
-				Strings
-			</span>
-		</a>
-	
-		<a class="list-group-item active" href="BetaJS.module_Tokens.html">
-			<span class="toc-h1">
-				Tokens
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Types.html">
-			<span class="toc-h1">
-				Types
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Attach.html">
-			<span class="toc-h1">
-				Attach
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-FileSupport.html">
-			<span class="toc-h1">
-				FileSupport
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Globals.html">
-			<span class="toc-h1">
-				Globals
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Helper.html">
-			<span class="toc-h1">
-				Helper
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-JavaScript.html">
-			<span class="toc-h1">
-				JavaScript
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Namespace.html">
-			<span class="toc-h1">
-				Namespace
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Public.html">
-			<span class="toc-h1">
-				Public
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Render.html">
-			<span class="toc-h1">
-				Render
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Scoped.html">
-			<span class="toc-h1">
-				Scoped
-			</span>
-		</a>
-	
-</div>
-</div>
-</div>
-
 				</div>
 			</div>
 		

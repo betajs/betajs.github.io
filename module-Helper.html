@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="module:FileSupport">
-            <h2>FileSupport</h2>
+        <header id="module:Helper">
+            <h2>Helper</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>copyDirectory</strong>(source, dest)</p>
+                    <p>function <strong>extend</strong>(base, overwrite)</p>
 
 <div class="description">
-    <p>Copy a whole directory with files to a directory, creating the target directory if it doesn't exist.</p>
+    <p>Extend a base object with all attributes of a second object.</p>
 </div>
 
 Parameters:
@@ -125,13 +125,13 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>source</code></td>
+                <td class="name"><code>base</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -141,20 +141,20 @@ Parameters:
 
             
 
-            <td class="description last"><p>source directory</p></td>
+            <td class="description last"><p>base object</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>dest</code></td>
+                <td class="name"><code>overwrite</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -164,148 +164,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>target directory</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>copyFileToDirectory</strong>(fileName, dest)</p>
-
-<div class="description">
-    <p>Copy a file to a directory, creating the directory if it doesn't exist.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>fileName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>file to be copied</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>dest</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>target directory</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>readFile</strong>(f)</p>
-
-<div class="description">
-    <p>Read a file to a string synchronously</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>file name of file to be read</p></td>
+            <td class="description last"><p>second object</p></td>
         </tr>
 
 	
@@ -317,89 +176,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>content of file</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">string</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>readHtmlSafe</strong>(f)</p>
-
-<div class="description">
-    <p>Read a file to an html-safe string synchronously</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>file name of file to be read</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>html-safe content of file</p>
+    <p>extended base object</p>
 </div>
 
 
@@ -422,10 +199,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>readJSON</strong>(f)</p>
+                    <p>function <strong>isEmpty</strong>(obj)</p>
 
 <div class="description">
-    <p>Read a file to JSON synchronously</p>
+    <p>Returns whether an object is null, undefined, an empty array or an empty object.</p>
 </div>
 
 Parameters:
@@ -453,15 +230,10 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>f</code></td>
+                <td class="name"><code>obj</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
             
             </td>
 
@@ -469,7 +241,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>file name of file to be read</p></td>
+            <td class="description last"><p>object in question</p></td>
         </tr>
 
 	
@@ -481,7 +253,100 @@ Returns:
 
         
 <div class="param-desc">
-    <p>parsed JSON</p>
+    <p>true if object is empty</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>matchArgs</strong>(args, pattern)</p>
+
+<div class="description">
+    <p>Matches function arguments against some pattern.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function arguments</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>pattern</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>typed pattern</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>matched arguments as associative array</p>
 </div>
 
 
@@ -504,10 +369,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>shortenPaths</strong>(files, commonPrefix)</p>
+                    <p>function <strong>method</strong>(obj, func)</p>
 
 <div class="description">
-    <p>Generates shortened paths names for files by removing a common prefix</p>
+    <p>Attached a context to a function.</p>
 </div>
 
 Parameters:
@@ -535,7 +400,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>files</code></td>
+                <td class="name"><code>obj</code></td>
             
 
             <td class="type">
@@ -551,20 +416,20 @@ Parameters:
 
             
 
-            <td class="description last"><p>files object</p></td>
+            <td class="description last"><p>context for the function</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>commonPrefix</code></td>
+                <td class="name"><code>func</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
             
@@ -574,7 +439,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>common prefix that is to be removed</p></td>
+            <td class="description last"><p>function</p></td>
         </tr>
 
 	
@@ -586,22 +451,10 @@ Returns:
 
         
 <div class="param-desc">
-    <p>updated files object</p>
+    <p>function with attached context</p>
 </div>
 
 
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">object</span>
-
-
-	</dd>
-</dl>
 
 
     
@@ -609,10 +462,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>writeFile</strong>(f, data)</p>
+                    <p>function <strong>stringify</strong>(value)</p>
 
 <div class="description">
-    <p>Write a string to a file synchronously</p>
+    <p>Stringifies a value as JSON and functions to string representations.</p>
 </div>
 
 Parameters:
@@ -640,15 +493,10 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>f</code></td>
+                <td class="name"><code>value</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
             
             </td>
 
@@ -656,30 +504,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>file name of file to be written</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>content of be written</p></td>
+            <td class="description last"><p>value to be stringified</p></td>
         </tr>
 
 	
@@ -687,6 +512,94 @@ Parameters:
 </table>
 
 
+Returns:
+
+        
+<div class="param-desc">
+    <p>stringified value</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>typeOf</strong>(obj)</p>
+
+<div class="description">
+    <p>Returns the type of an object, particulary returning 'array' for arrays.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object in question</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>type of object</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+
+    
 
                 
             
@@ -743,7 +656,7 @@ Parameters:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="module-FileSupport.html">
+		<a class="list-group-item " href="module-FileSupport.html">
 			<span class="toc-h1">
 				FileSupport
 			</span>
@@ -755,7 +668,7 @@ Parameters:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="module-Helper.html">
+		<a class="list-group-item active" href="module-Helper.html">
 			<span class="toc-h1">
 				Helper
 			</span>

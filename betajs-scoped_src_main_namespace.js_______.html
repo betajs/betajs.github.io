@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs-scoped/src/main/namespace.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="http://blog.betajs.com">Blog</a>
+						</li>
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs-scoped/src/main/namespace.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">function newNamespace (opts/* : {tree ?: boolean, global ?: boolean, root ?: Object} */) {
+
+	var options/* : {
+		tree: boolean,
+	    global: boolean,
+	    root: Object
+	} */ = {
+		tree: typeof opts.tree === "boolean" ? opts.tree : false,
+		global: typeof opts.global === "boolean" ? opts.global : false,
+		root: typeof opts.root === "object" ? opts.root : {}
+	};
+
+	/*::
+	type Node = {
+		route: ?string,
+		parent: ?Node,
+		children: any,
+		watchers: any,
+		data: any,
+		ready: boolean,
+		lazy: any
+	};
+	*/
+
+	function initNode(options)/* : Node */ {
+		return {
+			route: typeof options.route === "string" ? options.route : null,
+			parent: typeof options.parent === "object" ? options.parent : null,
+			ready: typeof options.ready === "boolean" ? options.ready : false,
+			children: {},
+			watchers: [],
+			data: {},
+			lazy: []
+		};
+	}
+	
+	var nsRoot = initNode({ready: true});
+	
+	if (options.tree) {
+		if (options.global) {
+			try {
+				if (window)
+					nsRoot.data = window;
+			} catch (e) { }
+			try {
+				if (global)
+					nsRoot.data = global;
+			} catch (e) { }
+		} else
+			nsRoot.data = options.root;
+	}
+	
+	function nodeDigest(node/* : Node */) {
+		if (node.ready)
+			return;
+		if (node.parent &amp;&amp; !node.parent.ready) {
+			nodeDigest(node.parent);
+			return;
+		}
+		if (node.route &amp;&amp; node.parent &amp;&amp; (node.route in node.parent.data)) {
+			node.data = node.parent.data[node.route];
+			node.ready = true;
+			for (var i = 0; i &lt; node.watchers.length; ++i)
+				node.watchers[i].callback.call(node.watchers[i].context || this, node.data);
+			node.watchers = [];
+			for (var key in node.children)
+				nodeDigest(node.children[key]);
+		}
+	}
+	
+	function nodeEnforce(node/* : Node */) {
+		if (node.ready)
+			return;
+		if (node.parent &amp;&amp; !node.parent.ready)
+			nodeEnforce(node.parent);
+		node.ready = true;
+		if (node.parent) {
+			if (options.tree &amp;&amp; typeof node.parent.data == "object")
+				node.parent.data[node.route] = node.data;
+		}
+		for (var i = 0; i &lt; node.watchers.length; ++i)
+			node.watchers[i].callback.call(node.watchers[i].context || this, node.data);
+		node.watchers = [];
+	}
+	
+	function nodeSetData(node/* : Node */, value) {
+		if (typeof value == "object" &amp;&amp; node.ready) {
+			for (var key in value)
+				node.data[key] = value[key];
+		} else
+			node.data = value;
+		if (typeof value == "object") {
+			for (var ckey in value) {
+				if (node.children[ckey])
+					node.children[ckey].data = value[ckey];
+			}
+		}
+		nodeEnforce(node);
+		for (var k in node.children)
+			nodeDigest(node.children[k]);
+	}
+	
+	function nodeClearData(node/* : Node */) {
+		if (node.ready &amp;&amp; node.data) {
+			for (var key in node.data)
+				delete node.data[key];
+		}
+	}
+	
+	function nodeNavigate(path/* : ?String */) {
+		if (!path)
+			return nsRoot;
+		var routes = path.split(".");
+		var current = nsRoot;
+		for (var i = 0; i &lt; routes.length; ++i) {
+			if (routes[i] in current.children)
+				current = current.children[routes[i]];
+			else {
+				current.children[routes[i]] = initNode({
+					parent: current,
+					route: routes[i]
+				});
+				current = current.children[routes[i]];
+				nodeDigest(current);
+			}
+		}
+		return current;
+	}
+	
+	function nodeAddWatcher(node/* : Node */, callback, context) {
+		if (node.ready)
+			callback.call(context || this, node.data);
+		else {
+			node.watchers.push({
+				callback: callback,
+				context: context
+			});
+			if (node.lazy.length > 0) {
+				var f = function (node) {
+					if (node.lazy.length > 0) {
+						var lazy = node.lazy.shift();
+						lazy.callback.call(lazy.context || this, node.data);
+						f(node);
+					}
+				};
+				f(node);
+			}
+		}
+	}
+	
+	function nodeUnresolvedWatchers(node/* : Node */, base, result) {
+		node = node || nsRoot;
+		result = result || [];
+		if (!node.ready)
+			result.push(base);
+		for (var k in node.children) {
+			var c = node.children[k];
+			var r = (base ? base + "." : "") + c.route;
+			result = nodeUnresolvedWatchers(c, r, result);
+		}
+		return result;
+	}
+
+	/** 
+	 * The namespace module manages a namespace in the Scoped system.
+	 * 
+	 * @module Namespace
+	 * @access public
+	 */
+	return {
+		
+		/**
+		 * Extend a node in the namespace by an object.
+		 * 
+		 * @param {string} path path to the node in the namespace
+		 * @param {object} value object that should be used for extend the namespace node
+		 */
+		extend: function (path, value) {
+			nodeSetData(nodeNavigate(path), value);
+		},
+		
+		/**
+		 * Set the object value of a node in the namespace.
+		 * 
+		 * @param {string} path path to the node in the namespace
+		 * @param {object} value object that should be used as value for the namespace node
+		 */
+		set: function (path, value) {
+			var node = nodeNavigate(path);
+			if (node.data)
+				nodeClearData(node);
+			nodeSetData(node, value);
+		},
+		
+		/**
+		 * Read the object value of a node in the namespace.
+		 * 
+		 * @param {string} path path to the node in the namespace
+		 * @return {object} object value of the node or null if undefined
+		 */
+		get: function (path) {
+			var node = nodeNavigate(path);
+			return node.ready ? node.data : null;
+		},
+		
+		/**
+		 * Lazily navigate to a node in the namespace.
+		 * Will asynchronously call the callback as soon as the node is being touched.
+		 *
+		 * @param {string} path path to the node in the namespace
+		 * @param {function} callback callback function accepting the node's object value
+		 * @param {context} context optional callback context
+		 */
+		lazy: function (path, callback, context) {
+			var node = nodeNavigate(path);
+			if (node.ready)
+				callback(context || this, node.data);
+			else {
+				node.lazy.push({
+					callback: callback,
+					context: context
+				});
+			}
+		},
+		
+		/**
+		 * Digest a node path, checking whether it has been defined by an external system.
+		 * 
+		 * @param {string} path path to the node in the namespace
+		 */
+		digest: function (path) {
+			nodeDigest(nodeNavigate(path));
+		},
+		
+		/**
+		 * Asynchronously access a node in the namespace.
+		 * Will asynchronously call the callback as soon as the node is being defined.
+		 *
+		 * @param {string} path path to the node in the namespace
+		 * @param {function} callback callback function accepting the node's object value
+		 * @param {context} context optional callback context
+		 */
+		obtain: function (path, callback, context) {
+			nodeAddWatcher(nodeNavigate(path), callback, context);
+		},
+		
+		/**
+		 * Returns all unresolved watchers under a certain path.
+		 * 
+		 * @param {string} path path to the node in the namespace
+		 * @return {array} list of all unresolved watchers 
+		 */
+		unresolvedWatchers: function (path) {
+			return nodeUnresolvedWatchers(nodeNavigate(path), path);
+		},
+		
+		__export: function () {
+			return {
+				options: options,
+				nsRoot: nsRoot
+			};
+		},
+		
+		__import: function (data) {
+			options = data.options;
+			nsRoot = data.nsRoot;
+		}
+		
+	};
+	
+}</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

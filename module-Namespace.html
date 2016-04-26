@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="module:FileSupport">
-            <h2>FileSupport</h2>
+        <header id="module:Namespace">
+            <h2>Namespace</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>copyDirectory</strong>(source, dest)</p>
+                    <p>function <strong>digest</strong>(path)</p>
 
 <div class="description">
-    <p>Copy a whole directory with files to a directory, creating the target directory if it doesn't exist.</p>
+    <p>Digest a node path, checking whether it has been defined by an external system.</p>
 </div>
 
 Parameters:
@@ -125,7 +125,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>source</code></td>
+                <td class="name"><code>path</code></td>
             
 
             <td class="type">
@@ -141,30 +141,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>source directory</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>dest</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>target directory</p></td>
+            <td class="description last"><p>path to the node in the namespace</p></td>
         </tr>
 
 	
@@ -176,10 +153,10 @@ Parameters:
                 
             
                 
-                    <p>function <strong>copyFileToDirectory</strong>(fileName, dest)</p>
+                    <p>function <strong>extend</strong>(path, value)</p>
 
 <div class="description">
-    <p>Copy a file to a directory, creating the directory if it doesn't exist.</p>
+    <p>Extend a node in the namespace by an object.</p>
 </div>
 
 Parameters:
@@ -207,7 +184,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>fileName</code></td>
+                <td class="name"><code>path</code></td>
             
 
             <td class="type">
@@ -223,20 +200,20 @@ Parameters:
 
             
 
-            <td class="description last"><p>file to be copied</p></td>
+            <td class="description last"><p>path to the node in the namespace</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>dest</code></td>
+                <td class="name"><code>value</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -246,7 +223,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>target directory</p></td>
+            <td class="description last"><p>object that should be used for extend the namespace node</p></td>
         </tr>
 
 	
@@ -258,10 +235,10 @@ Parameters:
                 
             
                 
-                    <p>function <strong>readFile</strong>(f)</p>
+                    <p>function <strong>get</strong>(path)</p>
 
 <div class="description">
-    <p>Read a file to a string synchronously</p>
+    <p>Read the object value of a node in the namespace.</p>
 </div>
 
 Parameters:
@@ -289,7 +266,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>f</code></td>
+                <td class="name"><code>path</code></td>
             
 
             <td class="type">
@@ -305,7 +282,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>file name of file to be read</p></td>
+            <td class="description last"><p>path to the node in the namespace</p></td>
         </tr>
 
 	
@@ -317,89 +294,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>content of file</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">string</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>readHtmlSafe</strong>(f)</p>
-
-<div class="description">
-    <p>Read a file to an html-safe string synchronously</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>file name of file to be read</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>html-safe content of file</p>
+    <p>object value of the node or null if undefined</p>
 </div>
 
 
@@ -422,10 +317,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>readJSON</strong>(f)</p>
+                    <p>function <strong>lazy</strong>(path, callback, context)</p>
 
 <div class="description">
-    <p>Read a file to JSON synchronously</p>
+    <p>Lazily navigate to a node in the namespace.<br>Will asynchronously call the callback as soon as the node is being touched.</p>
 </div>
 
 Parameters:
@@ -453,7 +348,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>f</code></td>
+                <td class="name"><code>path</code></td>
             
 
             <td class="type">
@@ -469,7 +364,299 @@ Parameters:
 
             
 
-            <td class="description last"><p>file name of file to be read</p></td>
+            <td class="description last"><p>path to the node in the namespace</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>callback function accepting the node's object value</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">context</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional callback context</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+
+                
+            
+                
+                    <p>function <strong>obtain</strong>(path, callback, context)</p>
+
+<div class="description">
+    <p>Asynchronously access a node in the namespace.<br>Will asynchronously call the callback as soon as the node is being defined.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>path to the node in the namespace</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>callback function accepting the node's object value</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">context</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional callback context</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+
+                
+            
+                
+                    <p>function <strong>set</strong>(path, value)</p>
+
+<div class="description">
+    <p>Set the object value of a node in the namespace.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>path to the node in the namespace</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object that should be used as value for the namespace node</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+
+                
+            
+                
+                    <p>function <strong>unresolvedWatchers</strong>(path)</p>
+
+<div class="description">
+    <p>Returns all unresolved watchers under a certain path.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>path to the node in the namespace</p></td>
         </tr>
 
 	
@@ -481,7 +668,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>parsed JSON</p>
+    <p>list of all unresolved watchers</p>
 </div>
 
 
@@ -492,7 +679,7 @@ Returns:
 	</dt>
 	<dd>
 		
-<span class="param-type">object</span>
+<span class="param-type">array</span>
 
 
 	</dd>
@@ -500,193 +687,6 @@ Returns:
 
 
     
-
-                
-            
-                
-                    <p>function <strong>shortenPaths</strong>(files, commonPrefix)</p>
-
-<div class="description">
-    <p>Generates shortened paths names for files by removing a common prefix</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>files</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>files object</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>commonPrefix</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>common prefix that is to be removed</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>updated files object</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">object</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>writeFile</strong>(f, data)</p>
-
-<div class="description">
-    <p>Write a string to a file synchronously</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>file name of file to be written</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>content of be written</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
 
                 
             
@@ -743,7 +743,7 @@ Parameters:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="module-FileSupport.html">
+		<a class="list-group-item " href="module-FileSupport.html">
 			<span class="toc-h1">
 				FileSupport
 			</span>
@@ -767,7 +767,7 @@ Parameters:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="module-Namespace.html">
+		<a class="list-group-item active" href="module-Namespace.html">
 			<span class="toc-h1">
 				Namespace
 			</span>

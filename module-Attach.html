@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="BetaJS.module:Tokens">
-            <h2>Tokens</h2>
+        <header id="module:Attach">
+            <h2>Attach</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>generate_token</strong>(length)</p>
+                    <p>function <strong>odule:Attach</strong>(mod, object, forceExport)</p>
 
 <div class="description">
-    <p>Returns a new token</p>
+    <p>Exports an object as a module if possible.</p>
 </div>
 
 Parameters:
@@ -125,10 +125,15 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>length</code></td>
+                <td class="name"><code>mod</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
             
             </td>
 
@@ -136,7 +141,53 @@ Parameters:
 
             
 
-            <td class="description last"><p>optional length of token, default is 16</p></td>
+            <td class="description last"><p>a module object (optional, default is 'module')</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the object to be exported</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>forceExport</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>overwrite potentially pre-existing exports</p></td>
         </tr>
 
 	
@@ -148,10 +199,268 @@ Returns:
 
         
 <div class="param-desc">
-    <p>token</p>
+    <p>the Scoped system</p>
 </div>
 
 
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>attach</strong>(namespace)</p>
+
+<div class="description">
+    <p>Attaches the Scoped system to the environment.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>namespace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Optional namespace (default is 'Scoped')</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>the attached Scoped system</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>detach</strong>(forceDetach)</p>
+
+<div class="description">
+    <p>Detaches the Scoped system from the environment.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>forceDetach</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Overwrite any attached scoped system by null.</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>the detached Scoped system</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>upgrade</strong>(namespace)</p>
+
+<div class="description">
+    <p>Upgrades a pre-existing Scoped system to the newest version present.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>namespace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Optional namespace (default is 'Scoped')</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>the attached Scoped system</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
 
 
     
@@ -193,7 +502,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="BetaJS.module_Tokens.html">
+		<a class="list-group-item " href="BetaJS.module_Tokens.html">
 			<span class="toc-h1">
 				Tokens
 			</span>
@@ -205,7 +514,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="module-Attach.html">
+		<a class="list-group-item active" href="module-Attach.html">
 			<span class="toc-h1">
 				Attach
 			</span>

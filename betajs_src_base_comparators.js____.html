@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BetaJS - Reference</title>
+		<title>BetaJS - Source: betajs/src/base/comparators.js</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
@@ -83,186 +83,114 @@
 			
 			<div class="container" id="toc-content">
 				<div class="row">
-						<div class="col-md-8">
-	<div id="main">
-		<section class="tutorial-section">
-	
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs/src/base/comparators.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Comparators", ["module:Types", "module:Properties.Properties"], function (Types, Properties) {
 
-        <header id="BetaJS.module:Tokens">
-            <h2>Tokens</h2>
-        </header>
-        <article>
-            
-                
-                    <p>function <strong>generate_token</strong>(length)</p>
-
-<div class="description">
-    <p>Returns a new token</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
+	/**
+	 * Comparator Functions
+	 * 
+	 * @module BetaJS.Comparators
+	 */
+	return {		
 		
-		<th>Name</th>
+		
+		/**
+		 * Creates a function that compares two json object w.r.t. a json object, mapping keys to a comparison order,
+		 * e.g. {'last_name': 1, 'first_name': -1, 'age': -1 }  
+		 * 
+		 * @param {json} object comparison object
+		 * @return {function} function for comparing two objects w.r.t. the comparison object
+		 */
+		byObject: function (object) {
+			var self = this;
+			return function (left, right) {
+				for (var key in object) {
+					var c = 0;
+					if (Properties.is_class_instance(left) &amp;&amp; Properties.is_class_instance(right))
+						c = self.byValue(left.get(key) || null, right.get(key) || null);
+					else
+						c = self.byValue(left[key] || null, right[key] || null);
+					if (c !== 0)
+						return c * object[key];
+				}
+				return 0;
+			};
+		},
+
+		
+		/**
+		 * Compares to variables by the natural order in JS.
+		 * 
+		 * @param a value A
+		 * @param b value B
+		 * @return {int} 1 if a > b, -1 if a &lt; b and 0 otherwise
+		 */
+		byValue: function (a, b) {
+			if (Types.is_string(a))
+				return a.localeCompare(b);
+			if (a &lt; b)
+				return -1;
+			if (a > b)
+				return 1;
+			return 0;
+		},
 		
 
-		<th>Type</th>
-
+		/**
+		 * Compares two values a and b recursively.
+		 * 
+		 * @param a value A
+		 * @param b value B
+		 * @param {int} depth depth limit for the recursion, leave blank for infinite recursion
+		 * @return {bool} true if both values are equal
+		 */
+		deepEqual: function (a, b, depth) {
+			if (depth === 0)
+				return true;
+			if (depth === 1)
+				return a === b;
+			if (Types.is_array(a) &amp;&amp; Types.is_array(b)) {
+				if (a.length !== b.length)
+					return false;
+				for (var i = 0; i &lt; a.length; ++i)
+					if (!this.deepEqual(a[i], b[i], depth - 1))
+						return false;
+				return true;
+			} else if (Types.is_object(a) &amp;&amp; Types.is_object(b)) {
+				if ((a &amp;&amp; !b) || (b &amp;&amp; !a))
+					return a || b;
+				for (var key in a)
+					if (!this.deepEqual(a[key], b[key], depth - 1))
+						return false;
+				for (key in b)
+					if (!(key in a))
+						return false;
+				return true;
+			} else
+				return a === b;
+		},
 		
-
 		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>length</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional length of token, default is 16</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>token</p>
+		/**
+		 * Determines whether two lists are equal. Two lists are considered equal if their elements are equal.
+		 * 
+		 * @param a list A
+		 * @param b list B
+		 * @return {bool} true if both lists are equal
+		 */
+		listEqual: function (a, b) {
+			return this.deepEqual(a, b, 2);
+		}
+			
+	};
+});</pre>
+	</article>
+</section>
 </div>
-
-
-
-
-    
-
-                
-            
-        </article>
-		
-		</section>
-		
-	</div>
-</div>		
-<div class="clearfix">
-</div>
-<div class="col-md-3">
-	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"><div class="list-group">
-	
-		<a class="list-group-item " href="BetaJS.module_Comparators.html">
-			<span class="toc-h1">
-				Comparators
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Functions.html">
-			<span class="toc-h1">
-				Functions
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Ids.html">
-			<span class="toc-h1">
-				Ids
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Strings.html">
-			<span class="toc-h1">
-				Strings
-			</span>
-		</a>
-	
-		<a class="list-group-item active" href="BetaJS.module_Tokens.html">
-			<span class="toc-h1">
-				Tokens
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Types.html">
-			<span class="toc-h1">
-				Types
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Attach.html">
-			<span class="toc-h1">
-				Attach
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-FileSupport.html">
-			<span class="toc-h1">
-				FileSupport
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Globals.html">
-			<span class="toc-h1">
-				Globals
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Helper.html">
-			<span class="toc-h1">
-				Helper
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-JavaScript.html">
-			<span class="toc-h1">
-				JavaScript
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Namespace.html">
-			<span class="toc-h1">
-				Namespace
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Public.html">
-			<span class="toc-h1">
-				Public
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Render.html">
-			<span class="toc-h1">
-				Render
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Scoped.html">
-			<span class="toc-h1">
-				Scoped
-			</span>
-		</a>
-	
-</div>
-</div>
-</div>
-
 				</div>
 			</div>
 		

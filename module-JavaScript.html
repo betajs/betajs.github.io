@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="BetaJS.module:Tokens">
-            <h2>Tokens</h2>
+        <header id="module:JavaScript">
+            <h2>JavaScript</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>generate_token</strong>(length)</p>
+                    <p>function <strong>extractIdentifiers</strong>(code, keepScopes)</p>
 
 <div class="description">
-    <p>Returns a new token</p>
+    <p>Return JS identifiers from a piece of code.</p>
 </div>
 
 Parameters:
@@ -125,10 +125,15 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>length</code></td>
+                <td class="name"><code>code</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
             
             </td>
 
@@ -136,7 +141,30 @@ Parameters:
 
             
 
-            <td class="description last"><p>optional length of token, default is 16</p></td>
+            <td class="description last"><p>input code</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>keepScopes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>keep scopes, e.g. <code>foo.bar</code> instead of <code>foo</code> and <code>bar</code> (default: false)</p></td>
         </tr>
 
 	
@@ -148,10 +176,268 @@ Returns:
 
         
 <div class="param-desc">
-    <p>token</p>
+    <p>array of extracted identifiers</p>
 </div>
 
 
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">array</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>isIdentifier</strong>(key)</p>
+
+<div class="description">
+    <p>Is string a valid JS identifier?</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string in question</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if identifier</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">boolean</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>isReserved</strong>(key)</p>
+
+<div class="description">
+    <p>Is string a JS-reserved keyword?</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string in question</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if reserved</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">boolean</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>removeStrings</strong>(code)</p>
+
+<div class="description">
+    <p>Remove string definitions from JS code.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>input code</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>code without strings</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">string</span>
+
+
+	</dd>
+</dl>
 
 
     
@@ -193,7 +479,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="BetaJS.module_Tokens.html">
+		<a class="list-group-item " href="BetaJS.module_Tokens.html">
 			<span class="toc-h1">
 				Tokens
 			</span>
@@ -229,7 +515,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="module-JavaScript.html">
+		<a class="list-group-item active" href="module-JavaScript.html">
 			<span class="toc-h1">
 				JavaScript
 			</span>

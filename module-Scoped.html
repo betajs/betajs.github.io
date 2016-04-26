@@ -88,17 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="BetaJS.module:Types">
-            <h2>Types</h2>
+        <header id="module:Scoped">
+            <h2>Scoped</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>compare</strong>(x, y)</p>
+                    <p>function <strong>__export</strong>()</p>
 
 <div class="description">
-    <p>Compares two values</p>
-<p>If values are booleans, we compare them directly. If values are<br>arrays, we compare them recursively by their components. Otherwise,<br>we use localeCompare which compares strings.</p>
+    <p>Exports the scope.</p>
 </div>
 
 Parameters:
@@ -107,8 +106,6 @@ Parameters:
 <table class="params table table-striped">
     <thead>
 	<tr>
-		
-		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -122,42 +119,6 @@ Parameters:
 	</thead>
 
 	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>left value</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>y</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>right value</p></td>
-        </tr>
-
 	
 	</tbody>
 </table>
@@ -167,10 +128,22 @@ Returns:
 
         
 <div class="param-desc">
-    <p>1 if x &gt; y, -1 if x &lt; y and 0 if x == y</p>
+    <p>exported scope</p>
 </div>
 
 
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
 
 
     
@@ -178,10 +151,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>is_array</strong>(x)</p>
+                    <p>function <strong>__import</strong>(data)</p>
 
 <div class="description">
-    <p>Returns whether argument is an array</p>
+    <p>Imports a scope from an exported scope.</p>
 </div>
 
 Parameters:
@@ -209,657 +182,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>true if x is an array</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>is_boolean</strong>(x)</p>
-
-<div class="description">
-    <p>Returns whether argument is boolean</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>true if x is boolean</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>is_defined</strong>(x)</p>
-
-<div class="description">
-    <p>Returns whether argument is defined (could be null)</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>true if x is defined</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>is_empty</strong>(x)</p>
-
-<div class="description">
-    <p>Returns whether argument is empty (undefined, null, an empty array or<br>an empty object)</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>true if x is empty</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>is_function</strong>(x)</p>
-
-<div class="description">
-    <p>Returns whether argument is a function</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>true if x is a function</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>is_none</strong>(x)</p>
-
-<div class="description">
-    <p>Returns whether argument is undefined or null</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>true if x is undefined or null</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>is_null</strong>(x)</p>
-
-<div class="description">
-    <p>Returns whether argument is null (which is different from being<br>undefined)</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>true if x is null</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>is_object</strong>(x)</p>
-
-<div class="description">
-    <p>Returns whether argument is an object</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>true if x is an object</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>is_string</strong>(x)</p>
-
-<div class="description">
-    <p>Returns whether argument is a string</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>true if x is a a string</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>is_undefined</strong>(x)</p>
-
-<div class="description">
-    <p>Returns whether argument is undefined (which is different from being<br>null)</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>argument</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>true if x is undefined</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>objectType</strong>(obj)</p>
-
-<div class="description">
-    <p>Returns the specific type of a JavaScript object</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>obj</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
@@ -875,9 +198,591 @@ Parameters:
 
             
 
-            <td class="description last"><p>an object instance</p></td>
+            <td class="description last"><p>exported scope to be imported</p></td>
         </tr>
 
+	
+	</tbody>
+</table>
+
+
+
+                
+            
+                
+                    <p>function <strong>assumeVersion</strong>(assumption, version)</p>
+
+<div class="description">
+    <p>Assume a specific version of a module and fail if it is not met.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>assumption</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>name space locator</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>version</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>assumed version</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+
+                
+            
+                
+                    <p>function <strong>binding</strong>(alias, namespaceLocator, options)</p>
+
+<div class="description">
+    <p>Creates a binding within in the scope.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>alias</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>identifier of the new binding</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>namespaceLocator</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>identifier of an existing namespace path</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>options for the binding</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+
+                
+            
+                
+                    <p>function <strong>define</strong>(namespaceLocator, dependencies, hiddenDependencies, callback, context)</p>
+
+<div class="description">
+    <p>Defines a new name space once a list of name space locators is available.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>namespaceLocator</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the name space that is to be defined</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>dependencies</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a list of name space locator dependencies (optional)</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>hiddenDependencies</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a list of hidden name space locators (optional)</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a callback function accepting all dependencies as arguments and returning the new definition</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a callback context (optional)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+
+                
+            
+                
+                    <p>function <strong>digest</strong>(namespaceLocator)</p>
+
+<div class="description">
+    <p>Digest a name space locator, checking whether it has been defined by an external system.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>namespaceLocator</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>name space locator</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+
+                
+            
+                
+                    <p>function <strong>extend</strong>(namespaceLocator, dependencies, hiddenDependencies, callback, context)</p>
+
+<div class="description">
+    <p>Extends a potentiall existing name space once a list of name space locators is available.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>namespaceLocator</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the name space that is to be defined</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>dependencies</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a list of name space locator dependencies (optional)</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>hiddenDependencies</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a list of hidden name space locators (optional)</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a callback function accepting all dependencies as arguments and returning the new additional definitions.</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a callback context (optional)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+
+                
+            
+                
+                    <p>function <strong>nextScope</strong>()</p>
+
+<div class="description">
+    <p>Returns a reference to the next scope that will be obtained by a subScope call.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
 	
 	</tbody>
 </table>
@@ -887,7 +792,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>the object type</p>
+    <p>next scope</p>
 </div>
 
 
@@ -898,7 +803,7 @@ Returns:
 	</dt>
 	<dd>
 		
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
 	</dd>
@@ -910,10 +815,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>parseBool</strong>(x)</p>
+                    <p>function <strong>require</strong>(dependencies, hiddenDependencies, callback, context)</p>
 
 <div class="description">
-    <p>Parses a boolean string</p>
+    <p>Requires a list of name space locators and calls a function once they are present.</p>
 </div>
 
 Parameters:
@@ -941,10 +846,15 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>x</code></td>
+                <td class="name"><code>dependencies</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
             
             </td>
 
@@ -952,7 +862,76 @@ Parameters:
 
             
 
-            <td class="description last"><p>boolean as a string</p></td>
+            <td class="description last"><p>a list of name space locator dependencies (optional)</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>hiddenDependencies</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a list of hidden name space locators (optional)</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a callback function accepting all dependencies as arguments</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a callback context (optional)</p></td>
         </tr>
 
 	
@@ -960,25 +939,14 @@ Parameters:
 </table>
 
 
-Returns:
-
-        
-<div class="param-desc">
-    <p>boolean value</p>
-</div>
-
-
-
-
-    
 
                 
             
                 
-                    <p>function <strong>parseType</strong>(x, type)</p>
+                    <p>function <strong>resolve</strong>(namespaceLocator)</p>
 
 <div class="description">
-    <p>Parses a value given a specific type.</p>
+    <p>Resolves a name space locator to a name space.</p>
 </div>
 
 Parameters:
@@ -1006,25 +974,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>value to be parsed</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>type</code></td>
+                <td class="name"><code>namespaceLocator</code></td>
             
 
             <td class="type">
@@ -1040,7 +990,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>the specific type to be parsed (accepts: bool, boolean, int, integer, date, time, datetime, float, double)</p></td>
+            <td class="description last"><p>name space locator</p></td>
         </tr>
 
 	
@@ -1052,10 +1002,22 @@ Returns:
 
         
 <div class="param-desc">
-    <p>parsed value</p>
+    <p>resolved name space</p>
 </div>
 
 
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
 
 
     
@@ -1063,10 +1025,67 @@ Returns:
                 
             
                 
-                    <p>function <strong>type_of</strong>(x)</p>
+                    <p>function <strong>subScope</strong>()</p>
 
 <div class="description">
-    <p>Returns the type of a given expression</p>
+    <p>Creates a sub scope of the current scope and returns it.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>sub scope</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>unresolved</strong>(namespaceLocator)</p>
+
+<div class="description">
+    <p>Returns all unresolved definitions under a namespace locator</p>
 </div>
 
 Parameters:
@@ -1094,10 +1113,15 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>x</code></td>
+                <td class="name"><code>namespaceLocator</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
             
             </td>
 
@@ -1105,7 +1129,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>expression</p></td>
+            <td class="description last"><p>name space locator, e.g. &quot;global:&quot;</p></td>
         </tr>
 
 	
@@ -1117,10 +1141,22 @@ Returns:
 
         
 <div class="param-desc">
-    <p>type string</p>
+    <p>list of all unresolved definitions</p>
 </div>
 
 
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">array</span>
+
+
+	</dd>
+</dl>
 
 
     
@@ -1168,7 +1204,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="BetaJS.module_Types.html">
+		<a class="list-group-item " href="BetaJS.module_Types.html">
 			<span class="toc-h1">
 				Types
 			</span>
@@ -1222,7 +1258,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="module-Scoped.html">
+		<a class="list-group-item active" href="module-Scoped.html">
 			<span class="toc-h1">
 				Scoped
 			</span>

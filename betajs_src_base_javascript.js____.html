@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BetaJS - Reference</title>
+		<title>BetaJS - Source: betajs/src/base/javascript.js</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
@@ -83,186 +83,78 @@
 			
 			<div class="container" id="toc-content">
 				<div class="row">
-						<div class="col-md-8">
-	<div id="main">
-		<section class="tutorial-section">
-	
-
-        <header id="BetaJS.module:Tokens">
-            <h2>Tokens</h2>
-        </header>
-        <article>
-            
-                
-                    <p>function <strong>generate_token</strong>(length)</p>
-
-<div class="description">
-    <p>Returns a new token</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs/src/base/javascript.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:JavaScript", ["module:Objs"], function (Objs) {
+	/**
+	 * JavaScript Simple Parse Functions
+	 * 
+	 * @module JavaScript
+	 */
+	return {
 		
-		<th>Name</th>
+		STRING_SINGLE_QUOTATION_REGEX: /'[^']*'/g,
+		STRING_DOUBLE_QUOTATION_REGEX: /"[^"]*"/g,
 		
-
-		<th>Type</th>
-
+		IDENTIFIER_REGEX: /[a-zA-Z_][a-zA-Z_0-9]*/g,
+		IDENTIFIER_SCOPE_REGEX: /[a-zA-Z_][a-zA-Z_0-9\.]*/g,
+	
+		RESERVED: Objs.objectify([
+	        "if", "then", "else", "return", "var"
+	    ], true),
 		
-
+	    /**
+	     * Is string a JS-reserved keyword?
+	     * 
+	     * @param {string} key string in question
+	     * @return {boolean} true if reserved
+	     */
+		isReserved: function (key) {
+			return key in this.RESERVED;
+		},
 		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>length</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional length of token, default is 16</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>token</p>
-</div>
-
-
-
-
-    
-
-                
-            
-        </article>
+		/**
+		 * Is string a valid JS identifier?
+		 * 
+		 * @param {string} key string in question
+		 * @return {boolean} true if identifier
+		 */
+		isIdentifier: function (key) {
+			return !this.isReserved(key);
+		},
 		
-		</section>
-		
-	</div>
-</div>		
-<div class="clearfix">
-</div>
-<div class="col-md-3">
-	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"><div class="list-group">
-	
-		<a class="list-group-item " href="BetaJS.module_Comparators.html">
-			<span class="toc-h1">
-				Comparators
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Functions.html">
-			<span class="toc-h1">
-				Functions
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Ids.html">
-			<span class="toc-h1">
-				Ids
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Strings.html">
-			<span class="toc-h1">
-				Strings
-			</span>
-		</a>
-	
-		<a class="list-group-item active" href="BetaJS.module_Tokens.html">
-			<span class="toc-h1">
-				Tokens
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Types.html">
-			<span class="toc-h1">
-				Types
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Attach.html">
-			<span class="toc-h1">
-				Attach
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-FileSupport.html">
-			<span class="toc-h1">
-				FileSupport
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Globals.html">
-			<span class="toc-h1">
-				Globals
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Helper.html">
-			<span class="toc-h1">
-				Helper
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-JavaScript.html">
-			<span class="toc-h1">
-				JavaScript
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Namespace.html">
-			<span class="toc-h1">
-				Namespace
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Public.html">
-			<span class="toc-h1">
-				Public
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Render.html">
-			<span class="toc-h1">
-				Render
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Scoped.html">
-			<span class="toc-h1">
-				Scoped
-			</span>
-		</a>
-	
-</div>
-</div>
-</div>
+		/**
+		 * Remove string definitions from JS code.
+		 * 
+		 * @param {string} code input code
+		 * @return {string} code without strings
+		 */
+		removeStrings: function (code) {
+			return code.replace(this.STRING_SINGLE_QUOTATION_REGEX, "").replace(this.STRING_DOUBLE_QUOTATION_REGEX, "");
+		},	
 
+		/**
+		 * Return JS identifiers from a piece of code.
+		 * 
+		 * @param {string} code input code
+		 * @param {boolean} keepScopes keep scopes, e.g. `foo.bar` instead of `foo` and `bar` (default: false)
+		 * @return {array} array of extracted identifiers
+		 */
+		extractIdentifiers: function (code, keepScopes) {
+			var regex = keepScopes ? this.IDENTIFIER_SCOPE_REGEX : this.IDENTIFIER_REGEX;
+			code = this.removeStrings(code);
+			return Objs.filter(code.match(regex), this.isIdentifier, this);
+		}
+			
+	};
+
+});</pre>
+	</article>
+</section>
+</div>
 				</div>
 			</div>
 		

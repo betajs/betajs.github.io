@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BetaJS - Reference</title>
+		<title>BetaJS - Source: betajs-scoped/src/main/helper.js</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
@@ -83,186 +83,130 @@
 			
 			<div class="container" id="toc-content">
 				<div class="row">
-						<div class="col-md-8">
-	<div id="main">
-		<section class="tutorial-section">
-	
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs-scoped/src/main/helper.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">/*::
+declare module Helper {
+	declare function extend&lt;A, B>(a: A, b: B): A &amp; B;
+}
+*/
 
-        <header id="BetaJS.module:Tokens">
-            <h2>Tokens</h2>
-        </header>
-        <article>
-            
-                
-                    <p>function <strong>generate_token</strong>(length)</p>
-
-<div class="description">
-    <p>Returns a new token</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
+var Helper = (function () {  
+/** 
+ * This helper module provides auxiliary functions for the Scoped system.
+ * 
+ * @module Helper
+ * @access private
+ */
+return { 
 		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>length</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional length of token, default is 16</p></td>
-        </tr>
+	/**
+	 * Attached a context to a function.
+	 * 
+	 * @param {object} obj context for the function
+	 * @param {function} func function
+	 * 
+	 * @return function with attached context
+	 */
+	method: function (obj, func) {
+		return function () {
+			return func.apply(obj, arguments);
+		};
+	},
 
 	
-	</tbody>
-</table>
+	/**
+	 * Extend a base object with all attributes of a second object.
+	 * 
+	 * @param {object} base base object
+	 * @param {object} overwrite second object
+	 * 
+	 * @return {object} extended base object
+	 */
+	extend: function (base, overwrite) {
+		base = base || {};
+		overwrite = overwrite || {};
+		for (var key in overwrite)
+			base[key] = overwrite[key];
+		return base;
+	},
+	
+	
+	/**
+	 * Returns the type of an object, particulary returning 'array' for arrays.
+	 * 
+	 * @param obj object in question
+	 * 
+	 * @return {string} type of object
+	 */
+	typeOf: function (obj) {
+		return Object.prototype.toString.call(obj) === '[object Array]' ? "array" : typeof obj;
+	},
+	
+	
+	/**
+	 * Returns whether an object is null, undefined, an empty array or an empty object.
+	 * 
+	 * @param obj object in question
+	 * 
+	 * @return true if object is empty
+	 */
+	isEmpty: function (obj) {
+		if (obj === null || typeof obj === "undefined")
+			return true;
+		if (this.typeOf(obj) == "array")
+			return obj.length === 0;
+		if (typeof obj !== "object")
+			return false;
+		for (var key in obj)
+			return false;
+		return true;
+	},
+	
+	
+    /**
+     * Matches function arguments against some pattern.
+     * 
+     * @param {array} args function arguments
+     * @param {object} pattern typed pattern
+     * 
+     * @return {object} matched arguments as associative array 
+     */	
+	matchArgs: function (args, pattern) {
+		var i = 0;
+		var result = {};
+		for (var key in pattern) {
+			if (pattern[key] === true || this.typeOf(args[i]) == pattern[key]) {
+				result[key] = args[i];
+				i++;
+			} else if (this.typeOf(args[i]) == "undefined")
+				i++;
+		}
+		return result;
+	},
+	
+	
+	/**
+	 * Stringifies a value as JSON and functions to string representations.
+	 * 
+	 * @param value value to be stringified
+	 * 
+	 * @return stringified value
+	 */
+	stringify: function (value) {
+		if (this.typeOf(value) == "function")
+			return "" + value;
+		return JSON.stringify(value);
+	}	
 
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>token</p>
+	
+};}).call(this);</pre>
+	</article>
+</section>
 </div>
-
-
-
-
-    
-
-                
-            
-        </article>
-		
-		</section>
-		
-	</div>
-</div>		
-<div class="clearfix">
-</div>
-<div class="col-md-3">
-	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"><div class="list-group">
-	
-		<a class="list-group-item " href="BetaJS.module_Comparators.html">
-			<span class="toc-h1">
-				Comparators
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Functions.html">
-			<span class="toc-h1">
-				Functions
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Ids.html">
-			<span class="toc-h1">
-				Ids
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Strings.html">
-			<span class="toc-h1">
-				Strings
-			</span>
-		</a>
-	
-		<a class="list-group-item active" href="BetaJS.module_Tokens.html">
-			<span class="toc-h1">
-				Tokens
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="BetaJS.module_Types.html">
-			<span class="toc-h1">
-				Types
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Attach.html">
-			<span class="toc-h1">
-				Attach
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-FileSupport.html">
-			<span class="toc-h1">
-				FileSupport
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Globals.html">
-			<span class="toc-h1">
-				Globals
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Helper.html">
-			<span class="toc-h1">
-				Helper
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-JavaScript.html">
-			<span class="toc-h1">
-				JavaScript
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Namespace.html">
-			<span class="toc-h1">
-				Namespace
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Public.html">
-			<span class="toc-h1">
-				Public
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Render.html">
-			<span class="toc-h1">
-				Render
-			</span>
-		</a>
-	
-		<a class="list-group-item " href="module-Scoped.html">
-			<span class="toc-h1">
-				Scoped
-			</span>
-		</a>
-	
-</div>
-</div>
-</div>
-
 				</div>
 			</div>
 		

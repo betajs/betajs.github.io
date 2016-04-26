@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="BetaJS.module:Tokens">
-            <h2>Tokens</h2>
+        <header id="module:Globals">
+            <h2>Globals</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>generate_token</strong>(length)</p>
+                    <p>function <strong>get</strong>(key)</p>
 
 <div class="description">
-    <p>Returns a new token</p>
+    <p>Returns the value of a global variable.</p>
 </div>
 
 Parameters:
@@ -125,10 +125,15 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>length</code></td>
+                <td class="name"><code>key</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
             
             </td>
 
@@ -136,7 +141,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>optional length of token, default is 16</p></td>
+            <td class="description last"><p>identifier of a global variable</p></td>
         </tr>
 
 	
@@ -148,7 +153,253 @@ Returns:
 
         
 <div class="param-desc">
-    <p>token</p>
+    <p>value of global variable or undefined if not existing</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>getPath</strong>(path)</p>
+
+<div class="description">
+    <p>Returns the value of a global variable under a namespaced path.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>namespaced path identifier of variable</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>value of global variable or undefined if not existing</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>set</strong>(key, value)</p>
+
+<div class="description">
+    <p>Sets a global variable.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>identifier of a global variable</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>value to be set</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>value that has been set</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>setPath</strong>(path, value)</p>
+
+<div class="description">
+    <p>Sets a global variable under a namespaced path.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>namespaced path identifier of variable</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>value to be set</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>value that has been set</p>
 </div>
 
 
@@ -193,7 +444,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="BetaJS.module_Tokens.html">
+		<a class="list-group-item " href="BetaJS.module_Tokens.html">
 			<span class="toc-h1">
 				Tokens
 			</span>
@@ -217,7 +468,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="module-Globals.html">
+		<a class="list-group-item active" href="module-Globals.html">
 			<span class="toc-h1">
 				Globals
 			</span>
