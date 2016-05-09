@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs/src/base/time_format.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="http://blog.betajs.com">Blog</a>
+						</li>
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs/src/base/time_format.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">
+Scoped.define("module:TimeFormat", ["module:Time", "module:Strings", "module:Objs"], function (Time, Strings, Objs) {
+	/**
+	 * Module for formatting Time / Date
+	 * 
+	 * @module BetaJS.TimeFormat
+	 */
+	return {
+		
+		/*
+			HH	Hours; leading zero for single-digit hours (24-hour clock).
+			H	Hours; no leading zero for single-digit hours (24-hour clock).
+			h+  Hours; hours as absolute number
+			hh	Hours; leading zero for single-digit hours (12-hour clock).
+			h	Hours; no leading zero for single-digit hours (12-hour clock).
+			M+  Minutes; minutes as absolute number
+			MM	Minutes; leading zero for single-digit minutes.
+			M	Minutes; no leading zero for single-digit minutes.
+			s+	Seconds; seconds as absolute number
+			ss	Seconds; leading zero for single-digit seconds.
+			s	Seconds; no leading zero for single-digit seconds.
+			mmm	Month as a three-letter abbreviation.
+			mm	Month as digits; leading zero for single-digit months.
+			m	Month as digits; no leading zero for single-digit months.
+			d+	Days; days as absolute number
+			ddd	Day of the week as a three-letter abbreviation.
+			dd	Day of the month as digits; leading zero for single-digit days.
+			d	Day of the month as digits; no leading zero for single-digit days.
+			yy	Year as last two digits; leading zero for years less than 10.
+			yyyyYear represented by four digits.
+			l+  Milliseconds; absolute
+			l   Milliseconds 3 digits
+			L   Milliseconds 2 digits
+			t	Lowercase, single-character time marker string: a or p.
+			tt	Lowercase, two-character time marker string: am or pm.
+			T	Uppercase, single-character time marker string: A or P.
+			TT	Uppercase, two-character time marker string: AM or PM.
+			o	GMT/UTC timezone offset, e.g. -0500 or +0230.
+			
+		*/
+		
+		formatMappings: {
+			"HH": function (t) {
+				return Strings.padZeros(Time.timeModulo(t, "hour", "floor"), 2);
+			},
+			"H": function (t) {
+				return Time.timeModulo(t, "hour", "floor");
+			},
+			"h+": function (t) {
+				return Time.timeComponent(t, "hour", "floor");
+			},
+			"hh": function (t) {
+				var h = Time.timeModulo(t, "hour", "floor");
+				h = h === 0 ? 12 : (h > 12 ? h - 12 : h);
+				return Strings.padZeros(h, " ", 2);
+			},
+			"h": function (t) {
+				var h = Time.timeModulo(t, "hour", "floor");
+				h = h === 0 ? 12 : (h > 12 ? h - 12 : h);
+				return h;
+			},
+			"M+": function (t) {
+				return Time.timeComponent(t, "minute", "floor");
+			},
+			"MM": function (t) {
+				return Strings.padZeros(Time.timeModulo(t, "minute", "floor"), 2);
+			},
+			"M": function (t) {
+				return Time.timeModulo(t, "minute", "floor");
+			},
+			"s+": function (t) {
+				return Time.timeComponent(t, "second", "floor");
+			},
+			"ss": function (t) {
+				return Strings.padZeros(Time.timeModulo(t, "second", "floor"), 2);
+			},
+			"s": function (t) {
+				return Time.timeModulo(t, "second", "floor");
+			},
+			"mmm": function (t) {
+				return (new Date(t)).toDateString().substring(4,7);
+			},
+			"mm": function (t) {
+				return Strings.padZeros(Time.timeComponentGet(t, "month"), 2);
+			},
+			"m": function (t) {
+				return Time.timeComponentGet(t, "month");
+			},
+			"d+": function (t) {
+				return Time.timeComponent(t, "day", "floor");
+			},
+			"ddd": function (t) {
+				return (new Date(t)).toDateString().substring(0,3);
+			},
+			"dd": function (t) {
+				return Strings.padZeros(Time.timeComponentGet(t, "day"), 2);
+			},
+			"d": function (t) {
+				return Time.timeComponentGet(t, "day");
+			},
+			"yyyy": function (t) {
+				return Time.timeComponentGet(t, "year");
+			},
+			"yy": function (t) {
+				return Time.timeComponentGet(t, "year") % 100;
+			},
+			"l+": function (t) {
+				return t;
+			},
+			"l": function (t) {
+				return Time.timeComponent(t, "millisecond", "floor");
+			},
+			"L": function (t) {
+				return Time.timeComponent(t, "millisecond", "floor") % 10;
+			},
+			"tt": function (t) {
+				return Time.timeModulo(t, "hour", "floor") &lt; 12 ? 'am' : 'pm';
+			},
+			"t": function (t) {
+				return Time.timeModulo(t, "hour", "floor") &lt; 12 ? 'a' : 'p';
+			},
+			"TT": function (t) {
+				return Time.timeModulo(t, "hour", "floor") &lt; 12 ? 'AM' : 'PM';
+			},
+			"T": function (t) {
+				return Time.timeModulo(t, "hour", "floor") &lt; 12 ? 'A' : 'P';
+			},
+			"o": function (t, bias) {
+				bias = Math.floor(bias / 1000 / 60);
+				return (bias > 0 ? "-" : "+") + Strings.padZeros(Math.floor(Math.abs(bias) / 60) * 100 + Math.abs(bias) % 60, 4);
+			}
+			
+		},
+		
+		ELAPSED_HOURS_MINUTES_SECONDS: "h+:MM:ss",
+		ELAPSED_MINUTES_SECONDS: "M+:ss",
+		FULL_YEAR: "yyyy",
+		LETTER_MONTH: "mmm",
+		LETTER_MONTH_AND_DAY: "mmm d",
+		WEEKDAY: "ddd",
+		HOURS_MINUTES_TT: "hh:MM tt",
+		
+		
+		/**
+		 * Format a given time w.r.t. a given time format
+		 * 
+		 * @param {string} timeFormat a time format string
+		 * @param {int} time time as integer to be formatted
+		 * @param {int} timezone timezone bias (optional)
+		 * @return {string} formatted time
+		 * 
+		 */
+		format: function (timeFormat, time, timezone) {
+			var timezoneTime = Time.timeToTimezoneBasedDate(time, timezone);
+			var bias = Time.timezoneBias(timezone);
+			var result = timeFormat;
+			var replacers = [];			
+			Objs.iter(this.formatMappings, function (formatter, key) {
+				if (result.indexOf(key) >= 0) {
+					var i = replacers.length;
+					replacers.push(formatter(timezoneTime, bias));
+					result = result.replace(key, "$" + i + "$");
+				}
+			}, this);
+			for (var i = 0; i &lt; replacers.length; ++i)
+				result = result.replace("$" + i + "$", replacers[i]);
+			return result;
+		},
+		
+		/**
+		 * Format the month as a three letter string
+		 * 
+		 * @param {int} month month as an int
+		 * @return {string} three letter month string
+		 */
+		monthString: function (month) {
+			return this.format("mmm", Time.encodePeriod({month: month}));			
+		},
+		
+		/**
+		 * Format the weekday as a three letter string
+		 * 
+		 * @param {int} weekday weekday as an int
+		 * @return {string} three letter weekday string
+		 */
+		weekdayString: function (weekday) {
+			return this.format("ddd", Time.encodePeriod({weekday: weekday}));
+		},
+		
+		/**
+		 * Format most significant part of date / time relative to current time
+		 * 
+		 * @param {int} time date/time to be formatted
+		 * @param {int} currentTime relative to current time (optional)
+		 * @param {int} timezone time zone bias (optional)
+		 * @return {string} formatted time
+		 */
+		formatRelativeMostSignificant: function (time, currentTime, timezone) {
+			currentTime = currentTime || Time.now();
+			var t = Time.decodeTime(time, timezone);
+			var c = Time.decodeTime(currentTime, timezone);
+			// Same day. Return time.
+			if (t.year === c.year &amp;&amp; t.month === c.month &amp;&amp; t.day === c.day)
+				return this.format(this.HOURS_MINUTES_TT, time, timezone);
+			// Less than 7 days. Return week day.
+			if (currentTime - time &lt; 7 * 24 * 60 * 60 * 1000 &amp;&amp; t.weekday !== c.weekday)
+				return this.format(this.WEEKDAY, time, timezone);
+			// Last 2 months?
+			if ((t.year === c.year &amp;&amp; t.month + 1 >= c.month) || (t.year + 1 === c.year &amp;&amp; t.month + 1 >= c.month + 12 - 1))
+				return this.format(this.LETTER_MONTH_AND_DAY, time, timezone);
+			// Last 11 month?
+			if (t.year === c.year || (t.year + 1 === c.year &amp;&amp; t.month > c.month))
+				return this.format(this.LETTER_MONTH, time, timezone);
+			// Return year
+			return this.format(this.FULL_YEAR, time, timezone);
+		}
+		
+	};
+});</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

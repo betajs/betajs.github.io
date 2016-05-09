@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="BetaJS.module:Comparators">
-            <h2>Comparators</h2>
+        <header id="BetaJS.module:Maths">
+            <h2>Maths</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>byObject</strong>(object)</p>
+                    <p>function <strong>discreteCeil</strong>(number, steps, max)</p>
 
 <div class="description">
-    <p>Creates a function that compares two json object w.r.t. a json object, mapping keys to a comparison order,<br>e.g. {'last_name': 1, 'first_name': -1, 'age': -1 }</p>
+    <p>Ceiling an integer to be a multiple of another integer.</p>
 </div>
 
 Parameters:
@@ -125,220 +125,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>object</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">json</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>comparison object</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>function for comparing two objects w.r.t. the comparison object</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">function</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>byValue</strong>(a, b)</p>
-
-<div class="description">
-    <p>Compares to variables by the natural order in JS.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>a</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>value A</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>b</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>value B</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>1 if a &gt; b, -1 if a &lt; b and 0 otherwise</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">int</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>deepEqual</strong>(a, b, depth)</p>
-
-<div class="description">
-    <p>Compares two values a and b recursively.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>a</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>value A</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>b</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>value B</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>depth</code></td>
+                <td class="name"><code>number</code></td>
             
 
             <td class="type">
@@ -354,7 +141,53 @@ Parameters:
 
             
 
-            <td class="description last"><p>depth limit for the recursion, leave blank for infinite recursion</p></td>
+            <td class="description last"><p>the number to be ceiled</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>steps</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the multiple</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>max</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>an optional maximum</p></td>
         </tr>
 
 	
@@ -366,7 +199,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>true if both values are equal</p>
+    <p>ceiled integer</p>
 </div>
 
 
@@ -377,102 +210,7 @@ Returns:
 	</dt>
 	<dd>
 		
-<span class="param-type">bool</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>listEqual</strong>(a, b)</p>
-
-<div class="description">
-    <p>Determines whether two lists are equal. Two lists are considered equal if their elements are equal.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>a</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>list A</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>b</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>list B</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>true if both lists are equal</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">bool</span>
+<span class="param-type">int</span>
 
 
 	</dd>
@@ -500,7 +238,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="BetaJS.module_Comparators.html">
+		<a class="list-group-item " href="BetaJS.module_Comparators.html">
 			<span class="toc-h1">
 				Comparators
 			</span>
@@ -518,7 +256,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="BetaJS.module_Maths.html">
+		<a class="list-group-item active" href="BetaJS.module_Maths.html">
 			<span class="toc-h1">
 				Maths
 			</span>

@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="module:Namespace">
-            <h2>Namespace</h2>
+        <header id="BetaJS.module:Sort">
+            <h2>Sort</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>digest</strong>(path)</p>
+                    <p>function <strong>deep_sort</strong>(object, f)</p>
 
 <div class="description">
-    <p>Digest a node path, checking whether it has been defined by an external system.</p>
+    <p>Deep sorting an object according to a comparator.</p>
 </div>
 
 Parameters:
@@ -125,89 +125,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>extend</strong>(path, value)</p>
-
-<div class="description">
-    <p>Extend a node in the namespace by an object.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
+                <td class="name"><code>object</code></td>
             
 
             <td class="type">
@@ -223,56 +141,20 @@ Parameters:
 
             
 
-            <td class="description last"><p>object that should be used for extend the namespace node</p></td>
+            <td class="description last"><p>object to be sorted</p></td>
         </tr>
 
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>get</strong>(path)</p>
-
-<div class="description">
-    <p>Read the object value of a node in the namespace.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
 	
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>f</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
             
@@ -282,7 +164,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>path to the node in the namespace</p></td>
+            <td class="description last"><p>comparator comparator for sorting, accepting keys first and then optionally values</p></td>
         </tr>
 
 	
@@ -294,7 +176,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>object value of the node or null if undefined</p>
+    <p>sorted object</p>
 </div>
 
 
@@ -317,10 +199,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>lazy</strong>(path, callback, context)</p>
+                    <p>function <strong>dependency_sort</strong>(items, identifier, before, after)</p>
 
 <div class="description">
-    <p>Lazily navigate to a node in the namespace.<br>Will asynchronously call the callback as soon as the node is being touched.</p>
+    <p>Sort an array of items with inter-dependency specifiers s.t. every item in the resulting array has all its dependencies come before.</p>
 </div>
 
 Parameters:
@@ -348,13 +230,13 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>items</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">array</span>
 
 
             
@@ -364,19 +246,22 @@ Parameters:
 
             
 
-            <td class="description last"><p>path to the node in the namespace</p></td>
+            <td class="description last"><p>list of items with inter-dependency specifiers</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>callback</code></td>
+                <td class="name"><code>identifier</code></td>
             
 
             <td class="type">
             
                 
+<span class="param-type">string</span>
+|
+
 <span class="param-type">function</span>
 
 
@@ -387,101 +272,22 @@ Parameters:
 
             
 
-            <td class="description last"><p>callback function accepting the node's object value</p></td>
+            <td class="description last"><p>function / key mapping an item to its unique identifier</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>context</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">context</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional callback context</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>obtain</strong>(path, callback, context)</p>
-
-<div class="description">
-    <p>Asynchronously access a node in the namespace.<br>Will asynchronously call the callback as soon as the node is being defined.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>before</code></td>
             
 
             <td class="type">
             
                 
 <span class="param-type">string</span>
+|
 
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
 <span class="param-type">function</span>
 
 
@@ -492,20 +298,23 @@ Parameters:
 
             
 
-            <td class="description last"><p>callback function accepting the node's object value</p></td>
+            <td class="description last"><p>function / key mapping an item to its array of dependencies</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>context</code></td>
+                <td class="name"><code>after</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">context</span>
+<span class="param-type">string</span>
+|
+
+<span class="param-type">function</span>
 
 
             
@@ -515,7 +324,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>optional callback context</p></td>
+            <td class="description last"><p>function / key mapping an item to its array of depending items</p></td>
         </tr>
 
 	
@@ -523,14 +332,37 @@ Parameters:
 </table>
 
 
+Returns:
+
+        
+<div class="param-desc">
+    <p>sorted array</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">array</span>
+
+
+	</dd>
+</dl>
+
+
+    
 
                 
             
                 
-                    <p>function <strong>set</strong>(path, value)</p>
+                    <p>function <strong>sort_object</strong>(object, f)</p>
 
 <div class="description">
-    <p>Set the object value of a node in the namespace.</p>
+    <p>Sort keys in an object according to a comparator.</p>
 </div>
 
 Parameters:
@@ -558,30 +390,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
+                <td class="name"><code>object</code></td>
             
 
             <td class="type">
@@ -597,56 +406,20 @@ Parameters:
 
             
 
-            <td class="description last"><p>object that should be used as value for the namespace node</p></td>
+            <td class="description last"><p>object to be sorted</p></td>
         </tr>
 
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>unresolvedWatchers</strong>(path)</p>
-
-<div class="description">
-    <p>Returns all unresolved watchers under a certain path.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
 	
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>f</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
             
@@ -656,7 +429,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>path to the node in the namespace</p></td>
+            <td class="description last"><p>comparator comparator for sorting, accepting keys first and then optionally values</p></td>
         </tr>
 
 	
@@ -668,7 +441,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>list of all unresolved watchers</p>
+    <p>sorted object</p>
 </div>
 
 
@@ -679,7 +452,7 @@ Returns:
 	</dt>
 	<dd>
 		
-<span class="param-type">array</span>
+<span class="param-type">object</span>
 
 
 	</dd>
@@ -731,7 +504,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="BetaJS.module_Sort.html">
+		<a class="list-group-item active" href="BetaJS.module_Sort.html">
 			<span class="toc-h1">
 				Sort
 			</span>
@@ -803,7 +576,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="module-Namespace.html">
+		<a class="list-group-item " href="module-Namespace.html">
 			<span class="toc-h1">
 				Namespace
 			</span>

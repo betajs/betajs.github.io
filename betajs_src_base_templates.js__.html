@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs/src/base/templates.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="http://blog.betajs.com">Blog</a>
+						</li>
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs/src/base/templates.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">/*
+ * Inspired by Underscore's Templating Engine
+ * (which itself is inspired by John Resig's implementation)
+ */
+
+Scoped.define("module:Templates", ["module:Types", "module:Strings"], function (Types, Strings) {
+	/**
+     * A very simple templating engine.
+     *
+	 * @module BetaJS.Templates
+	 */
+	return {
+		
+		/**
+		 * Tokenizes a string comprised of escaped javascript code and normal text.
+		 * 
+		 * @param {string} s input string
+         *
+		 * @return {array} array of token objects
+		 */
+		tokenize: function (s) {
+			// Already tokenized?
+			if (Types.is_array(s))
+				return s;
+			var tokens = [];
+			var index = 0;
+			var self = this;
+			s.replace(self.SYNTAX_REGEX(), function(match, expr, esc, code, offset) {
+				if (index &lt; offset) 
+					tokens.push({
+						type: self.TOKEN_STRING,
+						data: Strings.js_escape(s.slice(index, offset))
+					});
+				if (code)
+					tokens.push({type: self.TOKEN_CODE, data: code});
+				if (expr)
+					tokens.push({type: self.TOKEN_EXPR, data: expr});
+				if (esc)
+					tokens.push({type: self.TOKEN_ESC, data: esc});
+			    index = offset + match.length;
+			    return match;
+			});
+			return tokens;
+		},
+		
+		/**
+		 * Compiles a template string into a function that evaluates the template w.r.t. a given environment.
+		 * 
+		 * @param {string} s input string
+		 * @param {object} options options hash, allowing to specify start_index and end_index within the input string (optional)
+		 * @return {function} evaluation function
+		 */
+		compile: function(source, options) {
+			if (Types.is_string(source))
+				source = this.tokenize(source);
+			options = options || {};
+			var start_index = options.start_index || 0;
+			var end_index = options.end_index || source.length;
+			var result = "__p+='";
+			for (var i = start_index; i &lt; end_index; ++i) {
+				switch (source[i].type) {
+					case this.TOKEN_STRING:
+						result += source[i].data;
+						break;
+					case this.TOKEN_CODE:
+						result += "';\n" + source[i].data + "\n__p+='";
+						break;
+					case this.TOKEN_EXPR:
+						result += "'+\n((__t=(" + source[i].data + "))==null?'':__t)+\n'";
+						break;
+					case this.TOKEN_ESC:
+						result += "'+\n((__t=(" + source[i].data + "))==null?'':Helpers.Strings.htmlentities(__t))+\n'";
+						break;
+					default:
+						break;
+				}	
+			}
+			result += "';\n";
+			result = 'with(obj||{}){\n' + result + '}\n';
+			result = "var __t,__p='',__j=Array.prototype.join," +
+			  "echo=function(){__p+=__j.call(arguments,'');};\n" +
+			  result + "return __p;\n";
+			/*jslint evil: true */
+			var func = new Function('obj', 'Helpers', result);
+			var func_call = function(data) {
+				return func.call(this, data, {Strings: Strings});
+			};
+			func_call.source = 'function(obj, Helpers){\n' + result + '}';
+			return func_call;
+		},
+		
+		SYNTAX: {
+			OPEN: "{%",
+			CLOSE: "%}",
+			MODIFIER_CODE: "",
+			MODIFIER_EXPR: "=",
+			MODIFIER_ESC: "-"
+		},
+		
+		SYNTAX_REGEX: function () {
+			var syntax = this.SYNTAX;
+			if (!this.SYNTAX_REGEX_CACHED) {
+				this.SYNTAX_REGEX_CACHED = new RegExp(
+					syntax.OPEN + syntax.MODIFIER_EXPR + "([\\s\\S]+?)" + syntax.CLOSE + "|" +
+					syntax.OPEN + syntax.MODIFIER_ESC + "([\\s\\S]+?)" + syntax.CLOSE + "|" +
+					syntax.OPEN + syntax.MODIFIER_CODE + "([\\s\\S]+?)" + syntax.CLOSE + "|" +
+					"$",
+				'g');
+			}
+			return this.SYNTAX_REGEX_CACHED;
+		},
+		
+		TOKEN_STRING: 1,
+		TOKEN_CODE: 2,
+		TOKEN_EXPR: 3,
+		TOKEN_ESC: 4
+	
+	};
+});
+
+
+Scoped.define("module:Templates.Template", ["module:Class", "module:Templates"], function (Class, Templates, scoped) {	
+	return Class.extend({scoped: scoped}, function (inherited) {
+		return {
+
+			constructor: function (template_string) {
+				inherited.constructor.call(this);
+				this.__tokens = Templates.tokenize(template_string);
+				this.__compiled = Templates.compile(this.__tokens);
+			},
+			
+			evaluate: function (obj) {
+				return this.__compiled.apply(this, [obj]);
+			}
+			
+		};
+	});	
+});
+
+</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="module:Namespace">
-            <h2>Namespace</h2>
+        <header id="BetaJS.module:Templates">
+            <h2>Templates</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>digest</strong>(path)</p>
+                    <p>function <strong>compile</strong>(s, options)</p>
 
 <div class="description">
-    <p>Digest a node path, checking whether it has been defined by an external system.</p>
+    <p>Compiles a template string into a function that evaluates the template w.r.t. a given environment.</p>
 </div>
 
 Parameters:
@@ -125,7 +125,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>s</code></td>
             
 
             <td class="type">
@@ -141,73 +141,14 @@ Parameters:
 
             
 
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>extend</strong>(path, value)</p>
-
-<div class="description">
-    <p>Extend a node in the namespace by an object.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
+            <td class="description last"><p>input string</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>value</code></td>
+                <td class="name"><code>options</code></td>
             
 
             <td class="type">
@@ -223,66 +164,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>object that should be used for extend the namespace node</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>get</strong>(path)</p>
-
-<div class="description">
-    <p>Read the object value of a node in the namespace.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
+            <td class="description last"><p>options hash, allowing to specify start_index and end_index within the input string (optional)</p></td>
         </tr>
 
 	
@@ -294,7 +176,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>object value of the node or null if undefined</p>
+    <p>evaluation function</p>
 </div>
 
 
@@ -305,7 +187,7 @@ Returns:
 	</dt>
 	<dd>
 		
-<span class="param-type">object</span>
+<span class="param-type">function</span>
 
 
 	</dd>
@@ -317,10 +199,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>lazy</strong>(path, callback, context)</p>
+                    <p>function <strong>tokenize</strong>(s)</p>
 
 <div class="description">
-    <p>Lazily navigate to a node in the namespace.<br>Will asynchronously call the callback as soon as the node is being touched.</p>
+    <p>Tokenizes a string comprised of escaped javascript code and normal text.</p>
 </div>
 
 Parameters:
@@ -348,7 +230,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>s</code></td>
             
 
             <td class="type">
@@ -364,299 +246,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>callback function accepting the node's object value</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>context</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">context</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional callback context</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>obtain</strong>(path, callback, context)</p>
-
-<div class="description">
-    <p>Asynchronously access a node in the namespace.<br>Will asynchronously call the callback as soon as the node is being defined.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>callback function accepting the node's object value</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>context</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">context</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional callback context</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>set</strong>(path, value)</p>
-
-<div class="description">
-    <p>Set the object value of a node in the namespace.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>object that should be used as value for the namespace node</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>unresolvedWatchers</strong>(path)</p>
-
-<div class="description">
-    <p>Returns all unresolved watchers under a certain path.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
+            <td class="description last"><p>input string</p></td>
         </tr>
 
 	
@@ -668,7 +258,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>list of all unresolved watchers</p>
+    <p>array of token objects</p>
 </div>
 
 
@@ -743,7 +333,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="BetaJS.module_Templates.html">
+		<a class="list-group-item active" href="BetaJS.module_Templates.html">
 			<span class="toc-h1">
 				Templates
 			</span>
@@ -803,7 +393,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="module-Namespace.html">
+		<a class="list-group-item " href="module-Namespace.html">
 			<span class="toc-h1">
 				Namespace
 			</span>

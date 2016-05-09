@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="module:Namespace">
-            <h2>Namespace</h2>
+        <header id="BetaJS.Net.module:Uri">
+            <h2>Uri</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>digest</strong>(path)</p>
+                    <p>function <strong>appendUriParams</strong>(uri, arr, prefix)</p>
 
 <div class="description">
-    <p>Digest a node path, checking whether it has been defined by an external system.</p>
+    <p>Append a set of uri query parameters to a URI.</p>
 </div>
 
 Parameters:
@@ -125,7 +125,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>uri</code></td>
             
 
             <td class="type">
@@ -141,73 +141,14 @@ Parameters:
 
             
 
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>extend</strong>(path, value)</p>
-
-<div class="description">
-    <p>Extend a node in the namespace by an object.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
+            <td class="description last"><p>a uri</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>value</code></td>
+                <td class="name"><code>arr</code></td>
             
 
             <td class="type">
@@ -223,50 +164,14 @@ Parameters:
 
             
 
-            <td class="description last"><p>object that should be used for extend the namespace node</p></td>
+            <td class="description last"><p>a key-value set of query parameters</p></td>
         </tr>
 
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>get</strong>(path)</p>
-
-<div class="description">
-    <p>Read the object value of a node in the namespace.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
 	
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>prefix</code></td>
             
 
             <td class="type">
@@ -282,7 +187,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>path to the node in the namespace</p></td>
+            <td class="description last"><p>an optional prefix to be used for generating the keys</p></td>
         </tr>
 
 	
@@ -294,7 +199,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>object value of the node or null if undefined</p>
+    <p>uri with the encoded query parameters attached</p>
 </div>
 
 
@@ -305,7 +210,7 @@ Returns:
 	</dt>
 	<dd>
 		
-<span class="param-type">object</span>
+<span class="param-type">string</span>
 
 
 	</dd>
@@ -317,10 +222,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>lazy</strong>(path, callback, context)</p>
+                    <p>function <strong>build</strong>(obj)</p>
 
 <div class="description">
-    <p>Lazily navigate to a node in the namespace.<br>Will asynchronously call the callback as soon as the node is being touched.</p>
+    <p>Create a URI string from a set of parameters.</p>
 </div>
 
 Parameters:
@@ -348,240 +253,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>callback function accepting the node's object value</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>context</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">context</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional callback context</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>obtain</strong>(path, callback, context)</p>
-
-<div class="description">
-    <p>Asynchronously access a node in the namespace.<br>Will asynchronously call the callback as soon as the node is being defined.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>callback function accepting the node's object value</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>context</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">context</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional callback context</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>set</strong>(path, value)</p>
-
-<div class="description">
-    <p>Set the object value of a node in the namespace.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
+                <td class="name"><code>obj</code></td>
             
 
             <td class="type">
@@ -597,7 +269,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>object that should be used as value for the namespace node</p></td>
+            <td class="description last"><p>parameters</p></td>
         </tr>
 
 	
@@ -605,14 +277,37 @@ Parameters:
 </table>
 
 
+Returns:
+
+        
+<div class="param-desc">
+    <p>uri</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+
+    
 
                 
             
                 
-                    <p>function <strong>unresolvedWatchers</strong>(path)</p>
+                    <p>function <strong>encodeUriParams</strong>(arr, prefix)</p>
 
 <div class="description">
-    <p>Returns all unresolved watchers under a certain path.</p>
+    <p>Encode a set of uri query parameters.</p>
 </div>
 
 Parameters:
@@ -640,7 +335,30 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a key-value set of query parameters</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>prefix</code></td>
             
 
             <td class="type">
@@ -656,7 +374,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>path to the node in the namespace</p></td>
+            <td class="description last"><p>an optional prefix to be used for generating the keys</p></td>
         </tr>
 
 	
@@ -668,7 +386,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>list of all unresolved watchers</p>
+    <p>encoded query parameters</p>
 </div>
 
 
@@ -679,7 +397,112 @@ Returns:
 	</dt>
 	<dd>
 		
-<span class="param-type">array</span>
+<span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>parse</strong>(str, strict)</p>
+
+<div class="description">
+    <p>Parses a given uri into decomposes it into its components.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>str</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>uri to be parsed</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>strict</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>use strict parsing (default false)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>decomposed uri</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
 
 
 	</dd>
@@ -767,7 +590,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="BetaJS.Net.module_Uri.html">
+		<a class="list-group-item active" href="BetaJS.Net.module_Uri.html">
 			<span class="toc-h1">
 				Uri
 			</span>
@@ -803,7 +626,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="module-Namespace.html">
+		<a class="list-group-item " href="module-Namespace.html">
 			<span class="toc-h1">
 				Namespace
 			</span>

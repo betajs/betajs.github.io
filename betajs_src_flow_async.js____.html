@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs/src/flow/async.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="http://blog.betajs.com">Blog</a>
+						</li>
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs/src/flow/async.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Async", ["module:Types", "module:Functions"], function (Types, Functions) {
+	
+	var __eventuallyOnce = {};
+	var __eventuallyOnceIdx = 1;
+
+	
+	/**
+	 * Auxilary functions for asynchronous operations.
+	 * 
+	 * @module BetaJS.Async
+	 */
+	return {		
+		
+		
+		/**
+		 * Wait asynchronously for a condition to be met.
+		 * 
+		 * @param {function} condition condition function
+		 * @param {object} conditionCtx condition context (optional)
+		 * @param {function} callback callback function
+		 * @param {object} callbackCtx callback context (optional)
+		 * @param {int} interval interval time between checks (optional, default 1)
+		 * 
+		 */
+		waitFor: function () {
+			var args = Functions.matchArgs(arguments, {
+				condition: true,
+				conditionCtx: "object",
+				callback: true,
+				callbackCtx: "object",
+				interval: "int"
+			});
+			var h = function () {
+				try {
+					return !!args.condition.apply(args.conditionCtx || args.callbackCtx || this);
+				} catch (e) {
+					return false;
+				}
+			};
+			if (h())
+				args.callback.apply(args.callbackCtx || this);
+			else {
+				var timer = setInterval(function () {
+					if (h()) {
+						clearInterval(timer);
+						args.callback.apply(args.callbackCtx || this);
+					}
+				}, args.interval || 1);
+			}
+		},
+		
+		
+		/**
+		 * Execute a function asynchronously eventually.
+		 * 
+		 * @param {function} function function to be executed asynchronously
+		 * @param {array} params optional list of parameters to be passed to the function
+		 * @param {object} context optional context for the function execution
+		 * @param {int} time time to wait until execution (default is 0)
+		 * 
+		 * @return handle to the eventual call
+		 */
+		eventually: function () {
+			var args = Functions.matchArgs(arguments, {
+				func: true,
+				params: "array",
+				context: "object",
+				time: "number"
+			});
+			var timer = setTimeout(function () {
+				clearTimeout(timer);
+				args.func.apply(args.context || this, args.params || []);
+			}, args.time || 0);
+			return timer;
+		},
+		
+		
+		/**
+		 * Clears a call scheduled for eventual execution.
+		 * 
+		 * @param ev event handle
+		 * 
+		 */
+		clearEventually: function (ev) {
+			clearTimeout(ev);
+		},
+		
+		
+		/**
+		 * Executes a function asynchronously eventually, but only once.
+		 * 
+		 * @param {function} function function to be executed asynchronously
+		 * @param {array} params list of parameters to be passed to the function
+		 * @param {object} context optional context for the function execution
+		 * 
+		 */
+		eventuallyOnce: function (func, params, context) {
+			var data = {
+				func: func,
+				params: params,
+				context: context
+			};
+			for (var key in __eventuallyOnce) {
+				var record = __eventuallyOnce[key];
+				if (record.func == func &amp;&amp; record.params == params &amp;&amp; record.context == context)
+					return;
+			}
+			__eventuallyOnceIdx++;
+			var index = __eventuallyOnceIdx;
+			__eventuallyOnce[index] = data;
+			return this.eventually(function () {
+				delete __eventuallyOnce[index];
+				func.apply(context || this, params || []);
+			}, this);
+		}
+				
+	};
+
+});</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

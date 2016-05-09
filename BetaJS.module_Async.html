@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="module:Namespace">
-            <h2>Namespace</h2>
+        <header id="BetaJS.module:Async">
+            <h2>Async</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>digest</strong>(path)</p>
+                    <p>function <strong>clearEventually</strong>(ev)</p>
 
 <div class="description">
-    <p>Digest a node path, checking whether it has been defined by an external system.</p>
+    <p>Clears a call scheduled for eventual execution.</p>
 </div>
 
 Parameters:
@@ -125,15 +125,10 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>ev</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
             
             </td>
 
@@ -141,7 +136,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>path to the node in the namespace</p></td>
+            <td class="description last"><p>event handle</p></td>
         </tr>
 
 	
@@ -153,10 +148,10 @@ Parameters:
                 
             
                 
-                    <p>function <strong>extend</strong>(path, value)</p>
+                    <p>function <strong>eventually</strong>(function, params, context, time)</p>
 
 <div class="description">
-    <p>Extend a node in the namespace by an object.</p>
+    <p>Execute a function asynchronously eventually.</p>
 </div>
 
 Parameters:
@@ -184,194 +179,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>object that should be used for extend the namespace node</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>get</strong>(path)</p>
-
-<div class="description">
-    <p>Read the object value of a node in the namespace.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>object value of the node or null if undefined</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">object</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>lazy</strong>(path, callback, context)</p>
-
-<div class="description">
-    <p>Lazily navigate to a node in the namespace.<br>Will asynchronously call the callback as soon as the node is being touched.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
+                <td class="name"><code>function</code></td>
             
 
             <td class="type">
@@ -387,306 +195,350 @@ Parameters:
 
             
 
-            <td class="description last"><p>callback function accepting the node's object value</p></td>
+            <td class="description last"><p>function to be executed asynchronously</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>context</code></td>
+                <td class="name"><code>params</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">context</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional callback context</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>obtain</strong>(path, callback, context)</p>
-
-<div class="description">
-    <p>Asynchronously access a node in the namespace.<br>Will asynchronously call the callback as soon as the node is being defined.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>callback function accepting the node's object value</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>context</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">context</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional callback context</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>set</strong>(path, value)</p>
-
-<div class="description">
-    <p>Set the object value of a node in the namespace.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>object that should be used as value for the namespace node</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>unresolvedWatchers</strong>(path)</p>
-
-<div class="description">
-    <p>Returns all unresolved watchers under a certain path.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>path to the node in the namespace</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>list of all unresolved watchers</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
 <span class="param-type">array</span>
 
 
-	</dd>
-</dl>
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional list of parameters to be passed to the function</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional context for the function execution</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>time</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>time to wait until execution (default is 0)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>handle to the eventual call</p>
+</div>
+
+
 
 
     
+
+                
+            
+                
+                    <p>function <strong>eventuallyOnce</strong>(function, params, context)</p>
+
+<div class="description">
+    <p>Executes a function asynchronously eventually, but only once.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>function</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function to be executed asynchronously</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>list of parameters to be passed to the function</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional context for the function execution</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+
+                
+            
+                
+                    <p>function <strong>waitFor</strong>(condition, conditionCtx, callback, callbackCtx, interval)</p>
+
+<div class="description">
+    <p>Wait asynchronously for a condition to be met.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>condition</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>condition function</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>conditionCtx</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>condition context (optional)</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>callback function</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>callbackCtx</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>callback context (optional)</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>interval</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>interval time between checks (optional, default 1)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
 
                 
             
@@ -701,7 +553,7 @@ Returns:
 <div class="col-md-3">
 	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"><div class="list-group">
 	
-		<a class="list-group-item " href="BetaJS.module_Async.html">
+		<a class="list-group-item active" href="BetaJS.module_Async.html">
 			<span class="toc-h1">
 				Async
 			</span>
@@ -803,7 +655,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="module-Namespace.html">
+		<a class="list-group-item " href="module-Namespace.html">
 			<span class="toc-h1">
 				Namespace
 			</span>
