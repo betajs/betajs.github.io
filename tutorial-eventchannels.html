@@ -91,21 +91,47 @@
 	
 
 		<header>
-		    <h2>Templates</h2>
+		    <h2>Event Channels</h2>
 		</header>
 		
 		<article>
-		    <p>There are currently two ways to link dynamic code to a template:</p>
-<ul>
-<li>Internal Templates defined inside the Javascript Code</li>
-<li>External Templates defined in an external file</li>
-</ul>
-<p>They are mutually exclusive.</p>
-<pre class="prettyprint source lang-js"><code>
-    dynamic = new BetaJS.Dynamics.Dynamic({
-        templateUrl : &quot;templates/template.html&quot;,         //This contains the relative file path to an external template
-        template : &quot;&lt;div>Internal Template&lt;/div>&quot;
-    });</code></pre>
+		    <p>Events Channels are a way to encapsulate message sending between dynamics. By default, there is a global channel that all dynamics can subscribe to:</p>
+<pre class="prettyprint source lang-javascript"><code>BetaJS.Dynamics.Dynamic.extend(null, {
+       channels: {
+           &quot;global:test&quot;: function () {
+               // Execute when the event test has been triggered on the global channel
+           }
+       }
+}).register(&quot;ba-receiver&quot;);
+
+BetaJS.Dynamics.Dynamic.extend(null, {
+       functions: {
+           foobar: function () {
+               // Trigger event test on the global channel
+               this.channel(&quot;global&quot;).trigger(&quot;test&quot;);
+           }
+       }
+}).register(&quot;ba-sender&quot;);</code></pre><p>In some case, you might want to restrict a channel to one dynamic and all its subdynamics. To do so, you register your own channel in the parent dynamic and subscribe to it in the subdynamics:</p>
+<pre class="prettyprint source lang-javascript"><code>BetaJS.Dynamics.Dynamic.extend(null, {
+    registerchannels: [&quot;mychannel&quot;]
+}).register(&quot;ba-parent&quot;);
+
+BetaJS.Dynamics.Dynamic.extend(null, {
+       channels: {
+           &quot;mychannel:test&quot;: function () {
+               // Execute when the event test has been triggered within the parent dynamic mychannel
+           }
+       }
+}).register(&quot;ba-childreceiver&quot;);
+
+BetaJS.Dynamics.Dynamic.extend(null, {
+       functions: {
+           foobar: function () {
+               // Trigger event test within the parent dynamic mychannel
+               this.channel(&quot;mychannel&quot;).trigger(&quot;test&quot;);
+           }
+       }
+}).register(&quot;ba-childsender&quot;);</code></pre>
 		</article>
 		
 		</section>
@@ -190,14 +216,12 @@
 		</a> 
 				
 	
-		<a class="list-group-item active" href="tutorial-templates.html">
+		<a class="list-group-item " href="tutorial-templates.html">
 			<span class="toc-h3">
 				Templates
 			</span>
 		</a> 
-		
-	
-		
+				
 	
 		<a class="list-group-item " href="tutorial-element.html">
 			<span class="toc-h3">
@@ -220,12 +244,14 @@
 		</a> 
 				
 	
-		<a class="list-group-item " href="tutorial-eventchannels.html">
+		<a class="list-group-item active" href="tutorial-eventchannels.html">
 			<span class="toc-h3">
 				Event Channels
 			</span>
 		</a> 
-				
+		
+	
+		
 	
 		
 	

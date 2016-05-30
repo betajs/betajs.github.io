@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="module:Globals">
-            <h2>Globals</h2>
+        <header id="BetaJS.Net.module:HttpHeader">
+            <h2>HttpHeader</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>get</strong>(key)</p>
+                    <p>function <strong>format</strong>(code, prepend_code)</p>
 
 <div class="description">
-    <p>Returns the value of a global variable.</p>
+    <p>Formats a HTTP status code to a string.</p>
 </div>
 
 Parameters:
@@ -125,13 +125,13 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>key</code></td>
+                <td class="name"><code>code</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">integer</span>
 
 
             
@@ -141,7 +141,30 @@ Parameters:
 
             
 
-            <td class="description last"><p>identifier of a global variable</p></td>
+            <td class="description last"><p>the http status code</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>prepend_code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>should the integer status code be prepended (default false)</p></td>
         </tr>
 
 	
@@ -153,253 +176,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>value of global variable or undefined if not existing</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>getPath</strong>(path)</p>
-
-<div class="description">
-    <p>Returns the value of a global variable under a namespaced path.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>namespaced path identifier of variable</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>value of global variable or undefined if not existing</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>set</strong>(key, value)</p>
-
-<div class="description">
-    <p>Sets a global variable.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>key</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>identifier of a global variable</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>value to be set</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>value that has been set</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>setPath</strong>(path, value)</p>
-
-<div class="description">
-    <p>Sets a global variable under a namespaced path.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>namespaced path identifier of variable</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>value to be set</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>value that has been set</p>
+    <p>HTTP status code as a string.</p>
 </div>
 
 
@@ -486,7 +263,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="BetaJS.Net.module_HttpHeader.html">
+		<a class="list-group-item active" href="BetaJS.Net.module_HttpHeader.html">
 			<span class="toc-h1">
 				HttpHeader
 			</span>
@@ -510,7 +287,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="module-Globals.html">
+		<a class="list-group-item " href="module-Globals.html">
 			<span class="toc-h1">
 				Globals
 			</span>
