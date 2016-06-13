@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="BetaJS.module:Strings">
-            <h2>Strings</h2>
+        <header id="BetaJS.module:Time">
+            <h2>Time</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>capitalize</strong>(input)</p>
+                    <p>function <strong>ago</strong>(t, timezone)</p>
 
 <div class="description">
-    <p>Capitalizes all first characters of all words in a string.</p>
+    <p>Computes how long a specific time is ago from now.</p>
 </div>
 
 Parameters:
@@ -125,1037 +125,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>input</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>input string</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>input with all first characters capitalized</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">string</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>email_get_email</strong>(input)</p>
-
-<div class="description">
-    <p>Extracts the email from an email address name string (e.g. 'Foo Bar <a href="&#109;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#102;&#x6f;&#x6f;&#x62;&#97;&#x72;&#x40;&#100;&#x6f;&#x6d;&#97;&#x69;&#x6e;&#x2e;&#99;&#x6f;&#x6d;">&#102;&#x6f;&#x6f;&#x62;&#97;&#x72;&#x40;&#100;&#x6f;&#x6d;&#97;&#x69;&#x6e;&#x2e;&#99;&#x6f;&#x6d;</a>')</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>input</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>email address name input string</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>email included in the string</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">string</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>email_get_name</strong>(input)</p>
-
-<div class="description">
-    <p>Extracts the name from an email address name string (e.g. 'Foo Bar <a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x66;&#111;&#x6f;&#x62;&#97;&#x72;&#64;&#100;&#x6f;&#x6d;&#97;&#x69;&#x6e;&#46;&#99;&#x6f;&#x6d;">&#x66;&#111;&#x6f;&#x62;&#97;&#x72;&#64;&#100;&#x6f;&#x6d;&#97;&#x69;&#x6e;&#46;&#99;&#x6f;&#x6d;</a>')</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>input</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>email address name input string</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>name included in the string</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">string</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>email_get_salutatory_name</strong>(input)</p>
-
-<div class="description">
-    <p>Extracts the salutatory name from an email address name string (normally the first name)</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>input</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>email address name input string</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>salutatory name</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">string</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>ends_with</strong>(s, needle)</p>
-
-<div class="description">
-    <p>Determines whether a string ends with a sub string</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>s</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>string in question</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>needle</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>sub string</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>true if string in question ends with sub string</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>first_after</strong>(s, needle)</p>
-
-<div class="description">
-    <p>Returns the complete remaining part of a string after the first occurrence of a sub string</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>s</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>string in question</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>needle</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>sub string</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>remaining part of the string in question after the first occurrence of the sub string</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>htmlentities</strong>(s)</p>
-
-<div class="description">
-    <p>Converts special characters in a string to html entitiy symbols</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>s</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>string</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>converted string</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>is_email_address</strong>(s)</p>
-
-<div class="description">
-    <p>Determines whether a string is a syntactically valid email address</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>s</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>string in question</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>true if string looks like an email address</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>js_escape</strong>(s)</p>
-
-<div class="description">
-    <p>Converts string such that it can be used in javascript by escaping special symbols</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>s</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>string</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>escaped string</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>last_after</strong>(s, needle)</p>
-
-<div class="description">
-    <p>Returns the complete remaining part of a string after the last occurrence of a sub string</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>s</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>string in question</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>needle</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>sub string</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>remaining part of the string in question after the last occurrence of the sub string</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>namedCaptureRegex</strong>(regex)</p>
-
-<div class="description">
-    <p>Given a regular expression with named capture groups (e.g. '(foobar:\d+)'), compute a normal regular expression with mappings to the named groups.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>regex</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>regular expression with named capture groups</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>mapping object</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">object</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>nl2br</strong>(s)</p>
-
-<div class="description">
-    <p>Converts a string new lines to html <br /> tags</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>s</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>string</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>string with new lines replaced by <br /></p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>nltrim</strong>(s)</p>
-
-<div class="description">
-    <p>Trims all trailing and leading whitespace and removes block indentations</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>s</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>string</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>string with trimmed whitespaces and removed block indentation</p>
-</div>
-
-
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>padLeft</strong>(s, padding, length)</p>
-
-<div class="description">
-    <p>Pads a string from the left with characters if necessary.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>s</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>string that should be padded</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>padding</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>padding string that should be used (e.g. whitespace)</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>length</code></td>
+                <td class="name"><code>t</code></td>
             
 
             <td class="type">
@@ -1171,96 +141,14 @@ Parameters:
 
             
 
-            <td class="description last"><p>minimum length of result string</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>padded string</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">string</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>padZeros</strong>(s, length)</p>
-
-<div class="description">
-    <p>Pads a string from the left with zeros ('0') if necessary.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>s</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>string that should be padded</p></td>
+            <td class="description last"><p>time</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>length</code></td>
+                <td class="name"><code>timezone</code></td>
             
 
             <td class="type">
@@ -1276,7 +164,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>minimum length of result string</p></td>
+            <td class="description last"><p>timezone (optional)</p></td>
         </tr>
 
 	
@@ -1288,7 +176,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>zero-padded string</p>
+    <p>milliseconds ago</p>
 </div>
 
 
@@ -1299,7 +187,7 @@ Returns:
 	</dt>
 	<dd>
 		
-<span class="param-type">string</span>
+<span class="param-type">int</span>
 
 
 	</dd>
@@ -1311,10 +199,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>regexReplaceGroups</strong>(regex, args)</p>
+                    <p>function <strong>dateToTime</strong>(d, timezone)</p>
 
 <div class="description">
-    <p>Replace all groups in a regular expression string by string parameters.</p>
+    <p>Given a time as a Date object, return UTC time in milliseconds.</p>
 </div>
 
 Parameters:
@@ -1342,13 +230,13 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>regex</code></td>
+                <td class="name"><code>d</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -1358,20 +246,20 @@ Parameters:
 
             
 
-            <td class="description last"><p>regular expression with groups as a string</p></td>
+            <td class="description last"><p>time as Date object</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>args</code></td>
+                <td class="name"><code>timezone</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">array</span>
+<span class="param-type">int</span>
 
 
             
@@ -1381,7 +269,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>array of string parameters</p></td>
+            <td class="description last"><p>timezone (optional)</p></td>
         </tr>
 
 	
@@ -1393,7 +281,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>regular expression with groups being replaced by string parameters</p>
+    <p>UTC time in milliseconds</p>
 </div>
 
 
@@ -1404,7 +292,7 @@ Returns:
 	</dt>
 	<dd>
 		
-<span class="param-type">string</span>
+<span class="param-type">int</span>
 
 
 	</dd>
@@ -1416,10 +304,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>replaceAll</strong>(s, sub, wth)</p>
+                    <p>function <strong>decodeTime</strong>(t, timezone)</p>
 
 <div class="description">
-    <p>Replaces all occurrences of a substring with something else.</p>
+    <p>Decode time into its time components</p>
 </div>
 
 Parameters:
@@ -1447,13 +335,13 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>s</code></td>
+                <td class="name"><code>t</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">int</span>
 
 
             
@@ -1463,20 +351,20 @@ Parameters:
 
             
 
-            <td class="description last"><p>input string</p></td>
+            <td class="description last"><p>time in milliseconds</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>sub</code></td>
+                <td class="name"><code>timezone</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">int</span>
 
 
             
@@ -1486,30 +374,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>search string</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>wth</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>replacement string</p></td>
+            <td class="description last"><p>timezone (optional)</p></td>
         </tr>
 
 	
@@ -1521,112 +386,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>input with all occurrences of the search string replaced by the replacement string</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">string</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>splitFirst</strong>(s, delimiter)</p>
-
-<div class="description">
-    <p>Splits a string into two by the first occurrence of a delimiter</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>s</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>input string</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>delimiter</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>delimiter string</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>a json object, mapping 'head' to the region left and 'tail' to region right to the delimiter</p>
+    <p>decoded time component</p>
 </div>
 
 
@@ -1649,10 +409,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>splitLast</strong>(s, delimiter)</p>
+                    <p>function <strong>encodePeriod</strong>(data, timezone)</p>
 
 <div class="description">
-    <p>Splits a string into two by the last occurrence of a delimiter</p>
+    <p>Encode time period data from components to milliseconds</p>
 </div>
 
 Parameters:
@@ -1680,13 +440,13 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>s</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -1696,20 +456,20 @@ Parameters:
 
             
 
-            <td class="description last"><p>input string</p></td>
+            <td class="description last"><p>component data</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>delimiter</code></td>
+                <td class="name"><code>timezone</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">int</span>
 
 
             
@@ -1719,7 +479,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>delimiter string</p></td>
+            <td class="description last"><p>timezone (optional)</p></td>
         </tr>
 
 	
@@ -1731,7 +491,893 @@ Returns:
 
         
 <div class="param-desc">
-    <p>a json object, mapping 'head' to the region left and 'tail' to region right to the delimiter</p>
+    <p>encoded milliseconds</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>encodeTime</strong>(data, timezone)</p>
+
+<div class="description">
+    <p>Encode time from components to UTC time</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>component data</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>timezone</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>timezone (optional)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>encoded UTC time</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>floorTime</strong>(t, key, timezone)</p>
+
+<div class="description">
+    <p>Floors a given time with respect to a component key and all smaller components.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>t</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>time</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>component key</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>timezone</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>timezone (optional)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>floored time</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>incrementTime</strong>(t, data)</p>
+
+<div class="description">
+    <p>Increments a given time with respect to provided component data</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>t</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>UTC time</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>component data</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>incremented UTC time</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>now</strong>(timezone)</p>
+
+<div class="description">
+    <p>Returns the current time in milliseconds</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>timezone</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>timezone (optional)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>current time</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>timeComponent</strong>(t, key, rounding)</p>
+
+<div class="description">
+    <p>Returns the multiplicity of a time component given a time.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>t</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>time</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>component key</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>rounding</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function (default is floor)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>multiplicity of time</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>timeComponentGet</strong>(t, key)</p>
+
+<div class="description">
+    <p>Returns the value of a time component given a time.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>t</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>time</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>component key</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>value of time</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>timeModulo</strong>(t, key, rounding)</p>
+
+<div class="description">
+    <p>Returns the remainder of a time component given a time.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>t</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>time</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>component key</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>rounding</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function (default is floor)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>remainder of time</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>timeToDate</strong>(t, timezone)</p>
+
+<div class="description">
+    <p>Given a time in milliseconds, compute a Date object.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>t</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>time in milliseconds</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>timezone</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>timezone (optional)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>Date object</p>
 </div>
 
 
@@ -1754,10 +1400,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>starts_with</strong>(s, needle)</p>
+                    <p>function <strong>timeToTimezoneBasedDate</strong>(t, timezone)</p>
 
 <div class="description">
-    <p>Determines whether a string starts with a sub string</p>
+    <p>Given a time in milliseconds, compute a timezone-based Date object.</p>
 </div>
 
 Parameters:
@@ -1785,10 +1431,15 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>s</code></td>
+                <td class="name"><code>t</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
             
             </td>
 
@@ -1796,17 +1447,22 @@ Parameters:
 
             
 
-            <td class="description last"><p>string in question</p></td>
+            <td class="description last"><p>time in milliseconds</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>needle</code></td>
+                <td class="name"><code>timezone</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
             
             </td>
 
@@ -1814,7 +1470,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>sub string</p></td>
+            <td class="description last"><p>timezone (optional)</p></td>
         </tr>
 
 	
@@ -1826,10 +1482,22 @@ Returns:
 
         
 <div class="param-desc">
-    <p>true if string in question starts with sub string</p>
+    <p>timezone-based Date object</p>
 </div>
 
 
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
 
 
     
@@ -1837,10 +1505,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>strip_html</strong>(html)</p>
+                    <p>function <strong>timezoneBasedDateToTime</strong>(d, timezone)</p>
 
 <div class="description">
-    <p>Removes all html from data and returns plain text</p>
+    <p>Given a time as a timezone-based Date object, return UTC time in milliseconds.</p>
 </div>
 
 Parameters:
@@ -1868,10 +1536,15 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>html</code></td>
+                <td class="name"><code>d</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
             
             </td>
 
@@ -1879,7 +1552,30 @@ Parameters:
 
             
 
-            <td class="description last"><p>string containing html</p></td>
+            <td class="description last"><p>time as a timezone-based Date object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>timezone</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>timezone (optional)</p></td>
         </tr>
 
 	
@@ -1891,10 +1587,22 @@ Returns:
 
         
 <div class="param-desc">
-    <p>string containing the plain text part of it</p>
+    <p>UTC time in milliseconds</p>
 </div>
 
 
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
 
 
     
@@ -1902,10 +1610,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>strip_start</strong>(s, needle)</p>
+                    <p>function <strong>timezoneBias</strong>(timezone)</p>
 
 <div class="description">
-    <p>Removes sub string from a string if string starts with sub string</p>
+    <p>Computes the timezone bias in milliseconds from UTC</p>
 </div>
 
 Parameters:
@@ -1933,10 +1641,15 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>s</code></td>
+                <td class="name"><code>timezone</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
             
             </td>
 
@@ -1944,25 +1657,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>string in question</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>needle</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>sub string</p></td>
+            <td class="description last"><p>bias in minutes; can be true to use current time zone; can be undefined to use UTC</p></td>
         </tr>
 
 	
@@ -1974,10 +1669,150 @@ Returns:
 
         
 <div class="param-desc">
-    <p>string without sub string if it starts with sub string otherwise it returns the original string</p>
+    <p>timezone bias in milliseconds</p>
 </div>
 
 
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>updateTime</strong>(t, data, timezone)</p>
+
+<div class="description">
+    <p>Updates a given time with respect to provided component data</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>t</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>UTC time</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>component data</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>timezone</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>timezone (optional)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>updated UTC time</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
 
 
     
@@ -2031,7 +1866,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="BetaJS.module_Strings.html">
+		<a class="list-group-item " href="BetaJS.module_Strings.html">
 			<span class="toc-h1">
 				Strings
 			</span>
@@ -2043,7 +1878,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="BetaJS.module_Time.html">
+		<a class="list-group-item active" href="BetaJS.module_Time.html">
 			<span class="toc-h1">
 				Time
 			</span>
