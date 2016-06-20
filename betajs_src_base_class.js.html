@@ -247,7 +247,7 @@
 		},
 		
 		is_pure_json: function (obj) {
-			return obj &amp;&amp; Types.is_object(obj) &amp;&amp; !this.is_class_instance(obj);
+			return obj &amp;&amp; Types.is_object(obj) &amp;&amp; !this.is_class_instance(obj) &amp;&amp; Types.is_pure_object(obj);
 		},
 		
 		is_instance_of: function (obj) {
