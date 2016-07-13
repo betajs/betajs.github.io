@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="module:FileSupport">
-            <h2>FileSupport</h2>
+        <header id="BetaJS.module:Objs">
+            <h2>Objs</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>copyDirectory</strong>(source, dest)</p>
+                    <p>function <strong>acyclic_clone</strong>(object)</p>
 
 <div class="description">
-    <p>Copy a whole directory with files to a directory, creating the target directory if it doesn't exist.</p>
+    <p>Acyclicly clone an object.</p>
 </div>
 
 Parameters:
@@ -121,6 +121,264 @@ Parameters:
 	</thead>
 
 	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>source object</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>acyclic cloned object</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>clone</strong>(item, depth)</p>
+
+<div class="description">
+    <p>Clone an object or array up to a certain depth.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object or array</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>depth</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>depth until to clone it (default 0)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>cloned object or array</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>count</strong>(obj)</p>
+
+<div class="description">
+    <p>Returns the number of elements of an object or array.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object or array</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>number of elements</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>extend</strong>(target, source, depth)</p>
+
+<div class="description">
+    <p>Extend target object by source object, modifying target object in-place.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>target object</p></td>
+        </tr>
+
 	
 
         <tr>
@@ -131,7 +389,7 @@ Parameters:
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -141,20 +399,20 @@ Parameters:
 
             
 
-            <td class="description last"><p>source directory</p></td>
+            <td class="description last"><p>source object</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>dest</code></td>
+                <td class="name"><code>depth</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">int</span>
 
 
             
@@ -164,148 +422,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>target directory</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>copyFileToDirectory</strong>(fileName, dest)</p>
-
-<div class="description">
-    <p>Copy a file to a directory, creating the directory if it doesn't exist.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>fileName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>file to be copied</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>dest</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>target directory</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>readFile</strong>(f)</p>
-
-<div class="description">
-    <p>Read a file to a string synchronously</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>file name of file to be read</p></td>
+            <td class="description last"><p>optional depth for cloning source values</p></td>
         </tr>
 
 	
@@ -317,89 +434,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>content of file</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">string</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>readHtmlSafe</strong>(f)</p>
-
-<div class="description">
-    <p>Read a file to an html-safe string synchronously</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>file name of file to be read</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>html-safe content of file</p>
+    <p>target object</p>
 </div>
 
 
@@ -422,10 +457,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>readJSON</strong>(f)</p>
+                    <p>function <strong>ithKey</strong>(obj, i)</p>
 
 <div class="description">
-    <p>Read a file to JSON synchronously</p>
+    <p>Return the i-th key of an object.</p>
 </div>
 
 Parameters:
@@ -453,13 +488,13 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>f</code></td>
+                <td class="name"><code>obj</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -469,7 +504,30 @@ Parameters:
 
             
 
-            <td class="description last"><p>file name of file to be read</p></td>
+            <td class="description last"><p>the object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>i</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>index of the i-th key (default: 0)</p></td>
         </tr>
 
 	
@@ -481,7 +539,223 @@ Returns:
 
         
 <div class="param-desc">
-    <p>parsed JSON</p>
+    <p>i-th key</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>keys</strong>(object, mapped)</p>
+
+<div class="description">
+    <p>Returns the keys of an object.<br>If mapped is given, an object is returned with all keys mapped to mapped. Otherwise, an array is returned.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>source object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>mapped</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional value</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>keys as array or as an object</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>tree_extend</strong>(target, source, depth)</p>
+
+<div class="description">
+    <p>Extend target object by source object recursively, modifying target object in-place.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>target object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>source</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>source object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>depth</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional depth for cloning source values</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>target object</p>
 </div>
 
 
@@ -504,10 +778,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>shortenPaths</strong>(files, commonPrefix)</p>
+                    <p>function <strong>weak_extend</strong>(target, source, depth)</p>
 
 <div class="description">
-    <p>Generates shortened paths names for files by removing a common prefix</p>
+    <p>Weakly extend target object by source object, modifying target object in-place.<br>If a key already exists within the target object, it is not overwritten by source.</p>
 </div>
 
 Parameters:
@@ -535,7 +809,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>files</code></td>
+                <td class="name"><code>target</code></td>
             
 
             <td class="type">
@@ -551,20 +825,20 @@ Parameters:
 
             
 
-            <td class="description last"><p>files object</p></td>
+            <td class="description last"><p>target object</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>commonPrefix</code></td>
+                <td class="name"><code>source</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -574,7 +848,30 @@ Parameters:
 
             
 
-            <td class="description last"><p>common prefix that is to be removed</p></td>
+            <td class="description last"><p>source object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>depth</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional depth for cloning source values</p></td>
         </tr>
 
 	
@@ -586,7 +883,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>updated files object</p>
+    <p>target object</p>
 </div>
 
 
@@ -605,88 +902,6 @@ Returns:
 
 
     
-
-                
-            
-                
-                    <p>function <strong>writeFile</strong>(f, data)</p>
-
-<div class="description">
-    <p>Write a string to a file synchronously</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>file name of file to be written</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>content of be written</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
 
                 
             
@@ -737,7 +952,7 @@ Parameters:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="BetaJS.module_Objs.html">
+		<a class="list-group-item active" href="BetaJS.module_Objs.html">
 			<span class="toc-h1">
 				Objs
 			</span>
@@ -803,7 +1018,7 @@ Parameters:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="module-FileSupport.html">
+		<a class="list-group-item " href="module-FileSupport.html">
 			<span class="toc-h1">
 				FileSupport
 			</span>

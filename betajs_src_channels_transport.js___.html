@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs/src/channels/transport.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="http://blog.betajs.com">Blog</a>
+						</li>
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs/src/channels/transport.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Channels.TransportChannel", [
+	    "module:Class",
+	    "module:Objs",
+	    "module:Timers.Timer",
+	    "module:Time",
+	    "module:Promise"
+	], function (Class, Objs, Timer, Time, Promise, scoped) {
+	return Class.extend({scoped: scoped}, function (inherited) {
+		
+		/**
+		 * Transport Channel for reliable transmission of data.
+		 * 
+		 * @class BetaJS.Channels.TransportChannel
+		 */
+		return {
+					
+			/**
+			 * Instantiates TransportChannel
+			 * 
+			 * @param {object} sender Sender Channel
+			 * @param {object} receiver Receiver Channel
+			 * @param {object} options options (timeout, tries, timer) for configuring the Transport Channel
+			 */
+			constructor: function (sender, receiver, options) {
+				inherited.constructor.call(this);
+				this.__sender = sender;
+				this.__receiver = receiver;
+				this.__options = Objs.extend(options, {
+					timeout: 10000,
+					tries: 1,
+					timer: 500
+				});
+				this.__receiver.on("receive:send", function (data) {
+					this.__reply(data);
+				}, this);
+				this.__receiver.on("receive:reply", function (data) {
+					this.__complete(data);
+				}, this);
+				this.__sent_id = 0;
+				this.__sent = {};
+				this.__received = {};
+				this.__timer = this._auto_destroy(new Timer({
+					delay: this.__options.timer,
+					context: this,
+					fire: this.__maintenance
+				}));
+			},
+			
+			/**
+			 * Callback function for replying to a message. Needs to be overwritten from the outside.
+			 * 
+			 * @param {string} message message string
+			 * @param {object} data data object
+			 * 
+			 * @return {object} promise object containin the reply data or an error
+			 */
+			_reply: function (message, data) {},
+			
+			/**
+			 * Send a message through the channel.
+			 * 
+			 * @param {string} message message string
+			 * @param {object} data data object
+			 * @param {object} options options (stateless) for sending the message
+			 * 
+			 * @return {object} promise object
+			 */
+			send: function (message, data, options) {
+				var promise = Promise.create();
+				options = options || {};
+				if (options.stateless) {
+					this.__sender.send("send", {
+						message: message,
+						data: data,
+						stateless: true
+					});
+					promise.asyncSuccess(true);
+				} else {
+					this.__sent_id++;
+					this.__sent[this.__sent_id] = {
+						message: message,
+						data: data,
+						tries: 1,
+						time: Time.now(),
+						id: this.__sent_id,
+						promise: promise
+					};
+					this.__sender.send("send", {
+						message: message,
+						data: data,
+						id: this.__sent_id
+					});
+				}
+				return promise;
+			},
+			
+			__reply: function (data) {
+				if (data.stateless) {
+					this._reply(data.message, data.data);
+					return;
+				}
+				if (!this.__received[data.id]) {
+					this.__received[data.id] = data;
+					this.__received[data.id].time = Time.now();
+					this.__received[data.id].returned = false;
+					this.__received[data.id].success = false;
+					this._reply(data.message, data.data).success(function (result) {
+						this.__received[data.id].reply = result;
+						this.__received[data.id].success = true;
+					}, this).error(function (error) {
+						this.__received[data.id].reply = error;
+					}, this).callback(function () {
+						this.__received[data.id].returned = true;
+						this.__sender.send("reply", {
+							id: data.id,
+							reply: data.reply,
+							success: data.success
+						});
+					}, this);			  
+				} else if (this.__received[data.id].returned) {
+					this.__sender.send("reply", {
+						id: data.id,
+						reply: data.reply,
+						success: data.success
+					});
+				}
+			},
+			
+			__complete: function (data) {
+				if (this.__sent[data.id]) {
+					var promise = this.__sent[data.id].promise;
+					promise[data.success ? "asyncSuccess" : "asyncError"](data.reply);
+					delete this.__sent[data.id];
+				}
+			},
+			
+			__maintenance: function () {
+				var now = Time.now();
+				for (var received_key in this.__received) {
+					var received = this.__received[received_key];
+					if (received.time + this.__options.tries * this.__options.timeout &lt;= now)
+						delete this.__received[received_key];
+				}
+				for (var sent_key in this.__sent) {
+					var sent = this.__sent[sent_key];
+					if (sent.time + sent.tries * this.__options.timeout &lt;= now) {
+						if (sent.tries &lt; this.__options.tries) {
+							sent.tries++;
+							this.__sender.send("send", {
+								message: sent.message,
+								data: sent.data,
+								id: sent.id
+							});
+						} else {
+							sent.promise.asyncError({
+								message: sent.message,
+								data: sent.data
+							});
+							delete this.__sent[sent_key];
+						}
+					}
+				}
+			}
+			
+		};
+	});
+});
+
+</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="module:FileSupport">
-            <h2>FileSupport</h2>
+        <header id="BetaJS.module:Compress">
+            <h2>Compress</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>copyDirectory</strong>(source, dest)</p>
+                    <p>function <strong>lzw_like_decode</strong>(input, dict, decompressed)</p>
 
 <div class="description">
-    <p>Copy a whole directory with files to a directory, creating the target directory if it doesn't exist.</p>
+    <p>LZW Like Decode Function</p>
 </div>
 
 Parameters:
@@ -125,7 +125,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>source</code></td>
+                <td class="name"><code>input</code></td>
             
 
             <td class="type">
@@ -141,14 +141,37 @@ Parameters:
 
             
 
-            <td class="description last"><p>source directory</p></td>
+            <td class="description last"><p>UTF-8 encoded compressed input string</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>dest</code></td>
+                <td class="name"><code>dict</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>initial dictionary size, default is 1 byte</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>decompressed</code></td>
             
 
             <td class="type">
@@ -164,7 +187,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>target directory</p></td>
+            <td class="description last"><p>string</p></td>
         </tr>
 
 	
@@ -176,10 +199,10 @@ Parameters:
                 
             
                 
-                    <p>function <strong>copyFileToDirectory</strong>(fileName, dest)</p>
+                    <p>function <strong>lzw_like_encode</strong>(input, dict, UTF-8)</p>
 
 <div class="description">
-    <p>Copy a file to a directory, creating the directory if it doesn't exist.</p>
+    <p>LZW Like Encode Function</p>
 </div>
 
 Parameters:
@@ -207,7 +230,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>fileName</code></td>
+                <td class="name"><code>input</code></td>
             
 
             <td class="type">
@@ -223,20 +246,20 @@ Parameters:
 
             
 
-            <td class="description last"><p>file to be copied</p></td>
+            <td class="description last"><p>input string</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>dest</code></td>
+                <td class="name"><code>dict</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">int</span>
 
 
             
@@ -246,319 +269,14 @@ Parameters:
 
             
 
-            <td class="description last"><p>target directory</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>readFile</strong>(f)</p>
-
-<div class="description">
-    <p>Read a file to a string synchronously</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>file name of file to be read</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>content of file</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">string</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>readHtmlSafe</strong>(f)</p>
-
-<div class="description">
-    <p>Read a file to an html-safe string synchronously</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>file name of file to be read</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>html-safe content of file</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">object</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>readJSON</strong>(f)</p>
-
-<div class="description">
-    <p>Read a file to JSON synchronously</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>file name of file to be read</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>parsed JSON</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">object</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>shortenPaths</strong>(files, commonPrefix)</p>
-
-<div class="description">
-    <p>Generates shortened paths names for files by removing a common prefix</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>files</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>files object</p></td>
+            <td class="description last"><p>initial dictionary size, default is 1 byte</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>commonPrefix</code></td>
+                <td class="name"><code>UTF-8</code></td>
             
 
             <td class="type">
@@ -574,112 +292,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>common prefix that is to be removed</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>updated files object</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">object</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>writeFile</strong>(f, data)</p>
-
-<div class="description">
-    <p>Write a string to a file synchronously</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>file name of file to be written</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>content of be written</p></td>
+            <td class="description last"><p>encoded compressed string</p></td>
         </tr>
 
 	
@@ -713,7 +326,7 @@ Parameters:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="BetaJS.module_Compress.html">
+		<a class="list-group-item active" href="BetaJS.module_Compress.html">
 			<span class="toc-h1">
 				Compress
 			</span>
@@ -803,7 +416,7 @@ Parameters:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="module-FileSupport.html">
+		<a class="list-group-item " href="module-FileSupport.html">
 			<span class="toc-h1">
 				FileSupport
 			</span>

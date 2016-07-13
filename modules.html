@@ -947,6 +947,225 @@ Returns:
 			</section>
         
 			<section class="tutorial-section">
+                <header id="BetaJS.module:Compress">
+                    <h1>Compress</h1>
+                </header>
+                <article>
+                    
+                        
+                            <p>function <strong>lzw_like_decode</strong>(input, dict, decompressed)</p>
+
+<div class="description">
+    <p>LZW Like Decode Function</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>input</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>UTF-8 encoded compressed input string</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>dict</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>initial dictionary size, default is 1 byte</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>decompressed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+
+                        
+                    
+                        
+                            <p>function <strong>lzw_like_encode</strong>(input, dict, UTF-8)</p>
+
+<div class="description">
+    <p>LZW Like Encode Function</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>input</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>input string</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>dict</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>initial dictionary size, default is 1 byte</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>UTF-8</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>encoded compressed string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+
+                        
+                    
+                </article>
+			</section>
+        
+			<section class="tutorial-section">
                 <header id="BetaJS.module:Functions">
                     <h1>Functions</h1>
                 </header>
@@ -2015,6 +2234,827 @@ Returns:
 			</section>
         
 			<section class="tutorial-section">
+                <header id="BetaJS.module:Objs">
+                    <h1>Objs</h1>
+                </header>
+                <article>
+                    
+                        
+                            <p>function <strong>acyclic_clone</strong>(object)</p>
+
+<div class="description">
+    <p>Acyclicly clone an object.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>source object</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>acyclic cloned object</p>
+</div>
+
+
+
+
+    
+
+                        
+                    
+                        
+                            <p>function <strong>clone</strong>(item, depth)</p>
+
+<div class="description">
+    <p>Clone an object or array up to a certain depth.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object or array</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>depth</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>depth until to clone it (default 0)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>cloned object or array</p>
+</div>
+
+
+
+
+    
+
+                        
+                    
+                        
+                            <p>function <strong>count</strong>(obj)</p>
+
+<div class="description">
+    <p>Returns the number of elements of an object or array.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object or array</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>number of elements</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                        
+                    
+                        
+                            <p>function <strong>extend</strong>(target, source, depth)</p>
+
+<div class="description">
+    <p>Extend target object by source object, modifying target object in-place.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>target object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>source</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>source object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>depth</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional depth for cloning source values</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>target object</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                        
+                    
+                        
+                            <p>function <strong>ithKey</strong>(obj, i)</p>
+
+<div class="description">
+    <p>Return the i-th key of an object.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>i</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>index of the i-th key (default: 0)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>i-th key</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                        
+                    
+                        
+                            <p>function <strong>keys</strong>(object, mapped)</p>
+
+<div class="description">
+    <p>Returns the keys of an object.<br>If mapped is given, an object is returned with all keys mapped to mapped. Otherwise, an array is returned.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>source object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>mapped</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional value</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>keys as array or as an object</p>
+</div>
+
+
+
+
+    
+
+                        
+                    
+                        
+                            <p>function <strong>tree_extend</strong>(target, source, depth)</p>
+
+<div class="description">
+    <p>Extend target object by source object recursively, modifying target object in-place.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>target object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>source</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>source object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>depth</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional depth for cloning source values</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>target object</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                        
+                    
+                        
+                            <p>function <strong>weak_extend</strong>(target, source, depth)</p>
+
+<div class="description">
+    <p>Weakly extend target object by source object, modifying target object in-place.<br>If a key already exists within the target object, it is not overwritten by source.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>target object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>source</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>source object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>depth</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional depth for cloning source values</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>target object</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                        
+                    
+                </article>
+			</section>
+        
+			<section class="tutorial-section">
                 <header id="BetaJS.module:Sort">
                     <h1>Sort</h1>
                 </header>
@@ -2485,7 +3525,7 @@ Returns:
                             <p>function <strong>email_get_email</strong>(input)</p>
 
 <div class="description">
-    <p>Extracts the email from an email address name string (e.g. 'Foo Bar <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#x66;&#111;&#x6f;&#x62;&#97;&#114;&#64;&#x64;&#x6f;&#109;&#x61;&#105;&#x6e;&#x2e;&#99;&#x6f;&#x6d;">&#x66;&#111;&#x6f;&#x62;&#97;&#114;&#64;&#x64;&#x6f;&#109;&#x61;&#105;&#x6e;&#x2e;&#99;&#x6f;&#x6d;</a>')</p>
+    <p>Extracts the email from an email address name string (e.g. 'Foo Bar <a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#58;&#102;&#x6f;&#111;&#98;&#x61;&#114;&#64;&#100;&#111;&#109;&#x61;&#x69;&#x6e;&#x2e;&#x63;&#111;&#x6d;">&#102;&#x6f;&#111;&#98;&#x61;&#114;&#64;&#100;&#111;&#109;&#x61;&#x69;&#x6e;&#x2e;&#x63;&#111;&#x6d;</a>')</p>
 </div>
 
 Parameters:
@@ -2567,7 +3607,7 @@ Returns:
                             <p>function <strong>email_get_name</strong>(input)</p>
 
 <div class="description">
-    <p>Extracts the name from an email address name string (e.g. 'Foo Bar <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#102;&#x6f;&#x6f;&#x62;&#x61;&#114;&#x40;&#x64;&#111;&#109;&#97;&#105;&#x6e;&#x2e;&#99;&#x6f;&#109;">&#102;&#x6f;&#x6f;&#x62;&#x61;&#114;&#x40;&#x64;&#111;&#109;&#97;&#105;&#x6e;&#x2e;&#99;&#x6f;&#109;</a>')</p>
+    <p>Extracts the name from an email address name string (e.g. 'Foo Bar <a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#x66;&#111;&#x6f;&#98;&#x61;&#x72;&#64;&#x64;&#x6f;&#x6d;&#97;&#105;&#x6e;&#46;&#x63;&#x6f;&#x6d;">&#x66;&#111;&#x6f;&#98;&#x61;&#x72;&#64;&#x64;&#x6f;&#x6d;&#97;&#105;&#x6e;&#46;&#x63;&#x6f;&#x6d;</a>')</p>
 </div>
 
 Parameters:
@@ -8389,6 +9429,88 @@ Returns:
 	<dd>
 		
 <span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                        
+                    
+                        
+                            <p>function <strong>decodeUriParams</strong>(res)</p>
+
+<div class="description">
+    <p>Decode a uri query parameter string</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>encoded query parameters</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>key-value set of query parameters</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
 
 
 	</dd>

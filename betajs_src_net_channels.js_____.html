@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BetaJS - Source: betajs-scoped/src/main/public.js</title>
+		<title>BetaJS - Source: betajs/src/net/channels.js</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
@@ -86,60 +86,102 @@
 						<div id="main">
 <section>
 	<article>
-		<h2>Source: betajs-scoped/src/main/public.js</h2>
+		<h2>Source: betajs/src/net/channels.js</h2>
 		<pre
-			class="sunlight-highlight-javascript linenums">var globalNamespace = newNamespace({tree: true, global: true});
-var rootNamespace = newNamespace({tree: true});
-var rootScope = newScope(null, rootNamespace, rootNamespace, globalNamespace);
-
-var Public = Helper.extend(rootScope, (function () {  
-/** 
- * This module includes all public functions of the Scoped system.
- * 
- * It includes all methods of the root scope and the Attach module.
- * 
- * @module Public
- * @access public
- */
-return {
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Net.SocketSenderChannel", [
+    "module:Channels.Sender"
+], function (Sender, scoped) {
+	return Sender.extend({scoped: scoped}, function (inherited) {
 		
-	guid: "/* @echo GUID */",
-	version: '/* @echo MAJOR_VERSION */./* @echo MINOR_VERSION */',
-		
-	upgrade: Attach.upgrade,
-	attach: Attach.attach,
-	detach: Attach.detach,
-	exports: Attach.exports,
-	
-	/**
-	 * Exports all data contained in the Scoped system.
-	 * 
-	 * @return data of the Scoped system.
-	 * @access private
-	 */
-	__exportScoped: function () {
+		/**
+		 * Socket Sender Channel Class
+		 * 
+		 * @class BetaJS.Net.SocketSenderChannel
+		 */
 		return {
-			globalNamespace: globalNamespace.__export(),
-			rootNamespace: rootNamespace.__export(),
-			rootScope: rootScope.__export()
+			
+			/**
+			 * Instantiates Socket Sender Channel
+			 * 
+			 * @param {object} socket initial socket
+			 * @param {string} message message string to be used on the socket
+			 */
+			constructor: function (socket, message) {
+				inherited.constructor.call(this);
+				this.__socket = socket;
+				this.__message = message;
+			},
+			
+			_send: function (message, data) {
+				this.__socket.emit(this.__message, {
+					message: message,
+					data: data
+				});
+			},
+			
+			/**
+			 * Returns current socket or sets currents socket.
+			 * 
+			 * @param {object} socket new socket (optional)
+			 * 
+			 * @return {object} current socket
+			 */
+			socket: function () {
+			    if (arguments.length > 0)
+			        this.__socket = arguments[0];
+			    return this.__socket;
+			}
+			
 		};
-	},
-	
-	/**
-	 * Import data into the Scoped system.
-	 * 
-	 * @param data of the Scoped system.
-	 * @access private
-	 */
-	__importScoped: function (data) {
-		globalNamespace.__import(data.globalNamespace);
-		rootNamespace.__import(data.rootNamespace);
-		rootScope.__import(data.rootScope);
-	}
-	
-};
+	});
+});
 
-}).call(this));
+
+Scoped.define("module:Net.SocketReceiverChannel", ["module:Channels.Receiver"], function (Receiver, scoped) {
+	return Receiver.extend({scoped: scoped}, function (inherited) {
+
+		/**
+		 * Socket Receiver Channel Class
+		 * 
+		 * @class SocketReceiverChannel
+		 */
+		return {
+						
+			/**
+			 * Instantiates Socket Receiver Channel
+			 * 
+			 * @param {object} socket initial socket
+			 * @param {string} message message string to be used on the socket
+			 */
+			constructor: function (socket, message) {
+				inherited.constructor.call(this);
+				this.__message = message;
+				this.socket(socket);
+			},
+			
+			/**
+			 * Returns current socket or sets currents socket.
+			 * 
+			 * @param {object} socket new socket (optional)
+			 * 
+			 * @return {object} current socket
+			 */
+		    socket: function () {
+		        if (arguments.length > 0) {
+		            this.__socket = arguments[0];
+		            if (this.__socket) {
+		                var self = this;
+		                this.__socket.on(this.__message, function (data) {
+		                    self._receive(data.message, data.data);
+		                });
+		            }
+		        }
+		        return this.__socket;
+		    }
+	
+		};
+	});
+});
 </pre>
 	</article>
 </section>

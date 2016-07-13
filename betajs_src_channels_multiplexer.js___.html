@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BetaJS - Source: betajs-scoped/src/main/public.js</title>
+		<title>BetaJS - Source: betajs/src/channels/multiplexer.js</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
@@ -86,60 +86,72 @@
 						<div id="main">
 <section>
 	<article>
-		<h2>Source: betajs-scoped/src/main/public.js</h2>
+		<h2>Source: betajs/src/channels/multiplexer.js</h2>
 		<pre
-			class="sunlight-highlight-javascript linenums">var globalNamespace = newNamespace({tree: true, global: true});
-var rootNamespace = newNamespace({tree: true});
-var rootScope = newScope(null, rootNamespace, rootNamespace, globalNamespace);
-
-var Public = Helper.extend(rootScope, (function () {  
-/** 
- * This module includes all public functions of the Scoped system.
- * 
- * It includes all methods of the root scope and the Attach module.
- * 
- * @module Public
- * @access public
- */
-return {
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Channels.SenderMultiplexer", ["module:Channels.Sender"], function (Sender, scoped) {
+	return Sender.extend({scoped: scoped}, function (inherited) {
 		
-	guid: "/* @echo GUID */",
-	version: '/* @echo MAJOR_VERSION */./* @echo MINOR_VERSION */',
-		
-	upgrade: Attach.upgrade,
-	attach: Attach.attach,
-	detach: Attach.detach,
-	exports: Attach.exports,
-	
-	/**
-	 * Exports all data contained in the Scoped system.
-	 * 
-	 * @return data of the Scoped system.
-	 * @access private
-	 */
-	__exportScoped: function () {
+		/**
+		 * Channel Sender Multiplexer Class
+		 * 
+		 * @class BetaJS.Channels.SenderMultiplexer
+		 * 
+		 */
 		return {
-			globalNamespace: globalNamespace.__export(),
-			rootNamespace: rootNamespace.__export(),
-			rootScope: rootScope.__export()
+			
+			/**
+			 * Instantiates the Multiplexer Sender
+			 * 
+			 * @param {object} sender sender channel
+			 * @param {string} prefix prefix string for multiplexing
+			 * 
+			 */
+			constructor: function (sender, prefix) {
+				inherited.constructor.call(this);
+				this.__sender = sender;
+				this.__prefix = prefix;
+			},
+						
+			_send: function (message, data) {
+				this.__sender.send(this.__prefix + ":" + message, data);
+			}
+			
 		};
-	},
-	
-	/**
-	 * Import data into the Scoped system.
-	 * 
-	 * @param data of the Scoped system.
-	 * @access private
-	 */
-	__importScoped: function (data) {
-		globalNamespace.__import(data.globalNamespace);
-		rootNamespace.__import(data.rootNamespace);
-		rootScope.__import(data.rootScope);
-	}
-	
-};
+	});
+});
 
-}).call(this));
+
+Scoped.define("module:Channels.ReceiverMultiplexer", ["module:Channels.Receiver", "module:Strings"], function (Receiver, Strings, scoped) {
+	return Receiver.extend({scoped: scoped}, function (inherited) {
+
+		/**
+		 * Channel Receiver Multiplexer Class
+		 * 
+		 * @class BetaJS.Channels.ReceiverMultiplexer
+		 * 
+		 */
+		return {
+
+			/**
+			 * Instantiates the Multiplexer Receiver
+			 * 
+			 * @param {object} receiver receiver channel
+			 * @param {string} prefix prefix string for de-multiplexing
+			 * 
+			 */
+			constructor: function (receiver, prefix) {
+				inherited.constructor.call(this);
+				this.__receiver = receiver;
+				this.__prefix = prefix;
+				this.__receiver.on("receive", function (message, data) {
+					if (Strings.starts_with(message, this.__prefix + ":"))
+						this._receive(Strings.strip_start(message, this.__prefix + ":"), data);
+				}, this);
+			}
+		
+		};
+	});
+});
 </pre>
 	</article>
 </section>
