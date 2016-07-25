@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BetaJS - Source: betajs/src/net/http_header.js</title>
+		<title>BetaJS - Source: betajs/src/collections/filtered.js</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
@@ -86,53 +86,120 @@
 						<div id="main">
 <section>
 	<article>
-		<h2>Source: betajs/src/net/http_header.js</h2>
+		<h2>Source: betajs/src/collections/filtered.js</h2>
 		<pre
-			class="sunlight-highlight-javascript linenums">Scoped.define("module:Net.HttpHeader", function () {
-	/**
-	 * Http Header Codes and Functions
-	 * 
-	 * @module BetaJS.Net.HttpHeader
-	 */
-	return {
-		
-		HTTP_STATUS_OK : 200,
-		HTTP_STATUS_CREATED : 201,
-		HTTP_STATUS_UNAUTHORIZED: 401,
-		HTTP_STATUS_PAYMENT_REQUIRED : 402,
-		HTTP_STATUS_FORBIDDEN : 403,
-		HTTP_STATUS_NOT_FOUND : 404,
-		HTTP_STATUS_PRECONDITION_FAILED : 412,
-		HTTP_STATUS_INTERNAL_SERVER_ERROR : 500,
-		
-		STRINGS: {
-			0: "Unknown Error",
-			200: "OK",
-			201: "Created",
-			401: "Unauthorized",
-			402: "Payment Required",
-			403: "Forbidden",
-			404: "Not found",
-			412: "Precondition Failed",
-			500: "Internal Server Error"
-		},
-		
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Collections.FilteredCollection", [
+	    "module:Collections.Collection"
+	], function (Collection, scoped) {
+	return Collection.extend({scoped: scoped}, function (inherited) {
 		
 		/**
-		 * Formats a HTTP status code to a string.
+		 * The FilteredCollection Class allows you to create a dynamic sub collection based on another Collection instance and a filter function.
 		 * 
-		 * @param {integer} code the http status code
-		 * @param {boolean} prepend_code should the integer status code be prepended (default false)
-		 * 
-		 * @return HTTP status code as a string.
+		 * @class BetaJS.Collections.FilteredCollection
 		 */
-		format: function (code, prepend_code) {
-			var ret = this.STRINGS[code in this.STRINGS ? code : 0];
-			return prepend_code ? (code + " " + ret) : ret;
-		}
+		return {
+			
+			/**
+			 * Instantiates a FilteredCollection.
+			 * 
+			 * @param {object} parent Parent Collection
+			 * @param {object} options Standard Collection options, plus filter and context
+			 */
+			constructor : function(parent, options) {
+				this.__parent = parent;
+				options = options || {};
+				delete options.objects;
+				options.compare = options.compare || parent.get_compare();
+				inherited.constructor.call(this, options);
+				this.__parent.on("add", this.add, this);
+				this.__parent.on("remove", this.__selfRemove, this);
+				this.setFilter(options.filter, options.context);
+			},
+			
+			/**
+			 * Determines whether an item satisfies the filter of this collection.
+			 * 
+			 * @param {object} object Properties instance to be checked
+			 * 
+			 * @return {boolean} True if object satisfies current filter
+			 */
+			filter: function (object) {
+				return !this.__filter || this.__filter.call(this.__filterContext || this, object);
+			},
+			
+			/**
+			 * Sets the current filter
+			 * 
+			 * @param {function} filterFunction Filter function to be used for checking items
+			 * @param {object} filterContext Optional filter function context
+			 */
+			setFilter: function (filterFunction, filterContext) {
+				this.__filterContext = filterContext;
+				this.__filter = filterFunction;
+				this.iterate(function (obj) {
+					if (!this.filter(obj))
+						this.__selfRemove(obj);
+				}, this);
+				this.__parent.iterate(function (object) {
+					if (!this.exists(object) &amp;&amp; this.filter(object))
+						this.__selfAdd(object);
+					return true;
+				}, this);
+			},
+			
+			/**
+			 * @override
+			 */
+			_object_changed: function (object, key, value) {
+				inherited._object_changed.call(this, object, key, value);
+				if (!this.filter(object))
+					this.__selfRemove(object);
+			},
+			
+			/**
+			 * @override
+			 */
+			destroy: function () {
+				this.__parent.off(null, null, this);
+				inherited.destroy.call(this);
+			},
+			
+			__selfAdd: function (object) {
+				return inherited.add.call(this, object);
+			},
+			
+			/**
+			 * @override
+			 */
+			add: function (object) {
+				if (this.exists(object) || !this.filter(object))
+					return null;
+				var id = this.__selfAdd(object);
+				this.__parent.add(object);
+				return id;
+			},
+			
+			__selfRemove: function (object) {
+				return inherited.remove.call(this, object);
+			},
 		
-	};
-});</pre>
+			/**
+			 * @override
+			 */
+			remove: function (object) {
+				if (!this.exists(object))
+					return null;
+				var result = this.__selfRemove(object);
+				if (!result)
+					return null;
+				return this.__parent.remove(object);
+			}
+			
+		};	
+	});
+});
+</pre>
 	</article>
 </section>
 </div>

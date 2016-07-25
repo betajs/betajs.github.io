@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BetaJS - Source: betajs/src/net/http_header.js</title>
+		<title>BetaJS - Source: betajs/src/collections/concat.js</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
@@ -86,53 +86,87 @@
 						<div id="main">
 <section>
 	<article>
-		<h2>Source: betajs/src/net/http_header.js</h2>
+		<h2>Source: betajs/src/collections/concat.js</h2>
 		<pre
-			class="sunlight-highlight-javascript linenums">Scoped.define("module:Net.HttpHeader", function () {
-	/**
-	 * Http Header Codes and Functions
-	 * 
-	 * @module BetaJS.Net.HttpHeader
-	 */
-	return {
-		
-		HTTP_STATUS_OK : 200,
-		HTTP_STATUS_CREATED : 201,
-		HTTP_STATUS_UNAUTHORIZED: 401,
-		HTTP_STATUS_PAYMENT_REQUIRED : 402,
-		HTTP_STATUS_FORBIDDEN : 403,
-		HTTP_STATUS_NOT_FOUND : 404,
-		HTTP_STATUS_PRECONDITION_FAILED : 412,
-		HTTP_STATUS_INTERNAL_SERVER_ERROR : 500,
-		
-		STRINGS: {
-			0: "Unknown Error",
-			200: "OK",
-			201: "Created",
-			401: "Unauthorized",
-			402: "Payment Required",
-			403: "Forbidden",
-			404: "Not found",
-			412: "Precondition Failed",
-			500: "Internal Server Error"
-		},
-		
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Collections.ConcatCollection", [
+    "module:Collections.Collection",
+    "module:Objs",
+    "module:Functions"
+], function (Collection, Objs, Functions, scoped) {
+	return Collection.extend({scoped: scoped}, function (inherited) {
 		
 		/**
-		 * Formats a HTTP status code to a string.
+		 * A Concat Collection allows you to dynamically concatinate Collections 
 		 * 
-		 * @param {integer} code the http status code
-		 * @param {boolean} prepend_code should the integer status code be prepended (default false)
-		 * 
-		 * @return HTTP status code as a string.
+		 * @class BetaJS.Collections.ConcatCollection
 		 */
-		format: function (code, prepend_code) {
-			var ret = this.STRINGS[code in this.STRINGS ? code : 0];
-			return prepend_code ? (code + " " + ret) : ret;
-		}
+		return {
+
+			/**
+			 * Instantiate a Concat Collection.
+			 * 
+			 * @param {array} parents List of parent collections
+			 * @param {object} options Collection options
+			 * 
+			 */
+			constructor: function (parents, options) {
+				this.__parents = {};
+				this.__itemToParent = {};
+				options = options || {};
+				delete options.objects;
+				options.compare = Functions.as_method(this.__compareByParent, this);
+				inherited.constructor.call(this, options);				
+				var idx = 0;
+				Objs.iter(parents, function (parent) {
+					this.__parents[parent.cid()] = {
+						idx: idx,
+						parent: parent
+					};
+					parent.iterate(function (item) {
+						this.__parentAdd(parent, item);
+					}, this);
+					parent.on("add", function (item) {
+						this.__parentAdd(parent, item);
+					}, this);
+					parent.on("remove", function (item) {
+						this.__parentRemove(parent, item);
+					}, this);
+					idx++;
+				}, this);
+			},
+			
+			/**
+			 * @override
+			 */
+			destroy: function () {
+				Objs.iter(this.__parents, function (parent) {
+					parent.parent.off(null, null, this);
+				}, this);
+				inherited.destroy.call(this);
+			},
+			
+			__parentAdd: function (parent, item) {
+				this.__itemToParent[item.cid()] = parent;
+				this.add(item);
+			},
+			
+			__parentRemove: function (parent, item) {
+				delete this.__itemToParent[item.cid()];
+				this.remove(item);
+			},
+			
+			__compareByParent: function (item1, item2) {
+				var parent1 = this.__itemToParent[item1.cid()];
+				var parent2 = this.__itemToParent[item2.cid()];
+				if (parent1 === parent2)
+					return parent1.getIndex(item1) - parent2.getIndex(item2);
+				return this.__parents[parent1.cid()].idx - this.__parents[parent2.cid()].idx;
+			}			
 		
-	};
-});</pre>
+		};	
+	});
+});
+</pre>
 	</article>
 </section>
 </div>

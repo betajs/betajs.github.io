@@ -409,7 +409,7 @@ Returns:
                 
             
                 
-                    <p>function <strong>encodePeriod</strong>(data, timezone)</p>
+                    <p>function <strong>encodePeriod</strong>(data)</p>
 
 <div class="description">
     <p>Encode time period data from components to milliseconds</p>
@@ -457,29 +457,6 @@ Parameters:
             
 
             <td class="description last"><p>component data</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>timezone</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">int</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>timezone (optional)</p></td>
         </tr>
 
 	
@@ -934,6 +911,63 @@ Returns:
                 
             
                 
+                    <p>function <strong>perfNow</strong>()</p>
+
+<div class="description">
+    <p>Returns the performance time in millseconds</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>performance time</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">float</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
                     <p>function <strong>timeComponent</strong>(t, key, rounding)</p>
 
 <div class="description">
@@ -1062,7 +1096,7 @@ Returns:
                 
             
                 
-                    <p>function <strong>timeComponentGet</strong>(t, key)</p>
+                    <p>function <strong>timeComponentGet</strong>(t, key, timezone)</p>
 
 <div class="description">
     <p>Returns the value of a time component given a time.</p>
@@ -1133,6 +1167,29 @@ Parameters:
             
 
             <td class="description last"><p>component key</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>timezone</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>timezone (optional)</p></td>
         </tr>
 
 	

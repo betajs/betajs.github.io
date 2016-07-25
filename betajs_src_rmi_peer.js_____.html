@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BetaJS - Source: betajs/src/net/http_header.js</title>
+		<title>BetaJS - Source: betajs/src/rmi/peer.js</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
@@ -86,53 +86,92 @@
 						<div id="main">
 <section>
 	<article>
-		<h2>Source: betajs/src/net/http_header.js</h2>
+		<h2>Source: betajs/src/rmi/peer.js</h2>
 		<pre
-			class="sunlight-highlight-javascript linenums">Scoped.define("module:Net.HttpHeader", function () {
-	/**
-	 * Http Header Codes and Functions
-	 * 
-	 * @module BetaJS.Net.HttpHeader
-	 */
-	return {
-		
-		HTTP_STATUS_OK : 200,
-		HTTP_STATUS_CREATED : 201,
-		HTTP_STATUS_UNAUTHORIZED: 401,
-		HTTP_STATUS_PAYMENT_REQUIRED : 402,
-		HTTP_STATUS_FORBIDDEN : 403,
-		HTTP_STATUS_NOT_FOUND : 404,
-		HTTP_STATUS_PRECONDITION_FAILED : 412,
-		HTTP_STATUS_INTERNAL_SERVER_ERROR : 500,
-		
-		STRINGS: {
-			0: "Unknown Error",
-			200: "OK",
-			201: "Created",
-			401: "Unauthorized",
-			402: "Payment Required",
-			403: "Forbidden",
-			404: "Not found",
-			412: "Precondition Failed",
-			500: "Internal Server Error"
-		},
-		
+			class="sunlight-highlight-javascript linenums">
+
+Scoped.define("module:RMI.Peer", [
+  "module:Class",
+  "module:Channels.SenderMultiplexer",
+  "module:Channels.ReceiverMultiplexer",
+  "module:RMI.Client",
+  "module:RMI.Server"
+], function (Class, SenderMultiplexer, ReceiverMultiplexer, Client, Server, scoped) {
+	return Class.extend({scoped: scoped}, function (inherited) {
 		
 		/**
-		 * Formats a HTTP status code to a string.
+		 * RMI Peer Class, combining Sender and Receiver into bidirectional Client and Server
 		 * 
-		 * @param {integer} code the http status code
-		 * @param {boolean} prepend_code should the integer status code be prepended (default false)
-		 * 
-		 * @return HTTP status code as a string.
+		 * @class BetaJS.RMI.Peer
 		 */
-		format: function (code, prepend_code) {
-			var ret = this.STRINGS[code in this.STRINGS ? code : 0];
-			return prepend_code ? (code + " " + ret) : ret;
-		}
-		
-	};
-});</pre>
+		return {			
+
+			/**
+			 * Instantiates Peer Class
+			 * 
+			 * @param {object} sender Sender Channel
+			 * @param {object} receiver Receiver Channel
+			 */
+			constructor: function (sender, receiver) {
+				inherited.constructor.call(this);
+				this.__sender = sender;
+				this.__receiver = receiver;
+				this.__client_sender = this._auto_destroy(new SenderMultiplexer(sender, "client"));
+				this.__server_sender = this._auto_destroy(new SenderMultiplexer(sender, "server"));
+				this.__client_receiver = this._auto_destroy(new ReceiverMultiplexer(receiver, "server"));
+				this.__server_receiver = this._auto_destroy(new ReceiverMultiplexer(receiver, "client"));
+				this.client = this._auto_destroy(new Client(this.__client_sender, this.__client_receiver));
+				this.server = this._auto_destroy(new Server(this.__server_sender, this.__server_receiver));
+				this.client.server = this.server;
+				this.server.client = this.client;
+			},	
+
+			/**
+			 * Acquires an instance.
+			 * 
+			 * @param {string} class_type Type of Class
+			 * @param {string} instance_name Name of Instance
+			 * 
+			 * @return {object} acquired instance
+			 */
+			acquire: function (class_type, instance_name) {
+				return this.client.acquire(class_type, instance_name);
+			},
+
+			/**
+			 * Releases an instance.
+			 * 
+			 * @param {object} instance Previously acquired instance
+			 */
+			release: function (instance) {
+				this.client.release(instance);
+			},
+
+			/**
+			 * Register an instance.
+			 * 
+			 * @param {object} instance Object instance
+			 * @param {object} options Registration options
+			 * 
+			 * @return {object} Registered instance
+			 */
+			registerInstance: function (instance, options) {
+				return this.server.registerInstance(instance, options);
+			},
+
+			/**
+			 * Unregister an instance.
+			 * 
+			 * @param {object} instance Previously registered instance
+			 */
+			unregisterInstance: function (instance) {
+				this.server.unregisterInstance(instance);
+			}
+
+		};
+	});
+});
+</pre>
 	</article>
 </section>
 </div>

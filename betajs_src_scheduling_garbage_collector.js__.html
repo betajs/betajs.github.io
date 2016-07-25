@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BetaJS - Source: betajs/src/net/http_header.js</title>
+		<title>BetaJS - Source: betajs/src/scheduling/garbage_collector.js</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
@@ -86,52 +86,50 @@
 						<div id="main">
 <section>
 	<article>
-		<h2>Source: betajs/src/net/http_header.js</h2>
+		<h2>Source: betajs/src/scheduling/garbage_collector.js</h2>
 		<pre
-			class="sunlight-highlight-javascript linenums">Scoped.define("module:Net.HttpHeader", function () {
-	/**
-	 * Http Header Codes and Functions
-	 * 
-	 * @module BetaJS.Net.HttpHeader
-	 */
-	return {
-		
-		HTTP_STATUS_OK : 200,
-		HTTP_STATUS_CREATED : 201,
-		HTTP_STATUS_UNAUTHORIZED: 401,
-		HTTP_STATUS_PAYMENT_REQUIRED : 402,
-		HTTP_STATUS_FORBIDDEN : 403,
-		HTTP_STATUS_NOT_FOUND : 404,
-		HTTP_STATUS_PRECONDITION_FAILED : 412,
-		HTTP_STATUS_INTERNAL_SERVER_ERROR : 500,
-		
-		STRINGS: {
-			0: "Unknown Error",
-			200: "OK",
-			201: "Created",
-			401: "Unauthorized",
-			402: "Payment Required",
-			403: "Forbidden",
-			404: "Not found",
-			412: "Precondition Failed",
-			500: "Internal Server Error"
-		},
-		
-		
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Scheduling.GarbageCollector", [
+    "module:Class",
+    "module:Scheduling.SchedulableMixin"
+], function (Class, SchedulableMixin, scoped) {
+	return Class.extend({scoped: scoped}, [SchedulableMixin, function (inherited) {
 		/**
-		 * Formats a HTTP status code to a string.
+		 * Garbage Collector
 		 * 
-		 * @param {integer} code the http status code
-		 * @param {boolean} prepend_code should the integer status code be prepended (default false)
-		 * 
-		 * @return HTTP status code as a string.
+		 * @class BetaJS.Scheduling.GarbageCollector
 		 */
-		format: function (code, prepend_code) {
-			var ret = this.STRINGS[code in this.STRINGS ? code : 0];
-			return prepend_code ? (code + " " + ret) : ret;
-		}
-		
-	};
+		return {
+			
+			/**
+			 * Instantiate garbage collector.
+			 * 
+			 */
+			constructor: function () {
+				inherited.constructor.call(this);
+				this.__classes = {};
+			},
+			
+			/**
+			 * Add an object to the garbage collection queue.
+			 * 
+			 * @param {object} obj object to be destroyed
+			 */
+			queue: function (obj) {
+				if (!obj || obj.destroyed() || this.__classes[obj.cid()])
+					return this;
+				var cid = obj.cid();
+				this.__classes[cid] = true;
+				this.schedulable(function () {
+					delete this.__classes[cid];
+					if (!obj.destroyed())
+						obj.destroy();
+					delete obj.__gc;
+				});
+				return this;
+			}
+
+		};
+	}]);
 });</pre>
 	</article>
 </section>

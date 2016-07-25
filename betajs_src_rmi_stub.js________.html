@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BetaJS - Source: betajs/src/net/http_header.js</title>
+		<title>BetaJS - Source: betajs/src/rmi/stub.js</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
@@ -86,53 +86,114 @@
 						<div id="main">
 <section>
 	<article>
-		<h2>Source: betajs/src/net/http_header.js</h2>
+		<h2>Source: betajs/src/rmi/stub.js</h2>
 		<pre
-			class="sunlight-highlight-javascript linenums">Scoped.define("module:Net.HttpHeader", function () {
-	/**
-	 * Http Header Codes and Functions
-	 * 
-	 * @module BetaJS.Net.HttpHeader
-	 */
-	return {
-		
-		HTTP_STATUS_OK : 200,
-		HTTP_STATUS_CREATED : 201,
-		HTTP_STATUS_UNAUTHORIZED: 401,
-		HTTP_STATUS_PAYMENT_REQUIRED : 402,
-		HTTP_STATUS_FORBIDDEN : 403,
-		HTTP_STATUS_NOT_FOUND : 404,
-		HTTP_STATUS_PRECONDITION_FAILED : 412,
-		HTTP_STATUS_INTERNAL_SERVER_ERROR : 500,
-		
-		STRINGS: {
-			0: "Unknown Error",
-			200: "OK",
-			201: "Created",
-			401: "Unauthorized",
-			402: "Payment Required",
-			403: "Forbidden",
-			404: "Not found",
-			412: "Precondition Failed",
-			500: "Internal Server Error"
-		},
-		
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:RMI.Stub", [
+  "module:Class",
+  "module:Classes.InvokerMixin",
+  "module:Functions"
+], function (Class, InvokerMixin, Functions, scoped) {
+	return Class.extend({scoped: scoped}, [InvokerMixin, function (inherited) {
 		
 		/**
-		 * Formats a HTTP status code to a string.
+		 * Abstract Stub Class
 		 * 
-		 * @param {integer} code the http status code
-		 * @param {boolean} prepend_code should the integer status code be prepended (default false)
-		 * 
-		 * @return HTTP status code as a string.
+		 * @class BetaJS.RMI.Stub
 		 */
-		format: function (code, prepend_code) {
-			var ret = this.STRINGS[code in this.STRINGS ? code : 0];
-			return prepend_code ? (code + " " + ret) : ret;
-		}
-		
-	};
-});</pre>
+		return {
+
+			/**
+			 * 
+			 * @member {array} intf abstract interface list, needs to be overwritten in subclasses
+			 */
+			intf: [],
+
+			/**
+			 * Instantiates the stub.
+			 * 
+			 */
+			constructor: function () {
+				inherited.constructor.call(this);
+				this.invoke_delegate("invoke", this.intf);
+			},
+
+			/**
+			 * @override
+			 */
+			destroy: function () {
+				this.invoke("_destroy");
+				inherited.destroy.call(this);
+			},
+
+			/**
+			 * @override
+			 */
+			invoke: function (message) {
+				return this.__send(message, Functions.getArguments(arguments, 1));
+			}
+
+		};
+	}]);
+});
+
+
+Scoped.define("module:RMI.StubSyncer", [
+	"module:Class",
+	"module:Classes.InvokerMixin",
+	"module:Functions",
+	"module:Promise"
+], function (Class, InvokerMixin, Functions, Promise, scoped) {
+	return Class.extend({scoped: scoped}, [InvokerMixin, function (inherited) {
+
+		/**
+		 * Stub Syncer class for executing RMI methods one after the other.
+		 * 
+		 * @class BetaJS.RMI.StubSyncer
+		 */
+		return {
+
+			/**
+			 * Instantiates the stub syncer.
+			 * 
+			 * @param {object} stub stub object
+			 */
+			constructor: function (stub) {
+				inherited.constructor.call(this);
+				this.__stub = stub;
+				this.__current = null;
+				this.__queue = [];
+				this.invoke_delegate("invoke", this.__stub.intf);
+			},
+
+			/**
+			 * @override
+			 */
+			invoke: function () {
+				var object = {
+						args: Functions.getArguments(arguments),
+						promise: Promise.create()
+				};
+				this.__queue.push(object);
+				if (!this.__current)
+					this.__next();
+				return object.promise;		
+			},
+
+			/**
+			 * @private
+			 */
+			__next: function () {
+				if (this.__queue.length === 0)
+					return;
+				this.__current = this.__queue.shift();
+				this.__stub.invoke.apply(this.__stub, this.__current.args).forwardCallback(this.__current.promise).callback(this.__next, this);
+			}
+
+		};
+	}]);
+});
+
+</pre>
 	</article>
 </section>
 </div>

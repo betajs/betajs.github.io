@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BetaJS - Source: betajs/src/net/http_header.js</title>
+		<title>BetaJS - Source: betajs/src/classes/locales.js</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
@@ -86,52 +86,125 @@
 						<div id="main">
 <section>
 	<article>
-		<h2>Source: betajs/src/net/http_header.js</h2>
+		<h2>Source: betajs/src/classes/locales.js</h2>
 		<pre
-			class="sunlight-highlight-javascript linenums">Scoped.define("module:Net.HttpHeader", function () {
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Classes.LocaleMixin", function () {
+	
 	/**
-	 * Http Header Codes and Functions
+	 * Locale Mixin for adding Locale access to a Class
 	 * 
-	 * @module BetaJS.Net.HttpHeader
+	 * @mixin BetaJS.Classes.LocaleMixin
 	 */
-	return {
-		
-		HTTP_STATUS_OK : 200,
-		HTTP_STATUS_CREATED : 201,
-		HTTP_STATUS_UNAUTHORIZED: 401,
-		HTTP_STATUS_PAYMENT_REQUIRED : 402,
-		HTTP_STATUS_FORBIDDEN : 403,
-		HTTP_STATUS_NOT_FOUND : 404,
-		HTTP_STATUS_PRECONDITION_FAILED : 412,
-		HTTP_STATUS_INTERNAL_SERVER_ERROR : 500,
-		
-		STRINGS: {
-			0: "Unknown Error",
-			200: "OK",
-			201: "Created",
-			401: "Unauthorized",
-			402: "Payment Required",
-			403: "Forbidden",
-			404: "Not found",
-			412: "Precondition Failed",
-			500: "Internal Server Error"
-		},
-		
-		
-		/**
-		 * Formats a HTTP status code to a string.
-		 * 
-		 * @param {integer} code the http status code
-		 * @param {boolean} prepend_code should the integer status code be prepended (default false)
-		 * 
-		 * @return HTTP status code as a string.
-		 */
-		format: function (code, prepend_code) {
-			var ret = this.STRINGS[code in this.STRINGS ? code : 0];
-			return prepend_code ? (code + " " + ret) : ret;
-		}
-		
-	};
+    return {
+
+        _clearLocale: function () {},
+        _setLocale: function (locale) {},
+
+        /**
+         * Returns the current locale.
+         * 
+         * @return {object} current locale
+         */
+        getLocale: function () {
+            return this.__locale;
+        },
+
+        /**
+         * Clears the current locale.
+         * 
+         */
+        clearLocale: function () {
+            this._clearLocale();
+            this.__locale = null;
+        },
+
+        /**
+         * Sets the current locale
+         * 
+         * @param {object} locale New locale
+         */
+        setLocale: function (locale) {
+            this.clearLocale();
+            this.__locale = locale;
+            this._setLocale(locale);
+        },
+
+        /**
+         * Returns whether a locale is set.
+         * 
+         * @return {boolean} true if locale is set
+         */
+        isLocaleSet: function () {
+            return !!this.__locale;
+        },
+
+        /**
+         * Sets a locale if not locale is set.
+         * 
+         * @param {object} locale New weak locale
+         */
+        setWeakLocale: function (locale) {
+            if (!this.isLocaleSet())
+                this.setLocale(locale);
+        }
+
+    };
+});
+
+
+
+Scoped.define("module:Classes.LocaleAggregator", [
+    "module:Class",
+    "module:Classes.LocaleMixin",
+    "module:Objs"
+], function (Class, LocaleMixin, Objs, scoped) {
+    return Class.extend({scoped: scoped}, [LocaleMixin, function (inherited) {
+    	
+    	/**
+    	 * Locale Aggregator Class for combining multiple locales into one.
+    	 * 
+    	 * @class BetaJS.Classes.LocaleAggregator
+    	 */
+    	return {
+
+            /**
+             * Create a Locale Aggregator instance.
+             * 
+             */
+            constructor: function () {
+                inherited.constructor.call(this);
+                this.__locales = [];
+            },
+
+            /**
+             * Registers a new locale.
+             * 
+             * @return {object} Locale
+             */
+            register: function (obj) {
+                this.__locales.push(obj);
+            },
+
+            /**
+             * @override
+             */
+            _clearLocale: function () {
+                Objs.iter(this.__locales, function (obj) {
+                    obj.clearLocale();
+                }, this);
+            },
+
+            /**
+             * @override
+             */
+            _setLocale: function (locale) {
+                Objs.iter(this.__locales, function (obj) {
+                    obj.setLocale(locale);
+                }, this);
+            }
+
+        };
+    }]);
 });</pre>
 	</article>
 </section>
