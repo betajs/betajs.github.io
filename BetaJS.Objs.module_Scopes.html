@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="BetaJS.module:Templates">
-            <h2>Templates</h2>
+        <header id="BetaJS.Objs.module:Scopes">
+            <h2>Scopes</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>compile</strong>(s, options)</p>
+                    <p>function <strong>get</strong>(key, name)</p>
 
 <div class="description">
-    <p>Compiles a template string into a function that evaluates the template w.r.t. a given environment.</p>
+    <p>Returns the value of a key within a scope.</p>
 </div>
 
 Parameters:
@@ -125,7 +125,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>s</code></td>
+                <td class="name"><code>key</code></td>
             
 
             <td class="type">
@@ -141,14 +141,14 @@ Parameters:
 
             
 
-            <td class="description last"><p>input string</p></td>
+            <td class="description last"><p>key within scope</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>options</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
@@ -164,7 +164,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>options hash, allowing to specify start_index and end_index within the input string (optional)</p></td>
+            <td class="description last"><p>scope context</p></td>
         </tr>
 
 	
@@ -176,22 +176,10 @@ Returns:
 
         
 <div class="param-desc">
-    <p>evaluation function</p>
+    <p>Value for key in scope</p>
 </div>
 
 
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">function</span>
-
-
-	</dd>
-</dl>
 
 
     
@@ -199,10 +187,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>tokenize</strong>(s)</p>
+                    <p>function <strong>has</strong>(key, name)</p>
 
 <div class="description">
-    <p>Tokenizes a string comprised of escaped javascript code and normal text.</p>
+    <p>Determines whether a scoped key exists within a scope.</p>
 </div>
 
 Parameters:
@@ -230,7 +218,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>s</code></td>
+                <td class="name"><code>key</code></td>
             
 
             <td class="type">
@@ -246,7 +234,30 @@ Parameters:
 
             
 
-            <td class="description last"><p>input string</p></td>
+            <td class="description last"><p>key within scope</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>scope context</p></td>
         </tr>
 
 	
@@ -258,7 +269,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>array of token objects</p>
+    <p>true if key exists within scope</p>
 </div>
 
 
@@ -269,7 +280,7 @@ Returns:
 	</dt>
 	<dd>
 		
-<span class="param-type">array</span>
+<span class="param-type">boolean</span>
 
 
 	</dd>
@@ -277,6 +288,281 @@ Returns:
 
 
     
+
+                
+            
+                
+                    <p>function <strong>set</strong>(key, name, name)</p>
+
+<div class="description">
+    <p>Sets the value of a key within a scope.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>key within scope</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>value to be set</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>scope context</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+
+                
+            
+                
+                    <p>function <strong>touch</strong>(key, name)</p>
+
+<div class="description">
+    <p>Makes sure that a certain key is accessible within a scope.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>key within scope</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>scope context</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>Touched value</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>unset</strong>(key, name)</p>
+
+<div class="description">
+    <p>Unsets a key within a scope.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>key within scope</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>scope context</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
 
                 
             
@@ -345,7 +631,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="BetaJS.module_Templates.html">
+		<a class="list-group-item " href="BetaJS.module_Templates.html">
 			<span class="toc-h1">
 				Templates
 			</span>
@@ -387,7 +673,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="BetaJS.Objs.module_Scopes.html">
+		<a class="list-group-item active" href="BetaJS.Objs.module_Scopes.html">
 			<span class="toc-h1">
 				Scopes
 			</span>
