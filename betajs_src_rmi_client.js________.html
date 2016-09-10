@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs/src/rmi/client.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="http://blog.betajs.com">Blog</a>
+						</li>
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs/src/rmi/client.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">
+Scoped.define("module:RMI.Client", [
+                                    "module:Class",
+                                    "module:Objs",
+                                    "module:Channels.TransportChannel",
+                                    "module:Ids",
+                                    "module:RMI.Skeleton",
+                                    "module:Types",
+                                    "module:RMI.Stub"
+                                    ], function (Class, Objs, TransportChannel, Ids, Skeleton, Types, Stub, scoped) {
+	return Class.extend({scoped: scoped}, function (inherited) {
+		
+		/**
+		 * RMI Client Class
+		 * 
+		 * @class BetaJS.RMI.Client
+		 */
+		return {			
+
+			/**
+			 * Creates a new instance of an RMI client.
+			 * 
+			 * @param {object} sender_or_channel_or_null a channel or sender that should be connected to
+			 * @param {object} receiver_or_null a receiver that should be connected to
+			 */
+			constructor: function (sender_or_channel_or_null, receiver_or_null) {
+				inherited.constructor.call(this);
+				this.__channel = null;
+				this.__instances = {};
+				if (sender_or_channel_or_null) {
+					var channel = sender_or_channel_or_null;
+					if (receiver_or_null)
+						channel = this._auto_destroy(new TransportChannel(sender_or_channel_or_null, receiver_or_null));
+					this.__channel = channel;
+				}
+			},
+
+			/**
+			 * @override
+			 */
+			destroy: function () {
+				if (this.__channel)
+					this.disconnect();
+				inherited.destroy.call(this);
+			},
+
+			/**
+			 * Connect to a channel.
+			 * 
+			 * @param {object} channel channel to be connected to
+			 */
+			connect: function (channel) {
+				if (this.__channel)
+					return;
+				this.__channel = channel;
+				return this;
+			},
+
+			/**
+			 * Disconnect from channel.
+			 * 
+			 */
+			disconnect: function () {
+				if (!this.__channel)
+					return;
+				this.__channel = null;
+				Objs.iter(this.__instances, function (inst) {
+					this.release(inst);
+				}, this);
+				return this;
+			},
+
+			/**
+			 * Serialize a value.
+			 * 
+			 * @param value value to be serialized.
+			 * 
+			 * @return Serialized value
+			 */
+			_serializeValue: function (value) {
+				if (Skeleton.is_instance_of(value)) {
+					var registry = this.server;
+					registry.registerInstance(value);
+					return {
+						__rmi_meta: true,
+						__rmi_stub: value.stub(),
+						__rmi_stub_id: Ids.objectId(value)
+					};
+				} else
+					return value;		
+			},
+
+			/**
+			 * Unserialize a value.
+			 * 
+			 * @param value value to be unserialized.
+			 * 
+			 * @return unserialized value
+			 */
+			_unserializeValue: function (value) {
+				if (value &amp;&amp; value.__rmi_meta) {
+					var receiver = this;
+					return receiver.acquire(value.__rmi_stub, value.__rmi_stub_id);
+				} else
+					return value;		
+			},
+
+			/**
+			 * Acquires an object instance.
+			 * 
+			 * @param {string} class_type class type of object instance
+			 * @param {string} instance_name registered name of instance
+			 * 
+			 * @return {object} object instance
+			 */
+			acquire: function (class_type, instance_name) {
+				if (this.__instances[instance_name])
+					return this.__instances[instance_name];
+				if (Types.is_string(class_type))
+					class_type = Scoped.getGlobal(class_type);
+				if (!class_type || !class_type.ancestor_of(Stub))
+					return null;
+				var instance = new class_type();
+				this.__instances[Ids.objectId(instance, instance_name)] = instance;
+				var self = this;
+				instance.__send = function (message, data) {
+					if (!self.__channel)
+						return;
+					data = Objs.map(data, self._serializeValue, self);
+					return self.__channel.send(instance_name + ":" + message, data).mapSuccess(function (result) {
+						return this._unserializeValue(result);
+					}, self);
+				};
+				return instance;		
+			},
+
+			/**
+			 * Releases an acquired instance.
+			 * 
+			 * @param {object} instance instance to be released
+			 * 
+			 */
+			release: function (instance) {
+				var instance_name = Ids.objectId(instance);
+				if (this.__instances[instance_name]) {
+					instance.weakDestroy();
+					delete this.__instances[instance_name];
+				}
+				return this;
+			}
+
+		};
+	});
+});
+
+</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

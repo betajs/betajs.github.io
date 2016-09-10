@@ -747,6 +747,134 @@ Returns:
                 
             
                 
+                    <p>function <strong>equals</strong>(obj1, obj2, depth)</p>
+
+<div class="description">
+    <p>Tests two objects for deep equality up to a certain depth.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>obj1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>first object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>obj2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>second object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>depth</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>depth until deep comparison should be done</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if both objects are equal</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">boolean</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
                     <p>function <strong>exists</strong>(obj, f, context)</p>
 
 <div class="description">
@@ -991,6 +1119,117 @@ Returns:
 
 	</dd>
 </dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>filter</strong>(obj, f, context)</p>
+
+<div class="description">
+    <p>Filters all values of an object or array.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object or array</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>filter function</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>filter function context</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>object or array with filtered items</p>
+</div>
+
+
 
 
     
@@ -1583,6 +1822,134 @@ Returns:
                 
             
                 
+                    <p>function <strong>keyMap</strong>(obj, f, context)</p>
+
+<div class="description">
+    <p>Maps the keys of an object using a function.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function for mapping keys</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function context</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>object with mapped keys</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
                     <p>function <strong>keys</strong>(object, mapped)</p>
 
 <div class="description">
@@ -1664,6 +2031,425 @@ Returns:
 </div>
 
 
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>map</strong>(obj, f, context)</p>
+
+<div class="description">
+    <p>Maps an array of object, mapping values using a function.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object or array</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function for mapping values</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function context</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>object or array with mapped values</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>merge</strong>(secondary, primary, options)</p>
+
+<div class="description">
+    <p>Merges to objects.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>secondary</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Secondary object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>primary</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Primary object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Key-based options for merging</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>Merged object</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>objectBy</strong>()</p>
+
+<div class="description">
+    <p>Creates an object by pairing up the arguments to key value pairs.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>created object</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>objectify</strong>(arr, f, context)</p>
+
+<div class="description">
+    <p>Converts an array into object using the array values as keys.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>array to be converted</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a function mapping the value of an array to a value of the object, or a constant value, or undefined (then true is used)</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional function context</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>converted object</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+	</dd>
+</dl>
 
 
     
@@ -1933,6 +2719,134 @@ Returns:
 </div>
 
 
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>specialize</strong>(ordinary, concrete, keys)</p>
+
+<div class="description">
+    <p>Extracts all key-value pairs from an object instance not matching default key-value pairs in another instance.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>ordinary</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object with default key-value pairs</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>concrete</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object with a concrete list of key-value pairs</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>keys</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>if true, iterating over the ordinary keys, otherwise iterating over the conrete keys (default)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>specialized key-value pairs</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+	</dd>
+</dl>
 
 
     
@@ -2258,6 +3172,111 @@ Returns:
                 
             
                 
+                    <p>function <strong>tree_merge</strong>(secondary, primary)</p>
+
+<div class="description">
+    <p>Recursively merges one object into another without modifying the source objects.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>secondary</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Object to be merged into.</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>primary</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Object to be merged in</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>Recurisvely merged object</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
                     <p>function <strong>valueByIndex</strong>(obj, idx)</p>
 
 <div class="description">
@@ -2347,6 +3366,88 @@ Returns:
 	<dd>
 		
 <span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>values</strong>(obj)</p>
+
+<div class="description">
+    <p>Returns all values of an object as an array.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>values of object as array</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">array</span>
 
 
 	</dd>
