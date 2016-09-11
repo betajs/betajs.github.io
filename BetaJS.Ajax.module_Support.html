@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="BetaJS.Net.module:Uri">
-            <h2>Uri</h2>
+        <header id="BetaJS.Ajax.module:Support">
+            <h2>Support</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>appendUriParams</strong>(uri, arr, prefix)</p>
+                    <p>function <strong>constructor</strong>(options)</p>
 
 <div class="description">
-    <p>Append a set of uri query parameters to a URI.</p>
+    <p>Creates an instance.</p>
 </div>
 
 Parameters:
@@ -125,30 +125,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>uri</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>a uri</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>arr</code></td>
+                <td class="name"><code>options</code></td>
             
 
             <td class="type">
@@ -164,30 +141,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>a key-value set of query parameters</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>prefix</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>an optional prefix to be used for generating the keys</p></td>
+            <td class="description last"><p>common options for ajax calls</p></td>
         </tr>
 
 	
@@ -195,37 +149,14 @@ Parameters:
 </table>
 
 
-Returns:
-
-        
-<div class="param-desc">
-    <p>uri with the encoded query parameters attached</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">string</span>
-
-
-	</dd>
-</dl>
-
-
-    
 
                 
             
                 
-                    <p>function <strong>build</strong>(obj)</p>
+                    <p>function <strong>execute</strong>(options)</p>
 
 <div class="description">
-    <p>Create a URI string from a set of parameters.</p>
+    <p>Execute an ajax call.</p>
 </div>
 
 Parameters:
@@ -253,7 +184,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>obj</code></td>
+                <td class="name"><code>options</code></td>
             
 
             <td class="type">
@@ -269,7 +200,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>parameters</p></td>
+            <td class="description last"><p>options for ajax call</p></td>
         </tr>
 
 	
@@ -281,89 +212,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>uri</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">string</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>decodeUriParams</strong>(res)</p>
-
-<div class="description">
-    <p>Decode a uri query parameter string</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>res</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>encoded query parameters</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>key-value set of query parameters</p>
+    <p>promise for the ajax call</p>
 </div>
 
 
@@ -386,10 +235,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>encodeUriParams</strong>(arr, prefix)</p>
+                    <p>function <strong>execute</strong>(options)</p>
 
 <div class="description">
-    <p>Encode a set of uri query parameters.</p>
+    <p>Execute an Ajax command.</p>
 </div>
 
 Parameters:
@@ -417,7 +266,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>arr</code></td>
+                <td class="name"><code>options</code></td>
             
 
             <td class="type">
@@ -433,30 +282,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>a key-value set of query parameters</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>prefix</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>an optional prefix to be used for generating the keys</p></td>
+            <td class="description last"><p>Options for the Ajax command</p></td>
         </tr>
 
 	
@@ -468,7 +294,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>encoded query parameters</p>
+    <p>Execution promise</p>
 </div>
 
 
@@ -479,7 +305,7 @@ Returns:
 	</dt>
 	<dd>
 		
-<span class="param-type">string</span>
+<span class="param-type"><a href="global.html#object">object</a></span>
 
 
 	</dd>
@@ -491,10 +317,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>parse</strong>(str, strict)</p>
+                    <p>function <strong>parseReturnData</strong>(data, decodeType)</p>
 
 <div class="description">
-    <p>Parses a given uri into decomposes it into its components.</p>
+    <p>Parse return data given a decode type.</p>
 </div>
 
 Parameters:
@@ -522,7 +348,25 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>str</code></td>
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Return data to be parsed</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>decodeType</code></td>
             
 
             <td class="type">
@@ -538,30 +382,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>uri to be parsed</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>strict</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>use strict parsing (default false)</p></td>
+            <td class="description last"><p>Decode type, e.g. &quot;json&quot;</p></td>
         </tr>
 
 	
@@ -573,7 +394,77 @@ Returns:
 
         
 <div class="param-desc">
-    <p>decomposed uri</p>
+    <p>Parsed return data</p>
+</div>
+
+
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>preprocess</strong>(options)</p>
+
+<div class="description">
+    <p>Preprocess Ajax Options object.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Options object</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>Preprocessed options object</p>
 </div>
 
 
@@ -589,6 +480,450 @@ Returns:
 
 	</dd>
 </dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>promiseRequestException</strong>(promise, status, status_text, data, decodeType)</p>
+
+<div class="description">
+    <p>Process the return data and forward the result as an error to a promise object.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>promise</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Promise object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>status</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Error status</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>status_text</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Optional status text</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Return data</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>decodeType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Decode type, e.g. &quot;json&quot;</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+
+                
+            
+                
+                    <p>function <strong>promiseReturnData</strong>(promise, options, data, decodeType)</p>
+
+<div class="description">
+    <p>Process the return data and forward the result to a promise object.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>promise</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Promise object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Options for processing the return data</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Return data</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>decodeType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Decode type, e.g. &quot;json&quot;</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+
+                
+            
+                
+                    <p>function <strong>register</strong>(descriptor, priority)</p>
+
+<div class="description">
+    <p>Registers an ajax execution system</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>descriptor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Descriptor object containing a supports and an execute function</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>priority</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Priority of this execution system to be used if applicable</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+
+                
+            
+                
+                    <p>function <strong>unwrapStatus</strong>(json, errorDecodeType)</p>
+
+<div class="description">
+    <p>Unwrap the status from return data</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>json</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Status-encoded return object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>errorDecodeType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Decode type for data in case it is an error</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>Unwrapped data in case of a success status</p>
+</div>
+
+
 
 
     
@@ -606,7 +941,7 @@ Returns:
 <div class="col-md-3">
 	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"><div class="list-group">
 	
-		<a class="list-group-item " href="BetaJS.Ajax.module_Support.html">
+		<a class="list-group-item active" href="BetaJS.Ajax.module_Support.html">
 			<span class="toc-h1">
 				Support
 			</span>
@@ -702,7 +1037,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="BetaJS.Net.module_Uri.html">
+		<a class="list-group-item " href="BetaJS.Net.module_Uri.html">
 			<span class="toc-h1">
 				Uri
 			</span>
