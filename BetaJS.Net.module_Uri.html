@@ -386,7 +386,7 @@ Returns:
                 
             
                 
-                    <p>function <strong>encodeUriParams</strong>(arr, prefix)</p>
+                    <p>function <strong>encodeUriParams</strong>(arr, prefix, flatten)</p>
 
 <div class="description">
     <p>Encode a set of uri query parameters.</p>
@@ -460,6 +460,29 @@ Parameters:
         </tr>
 
 	
+
+        <tr>
+            
+                <td class="name"><code>flatten</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>flatten the components first</p></td>
+        </tr>
+
+	
 	</tbody>
 </table>
 
@@ -480,6 +503,111 @@ Returns:
 	<dd>
 		
 <span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>isCrossDomainUri</strong>(source, target)</p>
+
+<div class="description">
+    <p>Determines whether a target URI is considered cross-domain with respect to a source URI.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>source</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>source URI</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>target URI</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if target is cross-domain w.r.t. source</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">boolean</span>
 
 
 	</dd>
