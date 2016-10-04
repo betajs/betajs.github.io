@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs/src/rmi/server.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="http://blog.betajs.com">Blog</a>
+						</li>
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs/src/rmi/server.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">
+
+Scoped.define("module:RMI.Server", [
+                                    "module:Class",
+                                    "module:Events.EventsMixin",
+                                    "module:Objs",
+                                    "module:Channels.TransportChannel",
+                                    "module:Lists.ObjectIdList",
+                                    "module:Ids",
+                                    "module:RMI.Skeleton",
+                                    "module:Promise"
+                                    ], function (Class, EventsMixin, Objs, TransportChannel, ObjectIdList, Ids, Skeleton, Promise, scoped) {
+	return Class.extend({scoped: scoped}, [EventsMixin, function (inherited) {
+		
+		/**
+		 * @class BetaJS.RMI.Server
+		 */
+		return {
+
+			/**
+			 * Creates an RMI Server instance
+			 * 
+			 * @param {object} sender_or_channel_or_null a channel or sender that should be connected to
+			 * @param {object} receiver_or_null a receiver that should be connected to
+			 */
+			constructor: function (sender_or_channel_or_null, receiver_or_null) {
+				inherited.constructor.call(this);
+				this.__channels = new ObjectIdList();
+				this.__instances = {};
+				if (sender_or_channel_or_null) {
+					var channel = sender_or_channel_or_null;
+					if (receiver_or_null)
+						channel = this._auto_destroy(new TransportChannel(sender_or_channel_or_null, receiver_or_null));
+					this.registerClient(channel);
+				}
+			},
+
+			/**
+			 * @override
+			 */
+			destroy: function () {
+				this.__channels.iterate(this.unregisterClient, this);
+				Objs.iter(this.__instances, function (inst) {
+					this.unregisterInstance(inst.instance);
+				}, this);
+				this.__channels.destroy();
+				inherited.destroy.call(this);
+			},
+
+			/**
+			 * Registers an RMI skeleton instance.
+			 * 
+			 * @param {object} instance skeleton instance
+			 * @param {object} options Options like name of instance
+			 * 
+			 * @return {object} Instance
+			 */
+			registerInstance: function (instance, options) {
+				options = options || {};
+				this.__instances[Ids.objectId(instance, options.name)] = {
+						instance: instance,
+						options: options
+				};
+				if (options.auto_destroy)
+					this.auto_destroy(instance);
+				return instance;
+			},
+
+			/**
+			 * Unregisters a RMI skeleton instance
+			 * 
+			 * @param {object} instance skeleton instance
+			 */
+			unregisterInstance: function (instance) {
+				delete this.__instances[Ids.objectId(instance)];
+				instance.weakDestroy();
+				return this;
+			},
+
+			/**
+			 * Register a client channel
+			 * 
+			 * @param {object} channel Client channel
+			 * @param {object} options Options
+			 */
+			registerClient: function (channel, options) {
+				options = options || {};
+				var self = this;
+				this.__channels.add(channel);
+				channel._reply = function (message, data) {
+					var components = message.split(":");
+					if (components.length == 2)
+						return self._invoke(channel, components[0], components[1], data);
+					else
+						return Promise.error(true);
+				};
+				if (options.auto_destroy)
+					this.auto_destroy(channel);
+				return this;
+			},
+			
+			/**
+			 * Register a client by sender and receiver channel
+			 * 
+			 * @param {object} sender Sender channel
+			 * @param {object} receiver Receiver channel
+			 * @param {object} options Options
+			 */
+			registerTransportClient: function (sender, receiver, options) {
+				return this.registerClient(this.auto_destroy(new TransportChannel(sender, receiver, options)));
+			},
+
+			/**
+			 * Unregister a client channel
+			 * 
+			 * @param {object} channel Client channel
+			 */
+			unregisterClient: function (channel) {
+				this.__channels.remove(channel);
+				channel._reply = null;
+				return this;
+			},
+
+			/**
+			 * Serialize a value.
+			 * 
+			 * @param value value to be serialized.
+			 * 
+			 * @return Serialized value
+			 */
+			_serializeValue: function (value) {
+				if (Skeleton.is_instance_of(value)) {
+					var registry = this;
+					registry.registerInstance(value);
+					return {
+						__rmi_meta: true,
+						__rmi_stub: value.stub(),
+						__rmi_stub_id: Ids.objectId(value)
+					};
+				} else
+					return value;		
+			},
+
+			/**
+			 * Unserialize a value.
+			 * 
+			 * @param value value to be unserialized.
+			 * 
+			 * @return unserialized value
+			 */
+			_unserializeValue: function (value) {
+				if (value &amp;&amp; value.__rmi_meta) {
+					var receiver = this.client;
+					return receiver.acquire(value.__rmi_stub, value.__rmi_stub_id);
+				} else
+					return value;		
+			},
+
+			/**
+			 * Invokes an instance method on a channel.
+			 * 
+			 * @param {object} channel Channel to be used for invokation
+			 * @param {string} instance_id Id of instance to be used as context
+			 * @param {string} method Method to be called
+			 * @param data Data to be passed to method
+			 * 
+			 * @return Return value of method as promise. 
+			 */
+			_invoke: function (channel, instance_id, method, data) {
+				var instance = this.__instances[instance_id];
+				if (!instance) {
+					this.trigger("loadInstance", channel, instance_id);
+					instance = this.__instances[instance_id];
+				}
+				if (!instance)
+					return Promise.error(instance_id);
+				instance = instance.instance;
+				data = Objs.map(data, this._unserializeValue, this);
+				return instance.invoke(method, data, channel).mapSuccess(function (result) {
+					return this._serializeValue(result);
+				}, this);
+			}
+
+		};
+	}]);
+});
+
+</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

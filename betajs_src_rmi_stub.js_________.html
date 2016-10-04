@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BetaJS - Source: betajs-scoped/src/main/globals.js</title>
+		<title>BetaJS - Source: betajs/src/rmi/stub.js</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
@@ -86,102 +86,120 @@
 						<div id="main">
 <section>
 	<article>
-		<h2>Source: betajs-scoped/src/main/globals.js</h2>
+		<h2>Source: betajs/src/rmi/stub.js</h2>
 		<pre
-			class="sunlight-highlight-javascript linenums">var Globals = (function () {  
-/** 
- * This helper module provides functions for reading and writing globally accessible namespaces, both in the browser and in NodeJS.
- * 
- * @module Globals
- * @access private
- */
-return { 
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:RMI.Stub", [
+  "module:Class",
+  "module:Classes.InvokerMixin",
+  "module:Functions"
+], function (Class, InvokerMixin, Functions, scoped) {
+	return Class.extend({scoped: scoped}, [InvokerMixin, function (inherited) {
 		
-	/**
-	 * Returns the value of a global variable.
-	 * 
-	 * @param {string} key identifier of a global variable
-	 * @return value of global variable or undefined if not existing
-	 */
-	get : function(key/* : string */) {
-		if (typeof window !== "undefined")
-			return window[key];
-		if (typeof global !== "undefined")
-			return global[key];
-		if (typeof self !== "undefined")
-			return self[key];
-		return undefined;
-	},
+		/**
+		 * Abstract Stub Class
+		 * 
+		 * @class BetaJS.RMI.Stub
+		 */
+		return {
 
-	
-	/**
-	 * Sets a global variable.
-	 * 
-	 * @param {string} key identifier of a global variable
-	 * @param value value to be set
-	 * @return value that has been set
-	 */
-	set : function(key/* : string */, value) {
-		if (typeof window !== "undefined")
-			window[key] = value;
-		if (typeof global !== "undefined")
-			global[key] = value;
-		if (typeof self !== "undefined")
-			self[key] = value;
-		return value;
-	},
-	
-	
-	/**
-	 * Returns the value of a global variable under a namespaced path.
-	 * 
-	 * @param {string} path namespaced path identifier of variable
-	 * @return value of global variable or undefined if not existing
-	 * 
-	 * @example
-	 * // returns window.foo.bar / global.foo.bar 
-	 * Globals.getPath("foo.bar")
-	 */
-	getPath: function (path/* : string */) {
-		var args = path.split(".");
-		if (args.length == 1)
-			return this.get(path);		
-		var current = this.get(args[0]);
-		for (var i = 1; i &lt; args.length; ++i) {
-			if (!current)
-				return current;
-			current = current[args[i]];
-		}
-		return current;
-	},
+			/**
+			 * 
+			 * @member {array} intf abstract interface list, needs to be overwritten in subclasses
+			 */
+			intf: [],
+			
+			/**
+			 * 
+			 * @member {object} serializes list of serialization information
+			 */
+			serializes: {},
+
+			/**
+			 * Instantiates the stub.
+			 * 
+			 */
+			constructor: function () {
+				inherited.constructor.call(this);
+				this.invoke_delegate("invoke", this.intf);
+			},
+
+			/**
+			 * @override
+			 */
+			destroy: function () {
+				this.invoke("_destroy");
+				inherited.destroy.call(this);
+			},
+
+			/**
+			 * @override
+			 */
+			invoke: function (message) {
+				return this.__send(message, Functions.getArguments(arguments, 1), this.serializes[message]);
+			}
+
+		};
+	}]);
+});
 
 
-	/**
-	 * Sets a global variable under a namespaced path.
-	 * 
-	 * @param {string} path namespaced path identifier of variable
-	 * @param value value to be set
-	 * @return value that has been set
-	 * 
-	 * @example
-	 * // sets window.foo.bar / global.foo.bar 
-	 * Globals.setPath("foo.bar", 42);
-	 */
-	setPath: function (path/* : string */, value) {
-		var args = path.split(".");
-		if (args.length == 1)
-			return this.set(path, value);		
-		var current = this.get(args[0]) || this.set(args[0], {});
-		for (var i = 1; i &lt; args.length - 1; ++i) {
-			if (!(args[i] in current))
-				current[args[i]] = {};
-			current = current[args[i]];
-		}
-		current[args[args.length - 1]] = value;
-		return value;
-	}
-	
-};}).call(this);</pre>
+Scoped.define("module:RMI.StubSyncer", [
+	"module:Class",
+	"module:Classes.InvokerMixin",
+	"module:Functions",
+	"module:Promise"
+], function (Class, InvokerMixin, Functions, Promise, scoped) {
+	return Class.extend({scoped: scoped}, [InvokerMixin, function (inherited) {
+
+		/**
+		 * Stub Syncer class for executing RMI methods one after the other.
+		 * 
+		 * @class BetaJS.RMI.StubSyncer
+		 */
+		return {
+
+			/**
+			 * Instantiates the stub syncer.
+			 * 
+			 * @param {object} stub stub object
+			 */
+			constructor: function (stub) {
+				inherited.constructor.call(this);
+				this.__stub = stub;
+				this.__current = null;
+				this.__queue = [];
+				this.invoke_delegate("invoke", this.__stub.intf);
+			},
+
+			/**
+			 * @override
+			 */
+			invoke: function () {
+				var object = {
+						args: Functions.getArguments(arguments),
+						promise: Promise.create()
+				};
+				this.__queue.push(object);
+				if (!this.__current)
+					this.__next();
+				return object.promise;		
+			},
+
+			/**
+			 * @private
+			 */
+			__next: function () {
+				if (this.__queue.length === 0)
+					return;
+				this.__current = this.__queue.shift();
+				this.__stub.invoke.apply(this.__stub, this.__current.args).forwardCallback(this.__current.promise).callback(this.__next, this);
+			}
+
+		};
+	}]);
+});
+
+</pre>
 	</article>
 </section>
 </div>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs/src/states/competing.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="http://blog.betajs.com">Blog</a>
+						</li>
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs/src/states/competing.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:States.CompetingComposite", [
+    "module:Class",
+    "module:Objs"
+], function (Class, Objs, scoped) {
+	return Class.extend({scoped: scoped}, function (inherited) {
+		
+		/**
+		 * Competing Composite Class
+		 * 
+		 * @class BetaJS.States.CompetingComposite
+		 */
+		return {
+			
+			/**
+			 * Register a competing host
+			 * 
+			 * @param {object} competing_host Competing host
+			 */
+			_register_host: function (competing_host) {
+				this._hosts = this._hosts || [];
+				this._hosts.push(this._auto_destroy(competing_host));
+			},
+	
+			/**
+			 * Returns all other hosts of a competing host
+			 * 
+			 * @param {object} competing_host competing hosts in question
+			 * @return {array} other hosts
+			 */
+			other_hosts: function (competing_host) {
+				return Objs.filter(this._hosts || [], function (other) {
+					return other != competing_host;
+				}, this);
+			},
+	
+			/**
+			 * Transcend to another state of a competing host
+			 * 
+			 * @param {object} competing_host Competing host
+			 * @param {object} state State
+			 */
+			_next: function (competing_host, state) {
+				var others = this.other_hosts(competing_host);
+				for (var i = 0; i &lt; others.length; ++i) {
+					var other = others[i];
+					var other_state = other.state();
+					if (!other_state.can_coexist_with(state))
+						other_state.retreat_against(state);
+				}
+			}
+
+		};
+	});
+});
+
+
+Scoped.define("module:States.CompetingHost", ["module:States.Host"], function (Host, scoped) {
+	return Host.extend({scoped: scoped}, function (inherited) {
+
+		/**
+		 * CompetingHost Class
+		 * 
+		 * @class BetaJS.States.CompetingHost
+		 */
+		return {
+
+			/**
+			 * Creates a new instance.
+			 * 
+			 * @param {object} composite Associated composite object
+			 * @param {object} options Host options
+			 */
+			constructor: function (composite, options) {
+				inherited.constructor.call(this, options);
+				this._composite = composite;
+				if (composite)
+					composite._register_host(this);
+			},
+
+			/**
+			 * Returns the associated composite.
+			 * 
+			 * @return {object} Composite
+			 */
+			composite: function () {
+				return this._composite;
+			},
+
+			/**
+			 * @override
+			 */
+			_can_transition_to: function (state) {
+				if (!inherited._can_transition_to.call(this, state))
+					return false;
+				if (!this._composite)
+					return true;
+				var others = this._composite.other_hosts(this);
+				for (var i = 0; i &lt; others.length; ++i) {
+					var other = others[i];
+					var other_state = other.state();
+					if (!state.can_coexist_with(other_state) &amp;&amp; !state.can_prevail_against(other_state))
+						return false;
+				}
+				return true;
+			},
+
+			/**
+			 * @override
+			 */
+			_next: function (state) {
+				if (this._composite)
+					this._composite._next(this, state);
+				inherited._next.call(this, state);
+			}
+
+		};
+	});    
+});
+
+
+Scoped.define("module:States.CompetingState", ["module:States.State"], function (State, scoped) {
+	return State.extend({scoped: scoped}, function (inherited) {
+
+		/**
+		 * ComponentState Class
+		 * 
+		 * @class BetaJS.States.CompetingState
+		 */
+		return {
+			
+			/**
+			 * Determines whether this state can coexist with a foreign state
+			 * 
+			 * @param {object} foreign_state Foreign state
+			 * @return {boolean} true if it can coexist
+			 */
+			can_coexist_with: function (foreign_state) {
+				return true;
+			},
+	
+			/**
+			 * Determines whether this state can prevail against a foreign state
+			 * 
+			 * @param {object} foreign_state Foreign state
+			 * @return {boolean} true if it can prevail
+			 */
+			can_prevail_against: function (foreign_state) {
+				return false;
+			},
+	
+			/**
+			 * Retreat against foreign state
+			 * 
+			 * @param {object} foreign_state Foreign state
+			 */
+			retreat_against: function (foreign_state) {
+			}
+
+		};
+	});
+});
+</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

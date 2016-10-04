@@ -27,7 +27,9 @@ Here is on overview over all modules included:
 | grunt-betajs-templates | Build BetaJS templates. |
 | grunt-betajs-docs-compile | Build BetaJS documentations based on JSDOC. |
 | betajs-codemirror | BetaJS-Codemirror is a Codemirror Plugin for the BetaJS Framework. |
-| betajs-richeditor | BetaJS-Richeditor is a rich editor plugin based on content editable using the BetaJS Framework. | 
+| betajs-richeditor | BetaJS-Richeditor is a rich editor plugin based on content editable using the BetaJS Framework. |
+| betajs-shims | This repository includes shims for ECMA Script that are not included in the official shims. |
+| betajs-workers | BetaJS-Workers is a light-weight library for accessing web workers uniformly and conveniently. | 
 
 
 
@@ -629,6 +631,25 @@ This is mostly preserved and copied from [Ink-Docstrap](https://www.npmjs.com/pa
 
 ```
 
+
+### betajs-shims
+
+This library should be used in combination with other shim libraries, particularly:
+
+- [JSON in JavaScript](https://github.com/douglascrockford/JSON-js)
+- [ES5-Shim](https://github.com/es-shims/es5-shim)
+- [ES6-Shim](https://github.com/es-shims/es6-shim)
+
+The authors of the [ES-Shim](https://github.com/es-shims) have decided to shim in a very strict manner.
+Consequently, they decided to not support some of the browsers and versions that the BetaJS framework is dedicated to support.
+
+Therefore, this repository includes less strict shims for those browsers and versions.
+We recommend to include the shims mentioned above as well as the shims provided here for full support of all browsers and versions.  
+
+
+### betajs-workers
+
+This module allows you to communicate with webworkers and to augment webworkers with access to function of the host. Work in progress.
 
  
 

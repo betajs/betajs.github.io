@@ -20,7 +20,6 @@
       "grunt-git-revision-count":"",
       "grunt-closure-tools":"",
       "grunt-node-qunit":"",
-      "grunt-contrib-jshint":"",
       "grunt-wget":"",
       "grunt-jsdoc":"",
       "grunt-shell":"",
@@ -53,7 +52,9 @@
          "grunt-betajs-templates",
          "grunt-betajs-docs-compile",
          "betajs-codemirror",
-         "betajs-richeditor"
+         "betajs-richeditor",
+         "betajs-shims",
+         "betajs-workers"
       ],
       "tutorials":[  
          "betajs-scoped",                   
