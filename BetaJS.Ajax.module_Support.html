@@ -153,89 +153,7 @@ Parameters:
                 
             
                 
-                    <p>function <strong>execute</strong>(options)</p>
-
-<div class="description">
-    <p>Execute an Ajax command.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#object">object</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Options for the Ajax command</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>Execution promise</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type"><a href="global.html#object">object</a></span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>execute</strong>(options)</p>
+                    <p>function <strong>execute</strong>(options, progress, progressCtx)</p>
 
 <div class="description">
     <p>Execute an ajax call.</p>
@@ -286,6 +204,52 @@ Parameters:
         </tr>
 
 	
+
+        <tr>
+            
+                <td class="name"><code>progress</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Optional progress function</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>progressCtx</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Optional progress context</p></td>
+        </tr>
+
+	
 	</tbody>
 </table>
 
@@ -295,6 +259,134 @@ Returns:
         
 <div class="param-desc">
     <p>promise for the ajax call</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>execute</strong>(options, progress, progressCtx)</p>
+
+<div class="description">
+    <p>Execute an Ajax command.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Options for the Ajax command</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>progress</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Optional progress function</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>progressCtx</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Optional progress context</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>Execution promise</p>
 </div>
 
 
