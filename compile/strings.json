@@ -9,7 +9,13 @@
 	"sponsors": [{
 		"name": "Ziggeo",
 		"img": "ziggeo.png",
-		"url": "http://ziggeo.com"
+		"url": "https://ziggeo.com",
+		"contributing": true
+	}, {
+		"name": "Browserstack",
+		"img": "browserstack.png",
+		"url": "https://browserstack.com",
+		"contributing": false
 	}],
 	"main": {
 		"benefit1": {

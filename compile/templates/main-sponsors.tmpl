@@ -1,0 +1,14 @@
+<section class="contributors">
+    <div class="container">
+        <h3 class="sub-sub-heading">Sponsors</h3>
+        <div class="row row-centered">
+            <div class="col-centered">
+            	<?js this.custom.strings.sponsors.forEach(function (sponsor) { ?>
+            		&nbsp;
+            		<a href="<?js= sponsor.url ?>" target="_blank" rel="noreferrer nofollow"><img alt="<?js= sponsor.name ?>" src="assets/img/<?js= sponsor.img ?>"></a>
+            		&nbsp;
+                <?js }) ?>                    		
+        	</div>
+        </div>
+    </div>
+</section>

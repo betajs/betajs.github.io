@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs-browser/src/dom/selection.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="http://blog.betajs.com">Blog</a>
+						</li>
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs-browser/src/dom/selection.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Selection", [
+    "module:Dom"
+], function (Dom) {
+	return {
+		
+		/** @suppress {checkTypes} */
+		selectNode : function(node, offset) {
+			var selection = null;
+			var range = null;
+			if (window.getSelection) {
+				selection = window.getSelection();
+				selection.removeAllRanges();
+				range = document.createRange();
+			} else if (document.selection) {
+				selection = document.selection;
+				range = selection.createRange();
+			}
+			if (offset) {
+				range.setStart(node, offset);
+				range.setEnd(node, offset);
+				selection.addRange(range);
+			} else {
+				range.selectNode(node);
+				selection.addRange(range);
+			}
+		},
+	
+		/** @suppress {checkTypes} */
+		selectedHtml : function() {
+			if (window.getSelection)
+				return window.getSelection().toString();
+			else if (document.selection)
+				return document.selection.createRange().htmlText;
+			return "";
+		},
+		
+		/** @suppress {checkTypes} */
+		selectionStartOffset: function () {
+			if (window.getSelection)
+				return window.getSelection().getRangeAt(0).startOffset;
+			else if (document.selection)
+				return document.selection.createRange().startOffset;
+			return null;
+		},
+		
+		/** @suppress {checkTypes} */
+		selectionEndOffset: function () {
+			if (window.getSelection)
+				return window.getSelection().getRangeAt(0).endOffset;
+			else if (document.selection)
+				return document.selection.createRange().endOffset;
+			return null;
+		},
+	
+		/** @suppress {checkTypes} */
+		selectionNonEmpty: function () {
+			var start = this.selectionStart();
+			var end = this.selectionEnd();
+			return start &amp;&amp; end &amp;&amp; start &amp;&amp; end &amp;&amp; (start != end || this.selectionStartOffset() != this.selectionEndOffset());
+		},
+		
+		/** @suppress {checkTypes} */
+		selectionContained: function (node) {
+			return node.contains(this.selectionStart()) &amp;&amp; node.contains(this.selectionEnd());
+		},
+	
+		/** @suppress {checkTypes} */
+		selectionNodes: function () {
+			var result = [];
+			var start = this.selectionStart();
+			var end = this.selectionEnd();
+			result.push(start);
+			var current = start;
+			while (current != end) {
+				current = Dom.traverseNext(current);
+				result.push(current);
+			}
+			return result;
+		},
+		
+		/** @suppress {checkTypes} */
+		selectionLeaves: function () {
+			return this.selectionNodes().filter(function (node) {
+				return !node.hasChildNodes();
+			});
+		},
+				
+		/** @suppress {checkTypes} */
+		selectionStartNode : function() {
+			if (window.getSelection)
+				return window.getSelection().getRangeAt(0).startContainer;
+			else if (document.selection)
+				return document.selection.createRange().startContainer;
+			return null;
+		},
+		
+		/** @suppress {checkTypes} */
+		selectionAncestor : function() {
+			if (window.getSelection)
+				return window.getSelection().getRangeAt(0).commonAncestorContainer;
+			else if (document.selection)
+				return document.selection.createRange().parentElement();
+			return null;
+		},
+		
+		/** @suppress {checkTypes} */
+		selectionStart : function() {
+			if (window.getSelection)
+				return window.getSelection().getRangeAt(0).startContainer;
+			else if (document.selection)
+				return document.selection.createRange().startContainer;
+			return null;
+		},
+	
+		/** @suppress {checkTypes} */
+		selectionEnd : function() {
+			if (window.getSelection)
+				return window.getSelection().getRangeAt(0).endContainer;
+			else if (document.selection)
+				return document.selection.createRange().endContainer;
+			return null;
+		},
+		
+		/** @suppress {checkTypes} */
+		selectionSplitOffsets: function () {
+			var startOffset = this.selectionStartOffset();
+			var endOffset = this.selectionEndOffset();
+			var start = this.selectionStart();
+			var end = this.selectionEnd();
+			var single = start == end;
+			if (endOffset &lt; end.wholeText.length) {
+				end.splitText(endOffset);
+				if (single)
+					start = end;
+			}
+			if (startOffset > 0) {
+				start = start.splitText(startOffset);
+				if (single)
+					end = start;
+			}
+			this.selectRange(start, end);
+		},
+		
+		/** @suppress {checkTypes} */
+		selectRange: function (start_node, end_node, start_offset, end_offset) {
+			var selection = null;
+			var range = null;
+			if (window.getSelection) {
+				selection = window.getSelection();
+				selection.removeAllRanges();
+				range = document.createRange();
+			} else if (document.selection) {
+				selection = document.selection;
+				range = selection.createRange();
+			}
+			range.setStart(start_node, start_offset || 0);
+			range.setEnd(end_node, end_offset || end_node.data.length);
+			selection.addRange(range);
+		}
+						
+	};
+});</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

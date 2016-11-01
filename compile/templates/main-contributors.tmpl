@@ -17,9 +17,9 @@
         <h2 class="sub-heading">Contributing Sponsor</h2>
         <div class="row row-centered">
             <div class="col-centered">
-            	<?js this.custom.strings.sponsors.forEach(function (sponsor) { ?>
-            		<a href="<?js= sponsor.url ?>"><img alt="<?js= sponsor.name ?>" src="assets/img/<?js= sponsor.img ?>"></a>
-                <?js }) ?>                    		
+            	<?js this.custom.strings.sponsors.forEach(function (sponsor) { if (sponsor.contributing) { ?>
+            		<a href="<?js= sponsor.url ?>" target="_blank" rel="noreferrer nofollow"><img alt="<?js= sponsor.name ?>" src="assets/img/<?js= sponsor.img ?>"></a>
+                <?js }}) ?>                    		
         	</div>
         </div>
     </div>
