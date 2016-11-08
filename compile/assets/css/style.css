@@ -589,9 +589,11 @@ h5.title-desc {
 }
 
 .guide_left {
-	width: 90%;
 	margin: 0px;
 	background: #F6F6F6;
+	height:75%;
+	overflow-y:scroll;
+	width: 300px;
 }
 
 .guide_left ul.guide_sidebar {

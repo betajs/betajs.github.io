@@ -2,12 +2,10 @@
     <section class="guides">
         <div class="container">
             <div class="row">            
-                <div class="col-md-3 col-lg-3 hidden-sm hidden-xs" style="position:fixed;height:75%;overflow-y:scroll">
-                    <div class="guide_left">
+                <div class="col-md-4 col-lg-4 hidden-sm hidden-xs">
+                    <div class="guide_left" data-spy="affix">
                        	<?js= render.renderTemplate('tutorials-toc', {tutorials: tutorials}) ?>
                     </div>
-                </div>
-                <div class="col-md-4 col-lg-4 hidden-sm hidden-xs">
                 </div>
                 <div class="col-md-8 col-lg-8 col-sm-12 guides-section">
                 	<?js= render.renderTemplate('tutorials-overview') ?>
