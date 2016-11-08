@@ -588,12 +588,16 @@ h5.title-desc {
 	font-size: 16px;
 }
 
-.guide_left {
+.guide_left_wrapper {
 	margin: 0px;
-	background: #F6F6F6;
 	height:75%;
 	overflow-y:scroll;
-	width: 300px;
+	width: 310px;
+}
+
+.guide_left {
+	background: #F6F6F6;
+	width: 90%;
 }
 
 .guide_left ul.guide_sidebar {
