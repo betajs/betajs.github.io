@@ -88,7 +88,10 @@
 	<article>
 		<h2>Source: betajs-dynamics/src/partials/return_partial.js</h2>
 		<pre
-			class="sunlight-highlight-javascript linenums">Scoped.define("module:Partials.ReturnPartial", ["module:Handlers.Partial"], function (Partial, scoped) {
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Partials.ReturnPartial", [
+	"module:Handlers.Partial",
+	"browser:Events"
+], function (Partial, Events, scoped) {
   /**
    * @name ba-return
    *
@@ -108,11 +111,11 @@
 			
  			constructor: function (node, args, value) {
  				inherited.constructor.apply(this, arguments);
- 				var self = this;
- 				this._node._$element.on("keypress", function (event) {
- 					if (event.which === 13)
- 						self._execute();
- 				});        
+ 				var events = this.auto_destroy(new Events());
+ 				events.on(this._node._element, "keypress", function (e) {
+ 					if (e.which === 13)
+ 						this._execute();
+ 				}, this);
  			}
  		
  		};
