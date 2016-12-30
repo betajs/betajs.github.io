@@ -1855,11 +1855,7 @@ grunt.loadNpmTasks('betajs-scoped');</code></pre>
 <pre class="prettyprint source lang-javascript"><code>    var uploader = BetaJS.Browser.Upload.FileUploader.create({
         url: &quot;//.../post&quot;,
         source: file_object_or_blob,
-        serverSupportChunked: false, // server supports chunked traffic via ResumableJS?
-        serverSupportPostMessage: false, // server supports postMessage fallback for old browsers? 
-        resumable: {
-            // resumable options
-        }               
+        serverSupportPostMessage: false // server supports postMessage fallback for old browsers? 
     });
     uploader.on(&quot;success&quot;, function (data) {
         // success data from server

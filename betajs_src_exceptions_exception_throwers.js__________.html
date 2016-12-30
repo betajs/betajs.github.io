@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BetaJS - Source: betajs-dynamics/src/partials/repeat_element_partial.js</title>
+		<title>BetaJS - Source: betajs/src/exceptions/exception_throwers.js</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
@@ -86,73 +86,134 @@
 						<div id="main">
 <section>
 	<article>
-		<h2>Source: betajs-dynamics/src/partials/repeat_element_partial.js</h2>
+		<h2>Source: betajs/src/exceptions/exception_throwers.js</h2>
 		<pre
-			class="sunlight-highlight-javascript linenums">Scoped.define("module:Partials.RepeatElementPartial", [
-        "module:Partials.RepeatPartial",
-        "base:Collections.Collection",
-        "base:Collections.FilteredCollection",
-        "base:Objs",
-        "module:Parser",
-        "base:Properties.Properties",
-        "browser:Dom"
-	], function (Partial, Collection, FilteredCollection, Objs, Parser, Properties, Dom, scoped) {
-  /**
-   * @name ba-repeat-element
-   *
-   * @description
-   * Instantiate entire Html element (both element and the html is closes)
-   * once for each instance in the collection.
-   * Differs from ba-repeat, in that while ba-repeat instantiates just the
-   * inner Html contents of the given element for each instance in the
-   * collection, ba-repeat-element instantiates the Html element and the inner
-   * Html contents. See examples.
-   * 
-   * @param {object} instance Object representing a single element in the
-   * collection. Updated as collection is iterated through.
-   *
-   * @param {object} collection Object representing multiple elements, each of
-   * which will be instantiated.
-   *
-   * @example &lt;p ba-repeat-element="{{ i :: [1,2,3] }}">{{i}}&lt;/p>
-   * // Evalues to &lt;p>1&lt;/p>&lt;p>2&lt;/p>&lt;p>3&lt;/p>
-   */
- 	var Cls = Partial.extend({scoped: scoped}, function (inherited) {
- 		return {
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Exceptions.ExceptionThrower", [
+    "module:Class"
+], function (Class, scoped) {
+	return Class.extend({scoped: scoped}, function (inherited) {
+		/**
+		 * Abstract Exception Thrower Class
+		 * 
+		 * @class BetaJS.Exceptions.ExceptionThrower
+		 */
+		return {
 			
- 			constructor: function (node, args, value) {
- 				inherited.constructor.apply(this, arguments);
- 				var temp = Dom.elementByTemplate(node._template);
- 				temp.removeAttribute("ba-repeat-element");
- 				this.__filteredTemplate = temp.outerHTML.trim();
- 			},
- 			
- 			_activate: function () {
- 				this._node.element().style.display = "none";
- 				inherited._activate.call(this);
- 			},
- 			
- 			_iterateCollection: function (callback) {
- 				var a = this._collection.iterator().asArray();
- 				for (var i = a.length - 1; i >= 0; --i)
- 					callback.call(this, a[i]);
- 			},
- 			
- 			_newItemElements: function () {
-				var element = Dom.elementByTemplate(this.__filteredTemplate);
-				this._node.element().parentNode.insertBefore(element, this._node.element().nextSibling);
- 				element["ba-handled"] = true;
- 				return [element];
- 			},
- 			
- 			prepareTagHandler: function (createArguments) {
- 				createArguments.ignoreTagHandler = true;
- 			}
+			/**
+			 * Throws an exception.
+			 * 
+			 * @param {exception} e exception to be thrown
+			 */
+			throwException: function (e) {
+				this._throwException(e);
+				return this;
+			},
+			
+			_throwException: function (e) {
+				throw e;
+			}
 
- 		};
- 	});
- 	Cls.register("ba-repeat-element");
-	return Cls;
+		};
+	});
+});
+
+
+Scoped.define("module:Exceptions.NullExceptionThrower", [
+	"module:Exceptions.ExceptionThrower"
+], function (ExceptionThrower, scoped) {
+	return ExceptionThrower.extend({scoped: scoped}, function (inherited) {
+		/**
+		 * Silentely forgets about the exception.
+		 * 
+		 * @class BetaJS.Exceptions.NullExceptionThrower
+		 */
+		return {
+
+			/**
+			 * @override
+			 */
+			_throwException: function (e) {}
+		
+		};
+	});
+});
+
+
+Scoped.define("module:Exceptions.AsyncExceptionThrower", [
+	"module:Exceptions.ExceptionThrower",
+	"module:Async"
+], function (ExceptionThrower, Async, scoped) {
+	return ExceptionThrower.extend({scoped: scoped}, function (inherited) {
+		/**
+		 * Throws an exception asynchronously.
+		 * 
+		 * @class BetaJS.Exceptions.AsyncExceptionThrower
+		 */
+		return {
+
+			/**
+			 * @override
+			 */
+			_throwException: function (e) {
+				Async.eventually(function () {
+					throw e;
+				});
+			}
+		
+		};
+	});
+});
+
+
+Scoped.define("module:Exceptions.ConsoleExceptionThrower", [
+	"module:Exceptions.ExceptionThrower",
+	"module:Exceptions.NativeException"
+], function (ExceptionThrower, NativeException, scoped) {
+	return ExceptionThrower.extend({scoped: scoped}, function (inherited) {
+		/**
+		 * Throws execption by console-logging it.
+		 * 
+		 * @class BetaJS.Exceptions.ConsoleExceptionThrower
+		 */
+		return {
+
+			/**
+			 * @override
+			 */
+			_throwException: function (e) {
+				console.log("Exception", NativeException.ensure(e).json());
+			}
+		
+		};
+	});
+});
+
+
+Scoped.define("module:Exceptions.EventExceptionThrower", [
+	"module:Exceptions.ExceptionThrower",
+	"module:Events.EventsMixin"
+], function (ExceptionThrower, EventsMixin, scoped) {
+	return ExceptionThrower.extend({scoped: scoped}, [EventsMixin, function (inherited) {
+		/**
+		 * Throws exception by triggering an exception event.
+		 * 
+		 * @class BetaJS.Exceptions.EventExceptionThrower
+		 */
+		return {
+
+			/**
+			 * @override
+			 * @fires BetaJS.Exceptions.EventExceptionThrower#exception
+			 */
+			_throwException: function (e) {
+				/**
+				 * @event BetaJS.Exceptions.EventExceptionThrower#exception
+				 */
+				this.trigger("exception", e);
+			}
+		
+		};
+	}]);
 });
 </pre>
 	</article>

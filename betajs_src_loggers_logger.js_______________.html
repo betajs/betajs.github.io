@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs/src/loggers/logger.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="http://blog.betajs.com">Blog</a>
+						</li>
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs/src/loggers/logger.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Loggers.Logger", [
+	"module:Class",
+	"module:Objs",
+	"module:Functions"
+], function (Class, Objs, Functions, scoped) {
+	var Cls = Class.extend({scoped: scoped}, function (inherited) {
+		
+		/**
+		 * Logger Class
+		 * 
+		 * @class BetaJS.Loggers.Logger
+		 */
+		return {
+			
+			/**
+			 * Creates a new instance.
+			 * 
+			 * @param {object} options options for the logger
+			 */
+			constructor: function (options) {
+				inherited.constructor.call(this);
+				options = options || {};
+				this.__listeners = {};
+				this.__augments = {};
+				this.__tags = options.tags || [];
+				Objs.iter(options.listeners, this.addListener, this);
+			},
+			
+			/**
+			 * Adds a new augment to the logger.
+			 * 
+			 * @param {object} augment augment to be added
+			 */
+			addAugment: function (augment) {
+				this.__augments[augment.cid()] = augment;
+				return this;
+			},
+			
+			/**
+			 * Remove an existing augment from the logger.
+			 * 
+			 * @param {object} augment augment to be removed
+			 */
+			removeAugment: function (augment) {
+				delete this.__augments[augment.cid()];
+				return this;
+			},
+			
+			/**
+			 * Adds a new listener to the logger.
+			 * 
+			 * @param {object} listener listener to be added
+			 */
+			addListener: function (listener) {
+				this.__listeners[listener.cid()] = listener;
+				return this;
+			},
+			
+			/**
+			 * Remove an existing listener from the logger.
+			 * 
+			 * @param {object} listener listener to be removed
+			 */
+			removeListener: function (listener) {
+				delete this.__listeners[listener.cid()];
+				return this;
+			},
+			
+			/**
+			 * Create a new log message.
+			 */
+			log: function () {
+				return this.message(this, {
+					type: "log",
+					args: Functions.getArguments(arguments, 0)
+				});
+			},
+			
+			/**
+			 * Creates a log function calling the logger.
+			 */
+			logf: function () {
+				return Functions.as_method(this.log, this);
+			},
+			
+			/**
+			 * Create a new warn message.
+			 */
+			warn: function () {
+				return this.message(this, {
+					type: "warn",
+					args: Functions.getArguments(arguments, 0)
+				});
+			},
+			
+			/**
+			 * Create a new error message.
+			 */
+			error: function () {
+				return this.message(this, {
+					type: "error",
+					args: Functions.getArguments(arguments, 0)
+				});
+			},
+			
+			/**
+			 * Create a new tagged log message.
+			 * 
+			 * @param {array} tags tags for the message
+			 */
+			taggedlog: function (tags) {
+				return this.message(this, {
+					type: "log",
+					tags: tags,
+					args: Functions.getArguments(arguments, 1)
+				});
+			},
+			
+			/**
+			 * Create a new tagged warn message.
+			 * 
+			 * @param {array} tags tags for the message
+			 */
+			taggedwarn: function (tags) {
+				return this.message(this, {
+					type: "warn",
+					tags: tags,
+					args: Functions.getArguments(arguments, 1)
+				});
+			},
+
+			/**
+			 * Create a new tagged error message.
+			 * 
+			 * @param {array} tags tags for the message
+			 */
+			taggederror: function (tags) {
+				return this.message(this, {
+					type: "error",
+					tags: tags,
+					args: Functions.getArguments(arguments, 1)
+				});
+			},
+
+			/**
+			 * Create a new log message.
+			 * 
+			 * @param {object} source logger source for message
+			 * @param {object} msg log message
+			 * @param {int} depth call depth (internal use)
+			 */
+			message: function (source, msg, depth) {
+				depth = depth || 0;
+				msg.tags = this.__tags.concat(msg.tags || []);
+				msg.augments = msg.augments || [];
+				Objs.iter(this.__augments, function (augment) {
+					msg.augments.push(augment.augmentMessage(source, msg, depth));
+				}, this);
+				Objs.iter(this.__listeners, function (listener) {
+					listener.message(this, msg, depth + 1);
+				}, this);
+				return this;
+			},
+			
+			/**
+			 * Create a new sub logger by tags.
+			 *
+			 * @return {object} sub logger
+			 */
+			tag: function () {
+				return new Cls({
+					tags: Functions.getArguments(arguments),
+					listeners: [this]
+				});
+			}
+			
+		};
+	}, {
+		
+		/**
+		 * Return global singleton logger instance.
+		 * 
+		 * @return {object} singleton logger
+		 */
+		global: function () {
+			if (!this.__global)
+				this.__global = new Cls();
+			return this.__global;
+		}
+		
+	});
+	
+	return Cls;
+});</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

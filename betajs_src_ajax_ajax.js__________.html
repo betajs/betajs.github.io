@@ -267,7 +267,7 @@
 					return value !== null &amp;&amp; value !== undefined;
 				});
 			}
-			options.isCorsRequest = Uri.isCrossDomainUri(document.location.href, options.uri);
+			options.isCorsRequest = typeof document !== "undefined" &amp;&amp; Uri.isCrossDomainUri(document.location.href, options.uri);
 			return options;
 		},
 		

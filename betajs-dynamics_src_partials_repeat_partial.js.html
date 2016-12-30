@@ -94,10 +94,9 @@
         "base:Collections.Collection",
         "base:Collections.FilteredCollection",
         "base:Objs",
-        "jquery:",
         "module:Parser",
         "module:Registries"
-	], function (Partial, Properties, Collection, FilteredCollection, Objs, $, Parser, Registries, scoped) {
+	], function (Partial, Properties, Collection, FilteredCollection, Objs, Parser, Registries, scoped) {
 	  /**
 	   * @name ba-repeat
 	   *
@@ -141,7 +140,7 @@
  			destroy: function () {
  				this.__unregister();
  				if (this.__repeatFilter)
- 					node.mesh().unwatch(this.__repeatFilter.dependencies, this.__repeatFilter);
+ 					this._node.mesh().unwatch(this.__repeatFilter.dependencies, this.__repeatFilter);
  				inherited.destroy.call(this);
  			},
  			
@@ -232,11 +231,10 @@
  				if (this.__repeatArg)
  					locals[this.__repeatArg] = this._isArray ? item.get("value") : item;
  				var result = [];
- 				var self = this;
  				var elements = this._newItemElements();
- 				elements.each(function () {
- 					result.push(self._node._registerChild(this, locals));
- 				});
+ 				elements.forEach(function (element) {
+ 					result.push(this._node._registerChild(element, locals));
+ 				}, this);
  				this._collectionChildren[item.cid()] = {
 					item: item,
 					nodes: result
@@ -250,9 +248,10 @@
  				if (!this._collectionChildren[item.cid()])
  					return;
 				Objs.iter(this._collectionChildren[item.cid()].nodes, function (node) {
-					var ele = node.$element();
+					var ele = node.element();
 					node.destroy();
-					ele.remove();
+					if (ele.parentNode)
+						ele.parentNode.removeChild(ele);
 				}, this);
 				delete this._collectionChildren[item.cid()];
  			},
@@ -267,7 +266,7 @@
  					return null;
  				var result = [];
  				Objs.iter(itemData.nodes, function (node) {
- 					result.push(node.$element());
+ 					result.push(node.element());
  				});
  				return result;
  			},
@@ -278,7 +277,7 @@
  				if (!baseDataElements || !itemDataElements)
  					return;
  				Objs.iter(itemDataElements, function (element) {
- 					element.insertBefore(baseDataElements[0]);
+ 					element.parentNode.insertBefore(element, baseDataElements[0]);
  				});
  			},
  			
@@ -289,13 +288,18 @@
  					return;
  				var current = baseDataElements[baseDataElements.length - 1];
  				Objs.iter(itemDataElements, function (element) {
- 					current.after(element);
+ 					current.parentNode.insertBefore(element, current.nextSibling); 
  					current = element;
  				});
  			},
  			
  			_newItemElements: function () {
- 				return Registries.templates.create(this._node._innerTemplate).appendTo(this._node._$element);
+ 				var elements = Registries.templates.create(this._node._innerTemplate);
+ 				var parent = this._node.element();
+ 				elements.forEach(function (element) {
+ 					parent.appendChild(element);
+ 				});
+ 				return elements;
  			}
  			
  		};

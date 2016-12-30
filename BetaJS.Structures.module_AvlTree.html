@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="module:Globals">
-            <h2>Globals</h2>
+        <header id="BetaJS.Structures.module:AvlTree">
+            <h2>AvlTree</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>get</strong>(key)</p>
+                    <p>function <strong>balance</strong>(data, left, right)</p>
 
 <div class="description">
-    <p>Returns the value of a global variable.</p>
+    <p>Creates a new balanced tree from a tree of small elements, a tree of large elements and a data item inbetween.</p>
 </div>
 
 Parameters:
@@ -125,13 +125,31 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>key</code></td>
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>data item</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>left</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -141,7 +159,30 @@ Parameters:
 
             
 
-            <td class="description last"><p>identifier of a global variable</p></td>
+            <td class="description last"><p>avl tree of small elements</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>right</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>avl tree of large elements</p></td>
         </tr>
 
 	
@@ -153,7 +194,310 @@ Returns:
 
         
 <div class="param-desc">
-    <p>value of global variable or undefined if not existing</p>
+    <p>avl tree containing all data</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>empty</strong>()</p>
+
+<div class="description">
+    <p>Returns an empty avl tree.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>empty avl tree</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>height</strong>(root)</p>
+
+<div class="description">
+    <p>Returns the height of an avl tree.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>root</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>tree root</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>height</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>length</strong>(root)</p>
+
+<div class="description">
+    <p>Returns the number of nodes in an avl tree.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>root</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>tree root</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>number of nodes</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>max</strong>(root)</p>
+
+<div class="description">
+    <p>Returns the largest data item in an avl tree.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>root</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>tree root</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>largest data item</p>
 </div>
 
 
@@ -164,10 +508,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>getPath</strong>(path)</p>
+                    <p>function <strong>min</strong>(root)</p>
 
 <div class="description">
-    <p>Returns the value of a global variable under a namespaced path.</p>
+    <p>Returns the smallest data item in an avl tree.</p>
 </div>
 
 Parameters:
@@ -195,13 +539,13 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>root</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -211,7 +555,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>namespaced path identifier of variable</p></td>
+            <td class="description last"><p>tree root</p></td>
         </tr>
 
 	
@@ -223,7 +567,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>value of global variable or undefined if not existing</p>
+    <p>smallest data item</p>
 </div>
 
 
@@ -234,10 +578,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>set</strong>(key, value)</p>
+                    <p>function <strong>singleton</strong>(data)</p>
 
 <div class="description">
-    <p>Sets a global variable.</p>
+    <p>Returns a singleton avl tree.</p>
 </div>
 
 Parameters:
@@ -265,30 +609,7 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>key</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>identifier of a global variable</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
@@ -299,7 +620,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>value to be set</p></td>
+            <td class="description last"><p>data for singleton node</p></td>
         </tr>
 
 	
@@ -311,10 +632,22 @@ Returns:
 
         
 <div class="param-desc">
-    <p>value that has been set</p>
+    <p>singleton avl tree</p>
 </div>
 
 
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
 
 
     
@@ -322,10 +655,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>setPath</strong>(path, value)</p>
+                    <p>function <strong>take_max</strong>(root)</p>
 
 <div class="description">
-    <p>Sets a global variable under a namespaced path.</p>
+    <p>Returns and removes the largest item from the tree.</p>
 </div>
 
 Parameters:
@@ -353,13 +686,13 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>root</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -369,25 +702,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>namespaced path identifier of variable</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>value to be set</p></td>
+            <td class="description last"><p>avl tree</p></td>
         </tr>
 
 	
@@ -399,10 +714,268 @@ Returns:
 
         
 <div class="param-desc">
-    <p>value that has been set</p>
+    <p>array, containing the largest element and the remaining tree</p>
 </div>
 
 
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">array</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>take_max_iter</strong>(root)</p>
+
+<div class="description">
+    <p>Returns and removes the largest item from the tree, denaturalizing the tree in an iterative fashion.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>root</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>avl tree</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>array, containing the largest element and the remaining denaturalized tree</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">array</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>take_min</strong>(root)</p>
+
+<div class="description">
+    <p>Returns and removes the smallest item from the tree.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>root</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>avl tree</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>array, containing the smallest element and the remaining tree</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">array</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>take_min_iter</strong>(root)</p>
+
+<div class="description">
+    <p>Returns and removes the smallest item from the tree, denaturalizing the tree in an iterative fashion.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>root</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>avl tree</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>array, containing the smallest element and the remaining denaturalized tree</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">array</span>
+
+
+	</dd>
+</dl>
 
 
     
@@ -534,7 +1107,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="BetaJS.Structures.module_AvlTree.html">
+		<a class="list-group-item active" href="BetaJS.Structures.module_AvlTree.html">
 			<span class="toc-h1">
 				AvlTree
 			</span>
@@ -558,7 +1131,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="module-Globals.html">
+		<a class="list-group-item " href="module-Globals.html">
 			<span class="toc-h1">
 				Globals
 			</span>

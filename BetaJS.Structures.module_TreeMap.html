@@ -88,16 +88,16 @@
 		<section class="tutorial-section">
 	
 
-        <header id="module:Scoped">
-            <h2>Scoped</h2>
+        <header id="BetaJS.Structures.module:TreeMap">
+            <h2>TreeMap</h2>
         </header>
         <article>
             
                 
-                    <p>function <strong>__export</strong>()</p>
+                    <p>function <strong>add</strong>(key, value, t)</p>
 
 <div class="description">
-    <p>Exports the scope.</p>
+    <p>Add a key value mapping to the map.</p>
 </div>
 
 Parameters:
@@ -106,6 +106,8 @@ Parameters:
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -120,6 +122,65 @@ Parameters:
 
 	<tbody>
 	
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>key</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>value</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>t</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>tree map</p></td>
+        </tr>
+
+	
 	</tbody>
 </table>
 
@@ -128,7 +189,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>exported scope</p>
+    <p>updated tree map</p>
 </div>
 
 
@@ -151,10 +212,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>__import</strong>(data)</p>
+                    <p>function <strong>distance</strong>(keyLeft, keyRight, t)</p>
 
 <div class="description">
-    <p>Imports a scope from an exported scope.</p>
+    <p>Counts the number of keys between two keys.</p>
 </div>
 
 Parameters:
@@ -182,7 +243,43 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>data</code></td>
+                <td class="name"><code>keyLeft</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>first key</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>keyRight</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>second key</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>t</code></td>
             
 
             <td class="type">
@@ -198,7 +295,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>exported scope to be imported</p></td>
+            <td class="description last"><p>tree map</p></td>
         </tr>
 
 	
@@ -206,14 +303,37 @@ Parameters:
 </table>
 
 
+Returns:
+
+        
+<div class="param-desc">
+    <p>number of keys in-between</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
 
                 
             
                 
-                    <p>function <strong>assumeVersion</strong>(assumption, version)</p>
+                    <p>function <strong>empty</strong>(compare)</p>
 
 <div class="description">
-    <p>Assume a specific version of a module and fail if it is not met.</p>
+    <p>Returns an empty Tree Map.</p>
 </div>
 
 Parameters:
@@ -241,13 +361,13 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>assumption</code></td>
+                <td class="name"><code>compare</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
             
@@ -257,30 +377,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>name space locator</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>version</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>assumed version</p></td>
+            <td class="description last"><p>data comparison function</p></td>
         </tr>
 
 	
@@ -288,14 +385,37 @@ Parameters:
 </table>
 
 
+Returns:
+
+        
+<div class="param-desc">
+    <p>empty tree map</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
 
                 
             
                 
-                    <p>function <strong>binding</strong>(alias, namespaceLocator, options)</p>
+                    <p>function <strong>find</strong>(key, t)</p>
 
 <div class="description">
-    <p>Creates a binding within in the scope.</p>
+    <p>Finds a value for a key in the map.</p>
 </div>
 
 Parameters:
@@ -323,15 +443,10 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>alias</code></td>
+                <td class="name"><code>key</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
             
             </td>
 
@@ -339,37 +454,14 @@ Parameters:
 
             
 
-            <td class="description last"><p>identifier of the new binding</p></td>
+            <td class="description last"><p>key</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>namespaceLocator</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>identifier of an existing namespace path</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
+                <td class="name"><code>t</code></td>
             
 
             <td class="type">
@@ -385,7 +477,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>options for the binding</p></td>
+            <td class="description last"><p>tree map</p></td>
         </tr>
 
 	
@@ -393,14 +485,25 @@ Parameters:
 </table>
 
 
+Returns:
+
+        
+<div class="param-desc">
+    <p>value for key</p>
+</div>
+
+
+
+
+    
 
                 
             
                 
-                    <p>function <strong>define</strong>(namespaceLocator, dependencies, hiddenDependencies, callback, context)</p>
+                    <p>function <strong>is_empty</strong>(t)</p>
 
 <div class="description">
-    <p>Defines a new name space once a list of name space locators is available.</p>
+    <p>Determines whether a tree map is empty.</p>
 </div>
 
 Parameters:
@@ -428,13 +531,13 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>namespaceLocator</code></td>
+                <td class="name"><code>t</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -444,20 +547,79 @@ Parameters:
 
             
 
-            <td class="description last"><p>the name space that is to be defined</p></td>
+            <td class="description last"><p>tree map</p></td>
         </tr>
 
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if empty</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">boolean</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>iterate</strong>(t, callback, context, reverse)</p>
+
+<div class="description">
+    <p>Iterates over the tree map.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
 	
 
         <tr>
             
-                <td class="name"><code>dependencies</code></td>
+                <td class="name"><code>t</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">array</span>
+<span class="param-type">object</span>
 
 
             
@@ -467,30 +629,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>a list of name space locator dependencies (optional)</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>hiddenDependencies</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">array</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>a list of hidden name space locators (optional)</p></td>
+            <td class="description last"><p>tree map</p></td>
         </tr>
 
 	
@@ -513,7 +652,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>a callback function accepting all dependencies as arguments and returning the new definition</p></td>
+            <td class="description last"><p>callback function</p></td>
         </tr>
 
 	
@@ -536,7 +675,30 @@ Parameters:
 
             
 
-            <td class="description last"><p>a callback context (optional)</p></td>
+            <td class="description last"><p>optional callback context</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>reverse</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional reverse direction flag</p></td>
         </tr>
 
 	
@@ -548,10 +710,10 @@ Parameters:
                 
             
                 
-                    <p>function <strong>digest</strong>(namespaceLocator)</p>
+                    <p>function <strong>iterate_from</strong>(key, t, callback, context, reverse)</p>
 
 <div class="description">
-    <p>Digest a name space locator, checking whether it has been defined by an external system.</p>
+    <p>Iterates over the tree map starting with a key.</p>
 </div>
 
 Parameters:
@@ -579,15 +741,10 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>namespaceLocator</code></td>
+                <td class="name"><code>key</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
             
             </td>
 
@@ -595,79 +752,20 @@ Parameters:
 
             
 
-            <td class="description last"><p>name space locator</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                
-            
-                
-                    <p>function <strong>extend</strong>(namespaceLocator, dependencies, hiddenDependencies, callback, context)</p>
-
-<div class="description">
-    <p>Extends a potentiall existing name space once a list of name space locators is available.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>namespaceLocator</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the name space that is to be defined</p></td>
+            <td class="description last"><p>key to start with</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>dependencies</code></td>
+                <td class="name"><code>t</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">array</span>
+<span class="param-type">object</span>
 
 
             
@@ -677,30 +775,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>a list of name space locator dependencies (optional)</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>hiddenDependencies</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">array</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>a list of hidden name space locators (optional)</p></td>
+            <td class="description last"><p>tree map</p></td>
         </tr>
 
 	
@@ -723,7 +798,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>a callback function accepting all dependencies as arguments and returning the new additional definitions.</p></td>
+            <td class="description last"><p>callback function</p></td>
         </tr>
 
 	
@@ -746,7 +821,30 @@ Parameters:
 
             
 
-            <td class="description last"><p>a callback context (optional)</p></td>
+            <td class="description last"><p>optional callback context</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>reverse</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional reverse direction flag</p></td>
         </tr>
 
 	
@@ -758,67 +856,10 @@ Parameters:
                 
             
                 
-                    <p>function <strong>nextScope</strong>()</p>
+                    <p>function <strong>iterate_range</strong>(from_key, to_key, t, callback, context, reverse)</p>
 
 <div class="description">
-    <p>Returns a reference to the next scope that will be obtained by a subScope call.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>next scope</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">object</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>require</strong>(dependencies, hiddenDependencies, callback, context)</p>
-
-<div class="description">
-    <p>Requires a list of name space locators and calls a function once they are present.</p>
+    <p>Iterates over the tree map between two keys.</p>
 </div>
 
 Parameters:
@@ -846,15 +887,10 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>dependencies</code></td>
+                <td class="name"><code>from_key</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">array</span>
-
-
             
             </td>
 
@@ -862,20 +898,38 @@ Parameters:
 
             
 
-            <td class="description last"><p>a list of name space locator dependencies (optional)</p></td>
+            <td class="description last"><p>key to start with</p></td>
         </tr>
 
 	
 
         <tr>
             
-                <td class="name"><code>hiddenDependencies</code></td>
+                <td class="name"><code>to_key</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>key to end with</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>t</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">array</span>
+<span class="param-type">object</span>
 
 
             
@@ -885,7 +939,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>a list of hidden name space locators (optional)</p></td>
+            <td class="description last"><p>tree map</p></td>
         </tr>
 
 	
@@ -908,7 +962,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>a callback function accepting all dependencies as arguments</p></td>
+            <td class="description last"><p>callback function</p></td>
         </tr>
 
 	
@@ -931,7 +985,30 @@ Parameters:
 
             
 
-            <td class="description last"><p>a callback context (optional)</p></td>
+            <td class="description last"><p>optional callback context</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>reverse</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional reverse direction flag</p></td>
         </tr>
 
 	
@@ -943,10 +1020,10 @@ Parameters:
                 
             
                 
-                    <p>function <strong>resolve</strong>(namespaceLocator)</p>
+                    <p>function <strong>length</strong>(t)</p>
 
 <div class="description">
-    <p>Resolves a name space locator to a name space.</p>
+    <p>Returns the number of elements in the map.</p>
 </div>
 
 Parameters:
@@ -974,13 +1051,13 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>namespaceLocator</code></td>
+                <td class="name"><code>t</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -990,7 +1067,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>name space locator</p></td>
+            <td class="description last"><p>tree map</p></td>
         </tr>
 
 	
@@ -1002,7 +1079,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>resolved name space</p>
+    <p>number of elements</p>
 </div>
 
 
@@ -1013,7 +1090,7 @@ Returns:
 	</dt>
 	<dd>
 		
-<span class="param-type">object</span>
+<span class="param-type">int</span>
 
 
 	</dd>
@@ -1025,67 +1102,10 @@ Returns:
                 
             
                 
-                    <p>function <strong>subScope</strong>()</p>
+                    <p>function <strong>singleton</strong>(key, value, compare)</p>
 
 <div class="description">
-    <p>Creates a sub scope of the current scope and returns it.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>sub scope</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">object</span>
-
-
-	</dd>
-</dl>
-
-
-    
-
-                
-            
-                
-                    <p>function <strong>unresolved</strong>(namespaceLocator)</p>
-
-<div class="description">
-    <p>Returns all unresolved definitions under a namespace locator</p>
+    <p>Creates a singleton tree map.</p>
 </div>
 
 Parameters:
@@ -1113,13 +1133,49 @@ Parameters:
 
         <tr>
             
-                <td class="name"><code>namespaceLocator</code></td>
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>key</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>value</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>compare</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
             
@@ -1129,7 +1185,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>name space locator, e.g. &quot;global:&quot;</p></td>
+            <td class="description last"><p>comparison function</p></td>
         </tr>
 
 	
@@ -1141,7 +1197,7 @@ Returns:
 
         
 <div class="param-desc">
-    <p>list of all unresolved definitions</p>
+    <p>singleton tree map</p>
 </div>
 
 
@@ -1152,7 +1208,289 @@ Returns:
 	</dt>
 	<dd>
 		
-<span class="param-type">array</span>
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>take_min</strong>(tree)</p>
+
+<div class="description">
+    <p>Returns and removes the smallest element from the tree.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>tree</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>map</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>smalles key value pair</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>treeSizeLeft</strong>(key, t)</p>
+
+<div class="description">
+    <p>Counts the number of keys smaller than a given key.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>key</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>t</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>tree map</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>number of keys smaller than given key</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>treeSizeRight</strong>(key, t)</p>
+
+<div class="description">
+    <p>Counts the number of keys larger than a given key.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>key</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>t</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>tree map</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>number of keys larger than given key</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
 
 
 	</dd>
@@ -1294,7 +1632,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item " href="BetaJS.Structures.module_TreeMap.html">
+		<a class="list-group-item active" href="BetaJS.Structures.module_TreeMap.html">
 			<span class="toc-h1">
 				TreeMap
 			</span>
@@ -1342,7 +1680,7 @@ Returns:
 			</span>
 		</a>
 	
-		<a class="list-group-item active" href="module-Scoped.html">
+		<a class="list-group-item " href="module-Scoped.html">
 			<span class="toc-h1">
 				Scoped
 			</span>

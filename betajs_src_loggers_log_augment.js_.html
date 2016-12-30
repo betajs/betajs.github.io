@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BetaJS - Source: betajs-dynamics/src/partials/repeat_element_partial.js</title>
+		<title>BetaJS - Source: betajs/src/loggers/log_augment.js</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
@@ -86,75 +86,33 @@
 						<div id="main">
 <section>
 	<article>
-		<h2>Source: betajs-dynamics/src/partials/repeat_element_partial.js</h2>
+		<h2>Source: betajs/src/loggers/log_augment.js</h2>
 		<pre
-			class="sunlight-highlight-javascript linenums">Scoped.define("module:Partials.RepeatElementPartial", [
-        "module:Partials.RepeatPartial",
-        "base:Collections.Collection",
-        "base:Collections.FilteredCollection",
-        "base:Objs",
-        "module:Parser",
-        "base:Properties.Properties",
-        "browser:Dom"
-	], function (Partial, Collection, FilteredCollection, Objs, Parser, Properties, Dom, scoped) {
-  /**
-   * @name ba-repeat-element
-   *
-   * @description
-   * Instantiate entire Html element (both element and the html is closes)
-   * once for each instance in the collection.
-   * Differs from ba-repeat, in that while ba-repeat instantiates just the
-   * inner Html contents of the given element for each instance in the
-   * collection, ba-repeat-element instantiates the Html element and the inner
-   * Html contents. See examples.
-   * 
-   * @param {object} instance Object representing a single element in the
-   * collection. Updated as collection is iterated through.
-   *
-   * @param {object} collection Object representing multiple elements, each of
-   * which will be instantiated.
-   *
-   * @example &lt;p ba-repeat-element="{{ i :: [1,2,3] }}">{{i}}&lt;/p>
-   * // Evalues to &lt;p>1&lt;/p>&lt;p>2&lt;/p>&lt;p>3&lt;/p>
-   */
- 	var Cls = Partial.extend({scoped: scoped}, function (inherited) {
- 		return {
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Loggers.AbstractLogAugment", [
+	"module:Class"
+], function (Class, scoped) {
+	return Class.extend({scoped: scoped}, function (inherited) {
+		
+		/**
+		 * Abstract Log Augment Class, augmenting logs
+		 * 
+		 * @class BetaJS.Loggers.AbstractLogAugment
+		 */
+		return {
 			
- 			constructor: function (node, args, value) {
- 				inherited.constructor.apply(this, arguments);
- 				var temp = Dom.elementByTemplate(node._template);
- 				temp.removeAttribute("ba-repeat-element");
- 				this.__filteredTemplate = temp.outerHTML.trim();
- 			},
- 			
- 			_activate: function () {
- 				this._node.element().style.display = "none";
- 				inherited._activate.call(this);
- 			},
- 			
- 			_iterateCollection: function (callback) {
- 				var a = this._collection.iterator().asArray();
- 				for (var i = a.length - 1; i >= 0; --i)
- 					callback.call(this, a[i]);
- 			},
- 			
- 			_newItemElements: function () {
-				var element = Dom.elementByTemplate(this.__filteredTemplate);
-				this._node.element().parentNode.insertBefore(element, this._node.element().nextSibling);
- 				element["ba-handled"] = true;
- 				return [element];
- 			},
- 			
- 			prepareTagHandler: function (createArguments) {
- 				createArguments.ignoreTagHandler = true;
- 			}
-
- 		};
- 	});
- 	Cls.register("ba-repeat-element");
-	return Cls;
-});
-</pre>
+			/**
+			 * Called when a log message is created.
+			 * 
+			 * @param {object} source logger source
+			 * @param {object} msg message object
+			 * @param {int} depth call depth (internal use)
+			 * @return augmentation
+			 */
+			augmentMessage: function (source, msg, depth) {}
+			
+		};
+	});
+});</pre>
 	</article>
 </section>
 </div>

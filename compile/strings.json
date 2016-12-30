@@ -16,6 +16,11 @@
 		"img": "browserstack.png",
 		"url": "https://browserstack.com",
 		"contributing": false
+	}, {
+		"name": "Jet Brains",
+		"img": "jetbrains.png",
+		"url": "https://jetbrains.com",
+		"contributing": false
 	}],
 	"main": {
 		"benefit1": {
