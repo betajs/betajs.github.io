@@ -53,8 +53,12 @@
          "grunt-betajs-docs-compile",
          "betajs-codemirror",
          "betajs-richeditor",
+         "betajs-chartjs",
          "betajs-shims",
-         "betajs-workers"
+         "betajs-workers",
+	 "mock-ajax-server",
+	 "mock-file-server",
+	 "betajs-compile"
       ],
       "tutorials":[  
          "betajs-scoped",                   
