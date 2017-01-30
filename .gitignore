@@ -3,7 +3,7 @@
 .DS_Store
 .sass-cache
 node_modules
-.idea
+.idea/
 npm-debug.log
 temp/
 jsdoc.conf.json
