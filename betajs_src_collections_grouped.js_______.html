@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs/src/collections/grouped.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="http://blog.betajs.com">Blog</a>
+						</li>
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs/src/collections/grouped.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Collections.GroupedCollection", [
+    "module:Collections.Collection",
+    "module:Objs",
+    "module:Properties.Properties",
+    "module:Functions",
+    "module:Promise"
+], function(Collection, Objs, Properties, Functions, Promise, scoped) {
+    return Collection.extend({
+        scoped: scoped
+    }, function(inherited) {
+
+        /**
+         * The GroupedCollection Class allows you to create a dynamic sub collection based on another Collection instance by grouping together single items.
+         * 
+         * @class BetaJS.Collections.GroupedCollection
+         */
+        return {
+
+            /**
+             * Instantiates a GroupedCollection.
+             * 
+             * @param {object} parent Parent Collection
+             * @param {object} options Standard Collection options, plus groupby, insert, remove, context, properties and create
+             */
+            constructor: function(parent, options) {
+                this.__parent = parent;
+                options = options || {};
+                delete options.objects;
+                this.__groupby = options.groupby;
+                this.__groupbyCompute = options.groupbyCompute;
+                this.__keepEmptyGroups = options.keepEmptyGroups;
+                this.__autoIncreaseGroups = options.autoIncreaseGroups;
+                this.__generateGroupData = options.generateGroupData;
+                this.__nogaps = options.nogaps;
+                this.__insertCallback = options.insert;
+                this.__removeCallback = options.remove;
+                this.__afterGroupCreate = options.afterGroupCreate;
+                this.__callbackContext = options.context || this;
+                this.__ignoreParentIncrease = options.ignoreParentIncrease;
+                this.__propertiesClass = options.properties || Properties;
+                this.__itemsAttribute = options.itemsAttribute || "items";
+                this.__createProperties = options.create;
+                inherited.constructor.call(this, options);
+                Objs.iter(this.__groupby, this.add_secondary_index, this);
+                this.__parent.iterate(this.__addParentObject, this);
+                this.__parent.on("add", this.__addParentObject, this);
+                this.__parent.on("remove", this.__removeParentObject, this);
+            },
+
+            /**
+             * @override
+             */
+            destroy: function() {
+                this.__parent.off(null, null, this);
+                inherited.destroy.call(this);
+            },
+
+            touchGroup: function(data, create) {
+                data = Properties.is_instance_of(data) ? data.data() : data;
+                data = this.__groupbyCompute ? this.__groupbyCompute.call(this.__callbackContext, data) : data;
+                var query = {};
+                this.__groupby.forEach(function(key) {
+                    query[key] = data[key];
+                });
+                var group = this.query(query).nextOrNull();
+                if (!group &amp;&amp; create) {
+                    group = this.__createProperties ? this.__createProperties.call(this.__callbackContext) : new this.__propertiesClass();
+                    group[this.__itemsAttribute] = group.auto_destroy(new Collection({
+                        compare: this.__parent.get_compare()
+                    }));
+                    group[this.__itemsAttribute].bulkOperationInProgress = Functions.as_method(this.bulkOperationInProgress, this);
+                    group.setAll(data);
+                    this.add(group);
+                    if (this.__afterGroupCreate)
+                        this.__afterGroupCreate.call(this.__callbackContext, group);
+                    if (this.__nogaps) {
+                        if (group !== this.last())
+                            this.touchGroup(this.__generateGroupData.call(this.__callbackContext, group.data(), 1), true);
+                        if (group !== this.first())
+                            this.touchGroup(this.__generateGroupData.call(this.__callbackContext, group.data(), -1), true);
+                    }
+                }
+                return group;
+            },
+
+            __addParentObject: function(object) {
+                var group = this.touchGroup(object, true);
+                this.__addObjectToGroup(object, group);
+            },
+
+            __removeParentObject: function(object) {
+                var group = this.touchGroup(object);
+                if (group) {
+                    this.__removeObjectFromGroup(object, group);
+                    if (!this.__keepEmptyGroups &amp;&amp; group[this.__itemsAttribute].count() === 0)
+                        this.remove(group);
+                }
+            },
+
+            __addObjectToGroup: function(object, group) {
+                group[this.__itemsAttribute].add(object);
+                this.__insertObject(object, group);
+            },
+
+            __removeObjectFromGroup: function(object, group) {
+                group[this.__itemsAttribute].remove(object);
+                this.__removeObject(object, group);
+            },
+
+            /**
+             * @override
+             */
+            increase_forwards: function(steps) {
+                var oldCount = this.__parent.count();
+                var promise = this.__ignoreParentIncrease ? Promise.create(true) : this.__parent.increase_forwards(steps);
+                return promise.success(function() {
+                    if (!this.__autoIncreaseGroups)
+                        return;
+                    var delta = this.__parent.count() - oldCount;
+                    var current = this.last();
+                    while (delta &lt; steps) {
+                        current = this.touchGroup(this.__generateGroupData.call(this.__callbackContext, current.data(), 1), true);
+                        delta++;
+                    }
+                }, this);
+            },
+
+            /**
+             * @override
+             */
+            bulkOperationInProgress: function() {
+                return inherited.bulkOperationInProgress.call(this) || this.__parent.bulkOperationInProgress();
+            },
+
+            /**
+             * @override
+             */
+            increase_backwards: function(steps) {
+                var oldCount = this.__parent.count();
+                var promise = this.__ignoreParentIncrease ? Promise.create(true) : this.__parent.increase_backwards(steps);
+                return promise.success(function() {
+                    if (!this.__autoIncreaseGroups)
+                        return;
+                    var delta = this.__parent.count() - oldCount;
+                    var current = this.first();
+                    while (delta &lt; steps) {
+                        current = this.touchGroup(this.__generateGroupData.call(this.__callbackContext, current.data(), -1), true);
+                        delta++;
+                    }
+                }, this);
+            },
+
+            __insertObject: function(object, group) {
+                if (this.__insertCallback)
+                    this.__insertCallback.call(this.__callbackContext, object, group);
+                else {
+                    /**
+                     * @event BetaJS.Collections.GroupedCollection#insert
+                     */
+                    group.trigger("insert", object);
+                }
+            },
+
+            __removeObject: function(object, group) {
+                if (this.__removeCallback)
+                    this.__removeCallback.call(this.__callbackContext, object, group);
+                else {
+                    /**
+                     * @event BetaJS.Collections.GroupedCollection#remove
+                     */
+                    group.trigger("remove", object);
+                }
+            }
+
+        };
+    });
+});</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

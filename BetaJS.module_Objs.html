@@ -1822,6 +1822,111 @@ Returns:
                 
             
                 
+                    <p>function <strong>keyEquals</strong>(a, b)</p>
+
+<div class="description">
+    <p>Determines whether two objects have the same set of keys.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object one</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object two</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if same keys</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">boolean</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
                     <p>function <strong>keyMap</strong>(obj, f, context)</p>
 
 <div class="description">
@@ -2457,6 +2562,129 @@ Returns:
                 
             
                 
+                    <p>function <strong>objectToArray</strong>(obj, f, context)</p>
+
+<div class="description">
+    <p>Converts an object into an array by calling a custom function for combining key and value.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>source object</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>a function for combining key and value</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional function context</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>resulint arrayarray</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">array</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
                     <p>function <strong>pairArrayToObject</strong>(arr)</p>
 
 <div class="description">
@@ -2948,6 +3176,134 @@ Returns:
 	<dd>
 		
 <span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>splitObject</strong>(obj, f, ctx)</p>
+
+<div class="description">
+    <p>Splits an object into two according to a callback function</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object to split</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function to determine how to split</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>ctx</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>optional context</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>two element array of two split objects</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">array</span>
 
 
 	</dd>

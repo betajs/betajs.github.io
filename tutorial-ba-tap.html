@@ -101,7 +101,7 @@
 <pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot; ba-tap=&quot;boolean != boolean&quot;>
     &lt;h1 ba-show=&quot;boolean&quot;>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;.some_class&quot;),
+        element: document.querySelector(&quot;.some_class&quot;),
         attrs : {
             boolean : true
         }
@@ -109,7 +109,7 @@
 <pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot; ba-tap=&quot;some_function()&quot;>
     &lt;h1>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;.some_class&quot;),
+        element: document.querySelector(&quot;.some_class&quot;),
         functions : {
             some_function : function () {
                 alert('Another alert');
@@ -154,13 +154,6 @@
 		<a class="list-group-item " href="tutorial-betajs-data.html">
 			<span class="toc-h1">
 				betajs-data
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-betajs-server.html">
-			<span class="toc-h1">
-				betajs-server
 			</span>
 		</a> 
 				

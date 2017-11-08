@@ -103,10 +103,9 @@
     &lt;head lang=&quot;en&quot;>
         &lt;meta charset=&quot;UTF-8&quot;>
         &lt;title>Hello World&lt;/title>
-        &lt;script src=&quot;vendors/jquery.min.js&quot;>&lt;/script>
-        &lt;script src=&quot;vendors/beta.js&quot;>&lt;/script>
-        &lt;script src=&quot;vendors/betajs-browser-noscoped.js&quot;>&lt;/script>
-        &lt;script src=&quot;vendors/betajs-dynamics.js&quot;>&lt;/script>
+        &lt;script src=&quot;beta.js&quot;>&lt;/script>
+        &lt;script src=&quot;betajs-browser-noscoped.js&quot;>&lt;/script>
+        &lt;script src=&quot;betajs-dynamics.js&quot;>&lt;/script>
     &lt;/head>
     &lt;body>
 
@@ -115,7 +114,7 @@
         &lt;script>
 
             var dynamic = new BetaJS.Dynamics.Dynamic({
-                element: $(&quot;#helloworld&quot;)
+                element: document.querySelector(&quot;#helloworld&quot;)
             });
 
             dynamic.set(&quot;replaced_value&quot;, &quot;Hello World&quot;);
@@ -128,7 +127,7 @@
     &lt;div id=&quot;helloworld&quot;> {{replaced_value}} &lt;/div></code></pre><p>Inside {{}} ist an attribute property that we can control from other parts of the application.</p>
 <pre class="prettyprint source lang-js"><code>
     dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;#helloworld&quot;)
+        element: document.querySelector(&quot;#helloworld&quot;)
     });</code></pre><p>Here, we are creating a new dynamic, and make it responsible for handling the subtree under the dom node <code>#helloworld</code>.</p>
 <pre class="prettyprint source lang-js"><code>
     dynamic.set(&quot;replaced_value&quot;, &quot;Hello World&quot;);</code></pre><p>Here, we create set an attribute &quot;replaced_value&quot; and give it the value &quot;Hello World&quot;. When the dynamic is loaded, the handlebars {{replaced_value}} will be replaced by its value in the DOM so that we see &quot;Hello World&quot; on the actual site.</p>
@@ -174,13 +173,6 @@
 		<a class="list-group-item " href="tutorial-betajs-data.html">
 			<span class="toc-h1">
 				betajs-data
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-betajs-server.html">
-			<span class="toc-h1">
-				betajs-server
 			</span>
 		</a> 
 				

@@ -329,23 +329,6 @@
 		</li>
 	
 		<li>
-			<a href="#betajs-server" class="has-dropdown">betajs-server</a>
-			<ul>
-				
-					<li>
-						<a href="#server-databases" class="">Databases</a>
-						
-					</li>
-				
-					<li>
-						<a href="#server-database-stores" class="">Database Stores</a>
-						
-					</li>
-				
-			</ul>
-		</li>
-	
-		<li>
 			<a href="#betajs-dynamics" class="has-dropdown">betajs-dynamics</a>
 			<ul>
 				
@@ -2256,77 +2239,6 @@ grunt.loadNpmTasks('betajs-scoped');</code></pre>
 	
 	<div class="tutorial-section">
 		<? if (tutorials.name && tutorials.title) { ?>
-			<div id="betajs-server">
-			<h1>betajs-server</h1>
-			</div>
-		<? } ?>
-	
-		<article>
-		    <p>BetaJS-Server is a server-side JavaScript framework extension for BetaJS.</p>
-		</article>
-	</div>
-	
-	
-	    
-	
-	<div class="tutorial-section">
-		<? if (tutorials.name && tutorials.title) { ?>
-			<div id="server-databases">
-			<h2>Databases</h2>
-			</div>
-		<? } ?>
-	
-		<article>
-		    <p>We provide a simple abstraction for databases and tables, with a concrete implementation for MongoDB.</p>
-<p>First, you instantiate a database, e.g. a MongoDB:</p>
-<pre class="prettyprint source lang-javascript"><code>    var database = new BetaJS.Server.Databases.MongoDatabase(&quot;mongodb://localhost/database&quot;);</code></pre><p>The <code>MongoDatabase</code> class inherits from the abstract <code>Database</code> class.</p>
-<p>Once you have a <code>database</code> instance, you can access database tables / collections as follows:</p>
-<pre class="prettyprint source lang-javascript"><code>    var table = database.getTable('my-table-name');</code></pre><p>A <code>table</code> instance allows you to perform the typical (asynchronous) CRUD operations on the table:</p>
-<pre class="prettyprint source lang-javascript"><code>    table.insertRow({row data}).success(function (inserted) {...}).error(function (error) {...});
-
-    table.removeRow({remove query}).success(function () {...}).error(function (error) {...});
-    table.removeById(id).success(function () {...}).error(function (error) {...});
-
-    table.updateRow({update query}, {row data}).success(function (updated) {...}).error(function (error) {...});
-    table.updateById(id, {row data}).success(function (updated) {...}).error(function (error) {...});
-
-    table.find({search query}, {limit, skip, sort}).success(function (rowIterator) {...}).error(function (error) {...});
-    table.findOne({search query}, {skip, sort}).success(function (row) {...}).error(function (error) {...});
-    table.findById(id).success(function (row) {...}).error(function (error) {...});</code></pre><p>In most cases, you would not access database table instances directly but through the abstraction of a store.</p>
-		</article>
-	</div>
-	
-	
-	
-
-	
-	    
-	
-	<div class="tutorial-section">
-		<? if (tutorials.name && tutorials.title) { ?>
-			<div id="server-database-stores">
-			<h2>Database Stores</h2>
-			</div>
-		<? } ?>
-	
-		<article>
-		    <p>Database Stores allow you to access a database table through the abstract of a <code>Store</code>, providing all the additional functionality from the <code>BetaJS-Data</code> module.</p>
-<p>Once you have instantiated your <code>database</code> instance, you can create a corresponding <code>Store</code> for a table as follows, e.g. for a MongoDB:</p>
-<pre class="prettyprint source lang-javascript"><code>    var store = new BetaJS.Server.Stores.MongoDatabaseStore(database, &quot;my-database-table&quot;);</code></pre>
-		</article>
-	</div>
-	
-	
-	
-
-	
-	
-
-	
-	    
-	
-	<div class="tutorial-section">
-		<? if (tutorials.name && tutorials.title) { ?>
 			<div id="betajs-dynamics">
 			<h1>betajs-dynamics</h1>
 			</div>
@@ -2356,7 +2268,7 @@ grunt.loadNpmTasks('betajs-scoped');</code></pre>
 <h2>Example</h2><p>The Javascript Controller:</p>
 <pre class="prettyprint source lang-js"><code>
     var dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;some_element&quot;).html(),
+        element: document.querySelector(&quot;some_element&quot;).innerHTML,
         initial : {
             attrs : {
                 some_attribute : &quot;This is some Text&quot;,
@@ -2391,10 +2303,9 @@ grunt.loadNpmTasks('betajs-scoped');</code></pre>
     &lt;head lang=&quot;en&quot;>
         &lt;meta charset=&quot;UTF-8&quot;>
         &lt;title>Hello World&lt;/title>
-        &lt;script src=&quot;vendors/jquery.min.js&quot;>&lt;/script>
-        &lt;script src=&quot;vendors/beta.js&quot;>&lt;/script>
-        &lt;script src=&quot;vendors/betajs-browser-noscoped.js&quot;>&lt;/script>
-        &lt;script src=&quot;vendors/betajs-dynamics.js&quot;>&lt;/script>
+        &lt;script src=&quot;beta.js&quot;>&lt;/script>
+        &lt;script src=&quot;betajs-browser-noscoped.js&quot;>&lt;/script>
+        &lt;script src=&quot;betajs-dynamics.js&quot;>&lt;/script>
     &lt;/head>
     &lt;body>
 
@@ -2403,7 +2314,7 @@ grunt.loadNpmTasks('betajs-scoped');</code></pre>
         &lt;script>
 
             var dynamic = new BetaJS.Dynamics.Dynamic({
-                element: $(&quot;#helloworld&quot;)
+                element: document.querySelector(&quot;#helloworld&quot;)
             });
 
             dynamic.set(&quot;replaced_value&quot;, &quot;Hello World&quot;);
@@ -2416,7 +2327,7 @@ grunt.loadNpmTasks('betajs-scoped');</code></pre>
     &lt;div id=&quot;helloworld&quot;> {{replaced_value}} &lt;/div></code></pre><p>Inside {{}} ist an attribute property that we can control from other parts of the application.</p>
 <pre class="prettyprint source lang-js"><code>
     dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;#helloworld&quot;)
+        element: document.querySelector(&quot;#helloworld&quot;)
     });</code></pre><p>Here, we are creating a new dynamic, and make it responsible for handling the subtree under the dom node <code>#helloworld</code>.</p>
 <pre class="prettyprint source lang-js"><code>
     dynamic.set(&quot;replaced_value&quot;, &quot;Hello World&quot;);</code></pre><p>Here, we create set an attribute &quot;replaced_value&quot; and give it the value &quot;Hello World&quot;. When the dynamic is loaded, the handlebars {{replaced_value}} will be replaced by its value in the DOM so that we see &quot;Hello World&quot; on the actual site.</p>
@@ -2492,7 +2403,7 @@ BetaJS.Dynamics.Dynamic.extend(&quot;BetaJS.Dynamics.Dynamictemplate&quot;, {
     //Only use one of the following three concurrently
     templateUrl : &quot;templates/template.html&quot;,
     template : &quot;&lt;div>Internal Template {{some_attribute}}&lt;/div>&quot;,
-    element : $(&quot;.someclass&quot;),
+    element : document.querySelector(&quot;.someclass&quot;),
 
 
     bindings : {
@@ -2547,8 +2458,7 @@ BetaJS.Dynamics.Dynamic.extend(&quot;BetaJS.Dynamics.Dynamictemplate&quot;, {
 
     _afterActivate : function (element) {
         console.log('This message is displayed after the dynamic is activated');
-        //element passes you the element where the Dynamic is active on as a Jquery Object/Element
-        element.find(&quot;.somechildnode&quot;);
+        //element passes you the element where the Dynamic is active on as a DOM element
     }
 
 });</code></pre>
@@ -2760,7 +2670,7 @@ BetaJS.Dynamics.Dynamic.extend(&quot;BetaJS.Dynamics.Dynamictemplate&quot;, {
 		    <p>Instead of using templates, you can also link a dynamic to an already existing html element which will then be evaluated by the dynamics system.</p>
 <pre class="prettyprint source lang-js"><code>
     dynamic = new BetaJS.Dynamics.Dynamic({
-        element : $(&quot;.someclass&quot;)
+        element : document.querySelector(&quot;.someclass&quot;)
     });</code></pre>
 		</article>
 	</div>
@@ -2987,7 +2897,7 @@ BetaJS.Dynamics.Dynamic.extend(null, {
 <pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot; ba-click=&quot;boolean != boolean&quot;>
     &lt;h1 ba-show=&quot;boolean&quot;>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;.some_class&quot;),
+        element: document.querySelector(&quot;.some_class&quot;),
         attrs : {
             boolean : true
         }
@@ -2995,7 +2905,7 @@ BetaJS.Dynamics.Dynamic.extend(null, {
 <pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot; ba-click=&quot;some_function()&quot;>
     &lt;h1>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;.some_class&quot;),
+        element: document.querySelector(&quot;.some_class&quot;),
         functions : {
             some_function : function () {
                 alert('Another alert');
@@ -3025,7 +2935,7 @@ BetaJS.Dynamics.Dynamic.extend(null, {
 <pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot; ba-tap=&quot;boolean != boolean&quot;>
     &lt;h1 ba-show=&quot;boolean&quot;>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;.some_class&quot;),
+        element: document.querySelector(&quot;.some_class&quot;),
         attrs : {
             boolean : true
         }
@@ -3033,7 +2943,7 @@ BetaJS.Dynamics.Dynamic.extend(null, {
 <pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot; ba-tap=&quot;some_function()&quot;>
     &lt;h1>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;.some_class&quot;),
+        element: document.querySelector(&quot;.some_class&quot;),
         functions : {
             some_function : function () {
                 alert('Another alert');
@@ -3065,7 +2975,7 @@ BetaJS.Dynamics.Dynamic.extend(null, {
         }}}&quot;>
     &lt;h1>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;.some_class&quot;),
+        element: document.querySelector(&quot;.some_class&quot;),
         attrs : {
             some_property : true
         }
@@ -3109,7 +3019,7 @@ BetaJS.Dynamics.Dynamic.extend(null, {
 <pre class="prettyprint source lang-html"><code>&lt;div>&lt;h1 style='display: none'>&lt;/h1>&lt;div></code></pre><h4>Example 2:</h4><pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot; ba-show=&quot;{{some_attribute}}&quot;>
     &lt;h1>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;.some_class&quot;),
+        element: document.querySelector(&quot;.some_class&quot;),
         attrs : {
             some_attribute: true
         }
@@ -3156,7 +3066,7 @@ BetaJS.Dynamics.Dynamic.extend(null, {
 <pre class="prettyprint source lang-html"><code>&lt;div>&lt;h1 style=&quot;display:none;&quot;>Hi&lt;/h1>&lt;div></code></pre><h4>Example 2:</h4><pre class="prettyprint source lang-html"><code>&lt;div class=&quot;some_class&quot; ba-if=&quot;{{some_attribute}}&quot;>
     &lt;h1>Hi&lt;/h1>
 &lt;div></code></pre><pre class="prettyprint source lang-js"><code>    some_dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;.some_class&quot;),
+        element: document.querySelector(&quot;.some_class&quot;),
         attrs : {
             some_attribute: true
         }
@@ -3211,7 +3121,7 @@ BetaJS.Dynamics.Dynamic.extend(null, {
     &lt;li>1&lt;/li>
     &lt;li>2&lt;/li>
 &lt;/ul></code></pre><h5>Example 2:</h5><pre class="prettyprint source lang-js"><code>    dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;.some_class&quot;),
+        element: document.querySelector(&quot;.some_class&quot;),
         collections : {
             named_collection: [
                 {item_name : &quot;Apple&quot;, item_index : &quot;1&quot;},
@@ -3240,7 +3150,7 @@ BetaJS.Dynamics.Dynamic.extend(null, {
 <pre class="prettyprint source lang-html"><code>&lt;ul>
     &lt;li>2&lt;/li>
 &lt;/ul></code></pre><h5>Example 2:</h5><pre class="prettyprint source lang-js"><code>    dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;.some_class&quot;),
+        element: document.querySelector(&quot;.some_class&quot;),
         collections : {
             named_collection: [
                 {item_name : &quot;Apple&quot;, item_index : &quot;1&quot;},
@@ -3310,7 +3220,7 @@ dynamic.get(&quot;items&quot;).set_compare(function (x, y) {
     }).register(&quot;ba-innertest&quot;);
 
     var dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $('.some_class')
+        element: document.querySelector('.some_class')
     });
     dynamic.activate();</code></pre><p>Will evaluate to</p>
 <pre class="prettyprint source lang-html"><code>    &lt;div class=&quot;some_class&quot;>
@@ -4023,7 +3933,7 @@ dynamic.get(&quot;items&quot;).set_compare(function (x, y) {
 <iframe width="100%" height="290px" src="http://jsfiddle.net/betajs/1vt9y816/3/embedded/html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 <p>The <code>modern</code> theme can be manually applied:</p>
-<iframe width="100%" height="290px" src="http://jsfiddle.net/betajs/8gznkemj/9/embedded/html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="290px" src="http://jsfiddle.net/betajs/8gznkemj/3/embedded/html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 		</article>
 	</div>
 	

@@ -105,7 +105,7 @@
     }).register(&quot;ba-innertest&quot;);
 
     var dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $('.some_class')
+        element: document.querySelector('.some_class')
     });
     dynamic.activate();</code></pre><p>Will evaluate to</p>
 <pre class="prettyprint source lang-html"><code>    &lt;div class=&quot;some_class&quot;>
@@ -150,13 +150,6 @@
 		<a class="list-group-item " href="tutorial-betajs-data.html">
 			<span class="toc-h1">
 				betajs-data
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-betajs-server.html">
-			<span class="toc-h1">
-				betajs-server
 			</span>
 		</a> 
 				

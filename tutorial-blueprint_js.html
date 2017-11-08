@@ -101,7 +101,7 @@ BetaJS.Dynamics.Dynamic.extend(&quot;BetaJS.Dynamics.Dynamictemplate&quot;, {
     //Only use one of the following three concurrently
     templateUrl : &quot;templates/template.html&quot;,
     template : &quot;&lt;div>Internal Template {{some_attribute}}&lt;/div>&quot;,
-    element : $(&quot;.someclass&quot;),
+    element : document.querySelector(&quot;.someclass&quot;),
 
 
     bindings : {
@@ -156,8 +156,7 @@ BetaJS.Dynamics.Dynamic.extend(&quot;BetaJS.Dynamics.Dynamictemplate&quot;, {
 
     _afterActivate : function (element) {
         console.log('This message is displayed after the dynamic is activated');
-        //element passes you the element where the Dynamic is active on as a Jquery Object/Element
-        element.find(&quot;.somechildnode&quot;);
+        //element passes you the element where the Dynamic is active on as a DOM element
     }
 
 });</code></pre>
@@ -199,13 +198,6 @@ BetaJS.Dynamics.Dynamic.extend(&quot;BetaJS.Dynamics.Dynamictemplate&quot;, {
 		<a class="list-group-item " href="tutorial-betajs-data.html">
 			<span class="toc-h1">
 				betajs-data
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-betajs-server.html">
-			<span class="toc-h1">
-				betajs-server
 			</span>
 		</a> 
 				

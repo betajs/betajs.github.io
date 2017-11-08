@@ -103,7 +103,7 @@
 <h2>Example</h2><p>The Javascript Controller:</p>
 <pre class="prettyprint source lang-js"><code>
     var dynamic = new BetaJS.Dynamics.Dynamic({
-        element: $(&quot;some_element&quot;).html(),
+        element: document.querySelector(&quot;some_element&quot;).innerHTML,
         initial : {
             attrs : {
                 some_attribute : &quot;This is some Text&quot;,
@@ -154,13 +154,6 @@
 		<a class="list-group-item " href="tutorial-betajs-data.html">
 			<span class="toc-h1">
 				betajs-data
-			</span>
-		</a> 
-				
-	
-		<a class="list-group-item " href="tutorial-betajs-server.html">
-			<span class="toc-h1">
-				betajs-server
 			</span>
 		</a> 
 				
