@@ -98,7 +98,7 @@ module.exports = function(grunt) {
 										"outputSourceFiles": true,
 										"outputSourcePath": true,
 										"systemName": "BetaJS",
-										"footer": "Copyright &COPY; 2016 BetaJS / All rights reserved",
+										"footer": "Copyright &COPY; 2017 BetaJS / All rights reserved",
 										"copyright": "BetaJS (c) - Apache 2.0 License",
 										"navType": "vertical",
 										"theme": "paper",

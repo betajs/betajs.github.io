@@ -155,7 +155,7 @@
                 var group = this.query(query).nextOrNull();
                 if (!group &amp;&amp; create) {
                     group = this.__createProperties ? this.__createProperties.call(this.__callbackContext) : new this.__propertiesClass();
-                    group[this.__itemsAttribute] = group.auto_destroy(new Collection({
+                    group[this.__itemsAttribute] = group[this.__itemsAttribute] || group.auto_destroy(new Collection({
                         compare: this.__parent.get_compare()
                     }));
                     group[this.__itemsAttribute].bulkOperationInProgress = Functions.as_method(this.bulkOperationInProgress, this);
@@ -274,7 +274,7 @@
 		
 		
 		<footer>
-    <p class="text-center">Copyright &COPY; 2016 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+    <p class="text-center">Copyright &COPY; 2017 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
 </footer>
 
 		
