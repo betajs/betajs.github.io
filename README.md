@@ -898,6 +898,11 @@ The server creates the following endpoints:
 - Victor Lingenthal
 
 
+## Sponsors
+
+- [Ziggeo](https://ziggeo.com), the video API for asynchronous video recording and playback
+
+
 ## License
 
 Licensed under the Apache License, Version 2.0 (the "License"). You may obtain a copy of the License at
