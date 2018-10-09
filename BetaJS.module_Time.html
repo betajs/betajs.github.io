@@ -724,6 +724,63 @@ Returns:
                 
             
                 
+                    <p>function <strong>getTimezoneOffset</strong>()</p>
+
+<div class="description">
+    <p>Reads the current timezone offset.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>timezone offset in minutes</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
                     <p>function <strong>incrementTime</strong>(t, data)</p>
 
 <div class="description">
@@ -964,6 +1021,65 @@ Returns:
 
 
     
+
+                
+            
+                
+                    <p>function <strong>setTimezoneOffset</strong>(timezoneOffset)</p>
+
+<div class="description">
+    <p>Overwrites the current timezone offset.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>timezoneOffset</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>timezone offset in minutes (undefined to disable overwrite)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
 
                 
             
@@ -1749,6 +1865,111 @@ Returns:
                 
             
                 
+                    <p>function <strong>uniqueAtLeastNow</strong>(delta, timezone)</p>
+
+<div class="description">
+    <p>Returns the earliest time in the future in milliseconds that has not been queried before.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>delta</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>delta (optional, default 1)</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>timezone</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>timezone (optional)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>earliest time in the future</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
                     <p>function <strong>updateTime</strong>(t, data, timezone)</p>
 
 <div class="description">
@@ -2071,7 +2292,7 @@ Returns:
 		
 		
 		<footer>
-    <p class="text-center">Copyright &COPY; 2017 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+    <p class="text-center">Copyright &COPY; 2018 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
 </footer>
 
 		

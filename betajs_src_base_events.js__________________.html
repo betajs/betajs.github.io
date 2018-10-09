@@ -519,13 +519,13 @@ Scoped.define("module:Events.ListenMixin", [
             if (!Types.is_array(targets))
                 targets = [targets];
             targets.forEach(function(target) {
-                if (target) {
+                if (target &amp;&amp; !target.destroyed()) {
                     target.off(events, callback, this);
                     if (!events &amp;&amp; !callback)
                         delete this.__listen_mixin_listen[Ids.objectId(target)];
                 } else {
                     Objs.iter(this.__listen_mixin_listen, function(obj) {
-                        if (obj &amp;&amp; "off" in obj)
+                        if (obj &amp;&amp; "off" in obj &amp;&amp; !obj.destroyed())
                             obj.off(events, callback, this);
                         if (!events &amp;&amp; !callback)
                             delete this.__listen_mixin_listen[Ids.objectId(obj)];
@@ -559,7 +559,7 @@ Scoped.define("module:Events.Listen", ["module:Class", "module:Events.ListenMixi
 		
 		
 		<footer>
-    <p class="text-center">Copyright &COPY; 2017 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+    <p class="text-center">Copyright &COPY; 2018 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
 </footer>
 
 		

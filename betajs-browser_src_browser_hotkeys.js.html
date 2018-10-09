@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs-browser/src/browser/hotkeys.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="http://blog.betajs.com">Blog</a>
+						</li>
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs-browser/src/browser/hotkeys.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">/*
+ * Uses modified portions of:
+ * 
+ * http://www.openjs.com/scripts/events/keyboard_shortcuts/
+ * Version : 2.01.B
+ * By Binny V A
+ * License : BSD
+ */
+
+Scoped.define("module:Hotkeys", [
+    "base:Objs"
+], function(Objs) {
+    return {
+
+        SHIFT_NUMS: {
+            "`": "~",
+            "1": "!",
+            "2": "@",
+            "3": "#",
+            "4": "$",
+            "5": "%",
+            "6": "^",
+            "7": "&amp;",
+            "8": "*",
+            "9": "(",
+            "0": ")",
+            "-": "_",
+            "=": "+",
+            ";": ":",
+            "'": "\"",
+            ",": "&lt;",
+            ".": ">",
+            "/": "?",
+            "\\": "|"
+        },
+
+        SPECIAL_KEYS: {
+            'esc': 27,
+            'escape': 27,
+            'tab': 9,
+            'space': 32,
+            'return': 13,
+            'enter': 13,
+            'backspace': 8,
+
+            'scrolllock': 145,
+            'scroll_lock': 145,
+            'scroll': 145,
+            'capslock': 20,
+            'caps_lock': 20,
+            'caps': 20,
+            'numlock': 144,
+            'num_lock': 144,
+            'num': 144,
+
+            'pause': 19,
+            'break': 19,
+
+            'insert': 45,
+            'home': 36,
+            'delete': 46,
+            'end': 35,
+
+            'pageup': 33,
+            'page_up': 33,
+            'pu': 33,
+
+            'pagedown': 34,
+            'page_down': 34,
+            'pd': 34,
+
+            'left': 37,
+            'up': 38,
+            'right': 39,
+            'down': 40,
+
+            'f1': 112,
+            'f2': 113,
+            'f3': 114,
+            'f4': 115,
+            'f5': 116,
+            'f6': 117,
+            'f7': 118,
+            'f8': 119,
+            'f9': 120,
+            'f10': 121,
+            'f11': 122,
+            'f12': 123
+        },
+
+        MODIFIERS: ["ctrl", "alt", "shift", "meta"],
+
+        keyCodeToCharacter: function(code) {
+            if (code == 188)
+                return ",";
+            else if (code == 190)
+                return ".";
+            return String.fromCharCode(code).toLowerCase();
+        },
+
+        handleKeyEvent: function(hotkey, e, options) {
+            options = Objs.extend({
+                "disable_in_input": false,
+                "keycode": false
+            }, options);
+            var keys = hotkey.toLowerCase().split("+");
+            if (options.disable_in_input) {
+                var element = e.target || e.srcElement || null;
+                if (element &amp;&amp; element.nodeType == 3)
+                    element = element.parentNode;
+                if (element &amp;&amp; (element.tagName == 'INPUT' || element.tagName == 'TEXTAREA'))
+                    return false;
+            }
+            var code = e.keyCode || e.which || 0;
+            var character = this.keyCodeToCharacter(code);
+            var kp = 0;
+            var modifier_map = {};
+            Objs.iter(this.MODIFIERS, function(mod) {
+                modifier_map[mod] = {
+                    pressed: e[mod + "Key"],
+                    wanted: false
+                };
+            }, this);
+            Objs.iter(keys, function(key) {
+                if (key in modifier_map) {
+                    modifier_map[key].wanted = true;
+                    kp++;
+                } else if (key.length > 1) {
+                    if (this.SPECIAL_KEYS[key] == code)
+                        kp++;
+                } else if (options.keycode) {
+                    if (options.keycode == code)
+                        kp++;
+                } else if (character == key || (e.shiftKey &amp;&amp; this.SHIFT_NUMS[character] == key)) {
+                    kp++;
+                }
+            }, this);
+            /**
+             * Allow to use use several keys for one action
+             * @example: ba-hotkey:space^enter="function(){}"
+             */
+            var multipleKeys = hotkey.toLowerCase().split("^");
+            if (multipleKeys.length > 1) {
+                Objs.iter(multipleKeys, function(key) {
+                    if (key.length > 1 &amp;&amp; e.keyCode === this.SPECIAL_KEYS[key]) {
+                        // Prevent browser scroll when press space
+                        if (code === 32) e.preventDefault();
+
+                        if (this.SPECIAL_KEYS[key] == code)
+                            kp++;
+                    }
+                }, this);
+            }
+            return kp == keys.length &amp;&amp; Objs.all(modifier_map, function(data) {
+                return data.wanted == data.pressed;
+            });
+        },
+
+        register: function(hotkey, callback, context, options) {
+            options = Objs.extend({
+                "type": "keyup",
+                "propagate": false,
+                "disable_in_input": false,
+                "target": document,
+                "keycode": false
+            }, options);
+            var self = this;
+            var func = function(e) {
+                if (self.handleKeyEvent(hotkey, e, options)) {
+                    if (!options.propagate) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                    callback.call(context || this, e);
+                }
+            };
+            options.target.addEventListener(options.type, func, false);
+            return {
+                target: options.target,
+                type: options.type,
+                func: func
+            };
+        },
+
+        unregister: function(handle) {
+            handle.target.removeEventListener(handle.type, handle.func, false);
+        }
+
+    };
+});</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2018 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

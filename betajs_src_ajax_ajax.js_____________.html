@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs/src/ajax/ajax.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="http://blog.betajs.com">Blog</a>
+						</li>
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs/src/ajax/ajax.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Ajax.Support", [
+    "module:Ajax.NoCandidateAjaxException",
+    "module:Ajax.ReturnDataParseException",
+    "module:Ajax.RequestException",
+    "module:Promise",
+    "module:Objs",
+    "module:Types",
+    "module:Net.Uri",
+    "module:Net.HttpHeader",
+    "module:Async",
+    "module:Time"
+], function(NoCandidateAjaxException, ReturnDataParseException, RequestException, Promise, Objs, Types, Uri, HttpHeader, Async, Time) {
+
+    /**
+     * Ajax Support Module
+     * 
+     * @module BetaJS.Ajax.Support
+     */
+    return {
+
+        __registry: [],
+
+        /**
+         * Registers an ajax execution system 
+         * 
+         * @param {object} descriptor Descriptor object containing a supports and an execute function
+         * @param {int} priority Priority of this execution system to be used if applicable
+         */
+        register: function(descriptor, priority) {
+            this.__registry.push({
+                descriptor: descriptor,
+                priority: priority
+            });
+        },
+
+        /**
+         * Unwrap the status from return data
+         * 
+         * @param {object} json Status-encoded return object
+         * @param {string} errorDecodeType Decode type for data in case it is an error
+         * 
+         * @return Unwrapped data in case of a success status
+         */
+        unwrapStatus: function(json, errorDecodeType) {
+            /*
+             * Should be:
+             * {
+             * 	status: XXX,
+             *  statusText: XXX, (or empty)
+             *  responseText: XXX (or empty)
+             * }
+             */
+            var status = json.status || HttpHeader.HTTP_STATUS_INTERNAL_SERVER_ERROR;
+            if (!HttpHeader.isSuccessStatus(status)) {
+                var status_text = json.statusText || HttpHeader.format(status);
+                var resp = json.responseText;
+                try {
+                    resp = this.parseReturnData(json.responseText, errorDecodeType);
+                } catch (e) {}
+                throw new RequestException(status, status_text, resp);
+            } else
+                return json.responseText;
+        },
+
+        /**
+         * Parse return data given a decode type.
+         * 
+         * @param data Return data to be parsed
+         * @param {string} decodeType Decode type, e.g. "json"
+         * 
+         * @return Parsed return data
+         */
+        parseReturnData: function(data, decodeType) {
+            if (decodeType === "json" &amp;&amp; Types.is_string(data))
+                return JSON.parse(data);
+            return data;
+        },
+
+        /**
+         * Process the return data and forward the result to a promise object.
+         * 
+         * @param {object} promise Promise object
+         * @param {object} options Options for processing the return data
+         * @param data Return data
+         * @param {string} decodeType Decode type, e.g. "json"
+         * 
+         */
+        promiseReturnData: function(promise, options, data, decodeType) {
+            if (options.wrapStatus) {
+                try {
+                    data = this.parseReturnData(data, "json");
+                } catch (e) {
+                    promise.asyncError(new ReturnDataParseException(data, decodeType));
+                    return;
+                }
+                try {
+                    data = this.unwrapStatus(data, decodeType);
+                } catch (e) {
+                    promise.asyncError(e);
+                    return;
+                }
+            }
+            try {
+                promise.asyncSuccess(this.parseReturnData(data, decodeType));
+            } catch (e) {
+                promise.asyncError(new ReturnDataParseException(data, decodeType));
+            }
+        },
+
+        /**
+         * Process the return data and forward the result as an error to a promise object.
+         * 
+         * @param {object} promise Promise object
+         * @param {int} status Error status
+         * @param {string} status_text Optional status text
+         * @param data Return data
+         * @param {string} decodeType Decode type, e.g. "json"
+         * 
+         */
+        promiseRequestException: function(promise, status, status_text, data, decodeType) {
+            status_text = status_text || HttpHeader.format(status);
+            try {
+                promise.asyncError(new RequestException(status, status_text, this.parseReturnData(data, decodeType)));
+            } catch (e) {
+                promise.asyncError(new RequestException(status, status_text, data));
+            }
+        },
+
+        /**
+         * Preprocess Ajax Options object.
+         * 
+         * @param {object} options Options object
+         * 
+         * @return {object} Preprocessed options object
+         */
+        preprocess: function(options) {
+            options = Objs.extend({
+                method: "GET",
+                mapMethodsKey: "_method",
+                wrapStatus: false,
+                wrapStatusParam: null,
+                context: this,
+                query: {},
+                jsonp: undefined,
+                noCache: undefined,
+                noCacheParam: null,
+                postmessage: undefined,
+                contentType: "urlencoded", // json
+                resilience: 1,
+                resilience_delay: 1000,
+                cors: false,
+                sendContentType: true,
+                corscreds: false,
+                forceJsonp: false,
+                forcePostmessage: false
+                /*,
+                				decodeType: "json"*/
+            }, options);
+            if (options.params) {
+                options.query = Objs.extend(options.query, options.params);
+                delete options.params;
+            }
+            if (!Types.is_empty(options.query)) {
+                options.query = Objs.filter(options.query, function(value) {
+                    return value !== null &amp;&amp; value !== undefined;
+                });
+            }
+            options.method = options.method.toUpperCase();
+            if (options.baseUri)
+                options.uri = options.uri ? options.baseUri + options.uri : options.baseUri;
+            delete options.baseUri;
+            if (options.mapMethods &amp;&amp; options.method in options.mapMethods) {
+                options.uri = Uri.appendUriParams(options.uri, Objs.objectBy(options.mapMethodsKey, options.method));
+                options.method = options.mapMethods[options.method];
+            }
+            if (options.wrapStatus &amp;&amp; options.wrapStatusParam)
+                options.uri = Uri.appendUriParams(options.uri, Objs.objectBy(options.wrapStatusParam, "true"));
+            if (options.noCache &amp;&amp; options.noCacheParam)
+                options.uri = Uri.appendUriParams(options.uri, Objs.objectBy(options.noCacheParam, Time.now()));
+            delete options.mapMethods;
+            delete options.mapMethodsKey;
+            if (options.contentType === "urlencoded" &amp;&amp; !Types.is_empty(options.data)) {
+                options.data = Objs.filter(options.data, function(value) {
+                    return value !== null &amp;&amp; value !== undefined;
+                });
+            }
+            options.isCorsRequest = typeof document !== "undefined" &amp;&amp; Uri.isCrossDomainUri(document.location.href, options.uri);
+            return options;
+        },
+
+        /**
+         * Execute an Ajax command.
+         * 
+         * @param {object} options Options for the Ajax command
+         * @param {function} progress Optional progress function
+         * @param {object} progressCtx Optional progress context
+         * 
+         * @return {object} Execution promise
+         */
+        execute: function(options, progress, progressCtx) {
+            options = this.preprocess(options);
+            var current = null;
+            this.__registry.forEach(function(candidate) {
+                if ((!current || current.priority &lt; candidate.priority) &amp;&amp; candidate.descriptor.supports.call(candidate.descriptor.context || candidate.descriptor, options))
+                    current = candidate;
+            }, this);
+            if (!current)
+                return Promise.error(new NoCandidateAjaxException(options));
+            var helper = function(resilience) {
+                var promise = current.descriptor.execute.call(current.descriptor.context || current.descriptor, options, progress, progressCtx);
+                if (!resilience || resilience &lt;= 1)
+                    return promise;
+                var returnPromise = Promise.create();
+                promise.forwardSuccess(returnPromise).error(function() {
+                    Async.eventually(function() {
+                        helper(resilience - 1).forwardCallback(returnPromise);
+                    }, options.resilience_delay);
+                });
+                return returnPromise;
+            };
+            return helper(options.resilience);
+        }
+
+    };
+});
+
+
+Scoped.define("module:Ajax.AbstractAjaxWrapper", [
+    "module:Class",
+    "module:Objs"
+], function(Class, Objs, scoped) {
+    return Class.extend({
+        scoped: scoped
+    }, function(inherited) {
+
+        /**
+         * Abstract Ajax Wrapper Class
+         * 
+         * @class BetaJS.Ajax.AbstractAjaxWrapper
+         */
+        return {
+
+            /**
+             * Creates an instance.
+             * 
+             * @param {object} options common options for ajax calls
+             */
+            constructor: function(options) {
+                inherited.constructor.call(this);
+                this.options = options;
+            },
+
+            /**
+             * Execute an ajax call.
+             * 
+             * @param {object} options options for ajax call
+             * @param {function} progress Optional progress function
+             * @param {object} progressCtx Optional progress context
+             * @return {object} promise for the ajax call
+             */
+            execute: function(options, progress, progressCtx) {
+                return this._execute(Objs.extend(Objs.clone(this.options, 1), options), progress, progressCtx);
+            },
+
+            _execute: function(options, progress, progressCtx) {
+                throw "Not implemented";
+            }
+
+        };
+    });
+});
+
+
+Scoped.define("module:Ajax.HookedAjaxWrapper", [
+    "module:Ajax.AbstractAjaxWrapper"
+], function(AbstractAjaxWrapper, scoped) {
+    return AbstractAjaxWrapper.extend({
+        scoped: scoped
+    }, function(inherited) {
+
+        /**
+         * Hooked Ajax Wrapper Class
+         *
+         * @class BetaJS.Ajax.HookedAjaxWrapper
+         */
+        return {
+
+            /**
+             * Creates an instance.
+             *
+             * @param {object} ajaxWrapper Ajax Wrapper Class
+             * @param {function} hookCallback hook callback function
+             * @param {object} hookCallbackCtx hook callback ctx
+             * @param {object} options common options for ajax calls
+             */
+            constructor: function(ajaxWrapper, hookCallback, hookCallbackCtx, options) {
+                inherited.constructor.call(this, options);
+                this.ajaxWrapper = ajaxWrapper;
+                this.hookCallback = hookCallback;
+                this.hookCallbackCtx = hookCallbackCtx;
+            },
+
+            _execute: function(options, progress, progressCtx) {
+                return this.ajaxWrapper.execute(this.hookCallback.call(this.hookCallbackCtx || this, options), progress, progressCtx);
+            }
+
+        };
+    });
+});
+
+
+Scoped.define("module:Ajax.AjaxWrapper", [
+    "module:Ajax.AbstractAjaxWrapper",
+    "module:Ajax.Support"
+], function(AbstractAjaxWrapper, Support, scoped) {
+    /**
+     * Ajax Wrapper Class
+     *
+     * @class BetaJS.Ajax.AjaxWrapper
+     */
+    return AbstractAjaxWrapper.extend({
+        scoped: scoped
+    }, {
+        _execute: function(options, progress, progressCtx) {
+            return Support.execute(options, progress, progressCtx);
+        }
+    });
+});</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2018 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>

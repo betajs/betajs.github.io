@@ -108,7 +108,7 @@
              */
             augmentMessage: function(source, msg, depth) {
                 var stack = Functions.getStackTrace(depth * 3 + 6);
-                return stack[0];
+                return stack[0].trim();
             }
 
         };
@@ -123,7 +123,7 @@
 		
 		
 		<footer>
-    <p class="text-center">Copyright &COPY; 2017 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+    <p class="text-center">Copyright &COPY; 2018 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
 </footer>
 
 		

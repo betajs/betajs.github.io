@@ -2509,8 +2509,8 @@ BetaJS.Dynamics.Dynamic.extend(&quot;BetaJS.Dynamics.Dynamictemplate&quot;, {
     &lt;-- Classes -->
     &lt;div ba-class='{{{
         'always' : true,
-        'sometimes' : {{attribute}},
-        'othertimes' : {{attribute.get('property') == 'other'}},
+        'sometimes' : attribute,
+        'othertimes' : attribute.get('property') == 'other',
         'never' : false
     }}}'>Some random text&lt;/div>
 
@@ -4341,7 +4341,7 @@ dynamic.get(&quot;items&quot;).set_compare(function (x, y) {
 		
 		
 		<footer>
-    <p class="text-center">Copyright &COPY; 2017 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+    <p class="text-center">Copyright &COPY; 2018 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
 </footer>
 
 		

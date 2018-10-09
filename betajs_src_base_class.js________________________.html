@@ -119,10 +119,11 @@
                 result = obj.constructor;
         });
         var has_constructor = Types.is_defined(result);
-        if (!has_constructor)
+        if (!has_constructor) {
             result = function() {
                 parent.prototype.constructor.apply(this, arguments);
             };
+        }
 
         // Add Parent Statics
         Objs.extend(result, parent);
@@ -214,8 +215,11 @@
         delete result.prototype._notifications;
         delete result.prototype._implements;
 
-        if (!has_constructor)
-            result.prototype.constructor = parent.prototype.constructor;
+        if (!has_constructor) {
+            result.prototype.constructor = function() {
+                parent.prototype.constructor.apply(this, arguments);
+            };
+        }
 
         return result;
     };
@@ -439,8 +443,9 @@
      * Automatically destroys an object when this object is being destroyed.
      * 
      * @param {object} obj
+     * @param {boolean} returnSource return source object instead of obj
      */
-    Class.prototype.auto_destroy = function(obj) {
+    Class.prototype.auto_destroy = function(obj, returnSource) {
         if (obj) {
             if (!this.__auto_destroy_list)
                 this.__auto_destroy_list = [];
@@ -450,7 +455,7 @@
             for (var i = 0; i &lt; target.length; ++i)
                 this.__auto_destroy_list.push(target[i]);
         }
-        return obj;
+        return returnSource ? this : obj;
     };
 
     /**
@@ -597,7 +602,7 @@
 		
 		
 		<footer>
-    <p class="text-center">Copyright &COPY; 2017 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+    <p class="text-center">Copyright &COPY; 2018 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
 </footer>
 
 		

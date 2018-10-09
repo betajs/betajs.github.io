@@ -153,10 +153,10 @@ Parameters:
                 
             
                 
-                    <p>function <strong>execute</strong>(options, progress, progressCtx)</p>
+                    <p>function <strong>constructor</strong>(ajaxWrapper, hookCallback, hookCallbackCtx, options)</p>
 
 <div class="description">
-    <p>Execute an Ajax command.</p>
+    <p>Creates an instance.</p>
 </div>
 
 Parameters:
@@ -184,6 +184,75 @@ Parameters:
 
         <tr>
             
+                <td class="name"><code>ajaxWrapper</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Ajax Wrapper Class</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>hookCallback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>hook callback function</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>hookCallbackCtx</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>hook callback ctx</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
                 <td class="name"><code>options</code></td>
             
 
@@ -200,53 +269,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>Options for the Ajax command</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>progress</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Optional progress function</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>progressCtx</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Optional progress context</p></td>
+            <td class="description last"><p>common options for ajax calls</p></td>
         </tr>
 
 	
@@ -254,29 +277,6 @@ Parameters:
 </table>
 
 
-Returns:
-
-        
-<div class="param-desc">
-    <p>Execution promise</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">object</span>
-
-
-	</dd>
-</dl>
-
-
-    
 
                 
             
@@ -387,6 +387,134 @@ Returns:
         
 <div class="param-desc">
     <p>promise for the ajax call</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                
+            
+                
+                    <p>function <strong>execute</strong>(options, progress, progressCtx)</p>
+
+<div class="description">
+    <p>Execute an Ajax command.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Options for the Ajax command</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>progress</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Optional progress function</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>progressCtx</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Optional progress context</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>Execution promise</p>
 </div>
 
 
@@ -1217,7 +1345,7 @@ Returns:
 		
 		
 		<footer>
-    <p class="text-center">Copyright &COPY; 2017 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+    <p class="text-center">Copyright &COPY; 2018 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
 </footer>
 
 		

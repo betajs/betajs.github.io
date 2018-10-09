@@ -130,10 +130,12 @@ Scoped.define("module:Collections.AbstractQueryCollection", [
              * @return {QueryCollection} A new instance of QueryCollection.
              */
             constructor: function(source, query, options) {
-                inherited.constructor.call(this, {
-                    release_references: true
-                });
                 options = options || {};
+                inherited.constructor.call(this, {
+                    release_references: true,
+                    uniqueness: options.uniqueness,
+                    indices: options.indices
+                });
                 if (ConstrainedQueryBuilder.is_instance_of(query)) {
                     this._rangeQueryBuilder = options.range_query_builder;
                     this.__queryBuilder = query;
@@ -155,16 +157,19 @@ Scoped.define("module:Collections.AbstractQueryCollection", [
                     }
                 }
                 this._id_key = this._id_key || options.id_key || "id";
+                this._secondary_ident = options.secondary_ident;
                 this._source = source;
                 this._complete = false;
                 this._active = options.active || false;
                 this._incremental = "incremental" in options ? options.incremental : true;
                 this._active_bounds = "active_bounds" in options ? options.active_bounds : true;
+                this._bounds_attribute = options.bounds_attribute;
                 this._enabled = false;
                 this._range = options.range || null;
                 this._forward_steps = options.forward_steps || null;
                 this._backward_steps = options.backward_steps || null;
                 this._async = options.async || false;
+                this._active_in_direction = "active_in_direction" in options ? options.active_in_direction : false;
                 if (this._active) {
                     this.on("add", function(object) {
                         this._watchItem(object.get(this._id_key));
@@ -287,9 +292,31 @@ Scoped.define("module:Collections.AbstractQueryCollection", [
                 });
             },
 
+            bounds_forwards: function(newUpperBound) {
+                var oldUpperBound = this._query.query[this._bounds_attribute].$lt;
+                this._query.query[this._bounds_attribute].$lt = newUpperBound;
+                var queryCopy = Objs.clone(this._query.query, 2);
+                queryCopy[this._bounds_attribute].$gte = oldUpperBound;
+                return this._execute({
+                    query: queryCopy
+                }, true);
+            },
+
+            bounds_backwards: function(newLowerBound) {
+                var oldLowerBound = this._query.query[this._bounds_attribute].$gte;
+                this._query.query[this._bounds_attribute].$gte = newLowerBound;
+                var queryCopy = Objs.clone(this._query.query, 2);
+                queryCopy[this._bounds_attribute].$lt = oldLowerBound;
+                return this._execute({
+                    query: queryCopy
+                }, true);
+            },
 
             get_ident: function(obj) {
-                return Class.is_class_instance(obj) ? obj.get(this._id_key) : obj[this._id_key];
+                var result = Class.is_class_instance(obj) ? obj.get(this._id_key) : obj[this._id_key];
+                if (!result &amp;&amp; this._secondary_ident)
+                    result = this._secondary_ident(obj);
+                return result;
             },
 
             getQuery: function() {
@@ -451,6 +478,7 @@ Scoped.define("module:Collections.AbstractQueryCollection", [
                     }
                     if (!iter.hasNext()) {
                         this._complete = true;
+                        iter.destroy();
                         return true;
                     }
                     this.__executePromise = iter.asyncIterate(this.replace_object, this);
@@ -499,6 +527,12 @@ Scoped.define("module:Collections.AbstractQueryCollection", [
                     return;
                 if (!this.isValid(data))
                     return;
+                if (this._active_in_direction &amp;&amp; this._query.options.sort &amp;&amp; this._query.options.limit &amp;&amp; this.count() >= this._query.options.limit) {
+                    var item = this.getByIndex(this.count() - 1).getAll();
+                    var comp = Comparators.byObject(this._query.options.sort);
+                    if (comp(item, data) &lt; 0)
+                        return;
+                }
                 this.add(this._materialize(data));
                 if (this._query.options.limit &amp;&amp; this.count() > this._query.options.limit) {
                     if (this._active_bounds)
@@ -570,7 +604,7 @@ Scoped.define("module:Collections.AbstractQueryCollection", [
 		
 		
 		<footer>
-    <p class="text-center">Copyright &COPY; 2017 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+    <p class="text-center">Copyright &COPY; 2018 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
 </footer>
 
 		

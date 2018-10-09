@@ -437,9 +437,10 @@ Scoped.define("module:Classes.ContextRegistry", [
              * @return {object} Iterator
              */
             iterator: function() {
-                return new MappedIterator(this.customIterator(), function(item) {
+                var customIt = this.customIterator();
+                return (new MappedIterator(customIt, function(item) {
                     return item.data;
-                });
+                })).auto_destroy(customIt, true);
             }
 
         };
@@ -454,7 +455,7 @@ Scoped.define("module:Classes.ContextRegistry", [
 		
 		
 		<footer>
-    <p class="text-center">Copyright &COPY; 2017 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+    <p class="text-center">Copyright &COPY; 2018 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
 </footer>
 
 		

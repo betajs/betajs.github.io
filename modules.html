@@ -155,10 +155,10 @@ Parameters:
                         
                     
                         
-                            <p>function <strong>execute</strong>(options, progress, progressCtx)</p>
+                            <p>function <strong>constructor</strong>(ajaxWrapper, hookCallback, hookCallbackCtx, options)</p>
 
 <div class="description">
-    <p>Execute an Ajax command.</p>
+    <p>Creates an instance.</p>
 </div>
 
 Parameters:
@@ -186,6 +186,75 @@ Parameters:
 
         <tr>
             
+                <td class="name"><code>ajaxWrapper</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Ajax Wrapper Class</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>hookCallback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>hook callback function</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>hookCallbackCtx</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>hook callback ctx</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
                 <td class="name"><code>options</code></td>
             
 
@@ -202,53 +271,7 @@ Parameters:
 
             
 
-            <td class="description last"><p>Options for the Ajax command</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>progress</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Optional progress function</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>progressCtx</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Optional progress context</p></td>
+            <td class="description last"><p>common options for ajax calls</p></td>
         </tr>
 
 	
@@ -256,29 +279,6 @@ Parameters:
 </table>
 
 
-Returns:
-
-        
-<div class="param-desc">
-    <p>Execution promise</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">object</span>
-
-
-	</dd>
-</dl>
-
-
-    
 
                         
                     
@@ -389,6 +389,134 @@ Returns:
         
 <div class="param-desc">
     <p>promise for the ajax call</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                        
+                    
+                        
+                            <p>function <strong>execute</strong>(options, progress, progressCtx)</p>
+
+<div class="description">
+    <p>Execute an Ajax command.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Options for the Ajax command</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>progress</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Optional progress function</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>progressCtx</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Optional progress context</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>Execution promise</p>
 </div>
 
 
@@ -1032,455 +1160,6 @@ Returns:
                     <h1>Async</h1>
                 </header>
                 <article>
-                    
-                        
-                            <p>function <strong>clearEventually</strong>(ev)</p>
-
-<div class="description">
-    <p>Clears a call scheduled for eventual execution.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>ev</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>event handle</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                        
-                    
-                        
-                            <p>function <strong>eventually</strong>(function, params, context, time)</p>
-
-<div class="description">
-    <p>Execute a function asynchronously eventually.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>function</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>function to be executed asynchronously</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>params</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">array</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional list of parameters to be passed to the function</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>context</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional context for the function execution</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>time</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">int</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>time to wait until execution (default is 0)</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-Returns:
-
-        
-<div class="param-desc">
-    <p>handle to the eventual call</p>
-</div>
-
-
-
-
-    
-
-                        
-                    
-                        
-                            <p>function <strong>eventuallyOnce</strong>(function, params, context)</p>
-
-<div class="description">
-    <p>Executes a function asynchronously eventually, but only once.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>function</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>function to be executed asynchronously</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>params</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">array</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>list of parameters to be passed to the function</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>context</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>optional context for the function execution</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                        
-                    
-                        
-                            <p>function <strong>waitFor</strong>(condition, conditionCtx, callback, callbackCtx, interval)</p>
-
-<div class="description">
-    <p>Wait asynchronously for a condition to be met.</p>
-</div>
-
-Parameters:
-
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>condition</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>condition function</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>conditionCtx</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>condition context (optional)</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>callback function</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>callbackCtx</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>callback context (optional)</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>interval</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">int</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>interval time between checks (optional, default 1)</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-
-
-                        
                     
                 </article>
 			</section>
@@ -6183,6 +5862,40 @@ Returns:
                         
                     
                         
+                            <p>function <strong>multi_extend</strong>()</p>
+
+<div class="description">
+    <p>Extend target object by source objects, modifying target object in-place.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+	</tbody>
+</table>
+
+
+
+                        
+                    
+                        
                             <p>function <strong>objectBy</strong>()</p>
 
 <div class="description">
@@ -8404,7 +8117,7 @@ Returns:
                             <p>function <strong>email_get_email</strong>(input)</p>
 
 <div class="description">
-    <p>Extracts the email from an email address name string (e.g. 'Foo Bar <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#102;&#111;&#x6f;&#x62;&#x61;&#114;&#x40;&#100;&#x6f;&#109;&#x61;&#105;&#x6e;&#x2e;&#99;&#x6f;&#x6d;">&#102;&#111;&#x6f;&#x62;&#x61;&#114;&#x40;&#100;&#x6f;&#109;&#x61;&#105;&#x6e;&#x2e;&#99;&#x6f;&#x6d;</a>')</p>
+    <p>Extracts the email from an email address name string (e.g. 'Foo Bar <a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#58;&#x66;&#111;&#x6f;&#98;&#97;&#114;&#64;&#100;&#111;&#x6d;&#x61;&#105;&#110;&#46;&#99;&#x6f;&#x6d;">&#x66;&#111;&#x6f;&#98;&#97;&#114;&#64;&#100;&#111;&#x6d;&#x61;&#105;&#110;&#46;&#99;&#x6f;&#x6d;</a>')</p>
 </div>
 
 Parameters:
@@ -8486,7 +8199,7 @@ Returns:
                             <p>function <strong>email_get_name</strong>(input)</p>
 
 <div class="description">
-    <p>Extracts the name from an email address name string (e.g. 'Foo Bar <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#x66;&#111;&#111;&#x62;&#x61;&#114;&#x40;&#100;&#111;&#109;&#97;&#105;&#x6e;&#46;&#99;&#x6f;&#x6d;">&#x66;&#111;&#111;&#x62;&#x61;&#114;&#x40;&#100;&#111;&#109;&#97;&#105;&#x6e;&#46;&#99;&#x6f;&#x6d;</a>')</p>
+    <p>Extracts the name from an email address name string (e.g. 'Foo Bar <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x66;&#111;&#x6f;&#x62;&#97;&#114;&#64;&#100;&#x6f;&#109;&#x61;&#105;&#x6e;&#46;&#99;&#111;&#109;">&#x66;&#111;&#x6f;&#x62;&#97;&#114;&#64;&#100;&#x6f;&#109;&#x61;&#105;&#x6e;&#46;&#99;&#111;&#109;</a>')</p>
 </div>
 
 Parameters:
@@ -11620,6 +11333,63 @@ Returns:
                         
                     
                         
+                            <p>function <strong>getTimezoneOffset</strong>()</p>
+
+<div class="description">
+    <p>Reads the current timezone offset.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>timezone offset in minutes</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                        
+                    
+                        
                             <p>function <strong>incrementTime</strong>(t, data)</p>
 
 <div class="description">
@@ -11860,6 +11630,65 @@ Returns:
 
 
     
+
+                        
+                    
+                        
+                            <p>function <strong>setTimezoneOffset</strong>(timezoneOffset)</p>
+
+<div class="description">
+    <p>Overwrites the current timezone offset.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>timezoneOffset</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>timezone offset in minutes (undefined to disable overwrite)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
 
                         
                     
@@ -12623,6 +12452,111 @@ Returns:
         
 <div class="param-desc">
     <p>timezone bias in milliseconds</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">int</span>
+
+
+	</dd>
+</dl>
+
+
+    
+
+                        
+                    
+                        
+                            <p>function <strong>uniqueAtLeastNow</strong>(delta, timezone)</p>
+
+<div class="description">
+    <p>Returns the earliest time in the future in milliseconds that has not been queried before.</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>delta</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>delta (optional, default 1)</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>timezone</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>timezone (optional)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>earliest time in the future</p>
 </div>
 
 
@@ -14370,6 +14304,71 @@ Returns:
                         
                     
                         
+                            <p>function <strong>isNumber</strong>(x)</p>
+
+<div class="description">
+    <p>Returns whether argument is a number</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>argument</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>true if x is a number</p>
+</div>
+
+
+
+
+    
+
+                        
+                    
+                        
                             <p>function <strong>objectType</strong>(obj)</p>
 
 <div class="description">
@@ -14572,6 +14571,201 @@ Returns:
         
 <div class="param-desc">
     <p>boolean value</p>
+</div>
+
+
+
+
+    
+
+                        
+                    
+                        
+                            <p>function <strong>parseDateTime</strong>(x)</p>
+
+<div class="description">
+    <p>Parses a date time string</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>date time as a string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>integer value</p>
+</div>
+
+
+
+
+    
+
+                        
+                    
+                        
+                            <p>function <strong>parseFloat</strong>(x)</p>
+
+<div class="description">
+    <p>Parses a float string</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>float as a string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>float value</p>
+</div>
+
+
+
+
+    
+
+                        
+                    
+                        
+                            <p>function <strong>parseInt</strong>(x)</p>
+
+<div class="description">
+    <p>Parses an integer string</p>
+</div>
+
+Parameters:
+
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>integer as a string</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+
+Returns:
+
+        
+<div class="param-desc">
+    <p>integer value</p>
 </div>
 
 
@@ -22695,7 +22889,7 @@ Returns:
 		
 		
 		<footer>
-    <p class="text-center">Copyright &COPY; 2017 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+    <p class="text-center">Copyright &COPY; 2018 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
 </footer>
 
 		
