@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BetaJS - Source: betajs/src/channels/channels.js</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/sunlight.default.css" rel="stylesheet" />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+    	
+    		<header>
+				<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom ">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+				
+									
+					
+							<li><a href="index.html">Home</a></li>
+					
+				
+									
+					
+				
+									
+					
+				
+				<li>
+					<a href="tutorials.html">Guides</a>
+				</li>
+				<!--
+							
+	                <li>
+	                    <a href="modules.html">Reference</a>
+	                </li>
+	            
+	            -->	            
+				
+					
+					
+				
+					
+					
+						<li>
+							<a href="http://blog.betajs.com">Blog</a>
+						</li>
+					
+				
+					
+					
+						<li>
+							<a href="builds.html">Builds</a>
+						</li>
+					
+				
+            </ul>
+            <a class="btn btn-default pull-right btn-outline  brown" href="https://github.com/betajs">Fork us</a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+			</header>
+			
+			<div class="container" id="toc-content">
+				<div class="row">
+						<div id="main">
+<section>
+	<article>
+		<h2>Source: betajs/src/channels/channels.js</h2>
+		<pre
+			class="sunlight-highlight-javascript linenums">Scoped.define("module:Channels.Sender", [
+    "module:Class",
+    "module:Events.EventsMixin"
+], function(Class, EventsMixin, scoped) {
+    return Class.extend({
+        scoped: scoped
+    }, [EventsMixin,
+
+        /**
+         * Abstract Sender Channel Class
+         * 
+         * @class BetaJS.Channels.Sender
+         */
+        {
+
+            /**
+             * Sends a message into the channel.
+             * 
+             * @param {string} message Message string
+             * @param data Custom message data
+             * @param serializerInfo Custom serializer information
+             * @fires BetaJS.Channels.Sender#send
+             */
+            send: function(message, data, serializerInfo) {
+                /**
+                 * @event BetaJS.Channels.Sender#send
+                 */
+                this.trigger("send", message, data);
+                this._send(message, data, serializerInfo);
+            },
+
+            /**
+             * Protected function for sending the message.
+             * 
+             * @param {string} message Message string
+             * @param data Custom message data
+             * @param serializerInfo Custom serializer information
+             */
+            _send: function(message, data, serializerInfo) {},
+
+            /**
+             * Connect sender directly to a receiver.
+             *
+             * @param {object} receiver receiver object
+             */
+            connectToReceiver: function(receiver) {
+                receiver.connectToSender(this);
+                return this;
+            }
+
+
+        }
+    ]);
+});
+
+
+Scoped.define("module:Channels.Receiver", [
+    "module:Class",
+    "module:Events.EventsMixin"
+], function(Class, EventsMixin, scoped) {
+    return Class.extend({
+        scoped: scoped
+    }, [EventsMixin,
+
+        /**
+         * Abstract Receiver Channel Class
+         * 
+         * @class BetaJS.Channels.Receiver
+         */
+        {
+
+            /**
+             * Protected function for receiving the message.
+             * 
+             * @param {string} message Message string
+             * @param data Custom message data
+             * @fires BetaJS.Channels.Receiver#receive
+             */
+            _receive: function(message, data) {
+                /**
+                 * @event BetaJS.Channels.Receiver#receive
+                 */
+                this.trigger("receive", message, data);
+                this.trigger("receive:" + message, data);
+            },
+
+            /**
+             * Connect receiver directly to a sender.
+             *
+             * @param {object} sender sender object
+             */
+            connectToSender: function(sender) {
+                this.on("receive", sender.send, sender);
+                return this;
+            }
+
+        }
+    ]);
+});
+
+
+Scoped.define("module:Channels.ReceiverSender", [
+    "module:Channels.Sender",
+    "module:Channels.Receiver",
+    "module:Async"
+], function(Sender, Receiver, Async, scoped) {
+    return Sender.extend({
+        scoped: scoped
+    }, function(inherited) {
+
+        /**
+         * ReceiverSender Class, directly connecting this sender to a receiver.
+         * 
+         * @class BetaJS.Channels.ReceiverSender
+         */
+        return {
+
+            /**
+             * Creates a new instance.
+             * 
+             * @param {object} receiver Receiver object
+             * @param {boolean} async Handle every invocation asynchronously
+             * @param {int} delay Delay time for asynchronous invocation
+             * @param {boolean} json Convert to JSON (optional, false)
+             */
+            constructor: function(receiver, async, delay, json) {
+                inherited.constructor.call(this);
+                this.__receiver = receiver;
+                this.__async = async;
+                this.__delay = delay;
+                this.__json = json;
+            },
+
+            /**
+             * @override
+             */
+            _send: function(message, data, serializerInfo) {
+                if (this.__json)
+                    data = JSON.parse(JSON.stringify(data));
+                if (this.__async) {
+                    Async.eventually(function() {
+                        this.__receiver._receive(message, data);
+                    }, this, this.__delay);
+                } else
+                    this.__receiver._receive(message, data);
+            }
+
+        };
+    }, {
+
+        createPair: function(async, delay, json) {
+            var receiver = new Receiver();
+            return {
+                sender: new this(receiver, async, delay, json),
+                receiver: receiver
+            };
+        }
+
+    });
+});
+
+
+Scoped.define("module:Channels.ReadySender", [
+    "module:Channels.Sender"
+], function(Sender, scoped) {
+    return Sender.extend({
+        scoped: scoped
+    }, function(inherited) {
+
+        /**
+         * ReadySender class that buffers messages until sender is ready.
+         * 
+         * @class BetaJS.Channels.ReadySender
+         */
+        return {
+
+            /**
+             * Instantiates a Ready Sender instance.
+             * 
+             * @param {object} sender sender instance that should be used as delegate
+             */
+            constructor: function(sender) {
+                inherited.constructor.call(this);
+                this.__cache = [];
+                this.__sender = sender;
+            },
+
+            /**
+             * @override
+             */
+            _send: function(message, data, serializerInfo) {
+                if (this.__ready)
+                    this.__sender.send(message, data, serializerInfo);
+                else
+                    this.__cache.push({
+                        message: message,
+                        data: data,
+                        serializerInfo: serializerInfo
+                    });
+            },
+
+            /**
+             * Allow all messages to be flushed directly to the sender delegate.
+             * 
+             */
+            ready: function() {
+                this.__ready = true;
+                this.__cache.forEach(function(entry) {
+                    this.__sender.send(entry.message, entry.data, entry.serializerInfo);
+                }, this);
+                this.__cache = [];
+            },
+
+            /**
+             * Stop all messages being flushed.
+             * 
+             */
+            unready: function() {
+                this.__ready = false;
+            }
+
+        };
+    });
+});</pre>
+	</article>
+</section>
+</div>
+				</div>
+			</div>
+		
+		
+		
+		<footer>
+    <p class="text-center">Copyright &COPY; 2018 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+</footer>
+
+		
+		
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/sunlight.js"></script>
+        <script src="assets/js/script.js"></script>
+
+		<!--Google Analytics-->
+		
+		<script>
+			(function ( i, s, o, g, r, a, m ) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push( arguments ) }, i[r].l = 1 * new Date(); a = s.createElement( o ), m = s.getElementsByTagName( o )[0]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m ) })( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+			ga( 'create', 'UA-43747442-1', 'betajs.com' );
+			ga( 'send', 'pageview' );
+		</script>
+		
+		
+	</body>
+	
+</html>
