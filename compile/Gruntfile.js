@@ -132,11 +132,6 @@ module.exports = function(grunt) {
 											"first": true,
 											"url": "index.html"
 										},
-										"blog": {
-											"title": "Blog",
-											"url": PACKAGE.meta.blog,
-											"navbar": true
-										},
 										"builds": {
 											"title": "Builds",
 											"navbar": true,

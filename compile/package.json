@@ -36,8 +36,7 @@
       "url":"git://github.com/betajs/betajs.github.io"
    },
    "meta":{  
-	  "blog": "http://blog.betajs.com",
-      "frameworks":[  
+      "frameworks":[
          "betajs-scoped",
          "betajs",
          "betajs-browser",

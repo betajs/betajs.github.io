@@ -40,9 +40,6 @@
 									
 					
 				
-									
-					
-				
 				<li>
 					<a href="tutorials.html">Guides</a>
 				</li>
@@ -55,13 +52,6 @@
 	            -->	            
 				
 					
-					
-				
-					
-					
-						<li>
-							<a href="http://blog.betajs.com">Blog</a>
-						</li>
 					
 				
 					
@@ -90,8 +80,9 @@
 		<pre
 			class="sunlight-highlight-javascript linenums">Scoped.define("module:AudioVisualisation", [
     "base:Class",
-    "browser:Dom"
-], function(Class, Dom, scoped) {
+    "browser:Dom",
+    "browser:Info"
+], function(Class, Dom, Info, scoped) {
     return Class.extend({
         scoped: scoped
     }, function(inherited) {
@@ -109,7 +100,13 @@
                     this.recorder = options.recorder;
                 } else {
                     var AudioContext = window.AudioContext || window.webkitAudioContext;
-                    this.audioContext = new AudioContext();
+                    if (Info.isChromiumBased()) {
+                        Dom.userInteraction(function() {
+                            this.audioContext = new AudioContext();
+                        }, this);
+                    } else {
+                        this.audioContext = new AudioContext();
+                    }
                 }
                 this.createVisualisationCanvas(options.height, options.element);
                 this.frameID = null;
@@ -140,9 +137,7 @@
 
                     if (this.audioContext || this.stream) {
                         if (this.audioContext.state === 'suspended') {
-                            Dom.userInteraction(function() {
-                                this.audioContext.resume();
-                            }, this);
+                            this.audioContext.resume();
                         }
 
                         if (this.stream instanceof HTMLElement) {
@@ -320,7 +315,7 @@
 		
 		
 		<footer>
-    <p class="text-center">Copyright &COPY; 2018 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
+    <p class="text-center">Copyright &COPY; 2019 BetaJS / All rights reserved &middot; Licensed under the Apache License, Version 2.0</p>
 </footer>
 
 		
